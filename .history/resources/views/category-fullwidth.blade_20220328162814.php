@@ -1,25 +1,24 @@
 @extends('master')
 @section('content')
-
         <main class="main">
         	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
-        		<div class="container">
-        			<h1 class="page-title">Boxed No Sidebar<span>Shop</span></h1>
-        		</div><!-- End .container -->
+        		<div class="container-fluid">
+        			<h1 class="page-title">Fullwidth No Sidebar<span>Shop</span></h1>
+        		</div><!-- End .container-fluid -->
         	</div><!-- End .page-header -->
             <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
-                <div class="container">
+                <div class="container-fluid">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Shop</a></li>
                         <li class="breadcrumb-item"><a href="#">No Sidebar</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Boxed</li>
+                        <li class="breadcrumb-item active" aria-current="page">Fullwidth</li>
                     </ol>
-                </div><!-- End .container -->
+                </div><!-- End .container-fluid -->
             </nav><!-- End .breadcrumb-nav -->
 
             <div class="page-content">
-                <div class="container">
+                <div class="container-fluid">
         			<div class="toolbox">
         				<div class="toolbox-left">
                             <a href="#" class="sidebar-toggler"><i class="icon-bars"></i>Filters</a>
@@ -47,7 +46,7 @@
 
                     <div class="products">
                         <div class="row">
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <span class="product-label label-new">New</span>
@@ -89,7 +88,7 @@
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
 
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <a href="product.html">
@@ -125,7 +124,7 @@
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
 
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <span class="product-label label-sale">30% off</span>
@@ -169,7 +168,7 @@
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
 
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <a href="product.html">
@@ -211,7 +210,7 @@
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
 
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <a href="product.html">
@@ -252,7 +251,7 @@
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
 
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <span class="product-label label-out">Out of stock</span>
@@ -289,7 +288,7 @@
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
 
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <a href="product.html">
@@ -325,7 +324,7 @@
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
 
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <a href="product.html">
@@ -366,7 +365,7 @@
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
 
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <a href="product.html">
@@ -408,7 +407,7 @@
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
 
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <span class="product-label label-new">New</span>
@@ -445,7 +444,7 @@
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
 
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <span class="product-label label-top">Top</span>
@@ -488,7 +487,7 @@
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
 
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
                                 <div class="product">
                                     <figure class="product-media">
                                         <a href="product.html">
@@ -780,7 +779,8 @@
                             </div><!-- End .widget -->
                         </div><!-- End .sidebar-filter-wrapper -->
                     </aside><!-- End .sidebar-filter -->
-                </div><!-- End .container -->
+                </div><!-- End .container-fluid -->
             </div><!-- End .page-content -->
         </main><!-- End .main -->
-        @endsection('content')
+
+        <?php include("footer.blade.php"); ?>

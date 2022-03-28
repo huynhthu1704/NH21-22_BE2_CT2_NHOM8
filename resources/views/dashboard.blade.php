@@ -1,4 +1,5 @@
-<?php include('header.blade.php');?>
+@extends('master')
+@section('content')
 
         <main class="main">
         	<div class="page-header text-center" style="background-image: url('../../public/images/page-header-bg.jpg')">
@@ -138,4 +139,4 @@
             </div><!-- End .page-content -->
         </main><!-- End .main -->
 
-      <?php include('footer.blade.php');
+    @endsection('content')

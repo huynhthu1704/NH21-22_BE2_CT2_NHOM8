@@ -747,4 +747,4 @@
             </div><!-- End .page-content -->
         </main><!-- End .main -->
 
-        @endsection('content')
+        <?php include("footer.blade.php"); ?>

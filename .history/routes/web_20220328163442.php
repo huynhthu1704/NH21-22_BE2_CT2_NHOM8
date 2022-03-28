@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{viewName?}', function ($viewName = null) {
+Route::get('/{viewName}', function ($viewName) {
     return view($viewName);
 });

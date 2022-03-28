@@ -215,4 +215,4 @@
             </div><!-- End .cta -->
         </main><!-- End .main -->
 
-		@endsection('content')
+        <?php include("footer.blade.php"); ?>
