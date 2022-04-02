@@ -36,7 +36,7 @@
 									<div class="product">
 										<figure class="product-media">
 											<a href="#">
-												<img src="{{ asset('images/products/table/product-1.jpg') }}" alt="Product image">
+												<img src="{{ assets('images/products/table/product-1.jpg') }}" alt="Product image">
 											</a>
 										</figure>
 
@@ -67,7 +67,7 @@
 									<div class="product">
 										<figure class="product-media">
 											<a href="#">
-												<img src="{{ asset('/images/products/table/product-2.jpg ')}}" alt="Product image">
+												<img src="assets/images/products/table/product-2.jpg" alt="Product image">
 											</a>
 										</figure>
 
@@ -88,7 +88,7 @@
 									<div class="product">
 										<figure class="product-media">
 											<a href="#">
-												<img src="{{ asset('/images/products/table/product-3.jpg') }}" alt="Product image">
+												<img src="assets/images/products/table/product-3.jpg" alt="Product image">
 											</a>
 										</figure>
 
