@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('index', function () {
-//     return view('index');
-// });
-Route::get('/{viewName?}', function ($viewName = 'index') {
-    return view($viewName);
+Route::get('index', function () {
+    return view('index');
 });
+// Route::get('/{viewName?}', function ($viewName = null) {
+//     return view($viewName);
+// });

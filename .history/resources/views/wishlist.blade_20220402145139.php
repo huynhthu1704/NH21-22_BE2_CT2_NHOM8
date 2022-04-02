@@ -67,7 +67,7 @@
 									<div class="product">
 										<figure class="product-media">
 											<a href="#">
-												<img src="{{ asset('/images/products/table/product-2.jpg ')}}" alt="Product image">
+												<img src="{{ ('assets/images/products/table/product-2.jpg ')}}" alt="Product image">
 											</a>
 										</figure>
 
