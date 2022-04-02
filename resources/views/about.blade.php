@@ -24,9 +24,9 @@
                             <div class="about-text text-center mt-3">
                                 <h2 class="title text-center mb-2">Who We Are</h2><!-- End .title text-center mb-2 -->
                                 <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. </p>
-                                <img src="assets/images/about/about-2/signature.png" alt="signature" class="mx-auto mb-5">
+                                <img src="{{ asset('/images/about/about-2/signature.png') }}" alt="signature" class="mx-auto mb-5">
 
-                                <img src="assets/images/about/about-2/img-1.jpg" alt="image" class="mx-auto mb-6">
+                                <img src="{{ asset('/images/about/about-2/img-1.jpg') }}" alt="image" class="mx-auto mb-6">
                             </div><!-- End .about-text -->
                         </div><!-- End .col-lg-10 offset-1 -->
                     </div><!-- End .row -->
@@ -121,7 +121,7 @@
                             <div class="col-sm-6 col-lg-3">
                                 <div class="member member-2 text-center">
                                     <figure class="member-media">
-                                        <img src="assets/images/team/about-2/member-1.jpg" alt="member photo">
+                                        <img src="{{ asset('/images/team/about-2/member-1.jpg') }}" alt="member photo">
 
                                         <figcaption class="member-overlay">
                                             <div class="social-icons social-icons-simple">
@@ -140,7 +140,7 @@
                             <div class="col-sm-6 col-lg-3">
                                 <div class="member member-2 text-center">
                                     <figure class="member-media">
-                                        <img src="assets/images/team/about-2/member-2.jpg" alt="member photo">
+                                        <img src="{{ asset('/images/team/about-2/member-2.jpg') }}" alt="member photo">
 
                                         <figcaption class="member-overlay">
                                             <div class="social-icons social-icons-simple">
@@ -159,7 +159,7 @@
                             <div class="col-sm-6 col-lg-3">
                                 <div class="member member-2 text-center">
                                     <figure class="member-media">
-                                        <img src="assets/images/team/about-2/member-3.jpg" alt="member photo">
+                                        <img src="{{ asset('/images/team/about-2/member-3.jpg') }}" alt="member photo">
 
                                         <figcaption class="member-overlay">
                                             <div class="social-icons social-icons-simple">
@@ -178,7 +178,7 @@
                             <div class="col-sm-6 col-lg-3">
                                 <div class="member member-2 text-center">
                                     <figure class="member-media">
-                                        <img src="assets/images/team/about-2/member-4.jpg" alt="member photo">
+                                        <img src="{{ asset('/images/team/about-2/member-4.jpg') }}" alt="member photo">
 
                                         <figcaption class="member-overlay">
                                             <div class="social-icons social-icons-simple">
@@ -197,7 +197,7 @@
                             <div class="col-sm-6 col-lg-3">
                                 <div class="member member-2 text-center">
                                     <figure class="member-media">
-                                        <img src="assets/images/team/about-2/member-5.jpg" alt="member photo">
+                                        <img src="{{ asset('/images/team/about-2/member-5.jpg') }}" alt="member photo">
 
                                         <figcaption class="member-overlay">
                                             <div class="social-icons social-icons-simple">
@@ -216,7 +216,7 @@
                             <div class="col-sm-6 col-lg-3">
                                 <div class="member member-2 text-center">
                                     <figure class="member-media">
-                                        <img src="assets/images/team/about-2/member-6.jpg" alt="member photo">
+                                        <img src="{{ asset('/images/team/about-2/member-6.jpg') }}" alt="member photo">
 
                                         <figcaption class="member-overlay">
                                             <div class="social-icons social-icons-simple">
@@ -235,7 +235,7 @@
                             <div class="col-sm-6 col-lg-3">
                                 <div class="member member-2 text-center">
                                     <figure class="member-media">
-                                        <img src="assets/images/team/about-2/member-7.jpg" alt="member photo">
+                                        <img src="{{ asset('/images/team/about-2/member-7.jpg') }}" alt="member photo">
 
                                         <figcaption class="member-overlay">
                                             <div class="social-icons social-icons-simple">
@@ -254,7 +254,7 @@
                             <div class="col-sm-6 col-lg-3">
                                 <div class="member member-2 text-center">
                                     <figure class="member-media">
-                                        <img src="assets/images/team/about-2/member-8.jpg" alt="member photo">
+                                        <img src="{{ asset('/images/team/about-2/member-8.jpg') }}" alt="member photo">
 
                                         <figcaption class="member-overlay">
                                             <div class="social-icons social-icons-simple">
@@ -291,49 +291,49 @@
                                 <div class="row justify-content-center">
                                     <div class="col-6 col-sm-4 col-md-3">
                                         <a href="#" class="brand">
-                                            <img src="assets/images/brands/1.png" alt="Brand Name">
+                                            <img src="{{ asset('/images/brands/1.png') }}" alt="Brand Name">
                                         </a>
                                     </div><!-- End .col-md-3 -->
 
                                     <div class="col-6 col-sm-4 col-md-3">
                                         <a href="#" class="brand">
-                                            <img src="assets/images/brands/2.png" alt="Brand Name">
+                                            <img src="{{ asset('/images/brands/2.png') }}" alt="Brand Name">
                                         </a>
                                     </div><!-- End .col-md-3 -->
 
                                     <div class="col-6 col-sm-4 col-md-3">
                                         <a href="#" class="brand">
-                                            <img src="assets/images/brands/3.png" alt="Brand Name">
+                                            <img src="{{ asset('/images/brands/3.png') }}" alt="Brand Name">
                                         </a>
                                     </div><!-- End .col-md-3 -->
 
                                     <div class="col-6 col-sm-4 col-md-3">
                                         <a href="#" class="brand">
-                                            <img src="assets/images/brands/7.png" alt="Brand Name">
+                                            <img src="{{ asset('/images/brands/7.png') }}" alt="Brand Name">
                                         </a>
                                     </div><!-- End .col-md-3 -->
 
                                     <div class="col-6 col-sm-4 col-md-3">
                                         <a href="#" class="brand">
-                                            <img src="assets/images/brands/4.png" alt="Brand Name">
+                                            <img src="{{ asset('/images/brands/4.png') }}" alt="Brand Name">
                                         </a>
                                     </div><!-- End .col-md-3 -->
 
                                     <div class="col-6 col-sm-4 col-md-3">
                                         <a href="#" class="brand">
-                                            <img src="assets/images/brands/5.png" alt="Brand Name">
+                                            <img src="{{ asset('/images/brands/5.png') }}" alt="Brand Name">
                                         </a>
                                     </div><!-- End .col-md-3 -->
 
                                     <div class="col-6 col-sm-4 col-md-3">
                                         <a href="#" class="brand">
-                                            <img src="assets/images/brands/6.png" alt="Brand Name">
+                                            <img src="{{ asset('/images/brands/6.png') }}" alt="Brand Name">
                                         </a>
                                     </div><!-- End .col-md-3 -->
 
                                     <div class="col-6 col-sm-4 col-md-3">
                                         <a href="#" class="brand">
-                                            <img src="assets/images/brands/9.png" alt="Brand Name">
+                                            <img src="{{ asset('/images/brands/9.png') }}" alt="Brand Name">
                                         </a>
                                     </div><!-- End .col-md-3 -->
                                 </div><!-- End .row -->

@@ -2,7 +2,7 @@
 @section('content')
 
         <main class="main">
-        	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        	<div class="page-header text-center" style="background-image: url('assets/mages/page-header-bg.jpg')">
         		<div class="container">
         			<h1 class="page-title">Shopping Cart<span>Shop</span></h1>
         		</div><!-- End .container -->
@@ -39,7 +39,7 @@
 												<div class="product">
 													<figure class="product-media">
 														<a href="#">
-															<img src="assets/images/products/table/product-1.jpg" alt="Product image">
+															<img src="{{ asset('/images/products/table/product-1.jpg') }}" alt="Product image">
 														</a>
 													</figure>
 
@@ -62,7 +62,7 @@
 												<div class="product">
 													<figure class="product-media">
 														<a href="#">
-															<img src="assets/images/products/table/product-2.jpg" alt="Product image">
+															<img src="{{ asset('/images/products/table/product-2.jpg') }}" alt="Product image">
 														</a>
 													</figure>
 
