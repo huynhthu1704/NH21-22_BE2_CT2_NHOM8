@@ -96,7 +96,7 @@
                                     <div class="col-md-6 col-lg-12">
                                         <div class="banner banner-display mb-0">
                                             <a href="#">
-                                                <img src="{{ asset('/images/banners/home/intro/banner-2.jpg') }}" alt="Banner">
+                                                <img src="assets/images/banners/home/intro/banner-2.jpg" alt="Banner">
                                             </a>
 
                                             <div class="banner-content">

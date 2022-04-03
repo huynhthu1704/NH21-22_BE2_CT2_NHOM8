@@ -18,8 +18,8 @@
                                     <div class="intro-slide">
                                         <figure class="slide-image">
                                             <picture>
-                                                <source media="(max-width: 480px)" srcset="url('/images/slider/slide-1-480w.jpg')">
-                                                <img src="{{ asset('/images/slider/slide-1.jpg')}}" alt="Image Desc">
+                                                <source media="(max-width: 480px)" srcset="{{ asset('images/slider/slide-1-480w.jpg') }}">
+                                                <img src="{{ asset('images/slider/slide-1.jpg') }}" alt="Image Desc">
                                             </picture>
                                         </figure><!-- End .slide-image -->
 
@@ -37,8 +37,8 @@
                                     <div class="intro-slide">
                                         <figure class="slide-image">
                                             <picture>
-                                                <source media="(max-width: 480px)" srcset=" {{ asset('/images/slider/slide-2-480w.jpg') }}">
-                                                <img src="{{ asset('/images/slider/slide-2.jpg') }}" alt="Image Desc">
+                                                <source media="(max-width: 480px)" srcset="assets/images/slider/slide-2-480w.jpg">
+                                                <img src="assets/images/slider/slide-2.jpg" alt="Image Desc">
                                             </picture>
                                         </figure><!-- End .slide-image -->
 
@@ -46,7 +46,7 @@
                                             <h3 class="intro-subtitle">News and Inspiration</h3><!-- End .h3 intro-subtitle -->
                                             <h1 class="intro-title">New Arrivals</h1><!-- End .intro-title -->
 
-                                            <a href="{{ asset('category') }}" class="btn btn-outline-white">
+                                            <a href="category.html" class="btn btn-outline-white">
                                                 <span>SHOP NOW</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </a>
@@ -56,8 +56,8 @@
                                     <div class="intro-slide">
                                         <figure class="slide-image">
                                             <picture>
-                                                <source media="(max-width: 480px)" srcset="{{ asset('/images/slider/slide-3-480w.jpg') }}">
-                                                <img src="{{ asset('/images/slider/slide-3.jpg') }}" alt="Image Desc">
+                                                <source media="(max-width: 480px)" srcset="assets/images/slider/slide-3-480w.jpg">
+                                                <img src="assets/images/slider/slide-3.jpg" alt="Image Desc">
                                             </picture>
                                         </figure><!-- End .slide-image -->
 
@@ -65,7 +65,7 @@
                                             <h3 class="intro-subtitle">Outdoor Furniture</h3><!-- End .h3 intro-subtitle -->
                                             <h1 class="intro-title">Outdoor Dining <br>Furniture</h1><!-- End .intro-title -->
 
-                                            <a href="{{ asset('category') }}" class="btn btn-outline-white">
+                                            <a href="category.html" class="btn btn-outline-white">
                                                 <span>SHOP NOW</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </a>
@@ -82,7 +82,7 @@
                                     <div class="col-md-6 col-lg-12">
                                         <div class="banner banner-display">
                                             <a href="#">
-                                                <img src="{{ asset('/images/banners/home/intro/banner-1.jpg') }}" alt="Banner">
+                                                <img src="assets/images/banners/home/intro/banner-1.jpg" alt="Banner">
                                             </a>
 
                                             <div class="banner-content">
@@ -96,7 +96,7 @@
                                     <div class="col-md-6 col-lg-12">
                                         <div class="banner banner-display mb-0">
                                             <a href="#">
-                                                <img src="{{ asset('/images/banners/home/intro/banner-2.jpg') }}" alt="Banner">
+                                                <img src="assets/images/banners/home/intro/banner-2.jpg" alt="Banner">
                                             </a>
 
                                             <div class="banner-content">
@@ -138,27 +138,27 @@
                             }
                         }'>
                         <a href="#" class="brand">
-                            <img src="{{ asset('/images/brands/1.png') }}" alt="Brand Name">
+                            <img src="assets/images/brands/1.png" alt="Brand Name">
                         </a>
 
                         <a href="#" class="brand">
-                            <img src="{{ asset('/images/brands/2.png') }}" alt="Brand Name">
+                            <img src="assets/images/brands/2.png" alt="Brand Name">
                         </a>
 
                         <a href="#" class="brand">
-                            <img src="{{ asset('/images/brands/3.png') }}" alt="Brand Name">
+                            <img src="assets/images/brands/3.png" alt="Brand Name">
                         </a>
 
                         <a href="#" class="brand">
-                            <img src="{{ asset('/images/brands/4.png') }}" alt="Brand Name">
+                            <img src="assets/images/brands/4.png" alt="Brand Name">
                         </a>
 
                         <a href="#" class="brand">
-                            <img src="{{ asset('/images/brands/5.png') }}" alt="Brand Name">
+                            <img src="assets/images/brands/5.png" alt="Brand Name">
                         </a>
 
                         <a href="#" class="brand">
-                            <img src="{{ asset('/images/brands/6.png') }}" alt="Brand Name">
+                            <img src="assets/images/brands/6.png" alt="Brand Name">
                         </a>
                     </div><!-- End .owl-carousel -->
                 </div><!-- End .container -->
@@ -215,10 +215,10 @@
                                 }
                             }'>
                             <div class="product product-11 text-center">
-                                <figure class="{{ asset('product-media') }}">
+                                <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-1-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-1-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                        <img src="assets/images/demos/demo-2/products/product-1-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-1-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -227,7 +227,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Butler Stool Ladder</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Butler Stool Ladder</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $251,00
                                     </div><!-- End .product-price -->
@@ -240,8 +240,8 @@
                             <div class="product product-11 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-2-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-2-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                        <img src="assets/images/demos/demo-2/products/product-2-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-2-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -250,7 +250,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Octo 4240</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Octo 4240</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $746,00
                                     </div><!-- End .product-price -->
@@ -269,8 +269,8 @@
                                 <figure class="product-media">
                                     <span class="product-label label-new">NEW</span>
                                     <a href="product.html">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-3-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-3-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                        <img src="assets/images/demos/demo-2/products/product-3-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-3-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -280,7 +280,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Flow Slim Armchair</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Flow Slim Armchair</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $970,00
                                     </div><!-- End .product-price -->
@@ -294,8 +294,8 @@
                                 <figure class="product-media">
                                     <span class="product-label label-sale">30% OFF</span>
                                     <a href="product.html">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-4-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-4-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                        <img src="assets/images/demos/demo-2/products/product-4-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-4-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -305,7 +305,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Roots Sofa Bed</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Roots Sofa Bed</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         <span class="new-price">$337,00</span>
                                         <span class="old-price">Was $449,00</span>
@@ -323,9 +323,9 @@
 
                             <div class="product product-11 text-center">
                                 <figure class="product-media">
-                                    <a href="{{ asset('product') }}">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-5-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-5-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                    <a href="product.html">
+                                        <img src="assets/images/demos/demo-2/products/product-5-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-5-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -335,7 +335,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Petite Table Lamp</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Petite Table Lamp</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $675,00
                                     </div><!-- End .product-price -->
@@ -352,9 +352,9 @@
 
                             <div class="product product-11 text-center">
                                 <figure class="product-media">
-                                    <a href="{{ asset('product') }}">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-6-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-6-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                    <a href="product.html">
+                                        <img src="assets/images/demos/demo-2/products/product-6-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-6-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -364,7 +364,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Elephant Armchair</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Elephant Armchair</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $457,00
                                     </div><!-- End .product-price -->
@@ -377,8 +377,8 @@
                             <div class="product product-11 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-1-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-1-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                        <img src="assets/images/demos/demo-2/products/product-1-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-1-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -388,7 +388,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Butler Stool Ladder</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Butler Stool Ladder</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $251,00
                                     </div><!-- End .product-price -->
@@ -430,8 +430,8 @@
                                 <figure class="product-media">
                                     <span class="product-label label-new">NEW</span>
                                     <a href="product.html">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-3-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-3-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                        <img src="assets/images/demos/demo-2/products/product-3-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-3-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -441,7 +441,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Flow Slim Armchair</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Flow Slim Armchair</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $970,00
                                     </div><!-- End .product-price -->
@@ -455,8 +455,8 @@
                                 <figure class="product-media">
                                     <span class="product-label label-sale">30% OFF</span>
                                     <a href="product.html">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-4-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-4-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                        <img src="assets/images/demos/demo-2/products/product-4-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-4-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -466,7 +466,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Roots Sofa Bed</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Roots Sofa Bed</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         <span class="new-price">$337,00</span>
                                         <span class="old-price">Was $449,00</span>
@@ -512,9 +512,9 @@
                             }'>
                             <div class="product product-11 text-center">
                                 <figure class="product-media">
-                                    <a href="{{ asset('product.html') }}">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-1-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-1-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                    <a href="product.html">
+                                        <img src="assets/images/demos/demo-2/products/product-1-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-1-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -523,7 +523,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product.html') }}">Butler Stool Ladder</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Butler Stool Ladder</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $251,00
                                     </div><!-- End .product-price -->
@@ -534,9 +534,9 @@
                             </div><!-- End .product -->
                             <div class="product product-11 text-center">
                                 <figure class="product-media">
-                                    <a href="{{ asset('product.html') }}">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-6-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-6-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                    <a href="product.html">
+                                        <img src="assets/images/demos/demo-2/products/product-6-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-6-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -546,7 +546,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Elephant Armchair</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Elephant Armchair</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $457,00
                                     </div><!-- End .product-price -->
@@ -587,8 +587,8 @@
                             <div class="product product-11 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-2-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-2-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                        <img src="assets/images/demos/demo-2/products/product-2-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-2-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -597,7 +597,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Octo 4240</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Octo 4240</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $746,00
                                     </div><!-- End .product-price -->
@@ -614,8 +614,8 @@
                             <div class="product product-11 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-5-1.jpg') }}" alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/demos/demo-2/products/product-5-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                        <img src="assets/images/demos/demo-2/products/product-5-1.jpg" alt="Product image" class="product-image">
+                                        <img src="assets/images/demos/demo-2/products/product-5-2.jpg" alt="Product image" class="product-image-hover">
                                     </a>
 
                                     <div class="product-action-vertical">
@@ -625,7 +625,7 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="{{ asset('product') }}">Petite Table Lamp</a></h3><!-- End .product-title -->
+                                    <h3 class="product-title"><a href="product.html">Petite Table Lamp</a></h3><!-- End .product-title -->
                                     <div class="product-price">
                                         $675,00
                                     </div><!-- End .product-price -->
@@ -651,7 +651,7 @@
         			<div class="col-6 col-lg-4">
         				<div class="banner banner-display banner-link-anim">
                 			<a href="#">
-                				<img src="{{ asset('/images/banners/home/banner-1.jpg') }}" alt="Banner">
+                				<img src="assets/images/banners/home/banner-1.jpg" alt="Banner">
                 			</a>
 
                 			<div class="banner-content banner-content-center">
@@ -663,7 +663,7 @@
         			<div class="col-6 col-lg-4 order-lg-last">
         				<div class="banner banner-display banner-link-anim">
                 			<a href="#">
-                				<img src="{{ asset('/images/banners/home/banner-4.jpg') }}" alt="Banner">
+                				<img src="assets/images/banners/home/banner-4.jpg" alt="Banner">
                 			</a>
 
                 			<div class="banner-content banner-content-center">
@@ -676,7 +676,7 @@
                         <div class="row">
             				<div class="banner banner-display banner-link-anim col-lg-12 col-6">
                     			<a href="#">
-                    				<img src="{{ asset('/images/banners/home/banner-2.jpg') }}" alt="Banner">
+                    				<img src="assets/images/banners/home/banner-2.jpg" alt="Banner">
                     			</a>
 
                     			<div class="banner-content banner-content-center">
@@ -687,7 +687,7 @@
 
                 			<div class="banner banner-display banner-link-anim col-lg-12 col-6">
                     			<a href="#">
-                    				<img src="{{ asset('/images/banners/home/banner-3.jpg') }}" alt="Banner">
+                    				<img src="assets/images/banners/home/banner-3.jpg" alt="Banner">
                     			</a>
 
                     			<div class="banner-content banner-content-center">
@@ -731,8 +731,8 @@
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-12-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-12-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                                <img src="assets/images/demos/demo-2/products/product-12-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-12-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -761,8 +761,8 @@
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-10-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-10-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                                <img src="assets/images/demos/demo-2/products/product-10-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-10-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -771,7 +771,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Carronade Suspension Lamp</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Carronade Suspension Lamp</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $892,00
                                             </div><!-- End .product-price -->
@@ -793,8 +793,8 @@
                                         <figure class="product-media">
                                             <span class="product-label label-new">NEW</span>
                                             <a href="product.html">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-9-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-9-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                                <img src="assets/images/demos/demo-2/products/product-9-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-9-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -803,7 +803,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Garden Armchair</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Garden Armchair</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $94,00
                                             </div><!-- End .product-price -->
@@ -818,8 +818,8 @@
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-8-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-8-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                                <img src="assets/images/demos/demo-2/products/product-8-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-8-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -828,7 +828,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Madra Log Holder</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Madra Log Holder</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $104,00
                                             </div><!-- End .product-price -->
@@ -849,8 +849,8 @@
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-11-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-11-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                                <img src="assets/images/demos/demo-2/products/product-11-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-11-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -859,7 +859,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Original Outdoor Beanbag</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Original Outdoor Beanbag</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $259,00
                                             </div><!-- End .product-price -->
@@ -874,8 +874,8 @@
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-13-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-13-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                                <img src="assets/images/demos/demo-2/products/product-13-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-13-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -884,7 +884,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">2-Seater</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">2-Seater</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $3.107,00
                                             </div><!-- End .product-price -->
@@ -899,8 +899,8 @@
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-14-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-14-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                                <img src="assets/images/demos/demo-2/products/product-14-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-14-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -909,7 +909,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Wingback Chair</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Wingback Chair</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $2.486,00
                                             </div><!-- End .product-price -->
@@ -930,8 +930,8 @@
                                         <figure class="product-media">
                                             <span class="product-label label-new">NEW</span>
                                             <a href="product.html">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-16-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-16-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                                <img src="assets/images/demos/demo-2/products/product-16-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-16-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -943,7 +943,7 @@
                                             <div class="product-cat">
                                                 <a href="#">Decor</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Cushion Set 3 Pieces</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Cushion Set 3 Pieces</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $199,00
                                             </div><!-- End .product-price -->
@@ -964,8 +964,8 @@
                                         <figure class="product-media">
                                             <span class="product-label label-new">NEW</span>
                                             <a href="product.html">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-9-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-9-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                                <img src="assets/images/demos/demo-2/products/product-9-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-9-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -974,7 +974,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Garden Armchair</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Garden Armchair</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $94,00
                                             </div><!-- End .product-price -->
@@ -988,9 +988,9 @@
                                 <div class="col-6 col-md-4 col-lg-3">
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
-                                            <a href="{{ asset('product') }}">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-12-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-12-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                            <a href="product.html">
+                                                <img src="assets/images/demos/demo-2/products/product-12-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-12-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -999,7 +999,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Block Side Table/Trolley</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Block Side Table/Trolley</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $229,00
                                             </div><!-- End .product-price -->
@@ -1018,9 +1018,9 @@
                                 <div class="col-6 col-md-4 col-lg-3">
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
-                                            <a href="{{ asset('product') }}">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-13-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-13-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                            <a href="product.html">
+                                                <img src="assets/images/demos/demo-2/products/product-13-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-13-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -1029,7 +1029,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">2-Seater</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">2-Seater</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $3.107,00
                                             </div><!-- End .product-price -->
@@ -1048,9 +1048,9 @@
                                 <div class="col-6 col-md-4 col-lg-3">
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
-                                            <a href="{{ asset('product') }}">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-8-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-8-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                            <a href="product.html">
+                                                <img src="assets/images/demos/demo-2/products/product-8-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-8-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -1059,7 +1059,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Madra Log Holder</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Madra Log Holder</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $104,00
                                             </div><!-- End .product-price -->
@@ -1079,9 +1079,9 @@
                                 <div class="col-6 col-md-4 col-lg-3">
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
-                                            <a href="{{ asset('product') }}">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-11-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-11-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                            <a href="product.html">
+                                                <img src="assets/images/demos/demo-2/products/product-11-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-11-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -1090,7 +1090,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Original Outdoor Beanbag</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Original Outdoor Beanbag</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $259,00
                                             </div><!-- End .product-price -->
@@ -1104,9 +1104,9 @@
                                 <div class="col-6 col-md-4 col-lg-3">
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
-                                            <a href="{{ asset('product') }}">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-14-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-14-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                            <a href="product.html">
+                                                <img src="assets/images/demos/demo-2/products/product-14-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-14-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -1115,7 +1115,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Wingback Chair</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Wingback Chair</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $2.486,00
                                             </div><!-- End .product-price -->
@@ -1139,9 +1139,9 @@
                                 <div class="col-6 col-md-4 col-lg-3">
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
-                                            <a href="{{ asset('product') }}">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-10-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-10-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                            <a href="product.html">
+                                                <img src="assets/images/demos/demo-2/products/product-10-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-10-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -1150,7 +1150,7 @@
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Carronade Suspension Lamp</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Carronade Suspension Lamp</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $892,00
                                             </div><!-- End .product-price -->
@@ -1171,9 +1171,9 @@
                                     <div class="product product-11 mt-v3 text-center">
                                         <figure class="product-media">
                                             <span class="product-label label-new">NEW</span>
-                                            <a href="{{ asset('product') }}">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-16-1.jpg') }}" alt="Product image" class="product-image">
-                                                <img src="{{ asset('/images/demos/demo-2/products/product-16-2.jpg') }}" alt="Product image" class="product-image-hover">
+                                            <a href="product.html">
+                                                <img src="assets/images/demos/demo-2/products/product-16-1.jpg" alt="Product image" class="product-image">
+                                                <img src="assets/images/demos/demo-2/products/product-16-2.jpg" alt="Product image" class="product-image-hover">
                                             </a>
 
                                             <div class="product-action-vertical">
@@ -1185,7 +1185,7 @@
                                             <div class="product-cat">
                                                 <a href="#">Decor</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{ asset('product') }}">Cushion Set 3 Pieces</a></h3><!-- End .product-title -->
+                                            <h3 class="product-title"><a href="product.html">Cushion Set 3 Pieces</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $199,00
                                             </div><!-- End .product-price -->
@@ -1271,8 +1271,8 @@
                         }'>
                         <article class="entry entry-display">
                             <figure class="entry-media">
-                                <a href="{{ asset('single') }}">
-                                    <img src="{{ asset('/images/blog/home/post-1.jpg') }}" alt="image desc">
+                                <a href="single.html">
+                                    <img src="assets/images/blog/home/post-1.jpg" alt="image desc">
                                 </a>
                             </figure><!-- End .entry-media -->
 
@@ -1282,20 +1282,20 @@
                                 </div><!-- End .entry-meta -->
 
                                 <h3 class="entry-title">
-                                    <a href="{{ asset('single') }}">Sed adipiscing ornare.</a>
+                                    <a href="single.html">Sed adipiscing ornare.</a>
                                 </h3><!-- End .entry-title -->
 
                                 <div class="entry-content">
                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit.<br>Pelletesque aliquet nibh necurna. </p>
-                                    <a href="{{ asset('single') }}" class="read-more">Read More</a>
+                                    <a href="single.html" class="read-more">Read More</a>
                                 </div><!-- End .entry-content -->
                             </div><!-- End .entry-body -->
                         </article><!-- End .entry -->
 
                         <article class="entry entry-display">
                             <figure class="entry-media">
-                                <a href="{{ asset('single') }}">
-                                    <img src="{{ asset('/images/blog/home/post-2.jpg') }}" alt="image desc">
+                                <a href="single.html">
+                                    <img src="assets/images/blog/home/post-2.jpg" alt="image desc">
                                 </a>
                             </figure><!-- End .entry-media -->
 
@@ -1305,20 +1305,20 @@
                                 </div><!-- End .entry-meta -->
 
                                 <h3 class="entry-title">
-                                    <a href="{{ asset('single') }}">Fusce lacinia arcuet nulla.</a>
+                                    <a href="single.html">Fusce lacinia arcuet nulla.</a>
                                 </h3><!-- End .entry-title -->
 
                                 <div class="entry-content">
                                     <p>Sed pretium, ligula sollicitudin laoreet<br>viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis justo. </p>
-                                    <a href="{{ asset('single') }}" class="read-more">Read More</a>
+                                    <a href="single.html" class="read-more">Read More</a>
                                 </div><!-- End .entry-content -->
                             </div><!-- End .entry-body -->
                         </article><!-- End .entry -->
 
                         <article class="entry entry-display">
                             <figure class="entry-media">
-                                <a href="{{ asset('single') }}">
-                                    <img src="{{ asset('/images/blog/home/post-3.jpg') }}" alt="image desc">
+                                <a href="single.html">
+                                    <img src="assets/images/blog/home/post-3.jpg" alt="image desc">
                                 </a>
                             </figure><!-- End .entry-media -->
 
@@ -1328,12 +1328,12 @@
                                 </div><!-- End .entry-meta -->
 
                                 <h3 class="entry-title">
-                                    <a href="{{ asset('single') }}">Quisque volutpat mattis eros.</a>
+                                    <a href="single.html">Quisque volutpat mattis eros.</a>
                                 </h3><!-- End .entry-title -->
 
                                 <div class="entry-content">
                                     <p>Suspendisse potenti. Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. </p>
-                                    <a href="{{ asset('single') }}" class="read-more">Read More</a>
+                                    <a href="single.html" class="read-more">Read More</a>
                                 </div><!-- End .entry-content -->
                             </div><!-- End .entry-body -->
                         </article><!-- End .entry -->
@@ -1344,7 +1344,7 @@
                     <a href="blog.html" class="btn btn-outline-darker btn-more"><span>View more articles</span><i class="icon-long-arrow-right"></i></a>
                 </div><!-- End .more-container -->
             </div>
-            <div class="cta cta-display bg-image pt-4 pb-4" style="background-image: url('/images/backgrounds/cta/bg-6.jpg')">
+            <div class="cta cta-display bg-image pt-4 pb-4" style="background-image: url(assets/images/backgrounds/cta/bg-6.jpg);">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-9 col-xl-8">
@@ -1355,7 +1355,7 @@
                                 </div><!-- End .col -->
 
                                 <div class="col-auto">
-                                    <a href="{{ asset('login') }}" class="btn btn-outline-white"><span>SIGN UP</span><i class="icon-long-arrow-right"></i></a>
+                                    <a href="login.html" class="btn btn-outline-white"><span>SIGN UP</span><i class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .col-auto -->
                             </div><!-- End .row no-gutters -->
                         </div><!-- End .col-md-10 col-lg-9 -->

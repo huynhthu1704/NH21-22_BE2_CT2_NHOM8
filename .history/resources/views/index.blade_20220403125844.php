@@ -19,7 +19,7 @@
                                         <figure class="slide-image">
                                             <picture>
                                                 <source media="(max-width: 480px)" srcset="url('/images/slider/slide-1-480w.jpg')">
-                                                <img src="{{ asset('/images/slider/slide-1.jpg')}}" alt="Image Desc">
+                                                <img src="{{ url('/images/slider/slide-1.jpg') }}" alt="Image Desc">
                                             </picture>
                                         </figure><!-- End .slide-image -->
 
@@ -56,8 +56,8 @@
                                     <div class="intro-slide">
                                         <figure class="slide-image">
                                             <picture>
-                                                <source media="(max-width: 480px)" srcset="{{ asset('/images/slider/slide-3-480w.jpg') }}">
-                                                <img src="{{ asset('/images/slider/slide-3.jpg') }}" alt="Image Desc">
+                                                <source media="(max-width: 480px)" srcset="assets/images/slider/slide-3-480w.jpg">
+                                                <img src="assets/images/slider/slide-3.jpg" alt="Image Desc">
                                             </picture>
                                         </figure><!-- End .slide-image -->
 
@@ -65,7 +65,7 @@
                                             <h3 class="intro-subtitle">Outdoor Furniture</h3><!-- End .h3 intro-subtitle -->
                                             <h1 class="intro-title">Outdoor Dining <br>Furniture</h1><!-- End .intro-title -->
 
-                                            <a href="{{ asset('category') }}" class="btn btn-outline-white">
+                                            <a href="category.html" class="btn btn-outline-white">
                                                 <span>SHOP NOW</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </a>
@@ -82,7 +82,7 @@
                                     <div class="col-md-6 col-lg-12">
                                         <div class="banner banner-display">
                                             <a href="#">
-                                                <img src="{{ asset('/images/banners/home/intro/banner-1.jpg') }}" alt="Banner">
+                                                <img src="assets/images/banners/home/intro/banner-1.jpg" alt="Banner">
                                             </a>
 
                                             <div class="banner-content">
@@ -96,7 +96,7 @@
                                     <div class="col-md-6 col-lg-12">
                                         <div class="banner banner-display mb-0">
                                             <a href="#">
-                                                <img src="{{ asset('/images/banners/home/intro/banner-2.jpg') }}" alt="Banner">
+                                                <img src="assets/images/banners/home/intro/banner-2.jpg" alt="Banner">
                                             </a>
 
                                             <div class="banner-content">

@@ -116,6 +116,11 @@
                                                         </div><!-- End .col-md-6 -->
 
                                                         <div class="col-md-6">
+                                                            <div class="menu-title">Product Category</div><!-- End .menu-title -->
+                                                            <ul>
+                                                                <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
+                                                                <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span class="tip tip-new">New</span></span></a></li>
+                                                            </ul>
                                                             <div class="menu-title">Shop Pages</div><!-- End .menu-title -->
                                                             <ul>
                                                                 <li><a href="{{ url('cart') }}">Cart</a></li>
@@ -152,7 +157,14 @@
                                                 <div class="menu-col">
                                                     <div class="menu-title">Product Details</div><!-- End .menu-title -->
                                                     <ul>
-                                                        <li><a href="{{ url('product') }}">Default</a></li>
+                                                        <li><a href="product.html">Default</a></li>
+                                                        <li><a href="product-centered.html">Centered</a></li>
+                                                        <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
+                                                        <li><a href="product-gallery.html">Gallery</a></li>
+                                                        <li><a href="product-sticky.html">Sticky Info</a></li>
+                                                        <li><a href="product-sidebar.html">Boxed With Sidebar</a></li>
+                                                        <li><a href="product-fullwidth.html">Full Width</a></li>
+                                                        <li><a href="product-masonry.html">Masonry Sticky Info</a></li>
                                                     </ul>
                                                 </div><!-- End .menu-col -->
                                             </div><!-- End .col-md-6 -->
@@ -176,19 +188,67 @@
 
                                     <ul>
                                         <li>
-                                            <a href="{{ url('about') }}">About</a>
+                                            <a href="about.html" class="sf-with-ul">About</a>
+
+                                            <ul>
+                                                <li><a href="about.html">About 01</a></li>
+                                                <li><a href="about-2.html">About 02</a></li>
+                                            </ul>
                                         </li>
                                         <li>
-                                            <a href="{{ url('contact') }}">Contact</a>
-                                           
+                                            <a href="contact.html" class="sf-with-ul">Contact</a>
+
+                                            <ul>
+                                                <li><a href="contact.html">Contact 01</a></li>
+                                                <li><a href="contact-2.html">Contact 02</a></li>
+                                            </ul>
                                         </li>
                                         <li><a href="login.html">Login</a></li>
                                         <li><a href="faq.html">FAQs</a></li>
+                                        <li><a href="404.html">Error 404</a></li>
                                         <li><a href="coming-soon.html">Coming Soon</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="{{ url('blog') }}">Blog</a>
+                                    <a href="blog.html" class="sf-with-ul">Blog</a>
+
+                                    <ul>
+                                        <li><a href="blog.html">Classic</a></li>
+                                        <li><a href="blog-listing.html">Listing</a></li>
+                                        <li>
+                                            <a href="#">Grid</a>
+                                            <ul>
+                                                <li><a href="blog-grid-2cols.html">Grid 2 columns</a></li>
+                                                <li><a href="blog-grid-3cols.html">Grid 3 columns</a></li>
+                                                <li><a href="blog-grid-4cols.html">Grid 4 columns</a></li>
+                                                <li><a href="blog-grid-sidebar.html">Grid sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Masonry</a>
+                                            <ul>
+                                                <li><a href="blog-masonry-2cols.html">Masonry 2 columns</a></li>
+                                                <li><a href="blog-masonry-3cols.html">Masonry 3 columns</a></li>
+                                                <li><a href="blog-masonry-4cols.html">Masonry 4 columns</a></li>
+                                                <li><a href="blog-masonry-sidebar.html">Masonry sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Mask</a>
+                                            <ul>
+                                                <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
+                                                <li><a href="blog-mask-masonry.html">Blog mask masonry</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Single Post</a>
+                                            <ul>
+                                                <li><a href="single.html">Default with sidebar</a></li>
+                                                <li><a href="single-fullwidth.html">Fullwidth no sidebar</a></li>
+                                                <li><a href="single-fullwidth-sidebar.html">Fullwidth with sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href="elements-list.html" class="sf-with-ul">Elements</a>

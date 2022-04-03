@@ -18,8 +18,8 @@
                                     <div class="intro-slide">
                                         <figure class="slide-image">
                                             <picture>
-                                                <source media="(max-width: 480px)" srcset="url('/images/slider/slide-1-480w.jpg')">
-                                                <img src="{{ asset('/images/slider/slide-1.jpg')}}" alt="Image Desc">
+                                                <source media="(max-width: 480px)" srcset="{{ asset('images/slider/slide-1-480w.jpg') }}">
+                                                <img src="{{ asset('images/slider/slide-1.jpg') }}" alt="Image Desc">
                                             </picture>
                                         </figure><!-- End .slide-image -->
 
@@ -56,8 +56,8 @@
                                     <div class="intro-slide">
                                         <figure class="slide-image">
                                             <picture>
-                                                <source media="(max-width: 480px)" srcset="{{ asset('/images/slider/slide-3-480w.jpg') }}">
-                                                <img src="{{ asset('/images/slider/slide-3.jpg') }}" alt="Image Desc">
+                                                <source media="(max-width: 480px)" srcset="assets/images/slider/slide-3-480w.jpg">
+                                                <img src="assets/images/slider/slide-3.jpg" alt="Image Desc">
                                             </picture>
                                         </figure><!-- End .slide-image -->
 
@@ -65,7 +65,7 @@
                                             <h3 class="intro-subtitle">Outdoor Furniture</h3><!-- End .h3 intro-subtitle -->
                                             <h1 class="intro-title">Outdoor Dining <br>Furniture</h1><!-- End .intro-title -->
 
-                                            <a href="{{ asset('category') }}" class="btn btn-outline-white">
+                                            <a href="category.html" class="btn btn-outline-white">
                                                 <span>SHOP NOW</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </a>
@@ -82,7 +82,7 @@
                                     <div class="col-md-6 col-lg-12">
                                         <div class="banner banner-display">
                                             <a href="#">
-                                                <img src="{{ asset('/images/banners/home/intro/banner-1.jpg') }}" alt="Banner">
+                                                <img src="assets/images/banners/home/intro/banner-1.jpg" alt="Banner">
                                             </a>
 
                                             <div class="banner-content">
@@ -96,7 +96,7 @@
                                     <div class="col-md-6 col-lg-12">
                                         <div class="banner banner-display mb-0">
                                             <a href="#">
-                                                <img src="{{ asset('/images/banners/home/intro/banner-2.jpg') }}" alt="Banner">
+                                                <img src="assets/images/banners/home/intro/banner-2.jpg" alt="Banner">
                                             </a>
 
                                             <div class="banner-content">
@@ -1317,8 +1317,8 @@
 
                         <article class="entry entry-display">
                             <figure class="entry-media">
-                                <a href="{{ asset('single') }}">
-                                    <img src="{{ asset('/images/blog/home/post-3.jpg') }}" alt="image desc">
+                                <a href="single.html">
+                                    <img src="assets/images/blog/home/post-3.jpg" alt="image desc">
                                 </a>
                             </figure><!-- End .entry-media -->
 
@@ -1328,12 +1328,12 @@
                                 </div><!-- End .entry-meta -->
 
                                 <h3 class="entry-title">
-                                    <a href="{{ asset('single') }}">Quisque volutpat mattis eros.</a>
+                                    <a href="single.html">Quisque volutpat mattis eros.</a>
                                 </h3><!-- End .entry-title -->
 
                                 <div class="entry-content">
                                     <p>Suspendisse potenti. Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. </p>
-                                    <a href="{{ asset('single') }}" class="read-more">Read More</a>
+                                    <a href="single.html" class="read-more">Read More</a>
                                 </div><!-- End .entry-content -->
                             </div><!-- End .entry-body -->
                         </article><!-- End .entry -->
@@ -1344,7 +1344,7 @@
                     <a href="blog.html" class="btn btn-outline-darker btn-more"><span>View more articles</span><i class="icon-long-arrow-right"></i></a>
                 </div><!-- End .more-container -->
             </div>
-            <div class="cta cta-display bg-image pt-4 pb-4" style="background-image: url('/images/backgrounds/cta/bg-6.jpg')">
+            <div class="cta cta-display bg-image pt-4 pb-4" style="background-image: url(assets/images/backgrounds/cta/bg-6.jpg);">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-9 col-xl-8">
@@ -1355,7 +1355,7 @@
                                 </div><!-- End .col -->
 
                                 <div class="col-auto">
-                                    <a href="{{ asset('login') }}" class="btn btn-outline-white"><span>SIGN UP</span><i class="icon-long-arrow-right"></i></a>
+                                    <a href="login.html" class="btn btn-outline-white"><span>SIGN UP</span><i class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .col-auto -->
                             </div><!-- End .row no-gutters -->
                         </div><!-- End .col-md-10 col-lg-9 -->

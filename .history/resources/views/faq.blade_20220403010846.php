@@ -2,7 +2,7 @@
 @section('content')
 
         <main class="main">
-        	<div class="page-header text-center" style="background-image: url('images/page-header-bg.jpg');">
+        	<div class="page-header text-center" style="background-image: url(\'{{asset('images/page-header-bg.jpg')}}\');">
         		<div class="container">
         			<h1 class="page-title">F.A.Q<span>Pages</span></h1>
         		</div><!-- End .container -->
@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ asset('index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Pages</a></li>
                         <li class="breadcrumb-item active" aria-current="page">FAQ</li>
                     </ol>
@@ -206,7 +206,7 @@
                                 </div><!-- End .col -->
 
                                 <div class="col-auto">
-                                    <a href="{{ asset('contact') }}" class="btn btn-outline-white"><span>CONTACT US</span><i class="icon-long-arrow-right"></i></a>
+                                    <a href="contact.html" class="btn btn-outline-white"><span>CONTACT US</span><i class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .col-auto -->
                             </div><!-- End .row no-gutters -->
                         </div><!-- End .col-md-10 col-lg-9 -->
