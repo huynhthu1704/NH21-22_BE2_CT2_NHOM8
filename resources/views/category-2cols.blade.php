@@ -71,7 +71,7 @@
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <span class="product-label label-new">New</span>
-                                                <a href="product.html">
+                                                <a href="{{url('/product')}}">
                                                       <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">                </a>
 
                                                 <div class="product-action-vertical">
@@ -89,7 +89,7 @@
                                                 <div class="product-cat">
                                                     <a href="#">Women</a>
                                                 </div><!-- End .product-cat -->
-                                                <h3 class="product-title"><a href="product.html">Brown paperbag waist pencil skirt</a></h3><!-- End .product-title -->
+                                                <h3 class="product-title"><a href="{{url('/product')}}">Brown paperbag waist pencil skirt</a></h3><!-- End .product-title -->
                                                 <div class="product-price">
                                                     $60.00
                                                 </div><!-- End .product-price -->
@@ -116,7 +116,7 @@
                                     <div class="col-6">
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
-                                                <a href="product.html">
+                                                <a href="{{url('/product')}}">
                                                       <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">                </a>
 
                                                 <div class="product-action-vertical">
@@ -134,7 +134,7 @@
                                                 <div class="product-cat">
                                                     <a href="#">Dresses</a>
                                                 </div><!-- End .product-cat -->
-                                                <h3 class="product-title"><a href="product.html">Dark yellow lace cut out swing dress</a></h3><!-- End .product-title -->
+                                                <h3 class="product-title"><a href="{{url('/product')}}">Dark yellow lace cut out swing dress</a></h3><!-- End .product-title -->
                                                 <div class="product-price">
                                                     $84.00
                                                 </div><!-- End .product-price -->
@@ -159,7 +159,7 @@
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <span class="product-label label-out">Out of Stock</span>
-                                                <a href="product.html">
+                                                <a href="{{url('/product')}}">
                                                       <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">                </a>
 
                                                 <div class="product-action-vertical">
@@ -177,7 +177,7 @@
                                                 <div class="product-cat">
                                                     <a href="#">Jackets</a>
                                                 </div><!-- End .product-cat -->
-                                                <h3 class="product-title"><a href="product.html">Khaki utility boiler jumpsuit</a></h3><!-- End .product-title -->
+                                                <h3 class="product-title"><a href="{{url('/product')}}">Khaki utility boiler jumpsuit</a></h3><!-- End .product-title -->
                                                 <div class="product-price">
                                                     <span class="out-price">$120.00</span>
                                                 </div><!-- End .product-price -->
@@ -194,7 +194,7 @@
                                     <div class="col-6">
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
-                                                <a href="product.html">
+                                                <a href="{{url('/product')}}">
                                                       <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">                </a>
 
                                                 <div class="product-action-vertical">
@@ -212,7 +212,7 @@
                                                 <div class="product-cat">
                                                     <a href="#">Jeans</a>
                                                 </div><!-- End .product-cat -->
-                                                <h3 class="product-title"><a href="product.html">Blue utility pinafore denim dress</a></h3><!-- End .product-title -->
+                                                <h3 class="product-title"><a href="{{url('/product')}}">Blue utility pinafore denim dress</a></h3><!-- End .product-title -->
                                                 <div class="product-price">
                                                     $76.00
                                                 </div><!-- End .product-price -->
@@ -230,7 +230,7 @@
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <span class="product-label label-new">New</span>
-                                                <a href="product.html">
+                                                <a href="{{url('/product')}}">
                                                       <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">                </a>
 
                                                 <div class="product-action-vertical">
@@ -248,7 +248,7 @@
                                                 <div class="product-cat">
                                                     <a href="#">Shoes</a>
                                                 </div><!-- End .product-cat -->
-                                                <h3 class="product-title"><a href="product.html">Beige knitted elastic runner shoes</a></h3><!-- End .product-title -->
+                                                <h3 class="product-title"><a href="{{url('/product')}}">Beige knitted elastic runner shoes</a></h3><!-- End .product-title -->
                                                 <div class="product-price">
                                                     $84.00
                                                 </div><!-- End .product-price -->
@@ -272,7 +272,7 @@
                                     <div class="col-6">
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
-                                                <a href="product.html">
+                                                <a href="{{url('/product')}}">
                                                       <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">                </a>
 
                                                 <div class="product-action-vertical">
@@ -290,7 +290,7 @@
                                                 <div class="product-cat">
                                                     <a href="#">Bags</a>
                                                 </div><!-- End .product-cat -->
-                                                <h3 class="product-title"><a href="product.html">Orange saddle lock front chain cross body bag</a></h3><!-- End .product-title -->
+                                                <h3 class="product-title"><a href="{{url('/product')}}">Orange saddle lock front chain cross body bag</a></h3><!-- End .product-title -->
                                                 <div class="product-price">
                                                     $84.00
                                                 </div><!-- End .product-price -->
