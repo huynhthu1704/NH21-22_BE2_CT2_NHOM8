@@ -5,7 +5,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Pages</a></li>
                         <li class="breadcrumb-item active" aria-current="page">404</li>
                     </ol>
@@ -16,7 +16,7 @@
             	<div class="container">
             		<h1 class="error-title">Error 404</h1><!-- End .error-title -->
             		<p>We are sorry, the page you've requested is not available.</p>
-            		<a href="index.html" class="btn btn-outline-primary-2 btn-minwidth-lg">
+            		<a href="{{url('/')}}" class="btn btn-outline-primary-2 btn-minwidth-lg">
             			<span>BACK TO HOMEPAGE</span>
             			<i class="icon-long-arrow-right"></i>
             		</a>
