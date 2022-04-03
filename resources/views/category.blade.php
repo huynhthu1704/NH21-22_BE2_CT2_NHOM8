@@ -2,7 +2,7 @@
 @section('content')
 
         <main class="main">
-        	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        	<div class="page-header text-center" style="background-image: url('/images/page-header-bg.jpg')">
         		<div class="container">
         			<h1 class="page-title">Grid 3 Columns<span>Shop</span></h1>
         		</div><!-- End .container -->
@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Shop</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Grid 3 Columns</li>
                     </ol>
@@ -70,8 +70,7 @@
                                             <figure class="product-media">
                                                 <span class="product-label label-new">New</span>
                                                 <a href="product.html">
-                                                    <img src="assets/images/products/product-4.jpg" alt="Product image" class="product-image">
-                                                </a>
+                                                     <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">                 </a>
 
                                                 <div class="product-action-vertical">
                                                     <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
@@ -101,15 +100,11 @@
 
                                                 <div class="product-nav product-nav-thumbs">
                                                     <a href="#" class="active">
-                                                        <img src="assets/images/products/product-4-thumb.jpg" alt="product desc">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="assets/images/products/product-4-2-thumb.jpg" alt="product desc">
-                                                    </a>
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">                                                    <a href="#">
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">>
 
                                                     <a href="#">
-                                                        <img src="assets/images/products/product-4-3-thumb.jpg" alt="product desc">
-                                                    </a>
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">>
                                                 </div><!-- End .product-nav -->
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
@@ -119,8 +114,7 @@
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <a href="product.html">
-                                                    <img src="assets/images/products/product-5.jpg" alt="Product image" class="product-image">
-                                                </a>
+                                                     <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">        </a>
 
                                                 <div class="product-action-vertical">
                                                     <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
@@ -150,11 +144,8 @@
 
                                                 <div class="product-nav product-nav-thumbs">
                                                     <a href="#" class="active">
-                                                        <img src="assets/images/products/product-5-thumb.jpg" alt="product desc">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="assets/images/products/product-5-2-thumb.jpg" alt="product desc">
-                                                    </a>
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">                                                    <a href="#">
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">>
                                                 </div><!-- End .product-nav -->
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
@@ -165,8 +156,7 @@
                                             <figure class="product-media">
                                                 <span class="product-label label-out">Out of Stock</span>
                                                 <a href="product.html">
-                                                    <img src="assets/images/products/product-6.jpg" alt="Product image" class="product-image">
-                                                </a>
+                                                     <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">        </a>
 
                                                 <div class="product-action-vertical">
                                                     <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
@@ -201,8 +191,7 @@
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <a href="product.html">
-                                                    <img src="assets/images/products/product-7.jpg" alt="Product image" class="product-image">
-                                                </a>
+                                                     <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">        </a>
 
                                                 <div class="product-action-vertical">
                                                     <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
@@ -238,8 +227,7 @@
                                             <figure class="product-media">
                                                 <span class="product-label label-new">New</span>
                                                 <a href="product.html">
-                                                    <img src="assets/images/products/product-8.jpg" alt="Product image" class="product-image">
-                                                </a>
+                                                     <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">        </a>
 
                                                 <div class="product-action-vertical">
                                                     <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
@@ -269,11 +257,8 @@
 
                                                 <div class="product-nav product-nav-thumbs">
                                                     <a href="#" class="active">
-                                                        <img src="assets/images/products/product-8-thumb.jpg" alt="product desc">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="assets/images/products/product-8-2-thumb.jpg" alt="product desc">
-                                                    </a>
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">                                                    <a href="#">
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">>
                                                 </div><!-- End .product-nav -->
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
@@ -283,8 +268,7 @@
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <a href="product.html">
-                                                    <img src="assets/images/products/product-9.jpg" alt="Product image" class="product-image">
-                                                </a>
+                                                     <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">        </a>
 
                                                 <div class="product-action-vertical">
                                                     <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
@@ -314,14 +298,10 @@
 
                                                 <div class="product-nav product-nav-thumbs">
                                                     <a href="#" class="active">
-                                                        <img src="assets/images/products/product-9-thumb.jpg" alt="product desc">
-                                                    </a>
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">                                                    <a href="#">
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">>
                                                     <a href="#">
-                                                        <img src="assets/images/products/product-9-2-thumb.jpg" alt="product desc">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="assets/images/products/product-9-3-thumb.jpg" alt="product desc">
-                                                    </a>
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">>
                                                 </div><!-- End .product-nav -->
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
@@ -332,8 +312,7 @@
                                             <figure class="product-media">
                                                 <span class="product-label label-top">Top</span>
                                                 <a href="product.html">
-                                                    <img src="assets/images/products/product-11.jpg" alt="Product image" class="product-image">
-                                                </a>
+                                                     <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">         </a>
 
                                                 <div class="product-action-vertical">
                                                     <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
@@ -363,15 +342,12 @@
 
                                                 <div class="product-nav product-nav-thumbs">
                                                     <a href="#" class="active">
-                                                        <img src="assets/images/products/product-11-thumb.jpg" alt="product desc">
-                                                    </a>
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">
                                                     <a href="#">
-                                                        <img src="assets/images/products/product-11-2-thumb.jpg" alt="product desc">
-                                                    </a>
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">a>
 
                                                     <a href="#">
-                                                        <img src="assets/images/products/product-11-3-thumb.jpg" alt="product desc">
-                                                    </a>
+                                                         <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">a>
                                                 </div><!-- End .product-nav -->
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
@@ -381,8 +357,7 @@
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <a href="product.html">
-                                                    <img src="assets/images/products/product-10.jpg" alt="Product image" class="product-image">
-                                                </a>
+                                                     <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">         </a>
 
                                                 <div class="product-action-vertical">
                                                     <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
@@ -417,8 +392,7 @@
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <a href="product.html">
-                                                    <img src="assets/images/products/product-12.jpg" alt="Product image" class="product-image">
-                                                </a>
+                                                     <img src="{{ asset('/images/products/product-4.jpg') }}" alt="Product image" class="product-image">         </a>
 
                                                 <div class="product-action-vertical">
                                                     <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
