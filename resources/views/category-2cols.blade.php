@@ -2,17 +2,17 @@
 @section('content')
 
         <main class="main">
-        	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        	<div class="page-header text-center" style="background-image: url('/images/page-header-bg.jpg')">
         		<div class="container">
-        			<h1 class="page-title">Grid 3 Columns<span>Shop</span></h1>
+        			<h1 class="page-title">Grid 2 Columns<span>Shop</span></h1>
         		</div><!-- End .container -->
         	</div><!-- End .page-header -->
             <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('index') }}">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Grid 3 Columns</li>
+                        <li class="breadcrumb-item active" aria-current="page">Grid 2 Columns</li>
                     </ol>
                 </div><!-- End .container -->
             </nav><!-- End .breadcrumb-nav -->
@@ -40,7 +40,8 @@
 										</div>
                 					</div><!-- End .toolbox-sort -->
                 					<div class="toolbox-layout">
-                						<a href="category-2cols.html" class="btn-layout">
+
+                						<a href="category-2cols.html" class="btn-layout active">
                 							<svg width="10" height="10">
                 								<rect x="0" y="0" width="4" height="4" />
                 								<rect x="6" y="0" width="4" height="4" />
@@ -49,7 +50,7 @@
                 							</svg>
                 						</a>
 
-                						<a href="category.html" class="btn-layout active">
+                						<a href="category.html" class="btn-layout">
                 							<svg width="16" height="10">
                 								<rect x="0" y="0" width="4" height="4" />
                 								<rect x="6" y="0" width="4" height="4" />
@@ -59,13 +60,14 @@
                 								<rect x="12" y="6" width="4" height="4" />
                 							</svg>
                 						</a>
+
                 					</div><!-- End .toolbox-layout -->
                 				</div><!-- End .toolbox-right -->
                 			</div><!-- End .toolbox -->
 
                             <div class="products mb-3">
                                 <div class="row justify-content-center">
-                                    <div class="col-6 col-md-4 col-lg-4">
+                                    <div class="col-6">
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <span class="product-label label-new">New</span>
@@ -113,9 +115,9 @@
                                                 </div><!-- End .product-nav -->
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
-                                    </div><!-- End .col-sm-6 col-lg-4 -->
+                                    </div><!-- End .col-sm-6 -->
 
-                                    <div class="col-6 col-md-4 col-lg-4">
+                                    <div class="col-6">
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <a href="product.html">
@@ -158,9 +160,9 @@
                                                 </div><!-- End .product-nav -->
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
-                                    </div><!-- End .col-sm-6 col-lg-4 -->
+                                    </div><!-- End .col-sm-6 -->
 
-                                    <div class="col-6 col-md-4 col-lg-4">
+                                    <div class="col-6">
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <span class="product-label label-out">Out of Stock</span>
@@ -195,9 +197,9 @@
                                                 </div><!-- End .rating-container -->
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
-                                    </div><!-- End .col-sm-6 col-lg-4 -->
+                                    </div><!-- End .col-sm-6 -->
 
-                                    <div class="col-6 col-md-4 col-lg-4">
+                                    <div class="col-6">
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <a href="product.html">
@@ -231,9 +233,9 @@
                                                 </div><!-- End .rating-container -->
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
-                                    </div><!-- End .col-sm-6 col-lg-4 -->
+                                    </div><!-- End .col-sm-6 -->
 
-                                    <div class="col-6 col-md-4 col-lg-4">
+                                    <div class="col-6">
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <span class="product-label label-new">New</span>
@@ -277,9 +279,9 @@
                                                 </div><!-- End .product-nav -->
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
-                                    </div><!-- End .col-sm-6 col-lg-4 -->
+                                    </div><!-- End .col-sm-6 -->
 
-                                    <div class="col-6 col-md-4 col-lg-4">
+                                    <div class="col-6">
                                         <div class="product product-7 text-center">
                                             <figure class="product-media">
                                                 <a href="product.html">
@@ -325,131 +327,10 @@
                                                 </div><!-- End .product-nav -->
                                             </div><!-- End .product-body -->
                                         </div><!-- End .product -->
-                                    </div><!-- End .col-sm-6 col-lg-4 -->
-
-                                    <div class="col-6 col-md-4 col-lg-4">
-                                        <div class="product product-7 text-center">
-                                            <figure class="product-media">
-                                                <span class="product-label label-top">Top</span>
-                                                <a href="product.html">
-                                                    <img src="assets/images/products/product-11.jpg" alt="Product image" class="product-image">
-                                                </a>
-
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                                                    <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                                                </div><!-- End .product-action-vertical -->
-
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                                </div><!-- End .product-action -->
-                                            </figure><!-- End .product-media -->
-
-                                            <div class="product-body">
-                                                <div class="product-cat">
-                                                    <a href="#">Shoes</a>
-                                                </div><!-- End .product-cat -->
-                                                <h3 class="product-title"><a href="product.html">Light brown studded Wide fit wedges</a></h3><!-- End .product-title -->
-                                                <div class="product-price">
-                                                    $110.00
-                                                </div><!-- End .product-price -->
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-text">( 1 Reviews )</span>
-                                                </div><!-- End .rating-container -->
-
-                                                <div class="product-nav product-nav-thumbs">
-                                                    <a href="#" class="active">
-                                                        <img src="assets/images/products/product-11-thumb.jpg" alt="product desc">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="assets/images/products/product-11-2-thumb.jpg" alt="product desc">
-                                                    </a>
-
-                                                    <a href="#">
-                                                        <img src="assets/images/products/product-11-3-thumb.jpg" alt="product desc">
-                                                    </a>
-                                                </div><!-- End .product-nav -->
-                                            </div><!-- End .product-body -->
-                                        </div><!-- End .product -->
-                                    </div><!-- End .col-sm-6 col-lg-4 -->
-
-                                    <div class="col-6 col-md-4 col-lg-4">
-                                        <div class="product product-7 text-center">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="assets/images/products/product-10.jpg" alt="Product image" class="product-image">
-                                                </a>
-
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                                                    <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                                                </div><!-- End .product-action-vertical -->
-
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                                </div><!-- End .product-action -->
-                                            </figure><!-- End .product-media -->
-
-                                            <div class="product-body">
-                                                <div class="product-cat">
-                                                    <a href="#">Jumpers</a>
-                                                </div><!-- End .product-cat -->
-                                                <h3 class="product-title"><a href="product.html">Yellow button front tea top</a></h3><!-- End .product-title -->
-                                                <div class="product-price">
-                                                    $56.00
-                                                </div><!-- End .product-price -->
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-val" style="width: 0%;"></div><!-- End .ratings-val -->
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-text">( 0 Reviews )</span>
-                                                </div><!-- End .rating-container -->
-                                            </div><!-- End .product-body -->
-                                        </div><!-- End .product -->
-                                    </div><!-- End .col-sm-6 col-lg-4 -->
-
-                                    <div class="col-6 col-md-4 col-lg-4">
-                                        <div class="product product-7 text-center">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="assets/images/products/product-12.jpg" alt="Product image" class="product-image">
-                                                </a>
-
-                                                <div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                                                    <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
-                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                                                </div><!-- End .product-action-vertical -->
-
-                                                <div class="product-action">
-                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                                </div><!-- End .product-action -->
-                                            </figure><!-- End .product-media -->
-
-                                            <div class="product-body">
-                                                <div class="product-cat">
-                                                    <a href="#">Bags</a>
-                                                </div><!-- End .product-cat -->
-                                                <h3 class="product-title"><a href="product.html">Black soft RI weekend travel bag</a></h3><!-- End .product-title -->
-                                                <div class="product-price">
-                                                    $68.00
-                                                </div><!-- End .product-price -->
-                                                <div class="ratings-container">
-                                                    <div class="ratings">
-                                                        <div class="ratings-val" style="width: 0%;"></div><!-- End .ratings-val -->
-                                                    </div><!-- End .ratings -->
-                                                    <span class="ratings-text">( 0 Reviews )</span>
-                                                </div><!-- End .rating-container -->
-                                            </div><!-- End .product-body -->
-                                        </div><!-- End .product -->
-                                    </div><!-- End .col-sm-6 col-lg-4 -->
+                                    </div><!-- End .col-sm-6 -->
                                 </div><!-- End .row -->
                             </div><!-- End .products -->
+
 
                 			<nav aria-label="Page navigation">
 							    <ul class="pagination justify-content-center">
@@ -725,4 +606,4 @@
             </div><!-- End .page-content -->
         </main><!-- End .main -->
 
-        @endsection('content')
+@endsection('content')
