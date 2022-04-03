@@ -315,6 +315,7 @@
         </header><!-- End .header -->
 
         @yield('content')
+        
         <footer class="footer">
         	<div class="footer-middle">
 	            <div class="container">
