@@ -35,13 +35,13 @@
 								<td class="product-col">
 									<div class="product">
 										<figure class="product-media">
-											<a href="#">
+											<a href="{{url('/product')}}">
 												<img src="{{ asset('images/products/table/product-1.jpg') }}" alt="Product image">
 											</a>
 										</figure>
 
 										<h3 class="product-title">
-											<a href="#">Beige knitted elastic runner shoes</a>
+											<a href="{{url('/product')}}">Beige knitted elastic runner shoes</a>
 										</h3><!-- End .product-title -->
 									</div><!-- End .product -->
 								</td>
@@ -66,13 +66,13 @@
 								<td class="product-col">
 									<div class="product">
 										<figure class="product-media">
-											<a href="#">
+											<a href="{{url('/product')}}">
 												<img src="{{ asset('/images/products/table/product-2.jpg ')}}" alt="Product image">
 											</a>
 										</figure>
 
 										<h3 class="product-title">
-											<a href="#">Blue utility pinafore denim dress</a>
+											<a href="{{url('/product')}}">Blue utility pinafore denim dress</a>
 										</h3><!-- End .product-title -->
 									</div><!-- End .product -->
 								</td>
@@ -87,13 +87,13 @@
 								<td class="product-col">
 									<div class="product">
 										<figure class="product-media">
-											<a href="#">
+											<a href="{{url('/product')}}">
 												<img src="{{ asset('/images/products/table/product-3.jpg') }}" alt="Product image">
 											</a>
 										</figure>
 
 										<h3 class="product-title">
-											<a href="#">Orange saddle lock front chain cross body bag</a>
+											<a href="{{url('/product')}}">Orange saddle lock front chain cross body bag</a>
 										</h3><!-- End .product-title -->
 									</div><!-- End .product -->
 								</td>

@@ -272,7 +272,7 @@
                         </div><!-- End .row -->
 
                         <div class="text-center mt-3">
-                            <a href="blog.html" class="btn btn-sm btn-minwidth-lg btn-outline-primary-2">
+                            <a href="{{ url('faq') }}" class="btn btn-sm btn-minwidth-lg btn-outline-primary-2">
                                 <span>LETS START WORK</span>
                                 <i class="icon-long-arrow-right"></i>
                             </a>
