@@ -195,6 +195,19 @@
 
                                     <ul>
                                         <li><a href="elements-products.html">Products</a></li>
+                                        <li><a href="elements-typography.html">Typography</a></li>
+                                        <li><a href="elements-titles.html">Titles</a></li>
+                                        <li><a href="elements-banners.html">Banners</a></li>
+                                        <li><a href="elements-product-category.html">Product Category</a></li>
+                                        <li><a href="elements-video-banners.html">Video Banners</a></li>
+                                        <li><a href="elements-buttons.html">Buttons</a></li>
+                                        <li><a href="elements-accordions.html">Accordions</a></li>
+                                        <li><a href="elements-tabs.html">Tabs</a></li>
+                                        <li><a href="elements-testimonials.html">Testimonials</a></li>
+                                        <li><a href="elements-blog-posts.html">Blog Posts</a></li>
+                                        <li><a href="elements-portfolio.html">Portfolio</a></li>
+                                        <li><a href="elements-cta.html">Call to Action</a></li>
+                                        <li><a href="elements-icon-boxes.html">Icon Boxes</a></li>
                                     </ul>
                                 </li>
                             </ul><!-- End .menu -->
@@ -327,11 +340,11 @@
 	            				<h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
 	            				<ul class="widget-list">
-	            					<li><a href="{{ url('about') }}">About Molla</a></li>
+	            					<li><a href="about.html">About Molla</a></li>
 	            					<li><a href="#">How to shop on Molla</a></li>
 	            					<li><a href="#">FAQ</a></li>
-	            					<li><a href="{{ url('contact') }}">Contact us</a></li>
-	            					<li><a href="{{ url('login') }}">Log in</a></li>
+	            					<li><a href="contact.html">Contact us</a></li>
+	            					<li><a href="login.html">Log in</a></li>
 	            				</ul><!-- End .widget-list -->
 	            			</div><!-- End .widget -->
 	            		</div><!-- End .col-sm-6 col-lg-3 -->
@@ -357,7 +370,7 @@
 
 	            				<ul class="widget-list">
 	            					<li><a href="#">Sign In</a></li>
-	            					<li><a href="{{ url('cart') }}">View Cart</a></li>
+	            					<li><a href="cart.html">View Cart</a></li>
 	            					<li><a href="#">My Wishlist</a></li>
 	            					<li><a href="#">Track My Order</a></li>
 	            					<li><a href="#">Help</a></li>
@@ -399,8 +412,30 @@
                         <a href="index.html">Home</a>
 
                         <ul>
-                            <li><a href="index.html">01 - furniture store</a></li>
-
+                            <li><a href="index-1.html">01 - furniture store</a></li>
+                            <li><a href="index-2.html">02 - furniture store</a></li>
+                            <li><a href="index-3.html">03 - electronic store</a></li>
+                            <li><a href="index-4.html">04 - electronic store</a></li>
+                            <li><a href="index-5.html">05 - fashion store</a></li>
+                            <li><a href="index-6.html">06 - fashion store</a></li>
+                            <li><a href="index-7.html">07 - fashion store</a></li>
+                            <li><a href="index-8.html">08 - fashion store</a></li>
+                            <li><a href="index-9.html">09 - fashion store</a></li>
+                            <li><a href="index-10.html">10 - shoes store</a></li>
+                            <li><a href="index-11.html">11 - furniture simple store</a></li>
+                            <li><a href="index-12.html">12 - fashion simple store</a></li>
+                            <li><a href="index-13.html">13 - market</a></li>
+                            <li><a href="index-14.html">14 - market fullwidth</a></li>
+                            <li><a href="index-15.html">15 - lookbook 1</a></li>
+                            <li><a href="index-16.html">16 - lookbook 2</a></li>
+                            <li><a href="index-17.html">17 - fashion store</a></li>
+                            <li><a href="index-18.html">18 - fashion store (with sidebar)</a></li>
+                            <li><a href="index-19.html">19 - games store</a></li>
+                            <li><a href="index-20.html">20 - book store</a></li>
+                            <li><a href="index-21.html">21 - sport store</a></li>
+                            <li><a href="index-22.html">22 - tools store</a></li>
+                            <li><a href="index-23.html">23 - fashion left navigation store</a></li>
+                            <li><a href="index-24.html">24 - extreme sport store</a></li>
                         </ul>
                     </li>
                     <li>

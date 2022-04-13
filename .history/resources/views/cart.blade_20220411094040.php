@@ -1,7 +1,7 @@
-<?php include("header.blade.php");?>
-
+@extends('master')
+@section('content')
         <main class="main">
-        	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        	<div class="page-header text-center" style="background-image: url('/images/page-header-bg.jpg')">
         		<div class="container">
         			<h1 class="page-title">Shopping Cart<span>Shop</span></h1>
         		</div><!-- End .container -->
@@ -9,7 +9,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('index.html') }}">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Shop</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
                     </ol>
@@ -37,13 +37,13 @@
 											<td class="product-col">
 												<div class="product">
 													<figure class="product-media">
-														<a href="#">
-															<img src="assets/images/products/table/product-1.jpg" alt="Product image">
+														<a href="{{url('/product')}}">
+															<img src="{{ asset('/images/products/table/product-1.jpg') }}" alt="Product image">
 														</a>
 													</figure>
 
 													<h3 class="product-title">
-														<a href="#">Beige knitted elastic runner shoes</a>
+														<a href="{{url('/product')}}">Beige knitted elastic runner shoes</a>
 													</h3><!-- End .product-title -->
 												</div><!-- End .product -->
 											</td>
@@ -60,13 +60,13 @@
 											<td class="product-col">
 												<div class="product">
 													<figure class="product-media">
-														<a href="#">
-															<img src="assets/images/products/table/product-2.jpg" alt="Product image">
+														<a href="{{url('/product')}}">
+															<img src="{{ asset('/images/products/table/product-2.jpg') }}" alt="Product image">
 														</a>
 													</figure>
 
 													<h3 class="product-title">
-														<a href="#">Blue utility pinafore denim dress</a>
+														<a href="{{url('/product')}}">Blue utility pinafore denim dress</a>
 													</h3><!-- End .product-title -->
 												</div><!-- End .product -->
 											</td>
@@ -143,7 +143,7 @@
 	                						</tr><!-- End .summary-shipping-row -->
 
 	                						<tr class="summary-shipping-estimate">
-	                							<td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></td>
+	                							<td>Estimate for Your Country<br> <a href="{{ url('dashboard') }}">Change address</a></td>
 	                							<td>&nbsp;</td>
 	                						</tr><!-- End .summary-shipping-estimate -->
 
@@ -154,10 +154,10 @@
 	                					</tbody>
 	                				</table><!-- End .table table-summary -->
 
-	                				<a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO CHECKOUT</a>
+	                				<a href="{{ url('checkout') }}" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO CHECKOUT</a>
 	                			</div><!-- End .summary -->
 
-		            			<a href="category.html" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
+		            			<a href="{{ url('category') }}" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
 	                		</aside><!-- End .col-lg-3 -->
 	                	</div><!-- End .row -->
 	                </div><!-- End .container -->
@@ -165,4 +165,4 @@
             </div><!-- End .page-content -->
         </main><!-- End .main -->
 
-        <?php include("footer.blade.php"); ?>
+		@endsection('content')
