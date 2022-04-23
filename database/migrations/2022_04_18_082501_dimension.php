@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDimensionsTable extends Migration
+class Dimension extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateDimensionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('dimensions', function (Blueprint $table) {
+        Schema::create('dimension', function (Blueprint $table) {
             $table->id();
             $table->integer('width');
-            $table->integer('weight');
             $table->integer('height');
+            $table->integer('weight');
             $table->integer('length');
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
         });
-      
     }
 
     /**
@@ -32,6 +29,6 @@ class CreateDimensionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dimensions');
+        //
     }
 }

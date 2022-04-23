@@ -106,12 +106,12 @@
 
 									<tbody>
 										<tr>
-											<td><a href="#">Beige knitted elastic runner shoes</a></td>
+											<td><a href="{{url('/product')}}">Beige knitted elastic runner shoes</a></td>
 											<td>$84.00</td>
 										</tr>
 
 										<tr>
-											<td><a href="#">Blue utility pinafore denimdress</a></td>
+											<td><a href="{{url('/product')}}">Blue utility pinafore denimdress</a></td>
 											<td>$76,00</td>
 										</tr>
 										<tr class="summary-subtotal">

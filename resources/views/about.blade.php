@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="como">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Pages</a></li>
                         <li class="breadcrumb-item active" aria-current="page">About us 2</li>
                     </ol>
