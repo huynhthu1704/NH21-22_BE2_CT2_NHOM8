@@ -14,26 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('category')->insert([
-            ['category_name' => 'sofas'],
-            ['category_name' => 'armchairs'],
-            ['category_name' => 'chairs'],
-            ['category_name' => 'tables'],
-            ['category_name' => 'storage'],
-            ['category_name' => 'beds'],
-            ['category_name' => 'lamps']
-            
-        ]);
-        DB::table('brands')->insert([
-            ['brand_name' => 'Le Barrel'],
-            ['brand_name' => 'Something'],
-            ['brand_name' => 'Costa Brava'],
-            ['brand_name' => 'Oceanic'],
-            ['brand_name' => 'Fountain'],
-            ['brand_name' => 'Black Birds']
-            
-        ]);
         
+        $this->call([
+            BrandSeeder::class,
+            CategorySeeder::class,
+            ColorSeeder::class,
+        ]);
 
     }
 }
