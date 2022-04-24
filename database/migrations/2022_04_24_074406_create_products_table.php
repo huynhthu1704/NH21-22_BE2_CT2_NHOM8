@@ -15,19 +15,17 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name');
+            $table->string('product_name', 2000);
             $table->unsignedBigInteger('cate_id');
             $table->integer('price');
             $table->unsignedBigInteger('brand_id');
             $table->text('description');
             $table->tinyInteger('is_feature');
             $table->unsignedBigInteger('dimension_id');
-            $table->unsignedBigInteger('discount_id');
             $table->timestamps();
             $table->foreign('cate_id')->references('id')->on('categories');
             $table->foreign('brand_id')->references('id')->on('brands');
             $table->foreign('dimension_id')->references('id')->on('dimensions');
-            $table->foreign('discount_id')->references('id')->on('discounts');
         });
     }
 

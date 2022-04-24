@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class UserFactory extends Factory
 {
@@ -14,12 +14,22 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $gender = $this->faker->randomElement(['male', 'female']);
+        $role = random_int(DB::table('roles')->min('id'), DB::table('roles')->max('id'));
+
         return [
-            'name' => $this->faker->name(),
+            'username' => $this->faker->unique()->userName(),
+            'password' => $this->faker->password(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'birthday' => $this->faker->dateTimeBetween('1990-01-01', '2012-12-31'),
+            'full_name' => $this->faker->name(),
+            'phone' => $this->faker->e164PhoneNumber(),
+            'address' => $this->faker->address(),
+            'gender' => $gender,
+            'join_day' => $this->faker->dateTimeBetween('1990-01-01'),
+            'role_id' => $role,
+            'created_at' => now(),
+            'updated_at' => now()
         ];
     }
 
@@ -30,10 +40,5 @@ class UserFactory extends Factory
      */
     public function unverified()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                'email_verified_at' => null,
-            ];
-        });
     }
 }

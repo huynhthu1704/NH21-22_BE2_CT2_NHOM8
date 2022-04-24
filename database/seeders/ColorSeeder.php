@@ -21,7 +21,6 @@ class ColorSeeder extends Seeder
             ['color_name' => 'BlueDark'],
             ['color_name' => 'Brown'],
             ['color_name' => 'Black']
-            
         ]);
     }
 }

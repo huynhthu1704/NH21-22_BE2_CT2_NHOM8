@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DiscountSeeder extends Seeder
 {
@@ -13,6 +14,28 @@ class DiscountSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('discounts')->insert([
+            [
+                'discount_value' => 20,
+                'start_at' => now(),
+                'finish_at' => now(),
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'discount_value' => 30,
+                'start_at' => now(),
+                'finish_at' => now(),
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'discount_value' => 50,
+                'start_at' => now(),
+                'finish_at' => now(),
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+        ]);
     }
 }
