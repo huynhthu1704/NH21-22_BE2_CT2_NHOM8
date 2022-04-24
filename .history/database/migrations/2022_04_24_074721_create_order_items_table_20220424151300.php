@@ -21,7 +21,7 @@ class CreateOrderItemsTable extends Migration
             $table->integer('price');
             $table->integer('discount_price');
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('product');
         });
     }
 
