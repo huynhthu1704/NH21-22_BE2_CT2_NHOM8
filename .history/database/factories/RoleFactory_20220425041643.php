@@ -17,7 +17,6 @@ class RoleFactory extends Factory
 
         return 
         [
-            
         ];
     }
 }

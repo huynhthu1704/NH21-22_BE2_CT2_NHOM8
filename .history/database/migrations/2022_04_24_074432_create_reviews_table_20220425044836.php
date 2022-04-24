@@ -19,7 +19,6 @@ class CreateReviewsTable extends Migration
             $table->text('content');
             $table->tinyInteger('rating_value');
             $table->timestamps();
-            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

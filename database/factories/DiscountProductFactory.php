@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
-use Faker\Guesser\Name;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class RoleFactory extends Factory
+class DiscountProductFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,10 +13,8 @@ class RoleFactory extends Factory
      */
     public function definition()
     {
-
-        return 
-        [
-            
+        return [
+          
         ];
     }
 }
