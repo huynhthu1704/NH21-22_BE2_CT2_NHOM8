@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Brands extends Migration
+class CreateDiscountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class Brands extends Migration
      */
     public function up()
     {
-        Schema::create('brands', function (Blueprint $table) {
+        Schema::create('discounts', function (Blueprint $table) {
             $table->id();
-            $table->string('brand_name');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class Brands extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('discounts');
     }
 }
