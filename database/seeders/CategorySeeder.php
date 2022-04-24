@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,15 +15,43 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+        $faker = Factory::create();
         DB::table('categories')->insert([
-            ['category_name' => 'sofas'],
-            ['category_name' => 'armchairs'],
-            ['category_name' => 'chairs'],
-            ['category_name' => 'tables'],
-            ['category_name' => 'storage'],
-            ['category_name' => 'beds'],
-            ['category_name' => 'lamps']
-            
+            [
+                'category_name' => 'sofas', 
+                'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
+                'updated_at' => $faker->dateTimeBetween('2015/1/1')
+            ],
+            [
+                'category_name' => 'armchairs', 
+                'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
+                'updated_at' => $faker->dateTimeBetween('2015/1/1')
+            ],
+            [
+                'category_name' => 'chairs', 
+                'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
+                'updated_at' => $faker->dateTimeBetween('2015/1/1')
+            ],
+            [
+                'category_name' => 'tables', 
+                'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
+                'updated_at' => $faker->dateTimeBetween('2015/1/1')
+            ],
+            [
+                'category_name' => 'storage', 
+                'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
+                'updated_at' => $faker->dateTimeBetween('2015/1/1')
+            ],
+            [
+                'category_name' => 'beds', 
+                'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
+                'updated_at' => $faker->dateTimeBetween('2015/1/1')
+            ],
+            [
+                'category_name' => 'lamps', 'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
+                'updated_at' => $faker->dateTimeBetween('2015/1/1')
+            ]
+
         ]);
     }
 }
