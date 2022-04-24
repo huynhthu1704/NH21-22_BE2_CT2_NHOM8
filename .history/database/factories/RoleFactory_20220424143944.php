@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use Faker\Guesser\Name;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RoleFactory extends Factory
@@ -15,7 +14,7 @@ class RoleFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name()
+            //
         ];
     }
 }
