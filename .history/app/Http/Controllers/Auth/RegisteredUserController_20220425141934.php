@@ -34,29 +34,15 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'full_name' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // 'birthday' => ['required', 'string', 'max:255'],
-            // 'full_name' => ['required', 'string', 'max:255'],
-            // 'phone' => ['required', 'string', 'max:255'],
-            // 'address' => ['required', 'string', 'max:255'],
-            // 'gender' => ['required', 'confirmed', Rules\Password::defaults()],
-            // 'join_day' => ['required', 'confirmed', Rules\Password::defaults()],
-           // 'role_id' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
-            'username' => 'thuhtn2001',
-            'password' => $request->password,
+            'name' => $request->name,
             'email' => $request->email,
-            'birthday' => '2001/04/17',
-            'full_name' => $request->full_name,
-            'phone' => '000343840384',
-            'address' => 'VVN',
-            'gender' => 'be de',
-            'join_day' => '2022/04/17',
-            'role_id' => 2,
+            'password' => Hash::make($request->password),
         ]);
 
         event(new Registered($user));

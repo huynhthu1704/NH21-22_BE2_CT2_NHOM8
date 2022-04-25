@@ -50,12 +50,12 @@ class RegisteredUserController extends Controller
             'username' => 'thuhtn2001',
             'password' => $request->password,
             'email' => $request->email,
-            'birthday' => '2001/04/17',
+            'birthday' => '04/17/2001',
             'full_name' => $request->full_name,
             'phone' => '000343840384',
             'address' => 'VVN',
             'gender' => 'be de',
-            'join_day' => '2022/04/17',
+            'join_day' => '04/17/2022',
             'role_id' => 2,
         ]);
 

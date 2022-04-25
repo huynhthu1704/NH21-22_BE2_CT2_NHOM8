@@ -139,7 +139,7 @@
                         }'>
                         @foreach ($brands as $brand) 
                           <a href="#" class="brand">
-                            <img src="{{ asset('/images/brands/'.$brand->img) }}" alt="Brand Name">
+                            <img src="{{ asset('/images/brands/${{$brand->name}}') }}" alt="Brand Name">
                         </a>    
                         @endforeach
                       
