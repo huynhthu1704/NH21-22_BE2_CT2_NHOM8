@@ -31,37 +31,27 @@ class BrandSeeder extends Seeder
                 'brand_name' => 'Something',
                 'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
                 'updated_at' => $faker->dateTimeBetween('2015/1/1'),
-                'img'        => '2.png'
-
             ],
             [
                 'brand_name' => 'Costa Brava',
                 'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
                 'updated_at' => $faker->dateTimeBetween('2015/1/1'),
-                'img'        => '3.png'
-
             ],
             [
                 'brand_name' => 'Oceanic',
                 'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
                 'updated_at' => $faker->dateTimeBetween('2015/1/1'),
-                'img'        => '4.png'
-
             ],
             [
                 'brand_name' => 'Fountain',
                 'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
                 'updated_at' => $faker->dateTimeBetween('2015/1/1'),
-                'img'        => '5.png'
-
             ],
             [
                 'brand_name' => 'Black Birds',
                 'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
                 'updated_at' => $faker->dateTimeBetween('2015/1/1'),
-                'img'        => '6.png'
-
-                ]
+            ]
         ]);
     }
 }

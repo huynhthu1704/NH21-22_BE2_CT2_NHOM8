@@ -9,6 +9,6 @@ class CategoryController extends Controller
 {
     function getAllCategories() {
         $categories = Category::all();
-        return view('index', ['categories'=>$categories]);
+        return $categories;
     }
 }

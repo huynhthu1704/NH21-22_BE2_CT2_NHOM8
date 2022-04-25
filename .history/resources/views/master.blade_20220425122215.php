@@ -103,8 +103,8 @@
                                                 <div class="menu-col">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            @foreach ($categories as $item)
-                                                             <div class="menu-title">{{$item->category_name}}</div><!-- End .menu-title -->
+                                                            @foreach ($categories as $category)
+                                                             <div class="menu-title">{{$category->category_name}}</div><!-- End .menu-title -->
                                                             <ul>
                                                                 <li><a href="{{ url('category-list') }}">Shop List</a></li>
                                                             </ul>      

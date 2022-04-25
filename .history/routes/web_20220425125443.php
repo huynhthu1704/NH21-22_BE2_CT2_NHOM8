@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('index', function () {
+//     return view('index');
+// });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/{viewName?}', function ($viewName = 'index') {
+//     return view($viewName);
+// });
 
-require __DIR__.'/auth.php';
+Route::get('/index', [CategoryController :: class, 'getAllCategories' ]);

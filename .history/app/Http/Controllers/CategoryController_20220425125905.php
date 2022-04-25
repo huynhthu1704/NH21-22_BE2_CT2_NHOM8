@@ -9,6 +9,7 @@ class CategoryController extends Controller
 {
     function getAllCategories() {
         $categories = Category::all();
+        //dd($categories);
         return view('index', ['categories'=>$categories]);
     }
 }
