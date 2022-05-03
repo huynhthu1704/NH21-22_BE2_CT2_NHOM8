@@ -43,8 +43,8 @@ class ProductSeeder extends Seeder
                 'description' =>    'We know. It’s beautiful. But the modern Hampton sofa is much more than just good looks. A low base, a stunning loft look, adjustable backrests for comfort and visual impact – the Hampton sofa is the perfect personal retreat. With plenty of room for the entire family this corner sofa will be the hero of your living room',
                 'is_feature' =>    0,
                 'dimension_id' =>    2,
-                'quantity' => 15,
-                'sale_amount' => 3,
+                'quantity' => 5,
+                'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -55,8 +55,8 @@ class ProductSeeder extends Seeder
                 'description' =>    'Amsterdam is sharp lines and sweeping curves. Comfort and luxury imbue every detail to make Amsterdam the perfect sofa for a soft and inviting statement in your living room.',
                 'is_feature' =>    0,
                 'dimension_id' =>    3,
-                'quantity' => 35,
-                'sale_amount' => 7,
+                'quantity' => 5,
+                'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -67,8 +67,8 @@ class ProductSeeder extends Seeder
                 'description' =>    'Amsterdam is sharp lines and sweeping curves. Comfort and luxury imbue every detail to make Amsterdam the perfect sofa for a soft and inviting statement in your living room.',
                 'is_feature' =>    1,
                 'dimension_id' =>    4,
-                'quantity' => 25,
-                'sale_amount' => 3,
+                'quantity' => 5,
+                'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -79,7 +79,7 @@ class ProductSeeder extends Seeder
                 'description' =>    'Feel the embrace of Danish design in the comfortable yet elegant Lille sofa. The design is minimal yet organic and expressive - perfect for small spaces in need of comfort and style.',
                 'is_feature' =>    1,
                 'dimension_id' =>    5,
-                'quantity' => 15,
+                'quantity' => 5,
                 'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
@@ -91,8 +91,8 @@ class ProductSeeder extends Seeder
                 'description' =>    'The Zurich sofa is your personal design statement with adjustable headrest and ultimate comfort. The sofa offers a light appearance making it perfect for both small and larger spaces as well as details that make it superb in both leather and fabric. It’s coziness and luxury in one perfect expression.',
                 'is_feature' =>    1,
                 'dimension_id' =>    6,
-                'quantity' => 15,
-                'sale_amount' => 3,
+                'quantity' => 5,
+                'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -103,8 +103,8 @@ class ProductSeeder extends Seeder
                 'description' =>    'The feminine look and curvy features of the exclusive Fargo sofa will add a sense of softness to your living room and create a welcoming atmosphere. Cosy up with your family or claim the sofa all to yourself with this roomy 3 seater sofa.',
                 'is_feature' =>    0,
                 'dimension_id' =>    7,
-                'quantity' => 9,
-                'sale_amount' => 1,
+                'quantity' => 5,
+                'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -116,7 +116,7 @@ class ProductSeeder extends Seeder
                 'is_feature' =>    0,
                 'dimension_id' =>    8,
                 'quantity' => 5,
-                'sale_amount' => 3,
+                'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -128,7 +128,7 @@ class ProductSeeder extends Seeder
                 'is_feature' =>    0,
                 'dimension_id' =>    9,
                 'quantity' => 5,
-                'sale_amount' => 0,
+                'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -139,8 +139,8 @@ class ProductSeeder extends Seeder
                 'description' =>    'The modern Carmo sofa is a real show-stopper with its cubic look, perfectly accentuated by exclusive piping details. Don’t be fooled by the straight lines, this sofa is a dream to sit on. The open end will create a dynamic, welcoming atmosphere - a true blessing for the integrated areas of open-plan living.',
                 'is_feature' =>    1,
                 'dimension_id' =>    10,
-                'quantity' => 10,
-                'sale_amount' => 2,
+                'quantity' => 5,
+                'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -151,8 +151,8 @@ class ProductSeeder extends Seeder
                 'description' =>    'Organic shapes and minimal lines come together in a casual, contemporary expression. The Modena chair will add a comfy vibe that calls for you to come lounge in excellent seating comfort.',
                 'is_feature' =>    1,
                 'dimension_id' =>    11,
-                'quantity' => 4,
-                'sale_amount' => 10,
+                'quantity' => 5,
+                'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -248,7 +248,7 @@ class ProductSeeder extends Seeder
                 'is_feature' =>    0,
                 'dimension_id' =>    19,
                 'quantity' => 5,
-                'sale_amount' => 15,
+                'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -643,8 +643,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Great support when sitting against the headboard and a soft landing make the Arlington bed an amazing addition to the bedroom. Just like the extension of a pillow, the soft headboard invites you in for a good night sleep.',
                 'is_feature' =>    1,
                 'dimension_id' =>    52,
-                'quantity' => 5,
-                'sale_amount' => 35,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -655,8 +653,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Relax and enjoy the comfort of Houston. The soft headboard with elegant design details ensures a welcoming look to your bed and great support whether sitting up or lounging with a book.',
                 'is_feature' =>    0,
                 'dimension_id' =>    53,
-                'quantity' => 3,
-                'sale_amount' => 85,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -667,8 +663,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Let your body sink down and feel relaxation wash over you. Sleep like an angel in the elegant Lugano bed. Keeping a minimalist look with a clean wooden frame, this modern bed will bring a sense of calm and serenity to your bedroom. Fitted with a plinth base for a more masculine, heavy look this bed invites you into comfort.',
                 'is_feature' =>    0,
                 'dimension_id' =>    54,
-                'quantity' => 4,
-                'sale_amount' => 53,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -679,8 +673,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Defined by grandiose lines and an elegant look, this modern bed will transform any ordinary bedroom into a luxurious sanctuary. The Mezzo is the Rolls Royce of beds and we guarantee it will bring you safely to dreamland.',
                 'is_feature' =>    0,
                 'dimension_id' =>    55,
-                'quantity' => 5,
-                'sale_amount' => 52,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -691,8 +683,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Let your body sink down and feel relaxation wash over you. Sleep like an angel in the elegant Lugano bed. Keeping a minimalist look with a clean wooden frame, this modern bed will bring a sense of calm and serenity to your bedroom. Fitted with a plinth base for a more masculine, heavy look this bed invites you into comfort.',
                 'is_feature' =>    1,
                 'dimension_id' =>    56,
-                'quantity' => 5,
-                'sale_amount' => 2,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -703,8 +693,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Defined by grandiose lines and an elegant look, this modern bed will transform any ordinary bedroom into a luxurious sanctuary. The Mezzo is the Rolls Royce of beds and we guarantee it will bring you safely to dreamland.',
                 'is_feature' =>    0,
                 'dimension_id' =>    57,
-                'quantity' => 5,
-                'sale_amount' => 3,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -715,8 +703,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Let your body sink down and feel relaxation wash over you. Sleep like an angel in the elegant Lugano bed. Keeping a minimalist look with a clean wooden frame, this modern bed will bring a sense of calm and serenity to your bedroom. Fitted with a plinth base for a more masculine, heavy look this bed invites you into comfort.',
                 'is_feature' =>    1,
                 'dimension_id' =>    58,
-                'quantity' => 5,
-                'sale_amount' => 35,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -727,8 +713,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Relax and enjoy the comfort of Houston. The soft headboard with elegant design details ensures a welcoming look to your bed and great support whether sitting up or lounging with a book.',
                 'is_feature' =>    0,
                 'dimension_id' =>    59,
-                'quantity' => 1,
-                'sale_amount' => 4,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -739,8 +723,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Defined by grandiose lines and an elegant look, this modern bed will transform any ordinary bedroom into a luxurious sanctuary. The Mezzo is the Rolls Royce of beds and we guarantee it will bring you safely to dreamland. Lift the bed frame and reveal plenty of storage space for extra bedding, thick winter blankets or perhaps even for hiding presents.',
                 'is_feature' =>    0,
                 'dimension_id' =>    60,
-                'quantity' => 3,
-                'sale_amount' => 6,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -751,8 +733,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'The Kuta floor lamp has a simple and stylish design. The dominant round shade and the long reach make it the perfect piece to couple with your sofa or dining table. Available in different colours, The Kuta floor lamp is sure to light up your interior.',
                 'is_feature' =>    1,
                 'dimension_id' =>    61,
-                'quantity' => 9,
-                'sale_amount' => 7,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -763,8 +743,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Designers Charlotte Høncke and Olaf Recht, went into nature for their inspiration to the Pine cone lamp. The round shapes and multiple layers combine with the beautiful finish to give the lamp a warm and soft light. Hang several Pine Cone pendants together for an artistic, contemporary expression.',
                 'is_feature' =>    0,
                 'dimension_id' =>    62,
-                'quantity' => 10,
-                'sale_amount' => 7,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -775,8 +753,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'The Kuta floor lamp has a simple and stylish design. The dominant round shade and the long reach make it the perfect piece to couple with your sofa or dining table.',
                 'is_feature' =>    1,
                 'dimension_id' =>    63,
-                'quantity' => 9,
-                'sale_amount' => 6,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -787,8 +763,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Get inspired by a simple, Scandinavian design. The Quadro lamp has a minimalistic look and quadratic lines. The black wall lamp with an adjustable LED light is the perfect match for bedsides and reading spots.',
                 'is_feature' =>    0,
                 'dimension_id' =>    64,
-                'quantity' => 4,
-                'sale_amount' => 47,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -799,8 +773,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'With the sculptural design and the dominant shade, the Shelter table lamp could be the perfect eye-catcher in your home. The combination of black metal with a brass arm is very trendy and ensures a modern expression to the iconic design.',
                 'is_feature' =>    1,
                 'dimension_id' =>    65,
-                'quantity' => 5,
-                'sale_amount' => 0,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -812,8 +784,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'With the sculptural design and the dominant shade, the Shelter table lamp could be the perfect eye-catcher in your home. The combination of black metal with a brass arm is very trendy and ensures a modern expression to the iconic design.',
                 'is_feature' =>    0,
                 'dimension_id' =>    66,
-                'quantity' => 2,
-                'sale_amount' => 10,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -824,8 +794,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'The Five pendant is the BoConcept Design Team’s take on the modern chandelier. Combining the very trendy antique brass with elegant arms that leaves the light bulb exposed, the Five lamp gives a dynamic and contemporary expression to your home.',
                 'is_feature' =>    0,
                 'dimension_id' =>    67,
-                'quantity' => 8,
-                'sale_amount' => 4,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -836,8 +804,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'The Kuta floor lamp has a simple and stylish design. The dominant round shade and the long reach make it the perfect piece to couple with your sofa or dining table.',
                 'is_feature' =>    0,
                 'dimension_id' =>    68,
-                'quantity' => 9,
-                'sale_amount' => 7,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -848,8 +814,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'Do you demand an aesthetic and pleasing design? Or do you demand a functional lamp for your current needs? The Demand lamp will do it all for you.',
                 'is_feature' =>    0,
                 'dimension_id' =>    69,
-                'quantity' => 5,
-                'sale_amount' => 5,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
@@ -860,8 +824,6 @@ class ProductSeeder extends Seeder
                 'description' =>    'The Stockholm lamp combines colored glass with a solid marble base for a simple and minimalistic design. The Stockholm lamp is the perfect way to add a decorative item in mixed materials to your home decor.',
                 'is_feature' =>    0,
                 'dimension_id' =>    70,
-                'quantity' => 5,
-                'sale_amount' => 8,
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
 
