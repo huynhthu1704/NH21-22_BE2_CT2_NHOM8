@@ -19,13 +19,13 @@ class CreateUsersTable extends Migration
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_unicode_ci';
             $table->id();
-            $table->string('username', 2000)->unique();
+            $table->string('username', 200)->unique();
             $table->string('password', 200);
             $table->string('email', 2000);
             $table->date('birthday');
             $table->string('full_name',200);
             $table->string('phone', 15);
-            $table->text('address', 2000);
+            $table->text('address');
             $table->string('gender', 15);
             $table->date('join_day');
             $table->unsignedBigInteger('role_id');
