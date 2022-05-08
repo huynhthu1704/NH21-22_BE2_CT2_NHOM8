@@ -48,6 +48,7 @@ class ProductController extends Controller
         foreach ($top_products as $key => $value) {
             $productItem[$value->product_id] =
                 [
+                    'product_id' => $value->product_id,
                     'product_name' =>  $value->product_name,
                     'price' =>  $value->price,
                     'sale_amount' => $value->sale_amount,
