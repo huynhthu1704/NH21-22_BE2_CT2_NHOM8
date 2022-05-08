@@ -8,13 +8,13 @@
                         <div class="intro-slider-container slider-container-ratio slider-container-1 mb-2 mb-lg-0">
                             <div class="intro-slider intro-slider-1 owl-carousel owl-simple owl-light owl-nav-inside"
                                 data-toggle="owl" data-owl-options='{
-                                                            "nav": false,
-                                                            "responsive": {
-                                                                "768": {
-                                                                    "nav": true
-                                                                }
-                                                            }
-                                                        }'>
+                                                                                                                            "nav": false,
+                                                                                                                            "responsive": {
+                                                                                                                                "768": {
+                                                                                                                                    "nav": true
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }'>
                                 <div class="intro-slide">
                                     <figure class="slide-image">
                                         <picture>
@@ -126,28 +126,28 @@
                 <div class="mb-6"></div><!-- End .mb-6 -->
 
                 <div class="owl-carousel owl-simple" data-toggle="owl" data-owl-options='{
-                                                "nav": false,
-                                                "dots": false,
-                                                "margin": 30,
-                                                "loop": false,
-                                                "responsive": {
-                                                    "0": {
-                                                        "items":2
-                                                    },
-                                                    "420": {
-                                                        "items":3
-                                                    },
-                                                    "600": {
-                                                        "items":4
-                                                    },
-                                                    "900": {
-                                                        "items":5
-                                                    },
-                                                    "1024": {
-                                                        "items":6
-                                                    }
-                                                }
-                                            }'>
+                                                                                                                "nav": false,
+                                                                                                                "dots": false,
+                                                                                                                "margin": 30,
+                                                                                                                "loop": false,
+                                                                                                                "responsive": {
+                                                                                                                    "0": {
+                                                                                                                        "items":2
+                                                                                                                    },
+                                                                                                                    "420": {
+                                                                                                                        "items":3
+                                                                                                                    },
+                                                                                                                    "600": {
+                                                                                                                        "items":4
+                                                                                                                    },
+                                                                                                                    "900": {
+                                                                                                                        "items":5
+                                                                                                                    },
+                                                                                                                    "1024": {
+                                                                                                                        "items":6
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }'>
                     @foreach ($brands as $brand)
                         <a href="#" class="brand">
                             <img src="{{ asset('/images/brands/' . $brand->id . '.png') }}" alt="Brand Name">
@@ -191,57 +191,86 @@
                     aria-labelledby="trendy-all-link">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                    "nav": false,
-                                                    "dots": true,
-                                                    "margin": 20,
-                                                    "loop": false,
-                                                    "responsive": {
-                                                        "0": {
-                                                            "items":2
-                                                        },
-                                                        "480": {
-                                                            "items":2
-                                                        },
-                                                        "768": {
-                                                            "items":3
-                                                        },
-                                                        "992": {
-                                                            "items":4
-                                                        },
-                                                        "1200": {
-                                                            "items":4,
-                                                            "nav": true,
-                                                            "dots": false
-                                                        }
-                                                    }
-                                                }'>
+                                                                                                                    "nav": false,
+                                                                                                                    "dots": true,
+                                                                                                                    "margin": 20,
+                                                                                                                    "loop": false,
+                                                                                                                    "responsive": {
+                                                                                                                        "0": {
+                                                                                                                            "items":2
+                                                                                                                        },
+                                                                                                                        "480": {
+                                                                                                                            "items":2
+                                                                                                                        },
+                                                                                                                        "768": {
+                                                                                                                            "items":3
+                                                                                                                        },
+                                                                                                                        "992": {
+                                                                                                                            "items":4
+                                                                                                                        },
+                                                                                                                        "1200": {
+                                                                                                                            "items":4,
+                                                                                                                            "nav": true,
+                                                                                                                            "dots": false
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }'>
 
 
-                        @foreach ($productData->getTopProducts(-1) as $product)
+                        @foreach ($productData->getTopProducts(-1) as $key => $product)
                             <div class="product product-11 text-center">
                                 <figure class="{{ asset('product-media') }}">
-                                    @php
-                                        $image = explode('#', $product->src);
-                                    @endphp
-                                    <a href='id=1'>
-                                        <img src="{{ asset('/images/molla/' . $image[0]) }}"
-                                            alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/molla/' . $image[1]) }}"
-                                            alt="Product image" class="product-image-hover">
-                                    </a>
+                                    @foreach ($product['colors'] as $key => $color)
+                                        @php
+                                            $image = explode('#', $color['src']);
+                                        @endphp
+                                        @if ($key == 0)
+                                            <a href='id=1'>
+                                                <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
+                                                    alt="Product image" class="product-image">
+                                                <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[1]) }}"
+                                                    alt="Product image" class="product-image-hover">
+                                            </a>
+                                        @else
+                                            <a href='id=1' class="d-none">
+                                                <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
+                                                    alt="Product image" class="product-image">
+                                                <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[1]) }}"
+                                                    alt="Product image" class="product-image-hover">
+                                            </a>
+                                        @endif
+                                    @endforeach
 
                                     <div class="product-action-vertical">
                                         <a href="#" class="btn-product-icon btn-wishlist"><span>add to wishlist</span></a>
                                     </div><!-- End .product-action-vertical -->
+
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
                                     <h3 class="product-title"><a
-                                            href="{{ asset('product') }}">{{ $product->product_name }}</a></h3>
+                                            href="{{ asset('product') }}">{{ $product['product_name'] }}</a></h3>
                                     <!-- End .product-title -->
                                     <div class="product-price">
-                                        {{ $product->price . ' VNĐ' }}
+                                        {{ $product['price'] . ' VNĐ' }}
                                     </div><!-- End .product-price -->
+                                    <div class="product-nav product-nav-dots">
+                                        @foreach ($product['colors'] as $key => $color)
+                                            @if (count($product['colors']) == 1)
+                                                @php
+                                                    continue;
+                                                @endphp
+                                            @endif
+                                            @if ($key == 0)
+                                                <a href="#" class="active" data-product="{{}}"
+                                                    style="background: {{ $color['color_code'] }};"><span
+                                                        class="sr-only">Color name</span></a>
+                                            @else
+                                                <a href="#" style="background: {{ $color['color_code'] }};"><span
+                                                        class="sr-only">Color name</span></a>
+                                            @endif
+                                        @endforeach
+                                    </div>
                                 </div><!-- End .product-body -->
                                 <div class="product-action">
                                     <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
@@ -253,43 +282,41 @@
                 <div class="tab-pane p-0 fade" id="trendy-sofa-tab" role="tabpanel" aria-labelledby="trendy-sofa-tab">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                    "nav": false,
-                                                    "dots": true,
-                                                    "margin": 20,
-                                                    "loop": false,
-                                                    "responsive": {
-                                                        "0": {
-                                                            "items":2
-                                                        },
-                                                        "480": {
-                                                            "items":2
-                                                        },
-                                                        "768": {
-                                                            "items":3
-                                                        },
-                                                        "992": {
-                                                            "items":4
-                                                        },
-                                                        "1200": {
-                                                            "items":4,
-                                                            "nav": true,
-                                                            "dots": false
-                                                        }
-                                                    }
-                                                }'>
+                                                                                                                    "nav": false,
+                                                                                                                    "dots": true,
+                                                                                                                    "margin": 20,
+                                                                                                                    "loop": false,
+                                                                                                                    "responsive": {
+                                                                                                                        "0": {
+                                                                                                                            "items":2
+                                                                                                                        },
+                                                                                                                        "480": {
+                                                                                                                            "items":2
+                                                                                                                        },
+                                                                                                                        "768": {
+                                                                                                                            "items":3
+                                                                                                                        },
+                                                                                                                        "992": {
+                                                                                                                            "items":4
+                                                                                                                        },
+                                                                                                                        "1200": {
+                                                                                                                            "items":4,
+                                                                                                                            "nav": true,
+                                                                                                                            "dots": false
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }'>
 
                         @foreach ($productData->getTopProducts(1) as $product)
                             <div class="product product-11 text-center">
-
-
                                 <figure class="{{ asset('product-media') }}">
                                     @php
-                                        $image = explode('#', $product->src);
+                                        $image = explode('#', $product['colors'][0]['src']);
                                     @endphp
                                     <a href='id=1'>
-                                        <img src="{{ asset('/images/molla/sofas/' . $image[0]) }}"
+                                        <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                             alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/molla/sofas/' . $image[1]) }}"
+                                        <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[1]) }}"
                                             alt="Product image" class="product-image-hover">
                                     </a>
 
@@ -300,10 +327,10 @@
 
                                 <div class="product-body">
                                     <h3 class="product-title"><a
-                                            href="{{ asset('product') }}">{{ $product->product_name }}</a></h3>
+                                            href="{{ asset('product') }}">{{ $product['product_name'] }}</a></h3>
                                     <!-- End .product-title -->
                                     <div class="product-price">
-                                        {{ $product->price . ' VNĐ' }}
+                                        {{ $product['price'] . ' VNĐ' }}
                                     </div><!-- End .product-price -->
                                 </div><!-- End .product-body -->
                                 <div class="product-action">
@@ -316,41 +343,41 @@
                 <div class="tab-pane p-0 fade" id="trendy-chair-tab" role="tabpanel" aria-labelledby="trendy-chair-tab">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                    "nav": false,
-                                                    "dots": true,
-                                                    "margin": 20,
-                                                    "loop": false,
-                                                    "responsive": {
-                                                        "0": {
-                                                            "items":2
-                                                        },
-                                                        "480": {
-                                                            "items":2
-                                                        },
-                                                        "768": {
-                                                            "items":3
-                                                        },
-                                                        "992": {
-                                                            "items":4
-                                                        },
-                                                        "1200": {
-                                                            "items":4,
-                                                            "nav": true,
-                                                            "dots": false
-                                                        }
-                                                    }
-                                                }'>
+                                                                                                                    "nav": false,
+                                                                                                                    "dots": true,
+                                                                                                                    "margin": 20,
+                                                                                                                    "loop": false,
+                                                                                                                    "responsive": {
+                                                                                                                        "0": {
+                                                                                                                            "items":2
+                                                                                                                        },
+                                                                                                                        "480": {
+                                                                                                                            "items":2
+                                                                                                                        },
+                                                                                                                        "768": {
+                                                                                                                            "items":3
+                                                                                                                        },
+                                                                                                                        "992": {
+                                                                                                                            "items":4
+                                                                                                                        },
+                                                                                                                        "1200": {
+                                                                                                                            "items":4,
+                                                                                                                            "nav": true,
+                                                                                                                            "dots": false
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }'>
 
                         @foreach ($productData->getTopProducts(3) as $product)
                             <div class="product product-11 text-center">
                                 <figure class="{{ asset('product-media') }}">
                                     @php
-                                        $image = explode('#', $product->src);
+                                        $image = explode('#', $product['colors'][0]['src']);
                                     @endphp
                                     <a href='id=1'>
-                                        <img src="{{ asset('/images/molla/Chairs/' . $image[0]) }}"
+                                        <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                             alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/molla/Chairs/' . $image[1]) }}"
+                                        <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[1]) }}"
                                             alt="Product image" class="product-image-hover">
                                     </a>
 
@@ -361,10 +388,10 @@
 
                                 <div class="product-body">
                                     <h3 class="product-title"><a
-                                            href="{{ asset('product') }}">{{ $product->product_name }}</a></h3>
+                                            href="{{ asset('product') }}">{{ $product['product_name'] }}</a></h3>
                                     <!-- End .product-title -->
                                     <div class="product-price">
-                                        {{ $product->price . ' VNĐ' }}
+                                        {{ $product['price'] . ' VNĐ' }}
                                     </div><!-- End .product-price -->
                                 </div><!-- End .product-body -->
                                 <div class="product-action">
@@ -377,43 +404,41 @@
                 <div class="tab-pane p-0 fade" id="trendy-lamp-tab" role="tabpanel" aria-labelledby="trendy-lamp-tab">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                    "nav": false,
-                                                    "dots": true,
-                                                    "margin": 20,
-                                                    "loop": false,
-                                                    "responsive": {
-                                                        "0": {
-                                                            "items":2
-                                                        },
-                                                        "480": {
-                                                            "items":2
-                                                        },
-                                                        "768": {
-                                                            "items":3
-                                                        },
-                                                        "992": {
-                                                            "items":4
-                                                        },
-                                                        "1200": {
-                                                            "items":4,
-                                                            "nav": true,
-                                                            "dots": false
-                                                        }
-                                                    }
-                                                }'>
+                                                                                                                    "nav": false,
+                                                                                                                    "dots": true,
+                                                                                                                    "margin": 20,
+                                                                                                                    "loop": false,
+                                                                                                                    "responsive": {
+                                                                                                                        "0": {
+                                                                                                                            "items":2
+                                                                                                                        },
+                                                                                                                        "480": {
+                                                                                                                            "items":2
+                                                                                                                        },
+                                                                                                                        "768": {
+                                                                                                                            "items":3
+                                                                                                                        },
+                                                                                                                        "992": {
+                                                                                                                            "items":4
+                                                                                                                        },
+                                                                                                                        "1200": {
+                                                                                                                            "items":4,
+                                                                                                                            "nav": true,
+                                                                                                                            "dots": false
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }'>
 
                         @foreach ($productData->getTopProducts(7) as $product)
                             <div class="product product-11 text-center">
-
-
                                 <figure class="{{ asset('product-media') }}">
                                     @php
-                                        $image = explode('#', $product->src);
+                                        $image = explode('#', $product['colors'][0]['src']);
                                     @endphp
-                                    <a href='id={{$product->id}}'>
-                                        <img src="{{ asset('/images/molla/Lamps/' . $image[0]) }}"
+                                    <a href='id=1'>
+                                        <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                             alt="Product image" class="product-image">
-                                        <img src="{{ asset('/images/molla/Lamps/' . $image[1]) }}"
+                                        <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[1]) }}"
                                             alt="Product image" class="product-image-hover">
                                     </a>
 
@@ -424,10 +449,10 @@
 
                                 <div class="product-body">
                                     <h3 class="product-title"><a
-                                            href="{{ asset('product') }}">{{ $product->product_name }}</a></h3>
+                                            href="{{ asset('product') }}">{{ $product['product_name'] }}</a></h3>
                                     <!-- End .product-title -->
                                     <div class="product-price">
-                                        {{ $product->price . ' VNĐ' }}
+                                        {{ $product['price'] . ' VNĐ' }}
                                     </div><!-- End .product-price -->
                                 </div><!-- End .product-body -->
                                 <div class="product-action">
@@ -1138,23 +1163,23 @@
                 <h2 class="title-lg text-center mb-3 mb-md-4">From Our Blog</h2><!-- End .title-lg text-center -->
 
                 <div class="owl-carousel owl-simple carousel-with-shadow" data-toggle="owl" data-owl-options='{
-                                                "nav": false,
-                                                "dots": true,
-                                                "items": 3,
-                                                "margin": 20,
-                                                "loop": false,
-                                                "responsive": {
-                                                    "0": {
-                                                        "items":1
-                                                    },
-                                                    "600": {
-                                                        "items":2
-                                                    },
-                                                    "992": {
-                                                        "items":3
-                                                    }
-                                                }
-                                            }'>
+                                                                                                                "nav": false,
+                                                                                                                "dots": true,
+                                                                                                                "items": 3,
+                                                                                                                "margin": 20,
+                                                                                                                "loop": false,
+                                                                                                                "responsive": {
+                                                                                                                    "0": {
+                                                                                                                        "items":1
+                                                                                                                    },
+                                                                                                                    "600": {
+                                                                                                                        "items":2
+                                                                                                                    },
+                                                                                                                    "992": {
+                                                                                                                        "items":3
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }'>
                     <article class="entry entry-display">
                         <figure class="entry-media">
                             <a href="{{ asset('single') }}">
@@ -1255,4 +1280,7 @@
             </div><!-- End .container -->
         </div><!-- End .cta -->
     </main><!-- End .main -->
+    <script>
+
+    </script>
 @endsection('content')
