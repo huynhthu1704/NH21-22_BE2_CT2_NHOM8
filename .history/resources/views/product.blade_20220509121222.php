@@ -1,6 +1,5 @@
 @extends('master')
 @section('content')
-{{dd($product)}}
         <main class="main">
             <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
                 <div class="container d-flex align-items-center">
@@ -73,7 +72,6 @@
                                         <label>Color:</label>
 
                                         <div class="product-nav product-nav-thumbs">
-                                            @php 
                                           @foreach ($images as $image)
                                                <a href="" class="active">
                                                 <img src="{{ asset('/images/molla/sofas/'.$image->src) }}" alt="product desc">

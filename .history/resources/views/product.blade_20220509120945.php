@@ -73,7 +73,6 @@
                                         <label>Color:</label>
 
                                         <div class="product-nav product-nav-thumbs">
-                                            @php 
                                           @foreach ($images as $image)
                                                <a href="" class="active">
                                                 <img src="{{ asset('/images/molla/sofas/'.$image->src) }}" alt="product desc">

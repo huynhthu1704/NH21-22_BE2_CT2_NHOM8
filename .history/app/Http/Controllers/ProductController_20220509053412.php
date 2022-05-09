@@ -22,19 +22,18 @@ class ProductController extends Controller
     } 
 
     function  index($id) {
-        $pro = new ProductController();
-        return view('product', ['product' => $pro->getDetail($id)]);
+        $product = new ProductController();
+        return view('product', ['product', $product]);
     }
 
     function getDetail($id)
     {
-        $products = DB::table('products')->select(
+        $productDetail = DB::table('products')->select(
             'products.id as product_id',
             'product_name',
             'price',
             'sale_amount',
             'src',
-            'description',
             'colors.id as color_id',
             'colors.color_name',
             'colors.color_code',
@@ -49,27 +48,8 @@ class ProductController extends Controller
             ->join('categories', 'products.cate_id', '=', 'categories.id')
             ->join('colors', 'colors.id', '=', 'images.color_id')
             ->join('dimensions', 'dimension_id', 'dimensions.id')
-            ->where('products.id', $id)->get();
-            $product = [];
-            foreach($products as $key=>$value) {
-                $product[$value->product_id] = [
-                    'name'=> $value->product_name,
-                    'description'=>$value->description,
-                    'price'=>$value->sale_amount,
-                    'category_name'=>$value->category_name,
-                    'dimension_id'=>$value->dimension_id,
-                    'width'=>$value->width,
-                    'height'=> $value-> height,
-                    'weight'=>$value->weight,
-                    'length'=>$value->length
-                ];
-            }
-            foreach($products as $key=>$value) {
-                $product[$value->product_id]['colors'] = [
-                   
-                ];
-            }
-        return $product;
+            ->where('products.id', $id);
+        return $productDetail;
     }
 
 

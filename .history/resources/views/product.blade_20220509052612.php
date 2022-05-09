@@ -1,13 +1,13 @@
 @extends('master')
 @section('content')
-{{dd($product)}}
+{{-- {{dd($product)}} --}}
         <main class="main">
             <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
                 <div class="container d-flex align-items-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('index') }}">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Products</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{$product->product_name}}</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{$product->('product_name')}}</li>
                     </ol>
 
                     <nav class="product-pager ml-auto" aria-label="Product">
@@ -73,7 +73,6 @@
                                         <label>Color:</label>
 
                                         <div class="product-nav product-nav-thumbs">
-                                            @php 
                                           @foreach ($images as $image)
                                                <a href="" class="active">
                                                 <img src="{{ asset('/images/molla/sofas/'.$image->src) }}" alt="product desc">

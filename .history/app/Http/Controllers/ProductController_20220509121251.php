@@ -28,7 +28,7 @@ class ProductController extends Controller
 
     function getDetail($id)
     {
-        $products = DB::table('products')->select(
+        $productDetail = DB::table('products')->select(
             'products.id as product_id',
             'product_name',
             'price',
@@ -49,27 +49,8 @@ class ProductController extends Controller
             ->join('categories', 'products.cate_id', '=', 'categories.id')
             ->join('colors', 'colors.id', '=', 'images.color_id')
             ->join('dimensions', 'dimension_id', 'dimensions.id')
-            ->where('products.id', $id)->get();
-            $product = [];
-            foreach($products as $key=>$value) {
-                $product[$value->product_id] = [
-                    'name'=> $value->product_name,
-                    'description'=>$value->description,
-                    'price'=>$value->sale_amount,
-                    'category_name'=>$value->category_name,
-                    'dimension_id'=>$value->dimension_id,
-                    'width'=>$value->width,
-                    'height'=> $value-> height,
-                    'weight'=>$value->weight,
-                    'length'=>$value->length
-                ];
-            }
-            foreach($products as $key=>$value) {
-                $product[$value->product_id]['colors'] = [
-                   
-                ];
-            }
-        return $product;
+            ->where('products.id', $id)->limit(1)->get();
+        return $productDetail[0];
     }
 
 

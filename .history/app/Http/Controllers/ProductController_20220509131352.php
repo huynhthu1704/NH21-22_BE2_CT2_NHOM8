@@ -64,11 +64,6 @@ class ProductController extends Controller
                     'length'=>$value->length
                 ];
             }
-            foreach($products as $key=>$value) {
-                $product[$value->product_id]['colors'] = [
-                   
-                ];
-            }
         return $product;
     }
 

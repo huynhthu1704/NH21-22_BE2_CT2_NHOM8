@@ -21,7 +21,7 @@ use App\Models\Dimension;
 */
 
 Route::get('/{name?}',[HomeController :: class, 'index']);
-Route::get('/product/{id}' ,[ProductController::class, 'index']);
+Route::get('/product/{id}' ,[ProductController::class, 'viewProductDetail']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

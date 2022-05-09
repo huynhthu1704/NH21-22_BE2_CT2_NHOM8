@@ -19,57 +19,17 @@ class ProductController extends Controller
     function __construct()
     {
         $this->product = new Product();
-    } 
-
-    function  index($id) {
-        $pro = new ProductController();
-        return view('product', ['product' => $pro->getDetail($id)]);
     }
 
-    function getDetail($id)
+    function viewProductDetail($id)
     {
-        $products = DB::table('products')->select(
-            'products.id as product_id',
-            'product_name',
-            'price',
-            'sale_amount',
-            'src',
-            'description',
-            'colors.id as color_id',
-            'colors.color_name',
-            'colors.color_code',
-            'categories.category_name',
-            'dimension_id',
-            'width',
-            'height',
-            'weight',
-            'length'
-        )
-            ->join('images', 'products.id', '=', 'images.product_id')
-            ->join('categories', 'products.cate_id', '=', 'categories.id')
-            ->join('colors', 'colors.id', '=', 'images.color_id')
-            ->join('dimensions', 'dimension_id', 'dimensions.id')
-            ->where('products.id', $id)->get();
-            $product = [];
-            foreach($products as $key=>$value) {
-                $product[$value->product_id] = [
-                    'name'=> $value->product_name,
-                    'description'=>$value->description,
-                    'price'=>$value->sale_amount,
-                    'category_name'=>$value->category_name,
-                    'dimension_id'=>$value->dimension_id,
-                    'width'=>$value->width,
-                    'height'=> $value-> height,
-                    'weight'=>$value->weight,
-                    'length'=>$value->length
-                ];
-            }
-            foreach($products as $key=>$value) {
-                $product[$value->product_id]['colors'] = [
-                   
-                ];
-            }
-        return $product;
+        $categories = Category::all();
+        $pro = Product::find($id);
+        $colors = Color::all();
+        $color = Color::find($id);
+        $images = Image::where('product_id', $id)->get();
+        $dimension = Dimension::find($id);
+        return view('product', ['product' => $pro, 'categories' => $categories, 'colors' => $colors, 'color' => $color, 'images' => $images, 'dimension' => $dimension]);
     }
 
 
