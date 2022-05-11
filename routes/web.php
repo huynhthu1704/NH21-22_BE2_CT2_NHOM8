@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Color;
@@ -19,7 +20,8 @@ use App\Models\Dimension;
 |
 */
 
-Route::get('/{name?}',[HomeController :: class, 'index']);
+Route::get('/{name?}', [HomeController::class, 'index'])->name('index');
+
 Route::get('/product/{id}', function ($id) {
     $categories = Category::all();
     $product = Product::find($id);
@@ -27,10 +29,18 @@ Route::get('/product/{id}', function ($id) {
     $color = Color::find($id);
     $images = Image::where('product_id', $id)->get();
     $dimension = Dimension::find($id);
-    return view('product',['product'=> $product, 'categories'=>$categories, 'colors'=>$colors, 'color'=>$color, 'images'=>$images, 'dimension'=>$dimension]);
+    return view('product', ['product' => $product, 'categories' => $categories, 'colors' => $colors, 'color' => $color, 'images' => $images, 'dimension' => $dimension]);
 });
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+// User authentication
+
+
+Route::prefix('auth')->group(function () {
+
+    Route::get('login', [UserController::class, 'show_form_login'])->name('auth.login');
+    Route::get('signup', [UserController::class, 'show_form_register'])->name('auth.register');
+
+    Route::post('register-action', [UserController::class, 'process_signup'])->name('auth.register.action');
+    Route::post('login-action', [UserController::class, 'process_login'])->name('auth.login.action');
+
+});

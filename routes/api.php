@@ -19,4 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/product/{categoryID}', [ProductController::class, 'getProduct']);
+
+Route::get('/getNew/{categoryID}/{page}/{perPage}', [ProductController::class, 'getNewProducts']);

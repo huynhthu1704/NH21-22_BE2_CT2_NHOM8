@@ -3,6 +3,7 @@
 
 
 <!-- molla/dashboard.html  22 Nov 2019 10:03:13 GMT -->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,11 +12,13 @@
     <meta name="keywords" content="HTML5 Template">
     <meta name="description" content="Molla - Bootstrap eCommerce Template">
     <meta name="author" content="p-themes">
-    <!-- Favicon --> 
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/images/icons/apple-touch-icon.png') }}">
-    <link rel="icon" type="{{ asset('image/png') }}" sizes="32x32" href="{{ asset('/images/icons/favicon-32x32.png') }}">
-    <link rel="icon" type="{{ asset('image/png') }}" sizes="16x16" href="{{ asset('/images/icons/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('/images/icons/site.html')}}">
+    <link rel="icon" type="{{ asset('image/png') }}" sizes="32x32"
+        href="{{ asset('/images/icons/favicon-32x32.png') }}">
+    <link rel="icon" type="{{ asset('image/png') }}" sizes="16x16"
+        href="{{ asset('/images/icons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('/images/icons/site.html') }}">
     <link rel="mask-icon" href="{{ asset('/images/icons/safari-pinned-tab.svg') }}" color="#666666">
     <link rel="shortcut icon" href="{{ asset('/images/icons/favicon.icon') }}">
     <meta name="apple-mobile-web-app-title" content="Molla">
@@ -66,10 +69,12 @@
                                 <a href="#">Links</a>
                                 <ul>
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
-                                    <li><a href="{{ url('wishlist') }}"><i class="icon-heart-o"></i>Wishlist <span>(3)</span></a></li>
+                                    <li><a href="{{ url('wishlist') }}"><i class="icon-heart-o"></i>Wishlist
+                                            <span>(3)</span></a></li>
                                     <li><a href="{{ url('about') }}">About Us</a></li>
                                     <li><a href="{{ url('contact') }}">Contact Us</a></li>
-                                    <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
+                                    <li><a href="#signin-modal" data-toggle="modal"><i
+                                                class="icon-user"></i>Login</a></li>
                                 </ul>
                             </li>
                         </ul><!-- End .top-menu -->
@@ -104,23 +109,28 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             @foreach ($categories as $item)
-                                                             <div class="menu-title">{{$item->category_name}}</div><!-- End .menu-title -->
-                                                            <ul>
-                                                                <li><a href="{{ url('category-list') }}">Shop List</a></li>
-                                                            </ul>      
+                                                                <div class="menu-title">
+                                                                    {{ $item->category_name }}
+                                                                </div><!-- End .menu-title -->
+                                                                <ul>
+                                                                    <li><a href="{{ url('category-list') }}">Shop
+                                                                            List</a></li>
+                                                                </ul>
                                                             @endforeach
-                                                         
 
-                                                           
+
+
                                                         </div><!-- End .col-md-6 -->
 
                                                         <div class="col-md-6">
-                                                            <div class="menu-title">Shop Pages</div><!-- End .menu-title -->
+                                                            <div class="menu-title">Shop Pages</div>
+                                                            <!-- End .menu-title -->
                                                             <ul>
                                                                 <li><a href="{{ url('cart') }}">Cart</a></li>
                                                                 <li><a href="{{ url('checkout') }}">Checkout</a></li>
                                                                 <li><a href="{{ url('wishlist') }}">Wishlist</a></li>
-                                                                <li><a href="{{ url('dashboard') }}">My Account</a></li>
+                                                                <li><a href="{{ url('dashboard') }}">My Account</a>
+                                                                </li>
                                                                 <li><a href="#">Lookbook</a></li>
                                                             </ul>
                                                         </div><!-- End .col-md-6 -->
@@ -131,10 +141,14 @@
                                             <div class="col-md-4">
                                                 <div class="banner banner-overlay">
                                                     <a href="category.html" class="banner banner-menu">
-                                                        <img src="{{ asset('/images/menu/banner-1.jpg') }}" alt="Banner">
+                                                        <img src="{{ asset('/images/menu/banner-1.jpg') }}"
+                                                            alt="Banner">
 
                                                         <div class="banner-content banner-content-top">
-                                                            <div class="banner-title text-white">Last <br>Chance<br><span><strong>Sale</strong></span></div><!-- End .banner-title -->
+                                                            <div class="banner-title text-white">Last
+                                                                <br>Chance<br><span><strong>Sale</strong></span>
+                                                            </div>
+                                                            <!-- End .banner-title -->
                                                         </div><!-- End .banner-content -->
                                                     </a>
                                                 </div><!-- End .banner banner-overlay -->
@@ -149,7 +163,8 @@
                                         <div class="row no-gutters">
                                             <div class="col-md-6">
                                                 <div class="menu-col">
-                                                    <div class="menu-title">Product Details</div><!-- End .menu-title -->
+                                                    <div class="menu-title">Product Details</div>
+                                                    <!-- End .menu-title -->
                                                     <ul>
                                                         <li><a href="{{ url('product') }}">Default</a></li>
                                                     </ul>
@@ -159,10 +174,13 @@
                                             <div class="col-md-6">
                                                 <div class="banner banner-overlay">
                                                     <a href="category.html">
-                                                        <img src="{{ asset('/images/menu/banner-2.jpg') }}" alt="Banner">
+                                                        <img src="{{ asset('/images/menu/banner-2.jpg') }}"
+                                                            alt="Banner">
 
                                                         <div class="banner-content banner-content-bottom">
-                                                            <div class="banner-title text-white">New Trends<br><span><strong>spring 2019</strong></span></div><!-- End .banner-title -->
+                                                            <div class="banner-title text-white">New
+                                                                Trends<br><span><strong>spring 2019</strong></span>
+                                                            </div><!-- End .banner-title -->
                                                         </div><!-- End .banner-content -->
                                                     </a>
                                                 </div><!-- End .banner -->
@@ -179,7 +197,7 @@
                                         </li>
                                         <li>
                                             <a href="{{ url('contact') }}">Contact</a>
-                                           
+
                                         </li>
                                         <li><a href="{{ url('login') }}">Login</a></li>
                                         <li><a href="{{ url('faq') }}">FAQs</a></li>
@@ -202,40 +220,50 @@
 
                     <div class="header-right">
                         <div class="header-search">
-                            <a href="#" class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a>
+                            <a href="#" class="search-toggle" role="button" title="Search"><i
+                                    class="icon-search"></i></a>
                             <form action="#" method="get">
                                 <div class="header-search-wrapper">
                                     <label for="q" class="sr-only">Search</label>
-                                    <input type="search" class="form-control" name="q" id="q" placeholder="Search in..." required>
+                                    <input type="search" class="form-control" name="q" id="q"
+                                        placeholder="Search in..." required>
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->
                         <div class="dropdown compare-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
+                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" data-display="static"
+                                title="Compare Products" aria-label="Compare Products">
                                 <i class="icon-random"></i>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <ul class="compare-products">
                                     <li class="compare-product">
-                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">Blue Night Dress</a></h4>
+                                        <a href="#" class="btn-remove" title="Remove Product"><i
+                                                class="icon-close"></i></a>
+                                        <h4 class="compare-product-title"><a href="product.html">Blue Night Dress</a>
+                                        </h4>
                                     </li>
                                     <li class="compare-product">
-                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">White Long Skirt</a></h4>
+                                        <a href="#" class="btn-remove" title="Remove Product"><i
+                                                class="icon-close"></i></a>
+                                        <h4 class="compare-product-title"><a href="product.html">White Long Skirt</a>
+                                        </h4>
                                     </li>
                                 </ul>
 
                                 <div class="compare-actions">
                                     <a href="#" class="action-link">Clear All</a>
-                                    <a href="#" class="btn btn-outline-primary-2"><span>Compare</span><i class="icon-long-arrow-right"></i></a>
+                                    <a href="#" class="btn btn-outline-primary-2"><span>Compare</span><i
+                                            class="icon-long-arrow-right"></i></a>
                                 </div>
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .compare-dropdown -->
 
                         <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <i class="icon-shopping-cart"></i>
                                 <span class="cart-count">2</span>
                             </a>
@@ -256,10 +284,12 @@
 
                                         <figure class="product-image-container">
                                             <a href="product.html" class="product-image">
-                                                <img src="{{ asset('/images/products/cart/product-1.jpg') }}" alt="product">
+                                                <img src="{{ asset('/images/products/cart/product-1.jpg') }}"
+                                                    alt="product">
                                             </a>
                                         </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+                                        <a href="#" class="btn-remove" title="Remove Product"><i
+                                                class="icon-close"></i></a>
                                     </div><!-- End .product -->
 
                                     <div class="product">
@@ -276,10 +306,12 @@
 
                                         <figure class="product-image-container">
                                             <a href="product.html" class="product-image">
-                                                <img src="{{ asset('/images/products/cart/product-2.jpg;') }}" alt="product">
+                                                <img src="{{ asset('/images/products/cart/product-2.jpg;') }}"
+                                                    alt="product">
                                             </a>
                                         </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+                                        <a href="#" class="btn-remove" title="Remove Product"><i
+                                                class="icon-close"></i></a>
                                     </div><!-- End .product -->
                                 </div><!-- End .cart-product -->
 
@@ -291,7 +323,8 @@
 
                                 <div class="dropdown-cart-action">
                                     <a href="cart.html" class="btn btn-primary">View Cart</a>
-                                    <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                                    <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
+                                            class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
@@ -301,80 +334,88 @@
         </header><!-- End .header -->
 
         @yield('content')
-        
+
         <footer class="footer">
-        	<div class="footer-middle">
-	            <div class="container">
-	            	<div class="row">
-	            		<div class="col-sm-6 col-lg-3">
-	            			<div class="widget widget-about">
-	            				<img src="{{ asset('images/logo.png')}}" class="footer-logo" alt="Footer Logo" width="105" height="25">
-	            				<p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p>
+            <div class="footer-middle">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="widget widget-about">
+                                <img src="{{ asset('images/logo.png') }}" class="footer-logo" alt="Footer Logo"
+                                    width="105" height="25">
+                                <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate
+                                    magna eros eu erat. </p>
 
-	            				<div class="social-icons">
-	            					<a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Pinterest"><i class="icon-pinterest"></i></a>
-	            				</div><!-- End .soial-icons -->
-	            			</div><!-- End .widget about-widget -->
-	            		</div><!-- End .col-sm-6 col-lg-3 -->
+                                <div class="social-icons">
+                                    <a href="#" class="social-icon" target="_blank" title="Facebook"><i
+                                            class="icon-facebook-f"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Twitter"><i
+                                            class="icon-twitter"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Instagram"><i
+                                            class="icon-instagram"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Youtube"><i
+                                            class="icon-youtube"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Pinterest"><i
+                                            class="icon-pinterest"></i></a>
+                                </div><!-- End .soial-icons -->
+                            </div><!-- End .widget about-widget -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
 
-	            		<div class="col-sm-6 col-lg-3">
-	            			<div class="widget">
-	            				<h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="widget">
+                                <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
-	            				<ul class="widget-list">
-	            					<li><a href="{{ url('about') }}">About Molla</a></li>
-	            					<li><a href="#">How to shop on Molla</a></li>
-	            					<li><a href="#">FAQ</a></li>
-	            					<li><a href="{{ url('contact') }}">Contact us</a></li>
-	            					<li><a href="{{ url('login') }}">Log in</a></li>
-	            				</ul><!-- End .widget-list -->
-	            			</div><!-- End .widget -->
-	            		</div><!-- End .col-sm-6 col-lg-3 -->
+                                <ul class="widget-list">
+                                    <li><a href="{{ url('about') }}">About Molla</a></li>
+                                    <li><a href="#">How to shop on Molla</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="{{ url('contact') }}">Contact us</a></li>
+                                    <li><a href="{{ url('login') }}">Log in</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
 
-	            		<div class="col-sm-6 col-lg-3">
-	            			<div class="widget">
-	            				<h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="widget">
+                                <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
 
-	            				<ul class="widget-list">
-	            					<li><a href="#">Payment Methods</a></li>
-	            					<li><a href="#">Money-back guarantee!</a></li>
-	            					<li><a href="#">Returns</a></li>
-	            					<li><a href="#">Shipping</a></li>
-	            					<li><a href="#">Terms and conditions</a></li>
-	            					<li><a href="#">Privacy Policy</a></li>
-	            				</ul><!-- End .widget-list -->
-	            			</div><!-- End .widget -->
-	            		</div><!-- End .col-sm-6 col-lg-3 -->
+                                <ul class="widget-list">
+                                    <li><a href="#">Payment Methods</a></li>
+                                    <li><a href="#">Money-back guarantee!</a></li>
+                                    <li><a href="#">Returns</a></li>
+                                    <li><a href="#">Shipping</a></li>
+                                    <li><a href="#">Terms and conditions</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
 
-	            		<div class="col-sm-6 col-lg-3">
-	            			<div class="widget">
-	            				<h4 class="widget-title">My Account</h4><!-- End .widget-title -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="widget">
+                                <h4 class="widget-title">My Account</h4><!-- End .widget-title -->
 
-	            				<ul class="widget-list">
-	            					<li><a href="#">Sign In</a></li>
-	            					<li><a href="{{ url('cart') }}">View Cart</a></li>
-	            					<li><a href="#">My Wishlist</a></li>
-	            					<li><a href="#">Track My Order</a></li>
-	            					<li><a href="#">Help</a></li>
-	            				</ul><!-- End .widget-list -->
-	            			</div><!-- End .widget -->
-	            		</div><!-- End .col-sm-6 col-lg-3 -->
-	            	</div><!-- End .row -->
-	            </div><!-- End .container -->
-	        </div><!-- End .footer-middle -->
+                                <ul class="widget-list">
+                                    <li><a href="#">Sign In</a></li>
+                                    <li><a href="{{ url('cart') }}">View Cart</a></li>
+                                    <li><a href="#">My Wishlist</a></li>
+                                    <li><a href="#">Track My Order</a></li>
+                                    <li><a href="#">Help</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .footer-middle -->
 
-	        <div class="footer-bottom">
-	        	<div class="container">
-	        		<p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p><!-- End .footer-copyright -->
-	        		<figure class="footer-payments">
-	        			<img src="{{ asset('images/payments.png')}}" alt="Payment methods" width="272" height="20">
-	        		</figure><!-- End .footer-payments -->
-	        	</div><!-- End .container -->
-	        </div><!-- End .footer-bottom -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p>
+                    <!-- End .footer-copyright -->
+                    <figure class="footer-payments">
+                        <img src="{{ asset('images/payments.png') }}" alt="Payment methods" width="272" height="20">
+                    </figure><!-- End .footer-payments -->
+                </div><!-- End .container -->
+            </div><!-- End .footer-bottom -->
         </footer><!-- End .footer -->
     </div><!-- End .page-wrapper -->
     <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
@@ -388,10 +429,11 @@
 
             <form action="#" method="get" class="mobile-search">
                 <label for="mobile-search" class="sr-only">Search</label>
-                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required>
+                <input type="search" class="form-control" name="mobile-search" id="mobile-search"
+                    placeholder="Search in..." required>
                 <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
             </form>
-            
+
             <nav class="mobile-nav">
                 <ul class="mobile-menu">
                     <li class="active">
@@ -409,10 +451,12 @@
                             <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
                             <li><a href="category.html">Shop Grid 3 Columns</a></li>
                             <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
-                            <li><a href="category-boxed.html"><span>Shop Boxed No Sidebar<span class="tip tip-hot">Hot</span></span></a></li>
+                            <li><a href="category-boxed.html"><span>Shop Boxed No Sidebar<span
+                                            class="tip tip-hot">Hot</span></span></a></li>
                             <li><a href="category-fullwidth.html">Shop Fullwidth No Sidebar</a></li>
                             <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
-                            <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span class="tip tip-new">New</span></span></a></li>
+                            <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span
+                                            class="tip tip-new">New</span></span></a></li>
                             <li><a href="cart.html">Cart</a></li>
                             <li><a href="checkout.html">Checkout</a></li>
                             <li><a href="wishlist.html">Wishlist</a></li>
@@ -424,7 +468,8 @@
                         <ul>
                             <li><a href="product.html">Default</a></li>
                             <li><a href="product-centered.html">Centered</a></li>
-                            <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
+                            <li><a href="product-extended.html"><span>Extended Info<span
+                                            class="tip tip-new">New</span></span></a></li>
                             <li><a href="product-gallery.html">Gallery</a></li>
                             <li><a href="product-sticky.html">Sticky Info</a></li>
                             <li><a href="product-sidebar.html">Boxed With Sidebar</a></li>
@@ -521,9 +566,11 @@
             </nav><!-- End .mobile-nav -->
 
             <div class="social-icons">
-                <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Facebook"><i
+                        class="icon-facebook-f"></i></a>
                 <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
-                <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Instagram"><i
+                        class="icon-instagram"></i></a>
                 <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
             </div><!-- End .social-icons -->
         </div><!-- End .mobile-menu-wrapper -->
@@ -542,23 +589,29 @@
                         <div class="form-tab">
                             <ul class="nav nav-pills nav-fill" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
+                                    <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin"
+                                        role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register"
+                                        role="tab" aria-controls="register" aria-selected="false">Register</a>
                                 </li>
                             </ul>
                             <div class="tab-content" id="tab-content-5">
-                                <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
-                                    <form action="#">
+                                <div class="tab-pane fade show active" id="signin" role="tabpanel"
+                                    aria-labelledby="signin-tab">
+                                    <form action="{{ Route('auth.login.action') }}" method="POST">
+                                        @csrf
                                         <div class="form-group">
-                                            <label for="singin-email">Username or email address *</label>
-                                            <input type="text" class="form-control" id="singin-email" name="singin-email" required>
+                                            <label for="singin-email">Username *</label>
+                                            <input type="text" class="form-control" id="singin-email"
+                                                name="singin-email" required>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="singin-password">Password *</label>
-                                            <input type="password" class="form-control" id="singin-password" name="singin-password" required>
+                                            <input type="password" class="form-control" id="singin-password"
+                                                name="singin-password" required>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-footer">
@@ -568,8 +621,10 @@
                                             </button>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="signin-remember">
-                                                <label class="custom-control-label" for="signin-remember">Remember Me</label>
+                                                <input type="checkbox" class="custom-control-input"
+                                                    id="signin-remember">
+                                                <label class="custom-control-label" for="signin-remember">Remember
+                                                    Me</label>
                                             </div><!-- End .custom-checkbox -->
 
                                             <a href="#" class="forgot-link">Forgot Your Password?</a>
@@ -593,16 +648,62 @@
                                         </div><!-- End .row -->
                                     </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
-                                <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                                    <form action="#">
+                                <div class="tab-pane fade" id="register" role="tabpanel"
+                                    aria-labelledby="register-tab">
+                                    <form action="{{ Route('auth.register.action') }}" method="POST">
+
+                                        @csrf
+
                                         <div class="form-group">
-                                            <label for="register-email">Your email address *</label>
-                                            <input type="email" class="form-control" id="register-email" name="register-email" required>
+                                            <label for="register-email">Username *</label>
+                                            <input type="text" class="form-control" id="register-username"
+                                                name="username" required>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="register-password">Password *</label>
-                                            <input type="password" class="form-control" id="register-password" name="register-password" required>
+                                            <input type="password" class="form-control" id="register-password"
+                                                value="{{ old('password') }}" name="password" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="register-birthday">Birthday *</label>
+                                            <input type="date" class="form-control" id="register-birthday"
+                                                name="birthday" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="register-email">Email *</label>
+                                            <input type="email" class="form-control" id="register-email" name="email"
+                                                value="{{ old('email') }}" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="register-fullname">Full name *</label>
+                                            <input type="text" class="form-control" id="register-fullname"
+                                                value="{{ old('fullname') }}" name="fullname" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="register-phone">Phone *</label>
+                                            <input type="text" class="form-control" id="register-phone" name="phone"
+                                                value="{{ old('phone') }}" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="register-gender">Gender *</label>
+                                            <select type="text" class="form-control" id="register-gender"
+                                                name="gender" required>
+                                                <option value="Nam" selected>Nam</option>
+                                                <option value="Nam">Nữ</option>
+                                                <option value="Nam">Khác</option>
+                                            </select>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="register-address">Address *</label>
+                                            <input type="text" class="form-control" id="register-address"
+                                                name="address" value="1 khavancan" required>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-footer">
@@ -612,8 +713,10 @@
                                             </button>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="register-policy" required>
-                                                <label class="custom-control-label" for="register-policy">I agree to the <a href="#">privacy policy</a> *</label>
+                                                <input type="checkbox" class="custom-control-input"
+                                                    id="register-policy" required>
+                                                <label class="custom-control-label" for="register-policy">I agree to
+                                                    the <a href="#">privacy policy</a> *</label>
                                             </div><!-- End .custom-checkbox -->
                                         </div><!-- End .form-footer -->
                                     </form>
@@ -634,6 +737,7 @@
                                             </div><!-- End .col-6 -->
                                         </div><!-- End .row -->
                                     </div><!-- End .form-choice -->
+
                                 </div><!-- .End .tab-pane -->
                             </div><!-- End .tab-content -->
                         </div><!-- End .form-tab -->
@@ -656,4 +760,5 @@
 
 
 <!-- molla/dashboard.html  22 Nov 2019 10:03:13 GMT -->
+
 </html>

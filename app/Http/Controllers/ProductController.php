@@ -55,4 +55,19 @@ class ProductController extends Controller
         }
         return $arr;
     }
+
+    function getNewProducts($categoryID, $page, $perPage)
+    {
+
+        $start = $page * $perPage;
+
+        $products = Product::orderBy('sale_amount', 'desc')->limit($perPage + 1)->offset($start);
+
+        if($categoryID != -1) {
+            $products = $products->where('cate_id', '=', $categoryID);
+        }
+
+        return $products->get();
+    }
+
 }
