@@ -260,7 +260,7 @@
                                             href="{{ asset('product') }}">{{ $product['product_name'] }}</a></h3>
                                     <!-- End .product-title -->
                                     <div class="product-price">
-                                        {{ $product['price'] . ' VNĐ' }}
+                                        {{ number_format($product['price'], 0, '', ',') . ' VNĐ' }}
                                     </div><!-- End .product-price -->
 
                                     {{-- :Link switch color --}}
@@ -366,7 +366,7 @@
                                             href="{{ asset('product') }}">{{ $product['product_name'] }}</a></h3>
                                     <!-- End .product-title -->
                                     <div class="product-price">
-                                        {{ $product['price'] . ' VNĐ' }}
+                                        {{ number_format($product['price'], 0, '', ',') . ' VNĐ' }}
                                     </div><!-- End .product-price -->
 
                                     {{-- :Link switch color --}}
@@ -471,7 +471,7 @@
                                             href="{{ asset('product') }}">{{ $product['product_name'] }}</a></h3>
                                     <!-- End .product-title -->
                                     <div class="product-price">
-                                        {{ $product['price'] . ' VNĐ' }}
+                                        {{ number_format($product['price'], 0, '', ',') . ' VNĐ' }}
                                     </div><!-- End .product-price -->
 
                                     {{-- :Link switch color --}}
@@ -575,7 +575,7 @@
                                             href="{{ asset('product') }}">{{ $product['product_name'] }}</a></h3>
                                     <!-- End .product-title -->
                                     <div class="product-price">
-                                        {{ $product['price'] . ' VNĐ' }}
+                                        {{ number_format($product['price'], 0, '', ',') . ' VNĐ' }}
                                     </div><!-- End .product-price -->
 
                                     {{-- :Link switch color --}}
