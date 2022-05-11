@@ -67,6 +67,8 @@ class ProductController extends Controller
             $products = $products->where('cate_id', '=', $categoryID);
         }
 
+        
+
         return $products->get();
     }
 

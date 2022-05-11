@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\User;
 use App\Rules\FullnameRule;
+use Attribute;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
 
@@ -34,14 +36,21 @@ class UserController extends Controller
 
     public function process_login(Request $request)
     {
-        
-        $validate = Validator::make($request->validate([
-            'username' => 'required|string|regex:/\w*$/|max:255|unique:users,username',
-            'password' => ['required',  Password::min(8)->letters()->numbers()],
-        ])); 
 
-        $user = User::where('username', $request->input('username'))->where('password', $request->input('password'))->first();
-  
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|string|regex:/\w*$/|max:255',
+            'password' => ['required',  Password::min(8)->letters()->numbers()],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('auth.login')->withErrors($validator)->withInput();
+        }
+
+        $user = DB::table('users')->where('username', $request->input('username'))
+        ->where('password', md5($request->input('password')))->first();
+
+        dd($user);
+        // session()->push('user', $user);
     }
 
     public function process_signup(Request $request)
@@ -57,14 +66,18 @@ class UserController extends Controller
             'register-gender' => 'required', 'max:5'
         ]);
 
+        if ($validator->fails()) {
+            return redirect()->route('auth.register')->withErrors($validator)->withInput();
+        }
+
         $user = User::create([
-            'username' => md5($request->input('register-username')),
+            'username' => $request->input('register-username'),
             'password' => md5($request->input('register-password')),
             'email' => $request->input('register-email'),
             'birthday' => $request->input('register-birthday'),
             'full_name' => $request->input('register-fullname'),
-            'phone' => md5($request->input('register-phone')),
-            'address' => md5($request->input('register-address')),
+            'phone' => $request->input('register-phone'),
+            'address' => $request->input('register-address'),
             'gender' => $request->input('register-gender'),
             'join_day' => now(),
             'role_id' => 2
@@ -75,7 +88,6 @@ class UserController extends Controller
         session()->flash('message', 'Your account is created');
 
         return redirect()->route('auth.login');
-
     }
     public function logout()
     {
