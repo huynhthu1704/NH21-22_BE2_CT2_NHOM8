@@ -75,8 +75,8 @@
                                     <li><a href="{{ url('contact') }}">Contact Us</a></li>
                                     <li>
                                         @if (Session::has('user'))
-                                            <a href="#"><i
-                                                    class="icon-user"></i>Xin chao, {{}}</a>
+                                            {{-- <a href="#"><i --}}
+                                                    {{-- class="icon-user"></i>Xin chao, {{}}</a> --}}
                                         @else
                                             <a href="#signin-modal" data-toggle="modal"><i
                                                     class="icon-user"></i>Login</a>

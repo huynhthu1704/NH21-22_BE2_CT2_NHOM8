@@ -9,13 +9,13 @@
                             <div class="intro-slider intro-slider-1 owl-carousel owl-simple owl-light owl-nav-inside"
                                 data-toggle="owl"
                                 data-owl-options='{
-                                                                                                                                                                    "nav": false,
-                                                                                                                                                                    "responsive": {
-                                                                                                                                                                        "768": {
-                                                                                                                                                                            "nav": true
-                                                                                                                                                                        }
-                                                                                                                                                                    }
-                                                                                                                                                                }'>
+                                                                                                                                                                                    "nav": false,
+                                                                                                                                                                                    "responsive": {
+                                                                                                                                                                                        "768": {
+                                                                                                                                                                                            "nav": true
+                                                                                                                                                                                        }
+                                                                                                                                                                                    }
+                                                                                                                                                                                }'>
                                 <div class="intro-slide">
                                     <figure class="slide-image">
                                         <picture>
@@ -128,28 +128,28 @@
 
                 <div class="owl-carousel owl-simple" data-toggle="owl"
                     data-owl-options='{
-                                                                                                                                                        "nav": false,
-                                                                                                                                                        "dots": false,
-                                                                                                                                                        "margin": 30,
-                                                                                                                                                        "loop": false,
-                                                                                                                                                        "responsive": {
-                                                                                                                                                            "0": {
-                                                                                                                                                                "items":2
-                                                                                                                                                            },
-                                                                                                                                                            "420": {
-                                                                                                                                                                "items":3
-                                                                                                                                                            },
-                                                                                                                                                            "600": {
-                                                                                                                                                                "items":4
-                                                                                                                                                            },
-                                                                                                                                                            "900": {
-                                                                                                                                                                "items":5
-                                                                                                                                                            },
-                                                                                                                                                            "1024": {
-                                                                                                                                                                "items":6
-                                                                                                                                                            }
-                                                                                                                                                        }
-                                                                                                                                                    }'>
+                                                                                                                                                                        "nav": false,
+                                                                                                                                                                        "dots": false,
+                                                                                                                                                                        "margin": 30,
+                                                                                                                                                                        "loop": false,
+                                                                                                                                                                        "responsive": {
+                                                                                                                                                                            "0": {
+                                                                                                                                                                                "items":2
+                                                                                                                                                                            },
+                                                                                                                                                                            "420": {
+                                                                                                                                                                                "items":3
+                                                                                                                                                                            },
+                                                                                                                                                                            "600": {
+                                                                                                                                                                                "items":4
+                                                                                                                                                                            },
+                                                                                                                                                                            "900": {
+                                                                                                                                                                                "items":5
+                                                                                                                                                                            },
+                                                                                                                                                                            "1024": {
+                                                                                                                                                                                "items":6
+                                                                                                                                                                            }
+                                                                                                                                                                        }
+                                                                                                                                                                    }'>
                     @foreach ($brands as $brand)
                         <a href="#" class="brand">
                             <img src="{{ asset('/images/brands/' . $brand->id . '.png') }}" alt="Brand Name">
@@ -193,30 +193,30 @@
                     aria-labelledby="trendy-all-link">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                                                                                                                            "nav": false,
-                                                                                                                                                            "dots": true,
-                                                                                                                                                            "margin": 20,
-                                                                                                                                                            "loop": false,
-                                                                                                                                                            "responsive": {
-                                                                                                                                                                "0": {
-                                                                                                                                                                    "items":2
-                                                                                                                                                                },
-                                                                                                                                                                "480": {
-                                                                                                                                                                    "items":2
-                                                                                                                                                                },
-                                                                                                                                                                "768": {
-                                                                                                                                                                    "items":3
-                                                                                                                                                                },
-                                                                                                                                                                "992": {
-                                                                                                                                                                    "items":4
-                                                                                                                                                                },
-                                                                                                                                                                "1200": {
-                                                                                                                                                                    "items":4,
-                                                                                                                                                                    "nav": true,
-                                                                                                                                                                    "dots": false
-                                                                                                                                                                }
-                                                                                                                                                            }
-                                                                                                                                                        }'>
+                                                                                                                                                                            "nav": false,
+                                                                                                                                                                            "dots": true,
+                                                                                                                                                                            "margin": 20,
+                                                                                                                                                                            "loop": false,
+                                                                                                                                                                            "responsive": {
+                                                                                                                                                                                "0": {
+                                                                                                                                                                                    "items":2
+                                                                                                                                                                                },
+                                                                                                                                                                                "480": {
+                                                                                                                                                                                    "items":2
+                                                                                                                                                                                },
+                                                                                                                                                                                "768": {
+                                                                                                                                                                                    "items":3
+                                                                                                                                                                                },
+                                                                                                                                                                                "992": {
+                                                                                                                                                                                    "items":4
+                                                                                                                                                                                },
+                                                                                                                                                                                "1200": {
+                                                                                                                                                                                    "items":4,
+                                                                                                                                                                                    "nav": true,
+                                                                                                                                                                                    "dots": false
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        }'>
 
 
                         @foreach ($productData->getTopProducts(-1) as $key => $product)
@@ -301,30 +301,30 @@
                 <div class="tab-pane p-0 fade" id="trendy-sofa-tab" role="tabpanel" aria-labelledby="trendy-sofa-tab">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                                                                                                                            "nav": false,
-                                                                                                                                                            "dots": true,
-                                                                                                                                                            "margin": 20,
-                                                                                                                                                            "loop": false,
-                                                                                                                                                            "responsive": {
-                                                                                                                                                                "0": {
-                                                                                                                                                                    "items":2
-                                                                                                                                                                },
-                                                                                                                                                                "480": {
-                                                                                                                                                                    "items":2
-                                                                                                                                                                },
-                                                                                                                                                                "768": {
-                                                                                                                                                                    "items":3
-                                                                                                                                                                },
-                                                                                                                                                                "992": {
-                                                                                                                                                                    "items":4
-                                                                                                                                                                },
-                                                                                                                                                                "1200": {
-                                                                                                                                                                    "items":4,
-                                                                                                                                                                    "nav": true,
-                                                                                                                                                                    "dots": false
-                                                                                                                                                                }
-                                                                                                                                                            }
-                                                                                                                                                        }'>
+                                                                                                                                                                            "nav": false,
+                                                                                                                                                                            "dots": true,
+                                                                                                                                                                            "margin": 20,
+                                                                                                                                                                            "loop": false,
+                                                                                                                                                                            "responsive": {
+                                                                                                                                                                                "0": {
+                                                                                                                                                                                    "items":2
+                                                                                                                                                                                },
+                                                                                                                                                                                "480": {
+                                                                                                                                                                                    "items":2
+                                                                                                                                                                                },
+                                                                                                                                                                                "768": {
+                                                                                                                                                                                    "items":3
+                                                                                                                                                                                },
+                                                                                                                                                                                "992": {
+                                                                                                                                                                                    "items":4
+                                                                                                                                                                                },
+                                                                                                                                                                                "1200": {
+                                                                                                                                                                                    "items":4,
+                                                                                                                                                                                    "nav": true,
+                                                                                                                                                                                    "dots": false
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        }'>
 
                         @foreach ($productData->getTopProducts(1) as $product)
                             <div class="product product-11 text-center">
@@ -406,30 +406,30 @@
                 <div class="tab-pane p-0 fade" id="trendy-chair-tab" role="tabpanel" aria-labelledby="trendy-chair-tab">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                                                                                                                            "nav": false,
-                                                                                                                                                            "dots": true,
-                                                                                                                                                            "margin": 20,
-                                                                                                                                                            "loop": false,
-                                                                                                                                                            "responsive": {
-                                                                                                                                                                "0": {
-                                                                                                                                                                    "items":2
-                                                                                                                                                                },
-                                                                                                                                                                "480": {
-                                                                                                                                                                    "items":2
-                                                                                                                                                                },
-                                                                                                                                                                "768": {
-                                                                                                                                                                    "items":3
-                                                                                                                                                                },
-                                                                                                                                                                "992": {
-                                                                                                                                                                    "items":4
-                                                                                                                                                                },
-                                                                                                                                                                "1200": {
-                                                                                                                                                                    "items":4,
-                                                                                                                                                                    "nav": true,
-                                                                                                                                                                    "dots": false
-                                                                                                                                                                }
-                                                                                                                                                            }
-                                                                                                                                                        }'>
+                                                                                                                                                                            "nav": false,
+                                                                                                                                                                            "dots": true,
+                                                                                                                                                                            "margin": 20,
+                                                                                                                                                                            "loop": false,
+                                                                                                                                                                            "responsive": {
+                                                                                                                                                                                "0": {
+                                                                                                                                                                                    "items":2
+                                                                                                                                                                                },
+                                                                                                                                                                                "480": {
+                                                                                                                                                                                    "items":2
+                                                                                                                                                                                },
+                                                                                                                                                                                "768": {
+                                                                                                                                                                                    "items":3
+                                                                                                                                                                                },
+                                                                                                                                                                                "992": {
+                                                                                                                                                                                    "items":4
+                                                                                                                                                                                },
+                                                                                                                                                                                "1200": {
+                                                                                                                                                                                    "items":4,
+                                                                                                                                                                                    "nav": true,
+                                                                                                                                                                                    "dots": false
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        }'>
 
                         @foreach ($productData->getTopProducts(3) as $product)
                             <div class="product product-11 text-center">
@@ -510,30 +510,30 @@
                 <div class="tab-pane p-0 fade" id="trendy-lamp-tab" role="tabpanel" aria-labelledby="trendy-lamp-tab">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                                                                                                                            "nav": false,
-                                                                                                                                                            "dots": true,
-                                                                                                                                                            "margin": 20,
-                                                                                                                                                            "loop": false,
-                                                                                                                                                            "responsive": {
-                                                                                                                                                                "0": {
-                                                                                                                                                                    "items":2
-                                                                                                                                                                },
-                                                                                                                                                                "480": {
-                                                                                                                                                                    "items":2
-                                                                                                                                                                },
-                                                                                                                                                                "768": {
-                                                                                                                                                                    "items":3
-                                                                                                                                                                },
-                                                                                                                                                                "992": {
-                                                                                                                                                                    "items":4
-                                                                                                                                                                },
-                                                                                                                                                                "1200": {
-                                                                                                                                                                    "items":4,
-                                                                                                                                                                    "nav": true,
-                                                                                                                                                                    "dots": false
-                                                                                                                                                                }
-                                                                                                                                                            }
-                                                                                                                                                        }'>
+                                                                                                                                                                            "nav": false,
+                                                                                                                                                                            "dots": true,
+                                                                                                                                                                            "margin": 20,
+                                                                                                                                                                            "loop": false,
+                                                                                                                                                                            "responsive": {
+                                                                                                                                                                                "0": {
+                                                                                                                                                                                    "items":2
+                                                                                                                                                                                },
+                                                                                                                                                                                "480": {
+                                                                                                                                                                                    "items":2
+                                                                                                                                                                                },
+                                                                                                                                                                                "768": {
+                                                                                                                                                                                    "items":3
+                                                                                                                                                                                },
+                                                                                                                                                                                "992": {
+                                                                                                                                                                                    "items":4
+                                                                                                                                                                                },
+                                                                                                                                                                                "1200": {
+                                                                                                                                                                                    "items":4,
+                                                                                                                                                                                    "nav": true,
+                                                                                                                                                                                    "dots": false
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        }'>
 
                         @foreach ($productData->getTopProducts(7) as $product)
                             <div class="product product-11 text-center">
@@ -727,570 +727,172 @@
                 </ul>
             </div><!-- End .heading -->
 
+
             <div class="tab-content">
                 <div class="tab-pane p-0 fade show active" id="top-all-tab" role="tabpanel" aria-labelledby="top-all-link">
-                    <div class="products">
-                        <div class="row justify-content-center">
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="product.html">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-12-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-12-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
+                    <div class="products" >
+                        <div class="row justify-content-center" id="allNew">
 
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="product.html">Block Side Table/Trolley</a></h3>
-                                        <!-- End .product-title -->
-                                        <div class="product-price">
-                                            $229,00
-                                        </div><!-- End .product-price -->
-
-                                        <div class="product-nav product-nav-dots">
-                                            <a href="#" class="active" style="background: #333333;"><span
-                                                    class="sr-only">Color name</span></a>
-                                            <a href="#" style="background: #e8e8e8;"><span class="sr-only">Color
-                                                    name</span></a>
-                                        </div><!-- End .product-nav -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="product.html">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-10-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-10-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Carronade Suspension
-                                                Lamp</a></h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $892,00
-                                        </div><!-- End .product-price -->
-
-                                        <div class="product-nav product-nav-dots">
-                                            <a href="#" class="active" style="background: #e8e8e8;"><span
-                                                    class="sr-only">Color name</span></a>
-                                            <a href="#" style="background: #333333;"><span class="sr-only">Color
-                                                    name</span></a>
-                                        </div><!-- End .product-nav -->
-
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <span class="product-label label-new">NEW</span>
-                                        <a href="product.html">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-9-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-9-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Garden Armchair</a>
-                                        </h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $94,00
-                                        </div><!-- End .product-price -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="product.html">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-8-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-8-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Madra Log
-                                                Holder</a>
-                                        </h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $104,00
-                                        </div><!-- End .product-price -->
-
-                                        <div class="product-nav product-nav-dots">
-                                            <a href="#" class="active" style="background: #333333;"><span
-                                                    class="sr-only">Color name</span></a>
-                                            <a href="#" style="background: #927764;"><span class="sr-only">Color
-                                                    name</span></a>
-                                        </div><!-- End .product-nav -->
-
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="product.html">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-11-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-11-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Original Outdoor
-                                                Beanbag</a></h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $259,00
-                                        </div><!-- End .product-price -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="product.html">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-13-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-13-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">2-Seater</a></h3>
-                                        <!-- End .product-title -->
-                                        <div class="product-price">
-                                            $3.107,00
-                                        </div><!-- End .product-price -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="product.html">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-14-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-14-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Wingback Chair</a>
-                                        </h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $2.486,00
-                                        </div><!-- End .product-price -->
-
-                                        <div class="product-nav product-nav-dots">
-                                            <a href="#" class="active" style="background: #999999;"><span
-                                                    class="sr-only">Color name</span></a>
-                                            <a href="#" style="background: #cc9999;"><span class="sr-only">Color
-                                                    name</span></a>
-                                        </div><!-- End .product-nav -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <span class="product-label label-new">NEW</span>
-                                        <a href="product.html">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-16-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-16-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <div class="product-cat">
-                                            <a href="#">Decor</a>
-                                        </div><!-- End .product-cat -->
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Cushion Set 3
-                                                Pieces</a></h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $199,00
-                                        </div><!-- End .product-price -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
                         </div><!-- End .row -->
                     </div><!-- End .products -->
+                    <div class="more-container text-center">
+                        <a href="javascript:void(0)" class="btn btn-outline-darker btn-more" data-category-id="-1"
+                            data-container="allNew"><span>Load more products</span><i class="icon-long-arrow-down"></i></a>
+                    </div><!-- End .more-container -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane p-0 fade" id="top-fur-tab" role="tabpanel" aria-labelledby="top-fur-link">
-                    <div class="products">
-                        <div class="row justify-content-center">
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <span class="product-label label-new">NEW</span>
-                                        <a href="product.html">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-9-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-9-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Garden Armchair</a>
-                                        </h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $94,00
-                                        </div><!-- End .product-price -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="{{ asset('product') }}">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-12-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-12-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Block Side
-                                                Table/Trolley</a></h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $229,00
-                                        </div><!-- End .product-price -->
-
-                                        <div class="product-nav product-nav-dots">
-                                            <a href="#" class="active" style="background: #333333;"><span
-                                                    class="sr-only">Color name</span></a>
-                                            <a href="#" style="background: #e8e8e8;"><span class="sr-only">Color
-                                                    name</span></a>
-                                        </div><!-- End .product-nav -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="{{ asset('product') }}">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-13-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-13-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">2-Seater</a></h3>
-                                        <!-- End .product-title -->
-                                        <div class="product-price">
-                                            $3.107,00
-                                        </div><!-- End .product-price -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-                        </div><!-- End .row -->
+                    <div class="products" >
+                        <div class="row justify-content-center" id="sofasNew">
+                        </div>
                     </div><!-- End .products -->
+                    <div class="more-container text-center">
+                        <a href="javascript:void(0)" class="btn btn-outline-darker btn-more" data-category-id="1"
+                            data-container="sofasNew"><span>Load more products</span><i
+                                class="icon-long-arrow-down"></i></a>
+                    </div><!-- End .more-container -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane p-0 fade" id="top-decor-tab" role="tabpanel" aria-labelledby="top-decor-link">
-                    <div class="products">
-                        <div class="row justify-content-center">
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="{{ asset('product') }}">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-8-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-8-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Madra Log
-                                                Holder</a>
-                                        </h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $104,00
-                                        </div><!-- End .product-price -->
-
-                                        <div class="product-nav product-nav-dots">
-                                            <a href="#" class="active" style="background: #333333;"><span
-                                                    class="sr-only">Color name</span></a>
-                                            <a href="#" style="background: #927764;"><span class="sr-only">Color
-                                                    name</span></a>
-                                        </div><!-- End .product-nav -->
-
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="{{ asset('product') }}">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-11-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-11-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Original Outdoor
-                                                Beanbag</a></h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $259,00
-                                        </div><!-- End .product-price -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="{{ asset('product') }}">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-14-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-14-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Wingback Chair</a>
-                                        </h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $2.486,00
-                                        </div><!-- End .product-price -->
-
-                                        <div class="product-nav product-nav-dots">
-                                            <a href="#" class="active" style="background: #999999;"><span
-                                                    class="sr-only">Color name</span></a>
-                                            <a href="#" style="background: #cc9999;"><span class="sr-only">Color
-                                                    name</span></a>
-                                        </div><!-- End .product-nav -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                    <div class="products" >
+                        <div class="row justify-content-center" id="chairNew">
+                         
                         </div><!-- End .row -->
                     </div><!-- End .products -->
+                    <div class="more-container text-center">
+                        <a href="javascript:void(0)" class="btn btn-outline-darker btn-more" data-category-id="3"
+                            data-container="chairNew"><span>Load more products</span><i
+                                class="icon-long-arrow-down"></i></a>
+                    </div><!-- End .more-container -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane p-0 fade" id="top-light-tab" role="tabpanel" aria-labelledby="top-light-link">
-                    <div class="products">
-                        <div class="row justify-content-center">
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <a href="{{ asset('product') }}">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-10-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-10-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Carronade
-                                                Suspension
-                                                Lamp</a></h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $892,00
-                                        </div><!-- End .product-price -->
-
-                                        <div class="product-nav product-nav-dots">
-                                            <a href="#" class="active" style="background: #e8e8e8;"><span
-                                                    class="sr-only">Color name</span></a>
-                                            <a href="#" style="background: #333333;"><span class="sr-only">Color
-                                                    name</span></a>
-                                        </div><!-- End .product-nav -->
-
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product product-11 mt-v3 text-center">
-                                    <figure class="product-media">
-                                        <span class="product-label label-new">NEW</span>
-                                        <a href="{{ asset('product') }}">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-16-1.jpg') }}"
-                                                alt="Product image" class="product-image">
-                                            <img src="{{ asset('/images/demos/demo-2/products/product-16-2.jpg') }}"
-                                                alt="Product image" class="product-image-hover">
-                                        </a>
-
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                    wishlist</span></a>
-                                        </div><!-- End .product-action-vertical -->
-                                    </figure><!-- End .product-media -->
-
-                                    <div class="product-body">
-                                        <div class="product-cat">
-                                            <a href="#">Decor</a>
-                                        </div><!-- End .product-cat -->
-                                        <h3 class="product-title"><a href="{{ asset('product') }}">Cushion Set 3
-                                                Pieces</a></h3><!-- End .product-title -->
-                                        <div class="product-price">
-                                            $199,00
-                                        </div><!-- End .product-price -->
-                                    </div><!-- End .product-body -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                    </div><!-- End .product-action -->
-                                </div><!-- End .product -->
-                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                    <div class="products" >
+                        <div class="row justify-content-center" id="lampNew">
+                    
                         </div><!-- End .row -->
                     </div><!-- End .products -->
+                    <div class="more-container text-center">
+                        <a href="javascript:void(0)" class="btn btn-outline-darker btn-more" data-category-id="7"
+                            data-container="lampNew"><span>Load more products</span><i
+                                class="icon-long-arrow-down"></i></a>
+                    </div><!-- End .more-container -->
                 </div><!-- .End .tab-pane -->
             </div><!-- End .tab-content -->
-            <div class="more-container text-center">
-                <a href="#" class="btn btn-outline-darker btn-more"><span>Load more products</span><i
-                        class="icon-long-arrow-down"></i></a>
-            </div><!-- End .more-container -->
+
         </div><!-- End .container -->
+        <script>
+            const btn_LoadMore = document.querySelectorAll('.btn-more');
+            
+            let perpage = 4;
+
+            let all = -1, sofas = -1, chairs = -1, lamps = -1;
+
+            btn_LoadMore.forEach(el => {
+                el.addEventListener('click', () => {
+                    loadMore(el.dataset.categoryId, el.dataset.container, el);
+                })
+                loadMore(el.dataset.categoryId, el.dataset.container, el);
+            });
+         
+           
+            async function loadMore(category_id, container, btnLoad) {
+
+                let p = 0;
+                switch (category_id) {
+                    case '-1':
+                        all++
+                        p = all
+                   
+                    break;
+                    case '1':
+                        sofas++
+                        p = sofas
+                    break;
+                    case '3':
+                        chairs++
+                        p = chairs
+                    break;
+                    case '7':
+                        lamps++
+                        p = lamps
+                    break;
+                }
+             
+
+                const url = "./api/getNew/" + category_id + "/" +  p  + "/" + perpage;
+                const respone = await fetch(url);
+                const result = await respone.json();
+                // const resultArr = [...result];
+                console.log([...result]);
+                const divResult = document.querySelector(`#${container}`);
+                let html = '';
+                let n = result.length - 1;
+
+                if (result.length < 5) {
+                    btnLoad.style.display = 'none';
+                    n = result.length;
+                }
+            
+
+                for (let i = 0; i < n; i++) {
+                    const product = result[i];
+                    html += `<div class="col-6 col-md-4 col-lg-3">
+                                    <div class="product product-11 mt-v3 text-center">
+                                        <figure class="product-media">`;
+
+                                            product.colors.forEach((color, i) => {
+                                                const images = color.src.split("#");
+                                                html += 
+                                                `<a href="#" class="${ i !== 0 ? 'd-none' : ''}">
+                                                    <img src="./images/molla/${product.category_name}/${images[0]}"
+                                                        alt="Product image" class="product-image">
+                                                    <img src="./images/molla/${product.category_name}/${images[1]}"
+                                                        alt="Product image" class="product-image-hover">
+                                                </a>`;
+                                            });
+                                                html +=
+                                                `<div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-wishlist "><span>add to
+                                                            wishlist</span></a>
+                                                </div>
+                                            </figure>
+
+                                            <div class="product-body">
+                                                <h3 class="product-title"><a href="#">${product.product_name}</a></h3>
+                                                <div class="product-price">
+                                                    ${formatter.format(product.price)}
+                                                </div>
+
+                                                <div class="product-nav product-nav-dots">`;
+                                                    if (product.colors.length > 1) {
+                                                        product.colors.forEach((color, i) => {
+                                                        html +=
+                                                        `
+                                                        <a href="#" class="${ i===0 ? 'active' : ''}" style="background: ${color.color_code};"><span
+                                                            class="sr-only">Color name</span></a>
+                                                        `
+                                                    });
+                                                    }
+                                                html +=
+                                                `</div>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                
+
+                
+                }
+            
+                divResult.insertAdjacentHTML('beforeend', html);
+            }
+            var formatter = new Intl.NumberFormat('it-IT', {
+                style: 'currency',
+                currency: 'VND',
+            });
+
+           
+        </script>
 
         <div class="container">
             <hr>
@@ -1340,23 +942,23 @@
 
                 <div class="owl-carousel owl-simple carousel-with-shadow" data-toggle="owl"
                     data-owl-options='{
-                                                                                                                                                        "nav": false,
-                                                                                                                                                        "dots": true,
-                                                                                                                                                        "items": 3,
-                                                                                                                                                        "margin": 20,
-                                                                                                                                                        "loop": false,
-                                                                                                                                                        "responsive": {
-                                                                                                                                                            "0": {
-                                                                                                                                                                "items":1
-                                                                                                                                                            },
-                                                                                                                                                            "600": {
-                                                                                                                                                                "items":2
-                                                                                                                                                            },
-                                                                                                                                                            "992": {
-                                                                                                                                                                "items":3
-                                                                                                                                                            }
-                                                                                                                                                        }
-                                                                                                                                                    }'>
+                                                                                                                                                                        "nav": false,
+                                                                                                                                                                        "dots": true,
+                                                                                                                                                                        "items": 3,
+                                                                                                                                                                        "margin": 20,
+                                                                                                                                                                        "loop": false,
+                                                                                                                                                                        "responsive": {
+                                                                                                                                                                            "0": {
+                                                                                                                                                                                "items":1
+                                                                                                                                                                            },
+                                                                                                                                                                            "600": {
+                                                                                                                                                                                "items":2
+                                                                                                                                                                            },
+                                                                                                                                                                            "992": {
+                                                                                                                                                                                "items":3
+                                                                                                                                                                            }
+                                                                                                                                                                        }
+                                                                                                                                                                    }'>
                     <article class="entry entry-display">
                         <figure class="entry-media">
                             <a href="{{ asset('single') }}">
@@ -1457,7 +1059,5 @@
             </div><!-- End .container -->
         </div><!-- End .cta -->
     </main><!-- End .main -->
-    <script>
-
-    </script>
+    <script></script>
 @endsection('content')

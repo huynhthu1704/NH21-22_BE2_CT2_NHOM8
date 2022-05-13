@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
-
+use Nette\Utils\Json;
 
 class ProductController extends Controller
 {
@@ -64,12 +64,38 @@ class ProductController extends Controller
         $products = Product::orderBy('sale_amount', 'desc')->limit($perPage + 1)->offset($start);
 
         if($categoryID != -1) {
-            $products = $products->where('cate_id', '=', $categoryID);
+            $products = $products->where('cate_id', '=', $categoryID)->get();
+        }else{
+            $products = $products->get();
         }
 
-        
+        $arr = [];
+        foreach ($products as $key => $product) {
+            
+            $category = $product->category;
 
-        return $products->get();
+            $arr[$key] = 
+            [
+                'product_id' => $product->id,
+                'product_name' =>  $product->product_name,
+                'price' =>  $product->price,
+                'sale_amount' => $product->sale_amount,
+                'category_name' => $category->category_name,
+            ];
+
+            foreach ($product->images as $img) {
+                $color = $img->color;
+                $arr[$key]['colors'][] = 
+                [
+                    'src' => $img->src,  
+                    'color_id' => $color->id,
+                    'color_name' => $color->color_name,
+                    'color_code' => $color->color_code,
+                ];
+            }
+        }
+
+        return json_encode($arr);
     }
 
 }
