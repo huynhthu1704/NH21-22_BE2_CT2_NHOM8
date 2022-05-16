@@ -4,37 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Product extends Model
 {
-    protected $table = "products";
 
-    public $timestamps = true;
-
-    protected $guarded = [
-        'id',
-        'product_name',
-        'cate_id',
-        'brand_id',
-        'description',
-        'is_feature',
-        'dimension_id',
-        'quantity',
-        'sale_amount'
-    ];
-
-    protected $fillable = [
-        'product_name',
-        'cate_id',
-        'brand_id',
-        'description',
-        'is_feature',
-        'dimension_id',
-        'quantity',
-        'sale_amount',
-    ];
-
-    public function colors()
+    public function images()
     {
-        return $this->belongsToMany('products', 'images');
+        return $this->hasMany('App\Models\Image');
     }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category', 'cate_id');
+    }
+
+    
 }
