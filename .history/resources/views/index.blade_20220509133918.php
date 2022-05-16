@@ -1,6 +1,5 @@
 @extends('master')
 @section('content')
-{{dd($productData->getTopProducts(-1))}}
     <main class="main">
         <div class="intro-section bg-lighter pt-5 pb-6">
             <div class="container">
@@ -37,7 +36,7 @@
                                     </div><!-- End .intro-content -->
                                 </div><!-- End .intro-slide -->
 
-                                <div class="intro-slide">
+                                {{-- <div class="intro-slide">
                                     <figure class="slide-image">
                                         <picture>
                                             <source media="(max-width: 480px)"
@@ -55,7 +54,7 @@
                                             <i class="icon-long-arrow-right"></i>
                                         </a>
                                     </div><!-- End .intro-content -->
-                                </div><!-- End .intro-slide -->
+                                </div><!-- End .intro-slide --> --}}
 
                                 <div class="intro-slide">
                                     <figure class="slide-image">
@@ -623,7 +622,6 @@
                     const productImgs = document.querySelectorAll(`#${this.dataset.product} a`);
 
                     productImgs.forEach(img => {
-                        
                         img.classList.add('d-none');
                     });
                     console.log(this.dataset.color);
@@ -633,7 +631,6 @@
                     const colorLinks = document.querySelectorAll(`.${this.dataset.product}`);
 
                     colorLinks.forEach(link => {
-                    
                         link.classList.remove('active');
                     })
 

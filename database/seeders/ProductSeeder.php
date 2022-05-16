@@ -112,7 +112,7 @@ class ProductSeeder extends Seeder
                 'cate_id' =>    1,
                 'price' =>    58820000,
                 'brand_id' =>    4,
-                'description' =>    "'Got a creative mind? Designer Karim Rashid surely does, and with Ottawa he invites you to play and customize. Ottawa has a tight look but is an extremely flexible concept, inviting you to create your own space. While keeping the 2 seater look, this comfortable 2.5 seater sofa has wider seats for extra comfort.'",
+                'description' =>    "Got a creative mind? Designer Karim Rashid surely does, and with Ottawa he invites you to play and customize. Ottawa has a tight look but is an extremely flexible concept, inviting you to create your own space. While keeping the 2 seater look, this comfortable 2.5 seater sofa has wider seats for extra comfort.",
                 'is_feature' =>    0,
                 'dimension_id' =>    8,
                 'quantity' => 5,
@@ -120,7 +120,7 @@ class ProductSeeder extends Seeder
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
-                'product_name' =>    "'HAMPTON SOFA WITH ADJUSTABLE BACK AND STORAGE ON THE RIGHT SIDE'",
+                'product_name' =>    "HAMPTON SOFA WITH ADJUSTABLE BACK AND STORAGE ON THE RIGHT SIDE",
                 'cate_id' =>    1,
                 'price' =>    165480000,
                 'brand_id' =>    6,
@@ -804,8 +804,7 @@ class ProductSeeder extends Seeder
                 'created_at' => $this->faker->dateTimeBetween('2010-01-01'),
             ],
             [
-                'product_name' =>    "'LEVEL PENDANT
-'",
+                'product_name' =>    'LEVEL PENDANT',
                 'cate_id' =>    7,
                 'price' =>    21190000,
                 'brand_id' =>    4,

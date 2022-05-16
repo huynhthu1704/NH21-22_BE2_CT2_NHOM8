@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-{{dd($productData->getTopProducts(-1))}}
+{{dd($productData)}}
     <main class="main">
         <div class="intro-section bg-lighter pt-5 pb-6">
             <div class="container">
