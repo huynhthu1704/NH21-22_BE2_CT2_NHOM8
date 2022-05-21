@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\User;
-use App\Rules\FullnameRule;
-use Attribute;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
 
@@ -47,10 +47,20 @@ class UserController extends Controller
         }
 
         $user = DB::table('users')->where('username', $request->input('username'))
-        ->where('password', md5($request->input('password')))->first();
+            ->where('password', md5($request->input('password')))->first();
 
-        dd($user);
-        // session()->push('user', $user);
+        if ($user) {
+            session()->push('user', $user[0]);
+            return redirect(route('index'));
+        } 
+        else {
+            echo 'hello';
+            return Redirect::back()->withErrors(
+                [
+                    'loginfail' => 'Email or password is wrong'
+                ]
+            );;
+        }
     }
 
     public function process_signup(Request $request)
@@ -89,8 +99,13 @@ class UserController extends Controller
 
         return redirect()->route('auth.login');
     }
+
+
     public function logout()
     {
-        return redirect()->route('auth.login');
+        Auth::logout();
+        session()->flush();
+
+        return redirect()->route('index');
     }
 }

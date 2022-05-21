@@ -23,6 +23,4 @@
             	</div><!-- End .container -->
         	</div><!-- End .error-content text-center -->
         </main><!-- End .main -->
-
-
 @endsection('content')

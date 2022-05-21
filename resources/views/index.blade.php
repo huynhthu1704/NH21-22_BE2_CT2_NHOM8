@@ -1,7 +1,5 @@
 @extends('master')
 @section('content')
-@php dd($productData->getTopProducts(-1))
-@endphp
     <main class="main">
         <div class="intro-section bg-lighter pt-5 pb-6">
             <div class="container">

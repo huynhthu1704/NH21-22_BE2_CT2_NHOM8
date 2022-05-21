@@ -20,7 +20,7 @@ use App\Models\Dimension;
 |
 */
 
-Route::get('/{name?}', [HomeController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/product/{id}', function ($id) {
     $categories = Category::all();
@@ -32,13 +32,15 @@ Route::get('/product/{id}', function ($id) {
     return view('product', ['product' => $product, 'categories' => $categories, 'colors' => $colors, 'color' => $color, 'images' => $images, 'dimension' => $dimension]);
 });
 
-// User authentication
 
 Route::prefix('admin')->group(function() {
     Route::get('index', function() {
         return view('admin.index');
     });
 });
+
+
+// User authentication
 Route::prefix('auth')->group(function () {
 
     Route::get('login', [UserController::class, 'show_form_login'])->name('auth.login');
@@ -47,4 +49,5 @@ Route::prefix('auth')->group(function () {
     Route::post('register-action', [UserController::class, 'process_signup'])->name('auth.register.action');
     Route::post('login-action', [UserController::class, 'process_login'])->name('auth.login.action');
 
+    Route::get('logout-action', [UserController::class, 'logout'])->name('auth.logout.action');
 });

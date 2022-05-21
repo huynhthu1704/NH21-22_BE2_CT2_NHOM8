@@ -75,8 +75,35 @@
                                     <li><a href="{{ url('contact') }}">Contact Us</a></li>
                                     <li>
                                         @if (Session::has('user'))
-                                            {{-- <a href="#"><i --}}
-                                                    {{-- class="icon-user"></i>Xin chao, {{}}</a> --}}
+                                            @php
+                                                $user = Session::get('user');
+                                               
+                                            @endphp
+                                            <div class="dropdown compare-dropdown">
+                                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false" data-display="static"
+                                                    title="Compare Products" aria-label="Compare Products"
+                                                    style="font-size: 13px">
+                                                    {{ $user[0]->full_name }}
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right" style="width: 150px">
+                                                    <ul class="compare-products flex-column align-items-start">
+                                                        <li class="d-block w-100 ml-0 mt-2">
+                                                            <a href="#" class=""><i class="icon-user"></i> Dashboard</a>
+                                                        </li>
+                                                        <li class="d-block w-100 ml-0 mt-2">
+                                                            <a href="#" class=""><i class="icon-shopping-cart"></i> Cart</a>
+                                                        </li>
+                                                        <li class="d-block w-100 ml-0 mt-2">
+                                                            <a href="#" class=""><i class="icon-heart-o"></i> WishList</a>
+                                                        </li>
+                                                        <li class="d-block w-100 ml-0 mt-2">
+                                                            <a href="{{route('auth.logout.action')}}" class=""><i class="icon-arrow-right"></i> Log out</a>
+                                                        </li>
+                                                    </ul>
+                                                </div><!-- End .dropdown-menu -->
+                                            </div><!-- End .compare-dropdown -->
                                         @else
                                             <a href="#signin-modal" data-toggle="modal"><i
                                                     class="icon-user"></i>Login</a>
