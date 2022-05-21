@@ -68,7 +68,7 @@
                                     <div class="product product-7 text-center">
                                         <figure class="product-media">
                                             <span class="product-label label-new">New</span>
-                                            <a href="{{url('/product')}}">
+                                            <a href="{{ url('/product') }}">
                                                 <img src="{{ asset('/images/products/product-4.jpg') }}"
                                                     alt="Product image" class="product-image">
                                             </a>
@@ -90,7 +90,9 @@
                                             <div class="product-cat">
                                                 <a href="#">Women</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{url('/product')}}">Brown paperbag waist pencil
+                                            <h3 class="product-title"><a href="{{ url('/product') }}">Brown paperbag
+                                                    waist
+                                                    pencil
                                                     skirt</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $60.00
@@ -121,7 +123,7 @@
                                 <div class="col-6 col-md-4 col-lg-4">
                                     <div class="product product-7 text-center">
                                         <figure class="product-media">
-                                            <a href="{{url('/product')}}">
+                                            <a href="{{ url('/product') }}">
                                                 <img src="{{ asset('/images/products/product-4.jpg') }}"
                                                     alt="Product image" class="product-image"> </a>
 
@@ -143,7 +145,9 @@
                                             <div class="product-cat">
                                                 <a href="#">Dresses</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{url('/product')}}">Dark yellow lace cut out swing
+                                            <h3 class="product-title"><a href="{{ url('/product') }}">Dark yellow lace
+                                                    cut
+                                                    out swing
                                                     dress</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $84.00
@@ -171,7 +175,7 @@
                                     <div class="product product-7 text-center">
                                         <figure class="product-media">
                                             <span class="product-label label-out">Out of Stock</span>
-                                            <a href="{{url('/product')}}">
+                                            <a href="{{ url('/product') }}">
                                                 <img src="{{ asset('/images/products/product-4.jpg') }}"
                                                     alt="Product image" class="product-image"> </a>
 
@@ -193,7 +197,8 @@
                                             <div class="product-cat">
                                                 <a href="#">Jackets</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{url('/product')}}">Khaki utility boiler
+                                            <h3 class="product-title"><a href="{{ url('/product') }}">Khaki utility
+                                                    boiler
                                                     jumpsuit</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 <span class="out-price">$120.00</span>
@@ -212,7 +217,7 @@
                                 <div class="col-6 col-md-4 col-lg-4">
                                     <div class="product product-7 text-center">
                                         <figure class="product-media">
-                                            <a href="{{url('/product')}}">
+                                            <a href="{{ url('/product') }}">
                                                 <img src="{{ asset('/images/products/product-4.jpg') }}"
                                                     alt="Product image" class="product-image"> </a>
 
@@ -234,7 +239,8 @@
                                             <div class="product-cat">
                                                 <a href="#">Jeans</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{url('/product')}}">Blue utility pinafore denim
+                                            <h3 class="product-title"><a href="{{ url('/product') }}">Blue utility
+                                                    pinafore denim
                                                     dress</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $76.00
@@ -254,7 +260,7 @@
                                     <div class="product product-7 text-center">
                                         <figure class="product-media">
                                             <span class="product-label label-new">New</span>
-                                            <a href="{{url('/product')}}">
+                                            <a href="{{ url('/product') }}">
                                                 <img src="{{ asset('/images/products/product-4.jpg') }}"
                                                     alt="Product image" class="product-image"> </a>
 
@@ -276,7 +282,8 @@
                                             <div class="product-cat">
                                                 <a href="#">Shoes</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{url('/product')}}">Beige knitted elastic runner
+                                            <h3 class="product-title"><a href="{{ url('/product') }}">Beige knitted
+                                                    elastic runner
                                                     shoes</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $84.00
@@ -303,7 +310,7 @@
                                 <div class="col-6 col-md-4 col-lg-4">
                                     <div class="product product-7 text-center">
                                         <figure class="product-media">
-                                            <a href="{{url('/product')}}">
+                                            <a href="{{ url('/product') }}">
                                                 <img src="{{ asset('/images/products/product-4.jpg') }}"
                                                     alt="Product image" class="product-image"> </a>
 
@@ -325,7 +332,9 @@
                                             <div class="product-cat">
                                                 <a href="#">Bags</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{url('/product')}}">Orange saddle lock front
+                                            <h3 class="product-title"><a href="{{ url('/product') }}">Orange saddle
+                                                    lock
+                                                    front
                                                     chain cross body bag</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $84.00
@@ -356,7 +365,7 @@
                                     <div class="product product-7 text-center">
                                         <figure class="product-media">
                                             <span class="product-label label-top">Top</span>
-                                            <a href="{{url('/product')}}">
+                                            <a href="{{ url('/product') }}">
                                                 <img src="{{ asset('/images/products/product-4.jpg') }}"
                                                     alt="Product image" class="product-image"> </a>
 
@@ -378,7 +387,9 @@
                                             <div class="product-cat">
                                                 <a href="#">Shoes</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{url('/product')}}">Light brown studded Wide fit
+                                            <h3 class="product-title"><a href="{{ url('/product') }}">Light brown
+                                                    studded
+                                                    Wide fit
                                                     wedges</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $110.00
@@ -410,7 +421,7 @@
                                 <div class="col-6 col-md-4 col-lg-4">
                                     <div class="product product-7 text-center">
                                         <figure class="product-media">
-                                            <a href="{{url('/product')}}">
+                                            <a href="{{ url('/product') }}">
                                                 <img src="{{ asset('/images/products/product-4.jpg') }}"
                                                     alt="Product image" class="product-image"> </a>
 
@@ -432,7 +443,9 @@
                                             <div class="product-cat">
                                                 <a href="#">Jumpers</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{url('/product')}}">Yellow button front tea
+                                            <h3 class="product-title"><a href="{{ url('/product') }}">Yellow button
+                                                    front
+                                                    tea
                                                     top</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $56.00
@@ -451,7 +464,7 @@
                                 <div class="col-6 col-md-4 col-lg-4">
                                     <div class="product product-7 text-center">
                                         <figure class="product-media">
-                                            <a href="{{url('/product')}}">
+                                            <a href="{{ url('/product') }}">
                                                 <img src="{{ asset('/images/products/product-4.jpg') }}"
                                                     alt="Product image" class="product-image"> </a>
 
@@ -473,7 +486,8 @@
                                             <div class="product-cat">
                                                 <a href="#">Bags</a>
                                             </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{url('/product')}}">Black soft RI weekend travel
+                                            <h3 class="product-title"><a href="{{ url('/product') }}">Black soft RI
+                                                    weekend travel
                                                     bag</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 $68.00
@@ -530,69 +544,22 @@
                                 <div class="collapse show" id="widget-1">
                                     <div class="widget-body">
                                         <div class="filter-items filter-items-count">
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="cat-1">
-                                                    <label class="custom-control-label" for="cat-1">Dresses</label>
-                                                </div><!-- End .custom-checkbox -->
-                                                <span class="item-count">3</span>
-                                            </div><!-- End .filter-item -->
+                                            @php
+                                                $categories = \App\Models\Category::all();
+                                            @endphp
+                                            @foreach ($categories as $category)
+                                                <div class="filter-item">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" name="category"
+                                                            value="{{ $category->id }}" id="cat-{{ $category->id }}">
+                                                        <label class="custom-control-label"
+                                                            for="cat-{{ $category->id }}">{{ $category->category_name }}</label>
+                                                    </div><!-- End .custom-checkbox -->
+                                                    <span class="item-count">{{ count($category->products) }}</span>
+                                                </div><!-- End .filter-item -->
+                                            @endforeach
 
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="cat-2">
-                                                    <label class="custom-control-label" for="cat-2">T-shirts</label>
-                                                </div><!-- End .custom-checkbox -->
-                                                <span class="item-count">0</span>
-                                            </div><!-- End .filter-item -->
 
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="cat-3">
-                                                    <label class="custom-control-label" for="cat-3">Bags</label>
-                                                </div><!-- End .custom-checkbox -->
-                                                <span class="item-count">4</span>
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="cat-4">
-                                                    <label class="custom-control-label" for="cat-4">Jackets</label>
-                                                </div><!-- End .custom-checkbox -->
-                                                <span class="item-count">2</span>
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="cat-5">
-                                                    <label class="custom-control-label" for="cat-5">Shoes</label>
-                                                </div><!-- End .custom-checkbox -->
-                                                <span class="item-count">2</span>
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="cat-6">
-                                                    <label class="custom-control-label" for="cat-6">Jumpers</label>
-                                                </div><!-- End .custom-checkbox -->
-                                                <span class="item-count">1</span>
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="cat-7">
-                                                    <label class="custom-control-label" for="cat-7">Jeans</label>
-                                                </div><!-- End .custom-checkbox -->
-                                                <span class="item-count">1</span>
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="cat-8">
-                                                    <label class="custom-control-label" for="cat-8">Sportwear</label>
-                                                </div><!-- End .custom-checkbox -->
-                                                <span class="item-count">0</span>
-                                            </div><!-- End .filter-item -->
                                         </div><!-- End .filter-items -->
                                     </div><!-- End .widget-body -->
                                 </div><!-- End .collapse -->
@@ -600,58 +567,29 @@
 
                             <div class="widget widget-collapsible">
                                 <h3 class="widget-title">
-                                    <a data-toggle="collapse" href="#widget-2" role="button" aria-expanded="true"
-                                        aria-controls="widget-2">
-                                        Size
+                                    <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true"
+                                        aria-controls="widget-1">
+                                        Brand
                                     </a>
                                 </h3><!-- End .widget-title -->
 
-                                <div class="collapse show" id="widget-2">
+                                <div class="collapse show" id="widget-1">
                                     <div class="widget-body">
-                                        <div class="filter-items">
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="size-1">
-                                                    <label class="custom-control-label" for="size-1">XS</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="size-2">
-                                                    <label class="custom-control-label" for="size-2">S</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" checked
-                                                        id="size-3">
-                                                    <label class="custom-control-label" for="size-3">M</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" checked
-                                                        id="size-4">
-                                                    <label class="custom-control-label" for="size-4">L</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="size-5">
-                                                    <label class="custom-control-label" for="size-5">XL</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="size-6">
-                                                    <label class="custom-control-label" for="size-6">XXL</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
+                                        <div class="filter-items filter-items-count">
+                                            @php
+                                                $brands = \App\Models\Brand::all();
+                                            @endphp
+                                            @foreach ($brands as $brand)
+                                                <div class="filter-item">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" name="brands"
+                                                            value="{{ $brand->id }}" id="brand-{{ $brand->id }}">
+                                                        <label class="custom-control-label"
+                                                            for="brand-{{ $brand->id }}">{{ $brand->brand_name }}</label>
+                                                    </div><!-- End .custom-checkbox -->
+                                                    <span class="item-count">{{ count($brand->products) }}</span>
+                                                </div><!-- End .filter-item -->
+                                            @endforeach
                                         </div><!-- End .filter-items -->
                                     </div><!-- End .widget-body -->
                                 </div><!-- End .collapse -->
@@ -668,113 +606,48 @@
                                 <div class="collapse show" id="widget-3">
                                     <div class="widget-body">
                                         <div class="filter-colors">
-                                            <a href="#" style="background: #b87145;"><span class="sr-only">Color
-                                                    Name</span></a>
-                                            <a href="#" style="background: #f0c04a;"><span class="sr-only">Color
-                                                    Name</span></a>
-                                            <a href="#" style="background: #333333;"><span class="sr-only">Color
-                                                    Name</span></a>
-                                            <a href="#" class="selected" style="background: #cc3333;"><span
-                                                    class="sr-only">Color Name</span></a>
-                                            <a href="#" style="background: #3399cc;"><span class="sr-only">Color
-                                                    Name</span></a>
-                                            <a href="#" style="background: #669933;"><span class="sr-only">Color
-                                                    Name</span></a>
-                                            <a href="#" style="background: #f2719c;"><span class="sr-only">Color
-                                                    Name</span></a>
-                                            <a href="#" style="background: #ebebeb;"><span class="sr-only">Color
-                                                    Name</span></a>
+                                            @php
+                                                $colors = \App\Models\Color::all();
+                                            @endphp
+                                            @foreach ($colors as $color)
+                                                <a href="#" class="color selected" data-color="{{ $color->id }}"
+                                                    style="background: {{ $color->color_code }};"><span
+                                                        class="sr-only">{{ $color->color_name }}</span></a>
+                                            @endforeach
                                         </div><!-- End .filter-colors -->
                                     </div><!-- End .widget-body -->
                                 </div><!-- End .collapse -->
                             </div><!-- End .widget -->
-
-                            <div class="widget widget-collapsible">
-                                <h3 class="widget-title">
-                                    <a data-toggle="collapse" href="#widget-4" role="button" aria-expanded="true"
-                                        aria-controls="widget-4">
-                                        Brand
-                                    </a>
-                                </h3><!-- End .widget-title -->
-
-                                <div class="collapse show" id="widget-4">
-                                    <div class="widget-body">
-                                        <div class="filter-items">
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="brand-1">
-                                                    <label class="custom-control-label" for="brand-1">Next</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="brand-2">
-                                                    <label class="custom-control-label" for="brand-2">River Island</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="brand-3">
-                                                    <label class="custom-control-label" for="brand-3">Geox</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="brand-4">
-                                                    <label class="custom-control-label" for="brand-4">New Balance</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="brand-5">
-                                                    <label class="custom-control-label" for="brand-5">UGG</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="brand-6">
-                                                    <label class="custom-control-label" for="brand-6">F&F</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                            <div class="filter-item">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="brand-7">
-                                                    <label class="custom-control-label" for="brand-7">Nike</label>
-                                                </div><!-- End .custom-checkbox -->
-                                            </div><!-- End .filter-item -->
-
-                                        </div><!-- End .filter-items -->
-                                    </div><!-- End .widget-body -->
-                                </div><!-- End .collapse -->
-                            </div><!-- End .widget -->
-
+                       
                             <div class="widget widget-collapsible">
                                 <h3 class="widget-title">
                                     <a data-toggle="collapse" href="#widget-5" role="button" aria-expanded="true"
-                                        aria-controls="widget-5">
+                                        aria-controls="widget-5" class="">
                                         Price
                                     </a>
                                 </h3><!-- End .widget-title -->
 
-                                <div class="collapse show" id="widget-5">
+                                <div class="collapse show" id="widget-5" style="">
                                     <div class="widget-body">
+                                        
                                         <div class="filter-price">
                                             <div class="filter-price-text">
                                                 Price Range:
-                                                <span id="filter-price-range"></span>
+                                                <span id="filter-price-range">$0 - $2000</span>
                                             </div><!-- End .filter-price-text -->
+                                            <div class="price-range-slider">
 
-                                            <div id="price-slider"></div><!-- End #price-slider -->
-                                        </div><!-- End .filter-price -->
+                                                <p class="range-value">
+                                                    <input type="text" id="amount" readonly>
+                                                </p>
+                                                <div id="slider-range" class="range-bar"></div>
+
+                                            </div>
+                                        </div>
+                                        
                                     </div><!-- End .widget-body -->
                                 </div><!-- End .collapse -->
-                            </div><!-- End .widget -->
+                            </div>
                         </div><!-- End .sidebar sidebar-shop -->
                     </aside><!-- End .col-lg-3 -->
                 </div><!-- End .row -->

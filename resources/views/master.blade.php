@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/plugins/owl-carousel/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/plugins/magnific-popup/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/plugins/nouislider/nouislider.css') }}">
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     <!-- Main CSS File -->
@@ -77,7 +78,7 @@
                                         @if (Session::has('user'))
                                             @php
                                                 $user = Session::get('user');
-                                               
+                                                
                                             @endphp
                                             <div class="dropdown compare-dropdown">
                                                 <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
@@ -90,16 +91,21 @@
                                                 <div class="dropdown-menu dropdown-menu-right" style="width: 150px">
                                                     <ul class="compare-products flex-column align-items-start">
                                                         <li class="d-block w-100 ml-0 mt-2">
-                                                            <a href="#" class=""><i class="icon-user"></i> Dashboard</a>
+                                                            <a href="#" class=""><i
+                                                                    class="icon-user"></i> Dashboard</a>
                                                         </li>
                                                         <li class="d-block w-100 ml-0 mt-2">
-                                                            <a href="#" class=""><i class="icon-shopping-cart"></i> Cart</a>
+                                                            <a href="#" class=""><i
+                                                                    class="icon-shopping-cart"></i> Cart</a>
                                                         </li>
                                                         <li class="d-block w-100 ml-0 mt-2">
-                                                            <a href="#" class=""><i class="icon-heart-o"></i> WishList</a>
+                                                            <a href="#" class=""><i
+                                                                    class="icon-heart-o"></i> WishList</a>
                                                         </li>
                                                         <li class="d-block w-100 ml-0 mt-2">
-                                                            <a href="{{route('auth.logout.action')}}" class=""><i class="icon-arrow-right"></i> Log out</a>
+                                                            <a href="{{ route('auth.logout.action') }}"
+                                                                class=""><i class="icon-arrow-right"></i>
+                                                                Log out</a>
                                                         </li>
                                                     </ul>
                                                 </div><!-- End .dropdown-menu -->
@@ -124,7 +130,7 @@
                             <i class="icon-bars"></i>
                         </button>
 
-                        <a href="{{ url('index') }}" class="logo">
+                        <a href="{{ route('index') }}" class="logo">
                             <img src="{{ asset('/images/logo.png') }}" alt="Molla Logo" width="105" height="25">
                         </a>
 
@@ -259,10 +265,10 @@
                         <div class="header-search">
                             <a href="#" class="search-toggle" role="button" title="Search"><i
                                     class="icon-search"></i></a>
-                            <form action="#" method="get">
+                            <form action="{{ route('category') }}" method="get">
                                 <div class="header-search-wrapper">
-                                    <label for="q" class="sr-only">Search</label>
-                                    <input type="search" class="form-control" name="q" id="q"
+                                    <label for="keyword" class="sr-only">Search</label>
+                                    <input type="search" class="form-control" name="keyword" id="keyword"
                                         placeholder="Search in..." required>
                                 </div><!-- End .header-search-wrapper -->
                             </form>
@@ -794,8 +800,13 @@
     <script src="{{ asset('/js/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('/js/superfish.min.js') }}"></script>
     <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('/js/wNumb.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap-input-spinner.js') }}"></script>
+    <script src="{{ asset('/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('/js/nouislider.min.js') }}"></script>
     <!-- Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>
+
 </body>
 
 

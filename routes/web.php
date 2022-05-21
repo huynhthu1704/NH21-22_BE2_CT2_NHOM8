@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
+use App\Http\Controllers\PaginationController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
 use App\Models\Product;
@@ -33,12 +35,12 @@ Route::get('/product/{id}', function ($id) {
 });
 
 
-Route::prefix('admin')->group(function() {
-    Route::get('index', function() {
+Route::prefix('admin')->group(function () {
+    Route::get('index', function () {
         return view('admin.index');
     });
+   
 });
-
 
 // User authentication
 Route::prefix('auth')->group(function () {
@@ -50,4 +52,8 @@ Route::prefix('auth')->group(function () {
     Route::post('login-action', [UserController::class, 'process_login'])->name('auth.login.action');
 
     Route::get('logout-action', [UserController::class, 'logout'])->name('auth.logout.action');
+});
+
+Route::prefix('category')->group(function () {
+    Route::get('/', [PaginationController::class, 'index'])->name('category');
 });
