@@ -3,13 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-<<<<<<< HEAD
-use App\Models\Color;
-use App\Models\Image;
-use App\Models\Dimension;
-use Illuminate\Http\Request;
-=======
->>>>>>> 2ab638b0cfade4d5d56b48ab8dda51516701fc17
 use Illuminate\Support\Facades\DB;
 use Nette\Utils\Json;
 
