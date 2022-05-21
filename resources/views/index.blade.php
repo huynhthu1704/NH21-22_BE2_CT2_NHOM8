@@ -1061,5 +1061,5 @@
             </div><!-- End .container -->
         </div><!-- End .cta -->
     </main><!-- End .main -->
-    <script></script>
+
 @endsection('content')

@@ -141,6 +141,9 @@
                                             <div class="col-md-8">
                                                 <div class="menu-col">
                                                     <div class="row">
+                                                        @php
+                                                            $categories = \App\Models\Category::all();
+                                                        @endphp
                                                         <div class="col-md-6">
                                                             @foreach ($categories as $item)
                                                                 <div class="menu-title">
