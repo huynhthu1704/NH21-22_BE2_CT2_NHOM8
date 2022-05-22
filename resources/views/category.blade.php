@@ -3,7 +3,7 @@
     <main class="main">
         <div class="page-header text-center" style="background-image: url('/images/page-header-bg.jpg')">
             <div class="container">
-                <h1 class="page-title">Grid 3 Columns<span>Shop</span></h1>
+                <h1 class="page-title">Molla<span>Shop</span></h1>
             </div><!-- End .container -->
         </div><!-- End .page-header -->
         <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
@@ -11,7 +11,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Grid 3 Columns</li>
+                    <li class="breadcrumb-item active" aria-current="page">Categories</li>
                 </ol>
             </div><!-- End .container -->
         </nav><!-- End .breadcrumb-nav -->
@@ -32,9 +32,10 @@
                                     <label for="sortby">Sort by:</label>
                                     <div class="select-custom">
                                         <select name="sortby" id="sortby" class="form-control">
-                                            <option value="popularity" selected="selected">Most Popular</option>
-                                            <option value="rating">Most Rated</option>
-                                            <option value="date">Date</option>
+                                            <option value="product_name" data-sort="asc" selected>A-Z</option>
+                                            <option value="price" data-sort="desc">prices descending</option>
+                                            <option value="price" data-sort="asc">prices increase</option>
+                                            <option value="created_at" data-sort="desc">New</option>
                                         </select>
                                     </div>
                                 </div><!-- End .toolbox-sort -->
@@ -63,458 +64,20 @@
                         </div><!-- End .toolbox -->
 
                         <div class="products mb-3">
-                            <div class="row justify-content-center">
-                                <div class="col-6 col-md-4 col-lg-4">
-                                    <div class="product product-7 text-center">
-                                        <figure class="product-media">
-                                            <span class="product-label label-new">New</span>
-                                            <a href="{{ url('/product') }}">
-                                                <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                    alt="Product image" class="product-image">
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                        to wishlist</span></a>
-                                                <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
-                                                    title="Quick view"><span>Quick view</span></a>
-                                                <a href="#" class="btn-product-icon btn-compare"
-                                                    title="Compare"><span>Compare</span></a>
-                                            </div><!-- End .product-action-vertical -->
-
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                            </div><!-- End .product-action -->
-                                        </figure><!-- End .product-media -->
-
-                                        <div class="product-body">
-                                            <div class="product-cat">
-                                                <a href="#">Women</a>
-                                            </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{ url('/product') }}">Brown paperbag
-                                                    waist
-                                                    pencil
-                                                    skirt</a></h3><!-- End .product-title -->
-                                            <div class="product-price">
-                                                $60.00
-                                            </div><!-- End .product-price -->
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 20%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                                <span class="ratings-text">( 2 Reviews )</span>
-                                            </div><!-- End .rating-container -->
-
-                                            <div class="product-nav product-nav-thumbs">
-                                                <a href="#" class="active">
-                                                    <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                        alt="Product image" class="product-image"> <a href="#">
-                                                        <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                            alt="Product image" class="product-image">>
-
-                                                        <a href="#">
-                                                            <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                                alt="Product image" class="product-image">>
-                                            </div><!-- End .product-nav -->
-                                        </div><!-- End .product-body -->
-                                    </div><!-- End .product -->
-                                </div><!-- End .col-sm-6 col-lg-4 -->
-
-                                <div class="col-6 col-md-4 col-lg-4">
-                                    <div class="product product-7 text-center">
-                                        <figure class="product-media">
-                                            <a href="{{ url('/product') }}">
-                                                <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                    alt="Product image" class="product-image"> </a>
-
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                        to wishlist</span></a>
-                                                <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
-                                                    title="Quick view"><span>Quick view</span></a>
-                                                <a href="#" class="btn-product-icon btn-compare"
-                                                    title="Compare"><span>Compare</span></a>
-                                            </div><!-- End .product-action-vertical -->
-
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                            </div><!-- End .product-action -->
-                                        </figure><!-- End .product-media -->
-
-                                        <div class="product-body">
-                                            <div class="product-cat">
-                                                <a href="#">Dresses</a>
-                                            </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{ url('/product') }}">Dark yellow lace
-                                                    cut
-                                                    out swing
-                                                    dress</a></h3><!-- End .product-title -->
-                                            <div class="product-price">
-                                                $84.00
-                                            </div><!-- End .product-price -->
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 0%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                                <span class="ratings-text">( 0 Reviews )</span>
-                                            </div><!-- End .rating-container -->
-
-                                            <div class="product-nav product-nav-thumbs">
-                                                <a href="#" class="active">
-                                                    <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                        alt="Product image" class="product-image"> <a href="#">
-                                                        <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                            alt="Product image" class="product-image">>
-                                            </div><!-- End .product-nav -->
-                                        </div><!-- End .product-body -->
-                                    </div><!-- End .product -->
-                                </div><!-- End .col-sm-6 col-lg-4 -->
-
-                                <div class="col-6 col-md-4 col-lg-4">
-                                    <div class="product product-7 text-center">
-                                        <figure class="product-media">
-                                            <span class="product-label label-out">Out of Stock</span>
-                                            <a href="{{ url('/product') }}">
-                                                <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                    alt="Product image" class="product-image"> </a>
-
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                        to wishlist</span></a>
-                                                <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
-                                                    title="Quick view"><span>Quick view</span></a>
-                                                <a href="#" class="btn-product-icon btn-compare"
-                                                    title="Compare"><span>Compare</span></a>
-                                            </div><!-- End .product-action-vertical -->
-
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                            </div><!-- End .product-action -->
-                                        </figure><!-- End .product-media -->
-
-                                        <div class="product-body">
-                                            <div class="product-cat">
-                                                <a href="#">Jackets</a>
-                                            </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{ url('/product') }}">Khaki utility
-                                                    boiler
-                                                    jumpsuit</a></h3><!-- End .product-title -->
-                                            <div class="product-price">
-                                                <span class="out-price">$120.00</span>
-                                            </div><!-- End .product-price -->
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 80%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                                <span class="ratings-text">( 6 Reviews )</span>
-                                            </div><!-- End .rating-container -->
-                                        </div><!-- End .product-body -->
-                                    </div><!-- End .product -->
-                                </div><!-- End .col-sm-6 col-lg-4 -->
-
-                                <div class="col-6 col-md-4 col-lg-4">
-                                    <div class="product product-7 text-center">
-                                        <figure class="product-media">
-                                            <a href="{{ url('/product') }}">
-                                                <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                    alt="Product image" class="product-image"> </a>
-
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                        to wishlist</span></a>
-                                                <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
-                                                    title="Quick view"><span>Quick view</span></a>
-                                                <a href="#" class="btn-product-icon btn-compare"
-                                                    title="Compare"><span>Compare</span></a>
-                                            </div><!-- End .product-action-vertical -->
-
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                            </div><!-- End .product-action -->
-                                        </figure><!-- End .product-media -->
-
-                                        <div class="product-body">
-                                            <div class="product-cat">
-                                                <a href="#">Jeans</a>
-                                            </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{ url('/product') }}">Blue utility
-                                                    pinafore denim
-                                                    dress</a></h3><!-- End .product-title -->
-                                            <div class="product-price">
-                                                $76.00
-                                            </div><!-- End .product-price -->
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 20%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                                <span class="ratings-text">( 2 Reviews )</span>
-                                            </div><!-- End .rating-container -->
-                                        </div><!-- End .product-body -->
-                                    </div><!-- End .product -->
-                                </div><!-- End .col-sm-6 col-lg-4 -->
-
-                                <div class="col-6 col-md-4 col-lg-4">
-                                    <div class="product product-7 text-center">
-                                        <figure class="product-media">
-                                            <span class="product-label label-new">New</span>
-                                            <a href="{{ url('/product') }}">
-                                                <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                    alt="Product image" class="product-image"> </a>
-
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                        to wishlist</span></a>
-                                                <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
-                                                    title="Quick view"><span>Quick view</span></a>
-                                                <a href="#" class="btn-product-icon btn-compare"
-                                                    title="Compare"><span>Compare</span></a>
-                                            </div><!-- End .product-action-vertical -->
-
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                            </div><!-- End .product-action -->
-                                        </figure><!-- End .product-media -->
-
-                                        <div class="product-body">
-                                            <div class="product-cat">
-                                                <a href="#">Shoes</a>
-                                            </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{ url('/product') }}">Beige knitted
-                                                    elastic runner
-                                                    shoes</a></h3><!-- End .product-title -->
-                                            <div class="product-price">
-                                                $84.00
-                                            </div><!-- End .product-price -->
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 0%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                                <span class="ratings-text">( 0 Reviews )</span>
-                                            </div><!-- End .rating-container -->
-
-                                            <div class="product-nav product-nav-thumbs">
-                                                <a href="#" class="active">
-                                                    <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                        alt="Product image" class="product-image"> <a href="#">
-                                                        <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                            alt="Product image" class="product-image">>
-                                            </div><!-- End .product-nav -->
-                                        </div><!-- End .product-body -->
-                                    </div><!-- End .product -->
-                                </div><!-- End .col-sm-6 col-lg-4 -->
-
-                                <div class="col-6 col-md-4 col-lg-4">
-                                    <div class="product product-7 text-center">
-                                        <figure class="product-media">
-                                            <a href="{{ url('/product') }}">
-                                                <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                    alt="Product image" class="product-image"> </a>
-
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                        to wishlist</span></a>
-                                                <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
-                                                    title="Quick view"><span>Quick view</span></a>
-                                                <a href="#" class="btn-product-icon btn-compare"
-                                                    title="Compare"><span>Compare</span></a>
-                                            </div><!-- End .product-action-vertical -->
-
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                            </div><!-- End .product-action -->
-                                        </figure><!-- End .product-media -->
-
-                                        <div class="product-body">
-                                            <div class="product-cat">
-                                                <a href="#">Bags</a>
-                                            </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{ url('/product') }}">Orange saddle
-                                                    lock
-                                                    front
-                                                    chain cross body bag</a></h3><!-- End .product-title -->
-                                            <div class="product-price">
-                                                $84.00
-                                            </div><!-- End .product-price -->
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 60%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                                <span class="ratings-text">( 1 Reviews )</span>
-                                            </div><!-- End .rating-container -->
-
-                                            <div class="product-nav product-nav-thumbs">
-                                                <a href="#" class="active">
-                                                    <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                        alt="Product image" class="product-image"> <a href="#">
-                                                        <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                            alt="Product image" class="product-image">>
-                                                        <a href="#">
-                                                            <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                                alt="Product image" class="product-image">>
-                                            </div><!-- End .product-nav -->
-                                        </div><!-- End .product-body -->
-                                    </div><!-- End .product -->
-                                </div><!-- End .col-sm-6 col-lg-4 -->
-
-                                <div class="col-6 col-md-4 col-lg-4">
-                                    <div class="product product-7 text-center">
-                                        <figure class="product-media">
-                                            <span class="product-label label-top">Top</span>
-                                            <a href="{{ url('/product') }}">
-                                                <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                    alt="Product image" class="product-image"> </a>
-
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                        to wishlist</span></a>
-                                                <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
-                                                    title="Quick view"><span>Quick view</span></a>
-                                                <a href="#" class="btn-product-icon btn-compare"
-                                                    title="Compare"><span>Compare</span></a>
-                                            </div><!-- End .product-action-vertical -->
-
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                            </div><!-- End .product-action -->
-                                        </figure><!-- End .product-media -->
-
-                                        <div class="product-body">
-                                            <div class="product-cat">
-                                                <a href="#">Shoes</a>
-                                            </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{ url('/product') }}">Light brown
-                                                    studded
-                                                    Wide fit
-                                                    wedges</a></h3><!-- End .product-title -->
-                                            <div class="product-price">
-                                                $110.00
-                                            </div><!-- End .product-price -->
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 80%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                                <span class="ratings-text">( 1 Reviews )</span>
-                                            </div><!-- End .rating-container -->
-
-                                            <div class="product-nav product-nav-thumbs">
-                                                <a href="#" class="active">
-                                                    <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                        alt="Product image" class="product-image">
-                                                    <a href="#">
-                                                        <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                            alt="Product image" class="product-image">a>
-
-                                                        <a href="#">
-                                                            <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                                alt="Product image" class="product-image">a>
-                                            </div><!-- End .product-nav -->
-                                        </div><!-- End .product-body -->
-                                    </div><!-- End .product -->
-                                </div><!-- End .col-sm-6 col-lg-4 -->
-
-                                <div class="col-6 col-md-4 col-lg-4">
-                                    <div class="product product-7 text-center">
-                                        <figure class="product-media">
-                                            <a href="{{ url('/product') }}">
-                                                <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                    alt="Product image" class="product-image"> </a>
-
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                        to wishlist</span></a>
-                                                <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
-                                                    title="Quick view"><span>Quick view</span></a>
-                                                <a href="#" class="btn-product-icon btn-compare"
-                                                    title="Compare"><span>Compare</span></a>
-                                            </div><!-- End .product-action-vertical -->
-
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                            </div><!-- End .product-action -->
-                                        </figure><!-- End .product-media -->
-
-                                        <div class="product-body">
-                                            <div class="product-cat">
-                                                <a href="#">Jumpers</a>
-                                            </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{ url('/product') }}">Yellow button
-                                                    front
-                                                    tea
-                                                    top</a></h3><!-- End .product-title -->
-                                            <div class="product-price">
-                                                $56.00
-                                            </div><!-- End .product-price -->
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 0%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                                <span class="ratings-text">( 0 Reviews )</span>
-                                            </div><!-- End .rating-container -->
-                                        </div><!-- End .product-body -->
-                                    </div><!-- End .product -->
-                                </div><!-- End .col-sm-6 col-lg-4 -->
-
-                                <div class="col-6 col-md-4 col-lg-4">
-                                    <div class="product product-7 text-center">
-                                        <figure class="product-media">
-                                            <a href="{{ url('/product') }}">
-                                                <img src="{{ asset('/images/products/product-4.jpg') }}"
-                                                    alt="Product image" class="product-image"> </a>
-
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                        to wishlist</span></a>
-                                                <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
-                                                    title="Quick view"><span>Quick view</span></a>
-                                                <a href="#" class="btn-product-icon btn-compare"
-                                                    title="Compare"><span>Compare</span></a>
-                                            </div><!-- End .product-action-vertical -->
-
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                            </div><!-- End .product-action -->
-                                        </figure><!-- End .product-media -->
-
-                                        <div class="product-body">
-                                            <div class="product-cat">
-                                                <a href="#">Bags</a>
-                                            </div><!-- End .product-cat -->
-                                            <h3 class="product-title"><a href="{{ url('/product') }}">Black soft RI
-                                                    weekend travel
-                                                    bag</a></h3><!-- End .product-title -->
-                                            <div class="product-price">
-                                                $68.00
-                                            </div><!-- End .product-price -->
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 0%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                                <span class="ratings-text">( 0 Reviews )</span>
-                                            </div><!-- End .rating-container -->
-                                        </div><!-- End .product-body -->
-                                    </div><!-- End .product -->
-                                </div><!-- End .col-sm-6 col-lg-4 -->
+                            <div class="row justify-content-center" id="products-wraper">
+                          
                             </div><!-- End .row -->
                         </div><!-- End .products -->
 
                         <nav aria-label="Page navigation">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
+                            <ul class="pagination justify-content-center" id="pagination">
+                                {{-- <li class="page-item disabled">
                                     <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1"
                                         aria-disabled="true">
                                         <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
                                     </a>
                                 </li>
-                                <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a>
-                                </li>
+                                <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item-total">of 6</li>
@@ -522,7 +85,7 @@
                                     <a class="page-link page-link-next" href="#" aria-label="Next">
                                         Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </nav>
                     </div><!-- End .col-lg-9 -->
@@ -567,13 +130,13 @@
 
                             <div class="widget widget-collapsible">
                                 <h3 class="widget-title">
-                                    <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true"
+                                    <a data-toggle="collapse" href="#widget-2" role="button" aria-expanded="true"
                                         aria-controls="widget-1">
                                         Brand
                                     </a>
                                 </h3><!-- End .widget-title -->
 
-                                <div class="collapse show" id="widget-1">
+                                <div class="collapse show" id="widget-2">
                                     <div class="widget-body">
                                         <div class="filter-items filter-items-count">
                                             @php
@@ -582,7 +145,7 @@
                                             @foreach ($brands as $brand)
                                                 <div class="filter-item">
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" name="brands"
+                                                        <input type="checkbox" class="custom-control-input" name="brand"
                                                             value="{{ $brand->id }}" id="brand-{{ $brand->id }}">
                                                         <label class="custom-control-label"
                                                             for="brand-{{ $brand->id }}">{{ $brand->brand_name }}</label>
@@ -610,7 +173,7 @@
                                                 $colors = \App\Models\Color::all();
                                             @endphp
                                             @foreach ($colors as $color)
-                                                <a href="#" class="color selected" data-color="{{ $color->id }}"
+                                                <a href="javascript:void(0)" class="colorCheckbox" data-color="{{ $color->id }}"
                                                     style="background: {{ $color->color_code }};"><span
                                                         class="sr-only">{{ $color->color_name }}</span></a>
                                             @endforeach
@@ -618,7 +181,7 @@
                                     </div><!-- End .widget-body -->
                                 </div><!-- End .collapse -->
                             </div><!-- End .widget -->
-                       
+
                             <div class="widget widget-collapsible">
                                 <h3 class="widget-title">
                                     <a data-toggle="collapse" href="#widget-5" role="button" aria-expanded="true"
@@ -626,26 +189,174 @@
                                         Price
                                     </a>
                                 </h3><!-- End .widget-title -->
+                                <style>
+                                    // doesnt work funnly on firefox or edge, need to fix
 
+                                    .range-slider {
+                                        width: 300px;
+                                        text-align: center;
+                                        position: relative;
+
+                                        .rangeValues {
+                                            display: block;
+                                        }
+                                    }
+
+                                    input[name=price_value] {
+                                        -webkit-appearance: none;
+                                        border: 1px solid white;
+                                        width: 300px;
+                                        position: absolute;
+                                        left: 0;
+                                    }
+
+                                    input[name=price_value]::-webkit-slider-runnable-track {
+                                        width: 300px;
+                                        height: 5px;
+                                        background: #333;
+                                        border: none;
+                                        border-radius: 3px;
+
+                                    }
+
+                                    input[name=price_value]::-webkit-slider-thumb {
+                                        -webkit-appearance: none;
+                                        border: none;
+                                        height: 16px;
+                                        width: 16px;
+                                        border-radius: 50%;
+                                        background: #fff;
+                                        box-shadow: 1px 1px 3px #333;
+                                        margin-top: -4px;
+                                        cursor: pointer;
+                                        position: relative;
+                                        z-index: 1;
+                                    }
+
+                                    input[name=price_value]:focus {
+                                        outline: none;
+                                    }
+
+                                    input[name=price_value]:focus::-webkit-slider-runnable-track {
+                                        background: #333;
+                                    }
+
+                                    input[name=price_value]::-moz-range-track {
+                                        width: 300px;
+                                        height: 5px;
+                                        background: #ddd;
+                                        border: none;
+                                        border-radius: 3px;
+                                    }
+
+                                    input[name=price_value]::-moz-range-thumb {
+                                        border: none;
+                                        height: 16px;
+                                        width: 16px;
+                                        border-radius: 50%;
+                                        background: #fff;
+                                        box-shadow: 1px 1px 3px #333;
+
+                                    }
+
+
+                                    /*hide the outline behind the border*/
+
+                                    input[name=price_value]:-moz-focusring {
+                                        outline: 1px solid white;
+                                        outline-offset: -1px;
+                                    }
+
+                                    input[name=price_value]::-ms-track {
+                                        width: 300px;
+                                        height: 5px;
+                                        /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+                                        background: transparent;
+                                        /*leave room for the larger thumb to overflow with a transparent border */
+                                        border-color: transparent;
+                                        border-width: 6px 0;
+                                        /*remove default tick marks*/
+                                        color: transparent;
+                                        z-index: -4;
+
+                                    }
+
+                                    input[name=price_value]::-ms-fill-lower {
+                                        background: #777;
+                                        border-radius: 10px;
+                                    }
+
+                                    input[name=price_value]::-ms-fill-upper {
+                                        background: #ddd;
+                                        border-radius: 10px;
+                                    }
+
+                                    input[name=price_value]::-ms-thumb {
+                                        border: none;
+                                        height: 16px;
+                                        width: 16px;
+                                        border-radius: 50%;
+                                        background: #fff;
+                                        box-shadow: 1px 1px 3px #333;
+                                    }
+
+                                    input[name=price_value]:focus::-ms-fill-lower {
+                                        background: #888;
+                                    }
+
+                                    input[name=price_value]:focus::-ms-fill-upper {
+                                        background: #333;
+                                    }
+
+                                </style>
                                 <div class="collapse show" id="widget-5" style="">
-                                    <div class="widget-body">
-                                        
-                                        <div class="filter-price">
-                                            <div class="filter-price-text">
-                                                Price Range:
-                                                <span id="filter-price-range">$0 - $2000</span>
-                                            </div><!-- End .filter-price-text -->
-                                            <div class="price-range-slider">
-
-                                                <p class="range-value">
-                                                    <input type="text" id="amount" readonly>
-                                                </p>
-                                                <div id="slider-range" class="range-bar"></div>
-
-                                            </div>
+                                    <div class="widget-body px-2">
+                                        <span class="rangeValues d-block text-center pb-2"></span>
+                                        <div class="range-slider">
+                                            @php
+                                                $product = \App\Models\Product::class;
+                                            @endphp
+                                            <input value="{{ $product::min('price') }}"
+                                                min="{{ $product::min('price') }}" max="{{ $product::max('price') }}"
+                                                name="price_value" step="500" type="range">
+                                            <input value="{{ $product::max('price') }}"
+                                                min="{{ $product::min('price') }}" max="{{ $product::max('price') }}"
+                                                step="500" name="price_value" type="range">
                                         </div>
-                                        
                                     </div><!-- End .widget-body -->
+                                    <script>
+                                        function getVals() {
+                                            // Get slider values
+
+                                            let slides = document.querySelectorAll("input[name=price_value]");
+                                            let slide1 = parseFloat(slides[0].value);
+                                            let slide2 = parseFloat(slides[1].value);
+                                            // Neither slider will clip the other, so make sure we determine which is larger
+                                            if (slide1 > slide2) {
+                                                let tmp = slide2;
+                                                slide2 = slide1;
+                                                slide1 = tmp;
+                                            }
+
+                                            let displayElement = document.getElementsByClassName("rangeValues")[0];
+                                            displayElement.innerHTML = "$" + slide1 + " - $" + slide2;
+                                        }
+
+                                        window.onload = function() {
+                                            // Initialize Sliders
+                                            let sliderSections = document.getElementsByClassName("range-slider");
+                                            for (let x = 0; x < sliderSections.length; x++) {
+                                                let sliders = sliderSections[x].getElementsByTagName("input");
+                                                for (let y = 0; y < sliders.length; y++) {
+                                                    if (sliders[y].type === "range") {
+                                                        sliders[y].oninput = getVals;
+                                                        // Manually trigger event first time to display values
+                                                        sliders[y].oninput();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    </script>
                                 </div><!-- End .collapse -->
                             </div>
                         </div><!-- End .sidebar sidebar-shop -->
@@ -654,4 +365,5 @@
             </div><!-- End .container -->
         </div><!-- End .page-content -->
     </main><!-- End .main -->
+    <script src="{{ asset('/js/ajax/category.js') }}"></script>
 @endsection('content')

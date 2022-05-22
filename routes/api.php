@@ -23,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/getNew/{categoryID}/{page}/{perPage}', [ProductController::class, 'getNewProducts']);
 
 Route::post('/products/filter', [PaginationController::class, 'getProductByFilter']);
+Route::post('/products/filter/colors', [PaginationController::class, 'getColorByProductId']);

@@ -1,10 +1,5 @@
 @extends('master')
 @section('content')
-<<<<<<< Updated upstream
-=======
-{{-- @php dd($productData->getTopProducts(-1))
-@endphp --}}
->>>>>>> Stashed changes
     <main class="main">
         <div class="intro-section bg-lighter pt-5 pb-6">
             <div class="container">
@@ -81,6 +76,7 @@
                                         </a>
                                     </div><!-- End .intro-content -->
                                 </div><!-- End .intro-slide -->
+                                
                             </div><!-- End .intro-slider owl-carousel owl-simple -->
 
                             <span class="slider-loader"></span><!-- End .slider-loader -->

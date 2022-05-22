@@ -614,7 +614,7 @@ class ProductSeeder extends Seeder
             [
                 'product_name' =>    'BORDEAUX WALL',
                 'category_id' =>    5,
-                'price' =>    0,
+                'price' =>    29600000,
                 'brand_id' =>    1,
                 'description' =>    'Characterised by clean lines and a light structure, Bordeaux makes functionality and flexibility a thing of beauty.',
                 'is_feature' =>    0,

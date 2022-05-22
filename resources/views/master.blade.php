@@ -12,6 +12,7 @@
     <meta name="keywords" content="HTML5 Template">
     <meta name="description" content="Molla - Bootstrap eCommerce Template">
     <meta name="author" content="p-themes">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/images/icons/apple-touch-icon.png') }}">
     <link rel="icon" type="{{ asset('image/png') }}" sizes="32x32"
@@ -35,6 +36,7 @@
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
 </head>
 
 <body>
@@ -137,7 +139,7 @@
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
                                 <li class="megamenu-container active">
-                                    <a href="{{ url('index') }}">Home</a>
+                                    <a href="{{ url('/') }}">Home</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('category') }}" class="sf-with-ul">Shop</a>
@@ -801,9 +803,8 @@
     <script src="{{ asset('/js/superfish.min.js') }}"></script>
     <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('/js/wNumb.js') }}"></script>
-    <script src="{{ asset('/js/bootstrap-input-spinner.js') }}"></script>
-    <script src="{{ asset('/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('/js/nouislider.min.js') }}"></script>
+ 
+
     <!-- Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>
 

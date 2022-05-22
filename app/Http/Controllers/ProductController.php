@@ -108,7 +108,6 @@ class ProductController extends Controller
 
     function getNewProducts($categoryID, $page, $perPage)
     {
-
         $start = $page * $perPage;
 
         $products = Product::orderBy('sale_amount', 'desc')->limit($perPage + 1)->offset($start);
@@ -120,6 +119,7 @@ class ProductController extends Controller
         }
 
         $arr = [];
+        
         foreach ($products as $key => $product) {
             
             $category = $product->category;
