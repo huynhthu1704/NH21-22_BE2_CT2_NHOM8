@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+    <input type="text" hidden name="column" value="3">
     <main class="main">
         <div class="page-header text-center" style="background-image: url('/images/page-header-bg.jpg')">
             <div class="container">
@@ -40,7 +41,7 @@
                                     </div>
                                 </div><!-- End .toolbox-sort -->
                                 <div class="toolbox-layout">
-                                    <a href="category-2cols.html" class="btn-layout">
+                                    <a href="{{ route('category.2col') }}" class="btn-layout">
                                         <svg width="10" height="10">
                                             <rect x="0" y="0" width="4" height="4" />
                                             <rect x="6" y="0" width="4" height="4" />
@@ -65,7 +66,7 @@
 
                         <div class="products mb-3">
                             <div class="row justify-content-center" id="products-wraper">
-                          
+
                             </div><!-- End .row -->
                         </div><!-- End .products -->
 
@@ -79,7 +80,8 @@
                         <div class="sidebar sidebar-shop">
                             <div class="widget widget-clean">
                                 <label>Filters:</label>
-                                <a href="javascript:void(0)" onclick="clearFilter()" class="sidebar-filter-clear">Clean All</a>
+                                <a href="javascript:void(0)" onclick="clearFilter()" class="sidebar-filter-clear">Clean
+                                    All</a>
                             </div><!-- End .widget widget-clean -->
 
                             <div class="widget widget-collapsible">
@@ -159,7 +161,8 @@
                                                 $colors = \App\Models\Color::all();
                                             @endphp
                                             @foreach ($colors as $color)
-                                                <a href="javascript:void(0)" class="colorCheckbox" data-color="{{ $color->id }}"
+                                                <a href="javascript:void(0)" class="colorCheckbox"
+                                                    data-color="{{ $color->id }}"
                                                     style="background: {{ $color->color_code }};"><span
                                                         class="sr-only">{{ $color->color_name }}</span></a>
                                             @endforeach
@@ -175,7 +178,7 @@
                                         Price
                                     </a>
                                 </h3><!-- End .widget-title -->
-                         
+
                                 <div class="collapse show" id="widget-5" style="">
                                     <div class="widget-body">
                                         <span class="rangeValues d-block text-center pb-2"></span>

@@ -35,10 +35,11 @@ const getProductsByFilter = async (page = 1, perpage = 12) => {
     });
 
     const result = await response.json();
-
+    const column = document.querySelector('input[name=column]');
+    
     result.data.forEach(el => {
         productsCtn.innerHTML +=
-            `<div class="col-6 col-md-4 col-lg-4">
+            `<div class="col-6 ${column.value == '2' ? '' : 'col-md-4 col-lg-4'}">
             <div class="product product-4 text-center">
                 <figure class="product-media">
 
@@ -87,7 +88,7 @@ const renderImages = (imgs, category_name, product_id) => {
     imgs.forEach((img, i) => {
         images += `<a href="product.html"
                         class="product-${product_id}-img product-${product_id}-${img.color_id}-img ${i > 0 ? 'd-none' : ''}">
-                        <img src="./images/molla/${category_name}/${img.src}" alt="Product image" class="product-image">
+                        <img src="/images/molla/${category_name}/${img.src}" alt="Product image" class="product-image">
                     </a>`
     })
 

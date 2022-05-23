@@ -4,7 +4,6 @@ use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
 use App\Http\Controllers\PaginationController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
 use App\Models\Product;
@@ -25,22 +24,10 @@ use App\Models\Dimension;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
-Route::get('/product/{id}', function ($id) {
-    $categories = Category::all();
-    $product = Product::find($id);
-    $colors = Color::all();
-    $color = Color::find($id);
-    $images = Image::where('product_id', $id)->get();
-    $dimension = Dimension::find($id);
-    return view('product', ['product' => $product, 'categories' => $categories, 'colors' => $colors, 'color' => $color, 'images' => $images, 'dimension' => $dimension]);
-});
-
-
 Route::prefix('admin')->group(function () {
     Route::get('index', function () {
         return view('admin.index');
     });
-   
 });
 
 Route::get('cart', function ()
@@ -62,7 +49,9 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('category')->group(function () {
     Route::get('/', [PaginationController::class, 'index'])->name('category');
+    Route::get('/category-2-col', [PaginationController::class, 'CategoryTwoCol'])->name('category.2col');
 });
 
 // add cart
 Route::post('/cart/add', [CartController::class, 'addCart']);
+Route::post('/cart/remove', [CartController::class, 'deleteItem']);

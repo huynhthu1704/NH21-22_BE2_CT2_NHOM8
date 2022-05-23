@@ -42,6 +42,18 @@ class CartController extends Controller
         return response()->json(['total' => self::totalPrice($cart), 'cart' => Session::get('cart')]);
     }
 
+    public function deleteItem(Request $request)
+    {
+        $input = $request->all();
+        $cart = session()->has('cart') ? session()->get('cart', []) : [];
+        
+        unset($cart[$input['key']]);
+     
+        session()->put('cart', $cart);
+        
+        return response()->json(['total' => self::totalPrice($cart),'cart' => Session::get('cart')]);
+    }
+
     public function totalPrice($cart)
     {
         $total = 0;

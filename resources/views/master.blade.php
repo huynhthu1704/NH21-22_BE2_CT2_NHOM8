@@ -320,7 +320,7 @@
                                             $cart = Session::get('cart');
                                         @endphp
                                         <div id="product_container">
-                                            @foreach ($cart as $item)
+                                            @foreach ($cart as $key => $item)
                                                 <div class="product">
                                                     <div class="product-cart-details">
                                                         <h4 class="product-title">
@@ -338,7 +338,7 @@
                                                                 alt="product">
                                                         </a>
                                                     </figure>
-                                                    <a href="#" class="btn-remove" title="Remove Product"><i
+                                                    <a href="javascript:removeItem('{{$key}}')" class="btn-remove" title="Remove Product"><i
                                                             class="icon-close"></i></a>
                                                 </div><!-- End .product -->
                                             @endforeach
@@ -348,7 +348,7 @@
                                             <span>Total</span>
 
                                             <span
-                                                class="cart-total-price">{{ App\Http\Controllers\CartController::totalPrice($cart). ' VND' }}</span>
+                                                class="cart-total-price">{{ App\Http\Controllers\CartController::totalPrice($cart) . ' VND' }}</span>
                                         </div><!-- End .dropdown-cart-total -->
 
                                         <div class="dropdown-cart-action">
@@ -358,7 +358,20 @@
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .dropdown-cart-total -->
                                     @else
-                                        Cart is empty
+                                        <div id="product_container">
+                                            Cart is empty
+                                        </div>
+                                        <div class="dropdown-cart-total">
+                                            <span>Total</span>
+                                            <span class="cart-total-price">0 VND</span>
+                                        </div><!-- End .dropdown-cart-total -->
+
+                                        <div class="dropdown-cart-action">
+                                            <a href="cart.html" disabled class="btn btn-primary">View Cart</a>
+                                            <a href="checkout.html" disabled
+                                                class="btn btn-outline-primary-2"><span>Checkout</span><i
+                                                    class="icon-long-arrow-right"></i></a>
+                                        </div><!-- End .dropdown-cart-total -->
                                     @endif
                                 </div><!-- End .cart-product -->
                             </div><!-- End .dropdown-menu -->

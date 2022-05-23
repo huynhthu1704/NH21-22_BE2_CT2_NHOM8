@@ -18,6 +18,11 @@ class PaginationController extends Controller
         return View('category', ['products' => $products]);
     }
 
+    public function CategoryTwoCol()
+    {
+        return View('category-2cols');
+    }
+
     public function getProductByFilter(Request $request)
     {
         $input = $request->all();
@@ -35,6 +40,7 @@ class PaginationController extends Controller
             $productIdWithColors = Image::select('product_id')->whereIn('color_id', $input['colors'])->distinct()->get();
             $products = $products->whereIn('id', $productIdWithColors);
         }
+        
         $total = count($products->get());
         $numPages = ceil($total / $input['perpage']);
         $products = $products->whereBetween('price', [$input['price']['min'], $input['price']['max']]);
