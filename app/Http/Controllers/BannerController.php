@@ -15,8 +15,6 @@ class BannerController extends Controller
         }else{
             $banners = Banner::where('category_id', '=', $category_id)->first();
         }
-        
-        
         return $banners;
     }
     function getBannerByPosition($position)

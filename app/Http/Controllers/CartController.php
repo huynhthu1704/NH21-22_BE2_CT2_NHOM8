@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -11,7 +12,6 @@ class CartController extends Controller
 {
     public function cartList()
     {
-
         return view('cart', compact('cartItems'));
     }
     public function addCart(Request $request)
@@ -20,25 +20,34 @@ class CartController extends Controller
 
         $item = Image::with(['color', 'product'])->where('color_id', '=', $input['color_id'])
             ->where('product_id', '=', $input['product_id'])->first();
+        $category = Product::with('category')->where('products.id', '=', $input['product_id'])->first();
 
-        $cart = session()->has('cart') ? session()->get('cart') : [];
- 
+        $cart = session()->has('cart') ? session()->get('cart', []) : [];
+
         if (!array_key_exists($item->product_id . '-' . $item->color_id, $cart)) {
             $cart[$item->product_id . '-' . $item->color_id] = [
-                'title' => $item->product->product_name,
+                'product_id' => $item->product_id,
+                'product_name' => $item->product->product_name,
                 'color_id' => $item->color_id,
+                'color_name' => $item->product->color_name,
                 'quantity' => 1,
                 'price' => $item->product->price,
-                'src' => $item->src
+                'src' => $item->src,
+                'category_name' => $category->category->category_name
             ];
         }
 
-        session(['cart' => $cart]);
-        session()->flash('message', $item->product->product_name . ' added to cart.');
+        session()->put('cart', $cart);
 
-        $data = [];
-        $data['cart'] = session()->has('cart') ? session()->get('cart') : [];
+        return response()->json(['total' => self::totalPrice($cart), 'cart' => Session::get('cart')]);
+    }
 
-        return response()->json($data);
+    public function totalPrice($cart)
+    {
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+        return $total;
     }
 }
