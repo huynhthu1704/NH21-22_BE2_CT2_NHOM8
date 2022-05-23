@@ -23,7 +23,7 @@
                         <div class="toolbox">
                             <div class="toolbox-left">
                                 <div class="toolbox-info">
-                                    Showing <span>9 of 56</span> Products
+                                    Showing <span class="products-and-page">9 of 56</span> Products
                                 </div><!-- End .toolbox-info -->
                             </div><!-- End .toolbox-left -->
 
@@ -71,21 +71,7 @@
 
                         <nav aria-label="Page navigation">
                             <ul class="pagination justify-content-center" id="pagination">
-                                {{-- <li class="page-item disabled">
-                                    <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1"
-                                        aria-disabled="true">
-                                        <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
-                                    </a>
-                                </li>
-                                <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item-total">of 6</li>
-                                <li class="page-item">
-                                    <a class="page-link page-link-next" href="#" aria-label="Next">
-                                        Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
-                                    </a>
-                                </li> --}}
+
                             </ul>
                         </nav>
                     </div><!-- End .col-lg-9 -->
@@ -93,7 +79,7 @@
                         <div class="sidebar sidebar-shop">
                             <div class="widget widget-clean">
                                 <label>Filters:</label>
-                                <a href="#" class="sidebar-filter-clear">Clean All</a>
+                                <a href="javascript:void(0)" onclick="clearFilter()" class="sidebar-filter-clear">Clean All</a>
                             </div><!-- End .widget widget-clean -->
 
                             <div class="widget widget-collapsible">
@@ -189,128 +175,9 @@
                                         Price
                                     </a>
                                 </h3><!-- End .widget-title -->
-                                <style>
-                                    // doesnt work funnly on firefox or edge, need to fix
-
-                                    .range-slider {
-                                        width: 300px;
-                                        text-align: center;
-                                        position: relative;
-
-                                        .rangeValues {
-                                            display: block;
-                                        }
-                                    }
-
-                                    input[name=price_value] {
-                                        -webkit-appearance: none;
-                                        border: 1px solid white;
-                                        width: 300px;
-                                        position: absolute;
-                                        left: 0;
-                                    }
-
-                                    input[name=price_value]::-webkit-slider-runnable-track {
-                                        width: 300px;
-                                        height: 5px;
-                                        background: #333;
-                                        border: none;
-                                        border-radius: 3px;
-
-                                    }
-
-                                    input[name=price_value]::-webkit-slider-thumb {
-                                        -webkit-appearance: none;
-                                        border: none;
-                                        height: 16px;
-                                        width: 16px;
-                                        border-radius: 50%;
-                                        background: #fff;
-                                        box-shadow: 1px 1px 3px #333;
-                                        margin-top: -4px;
-                                        cursor: pointer;
-                                        position: relative;
-                                        z-index: 1;
-                                    }
-
-                                    input[name=price_value]:focus {
-                                        outline: none;
-                                    }
-
-                                    input[name=price_value]:focus::-webkit-slider-runnable-track {
-                                        background: #333;
-                                    }
-
-                                    input[name=price_value]::-moz-range-track {
-                                        width: 300px;
-                                        height: 5px;
-                                        background: #ddd;
-                                        border: none;
-                                        border-radius: 3px;
-                                    }
-
-                                    input[name=price_value]::-moz-range-thumb {
-                                        border: none;
-                                        height: 16px;
-                                        width: 16px;
-                                        border-radius: 50%;
-                                        background: #fff;
-                                        box-shadow: 1px 1px 3px #333;
-
-                                    }
-
-
-                                    /*hide the outline behind the border*/
-
-                                    input[name=price_value]:-moz-focusring {
-                                        outline: 1px solid white;
-                                        outline-offset: -1px;
-                                    }
-
-                                    input[name=price_value]::-ms-track {
-                                        width: 300px;
-                                        height: 5px;
-                                        /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
-                                        background: transparent;
-                                        /*leave room for the larger thumb to overflow with a transparent border */
-                                        border-color: transparent;
-                                        border-width: 6px 0;
-                                        /*remove default tick marks*/
-                                        color: transparent;
-                                        z-index: -4;
-
-                                    }
-
-                                    input[name=price_value]::-ms-fill-lower {
-                                        background: #777;
-                                        border-radius: 10px;
-                                    }
-
-                                    input[name=price_value]::-ms-fill-upper {
-                                        background: #ddd;
-                                        border-radius: 10px;
-                                    }
-
-                                    input[name=price_value]::-ms-thumb {
-                                        border: none;
-                                        height: 16px;
-                                        width: 16px;
-                                        border-radius: 50%;
-                                        background: #fff;
-                                        box-shadow: 1px 1px 3px #333;
-                                    }
-
-                                    input[name=price_value]:focus::-ms-fill-lower {
-                                        background: #888;
-                                    }
-
-                                    input[name=price_value]:focus::-ms-fill-upper {
-                                        background: #333;
-                                    }
-
-                                </style>
+                         
                                 <div class="collapse show" id="widget-5" style="">
-                                    <div class="widget-body px-2">
+                                    <div class="widget-body">
                                         <span class="rangeValues d-block text-center pb-2"></span>
                                         <div class="range-slider">
                                             @php

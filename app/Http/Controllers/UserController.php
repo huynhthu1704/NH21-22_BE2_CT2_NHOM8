@@ -50,7 +50,7 @@ class UserController extends Controller
             ->where('password', md5($request->input('password')))->first();
 
         if ($user) {
-            session()->push('user', $user[0]);
+            session()->push('user', $user);
             return redirect(route('index'));
         } 
         else {

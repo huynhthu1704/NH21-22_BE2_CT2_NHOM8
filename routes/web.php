@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
 use App\Http\Controllers\PaginationController;
@@ -42,6 +43,11 @@ Route::prefix('admin')->group(function () {
    
 });
 
+Route::get('cart', function ()
+{
+    return view('cart');
+})->name('auth.login');
+
 // User authentication
 Route::prefix('auth')->group(function () {
 
@@ -57,3 +63,6 @@ Route::prefix('auth')->group(function () {
 Route::prefix('category')->group(function () {
     Route::get('/', [PaginationController::class, 'index'])->name('category');
 });
+
+// add cart
+Route::post('/cart/add', [CartController::class, 'addCart']);

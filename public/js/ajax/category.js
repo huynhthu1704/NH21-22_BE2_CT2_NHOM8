@@ -6,7 +6,6 @@ const colorLinks = document.querySelectorAll('.colorCheckbox');
 const productsCtn = document.querySelector('#products-wraper');
 const pagination = document.querySelector('#pagination');
 
-
 let categories = [], colors = []
     , price = { min: priceRange[0].value, max: priceRange[1].value }
     , brands = [], keywords = ''
@@ -43,19 +42,18 @@ const getProductsByFilter = async (page = 1, perpage = 12) => {
             <div class="product product-4 text-center">
                 <figure class="product-media">
 
-                    <span class="product-label label-circle label-sale">Sale</span>
-
-                    <a href="product.html">
-                        <img src="./images/molla/${el.category_name}/${el.colors[0].src}" alt="Product image" class="product-image">
-                    </a>
+                    ${renderImages(el.colors, el.category_name, el.product_id)}
                     
                     <div class="product-action-vertical">
-                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                        <a href="javascript:void(0)" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
                     </div><!-- End .product-action -->
 
                     <div class="product-action">
-                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                        <a href="javascript:void(0)" class="btn-product btn-cart" id="product-${el.product_id}-cart" data-product-id="${el.product_id}" data-color-id="${el.colors[0].color_id}">
+                            <span>add to cart</span>
+                        </a>
                     </div><!-- End .product-action -->
+
                 </figure><!-- End .product-media -->
 
                 <div class="product-body">
@@ -66,17 +64,37 @@ const getProductsByFilter = async (page = 1, perpage = 12) => {
                         <!-- End .product-media -->
                     </div><!-- <span class="old-price">$84.00</span> -->
 
-                    ${renderColorLink(el.colors)}
+                    ${renderColorLink(el.colors, el.product_id)}
 
                 </div><!-- End .product-body -->
             </div>
         </div><!--End.col - sm - 6 col - lg - 4 -- >`
     })
 
+    document.querySelector('.products-and-page').innerHTML = `${result.quantity} of ${result.total}`;
+
     renderPagination(result.numPage, result.currentPage);
+
+    addEventDotColor();
+    addEventAddCart();
 }
 
-const renderColorLink = (colors) => {
+getProductsByFilter();
+
+const renderImages = (imgs, category_name, product_id) => {
+    let images = ''
+
+    imgs.forEach((img, i) => {
+        images += `<a href="product.html"
+                        class="product-${product_id}-img product-${product_id}-${img.color_id}-img ${i > 0 ? 'd-none' : ''}">
+                        <img src="./images/molla/${category_name}/${img.src}" alt="Product image" class="product-image">
+                    </a>`
+    })
+
+    return images;
+}
+
+const renderColorLink = (colors, product_id) => {
 
     let html = '';
     let dots = '';
@@ -86,12 +104,47 @@ const renderColorLink = (colors) => {
     }
 
     colors.forEach((link, i) => {
-        i == 0 ? dots += `<a href="#" class="active" style="background: ${link.color_code};"><span class="sr-only">${link.color_name}</span></a>` :
-            dots += `<a href="#" style="background: ${link.color_code};"><span class="sr-only">${link.color_name}</span></a>`
+        i == 0 ? dots += `<a href="javascript:void(0)" data-list="product-${product_id}-img" data-product-id="${product_id}"
+                        data-color-id="${link.color_id}" data-image="product-${product_id}-${link.color_id}-img"
+                            class="active" style="background: ${link.color_code};">
+                        <span class="sr-only">${link.color_name}</span></a>` :
+            dots += `<a href="javascript:void(0)" style="background: ${link.color_code};" data-product-id="${product_id}"
+                            data-color-id="${link.color_id}" data-list="product-${product_id}-img" data-image="product-${product_id}-${link.color_id}-img">
+                        <span class="sr-only">${link.color_name}</span>
+                    </a>`
     })
     html = `<div class="product-nav product-nav-dots">${dots}</div><!-- End .product-nav -->`
 
     return html;
+}
+
+const addEventAddCart = () => {
+    const btnCart = document.querySelectorAll('.btn-cart')
+    btnCart.forEach(cart => {
+        cart.addEventListener('click', function () {
+            addCart(cart);
+        });
+    });
+}
+
+const addEventDotColor = () => {
+    const colorDots = document.querySelectorAll('.product-nav-dots a')
+    colorDots.forEach(dot => {
+        dot.addEventListener('click', function () {
+
+            const list = document.querySelectorAll(`.${this.dataset.list}`);
+            list.forEach(el => {
+                el.classList.add('d-none');
+            })
+
+            const img = document.querySelector(`.${this.dataset.image}`);
+            img.classList.remove('d-none')
+
+            const cart = document.querySelector(`#product-${this.dataset.productId}-cart`);
+            cart.dataset.colorId = this.dataset.colorId;
+
+        });
+    })
 }
 
 const renderPagination = (numPage, currentPage) => {
@@ -105,7 +158,7 @@ const renderPagination = (numPage, currentPage) => {
                             </li>`;
 
     for (let i = 1; i <= numPage; i++) {
-        pagination.innerHTML += `<li class="page-item ${ currentPage == i ? 'active' : ''}" onclick="getProductsByFilter(${i})"  ${ currentPage == i ? 'aria-current="page"' : ''}><a class="page-link" href="javascript:void(0)">${i}</a></li>`
+        pagination.innerHTML += `<li class="page-item ${currentPage == i ? 'active' : ''}" onclick="getProductsByFilter(${i})"  ${currentPage == i ? 'aria-current="page"' : ''}><a class="page-link" href="javascript:void(0)">${i}</a></li>`
     }
 
     pagination.innerHTML += `<li class="page-item ${currentPage == numPage ? 'disabled' : ''}">
@@ -116,17 +169,37 @@ const renderPagination = (numPage, currentPage) => {
                             </li>`;
 }
 
-const prevClick = (currentPage) =>{
+const clearFilter = () => {
+    const allCheckboxes = document.querySelectorAll('input[type=checkbox]:checked');
+
+    allCheckboxes.forEach((el) => {
+        el.checked = false;
+    })
+    const colorLinks = document.querySelectorAll('.colorCheckbox.selected');
+
+    colorLinks.forEach(el => {
+        el.classList.remove('selected');
+    })
+    priceRange[0].value = priceRange[0].min
+    priceRange[1].value = priceRange[1].max
+
+    categories = []; colors = []
+    price = { min: priceRange[0].min, max: priceRange[1].max }
+    brands = []; keywords = ''
+    sort = { sortby: sortby.value, type: sortby.options[sortby.selectedIndex].getAttribute('data-sort') }
+
+    getProductsByFilter();
+}
+
+const prevClick = (currentPage) => {
     --currentPage;
     getProductsByFilter(currentPage)
 }
 
-const nextClick = (currentPage) =>{
+const nextClick = (currentPage) => {
     ++currentPage;
     getProductsByFilter(currentPage)
 }
-
-getProductsByFilter();
 
 sortby.addEventListener('change', () => {
     sort = { sortby: sortby.value, type: sortby.options[sortby.selectedIndex].getAttribute('data-sort') }

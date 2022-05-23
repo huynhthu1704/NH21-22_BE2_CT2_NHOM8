@@ -23,8 +23,7 @@ class PaginationController extends Controller
         $input = $request->all();
         $start = ($input['page'] - 1) * $input['perpage'];
 
-        $products = Product::whereBetween('price', [$input['price']['min'], $input['price']['max']])
-            ->orderBy($input['sortby']['sortby'], $input['sortby']['type']);
+        $products = Product::whereBetween('price', [$input['price']['min'], $input['price']['max']]);
 
         if (!empty($input['categories'])) {
             $products = Product::whereIn('category_id', $input['categories']);
@@ -36,9 +35,9 @@ class PaginationController extends Controller
             $productIdWithColors = Image::select('product_id')->whereIn('color_id', $input['colors'])->distinct()->get();
             $products = $products->whereIn('id', $productIdWithColors);
         }
-
-        $numPages = ceil(count($products->get()) / $input['perpage']);
-        $products = $products->limit($input['perpage'])->offset($start)->get();
+        $total = count($products->get());
+        $numPages = ceil($total / $input['perpage']);
+        $products = $products->orderBy($input['sortby']['sortby'], $input['sortby']['type'])->limit($input['perpage'])->offset($start)->get();
 
         $arr = [];
 
@@ -67,7 +66,8 @@ class PaginationController extends Controller
 
         $arr['numPage'] = $numPages;
         $arr['currentPage'] = $input['page'];
-
+        $arr['total'] = $total;
+        $arr['quantity'] = count($products);
         return response()->json($arr);
     }
 }

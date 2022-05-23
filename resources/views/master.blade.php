@@ -315,62 +315,48 @@
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="product.html">Beige knitted elastic runner shoes</a>
-                                            </h4>
+                                    @if (session()->has('cart'))
+                                        @php
+                                            $cart = Session::get('cart');
+                                        @endphp
+                                        @foreach ($cart as $item)
+                                            <div class="product">
+                                                <div class="product-cart-details">
+                                                    <h4 class="product-title">
+                                                        <a href="product.html">{{ $item->product_name }}</a>
+                                                    </h4>
 
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $84.00
-                                            </span>
-                                        </div><!-- End .product-cart-details -->
+                                                    <span class="cart-product-info">
+                                                        <span class="cart-product-qty">1</span>
+                                                        x {{ $item->price }} VND
+                                                    </span>
+                                                </div><!-- End .product-cart-details -->
+                                                <figure class="product-image-container">
+                                                    <a href="product.html" class="product-image">
+                                                        <img src="{{ asset('/images/products/cart/' . $item->src) }}"
+                                                            alt="product">
+                                                    </a>
+                                                </figure>
+                                                <a href="#" class="btn-remove" title="Remove Product"><i
+                                                        class="icon-close"></i></a>
+                                            </div><!-- End .product -->
+                                        @endforeach
+                                        <div class="dropdown-cart-total">
+                                            <span>Total</span>
+        
+                                            <span class="cart-total-price">$160.00</span>
+                                        </div><!-- End .dropdown-cart-total -->
+        
+                                        <div class="dropdown-cart-action">
+                                            <a href="cart.html" class="btn btn-primary">View Cart</a>
+                                            <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
+                                                    class="icon-long-arrow-right"></i></a>
+                                        </div><!-- End .dropdown-cart-total -->
+                                    @else
+                                           Cart is empty 
+                                    @endif
 
-                                        <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
-                                                <img src="{{ asset('/images/products/cart/product-1.jpg') }}"
-                                                    alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i
-                                                class="icon-close"></i></a>
-                                    </div><!-- End .product -->
-
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="product.html">Blue utility pinafore denim dress</a>
-                                            </h4>
-
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $76.00
-                                            </span>
-                                        </div><!-- End .product-cart-details -->
-
-                                        <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
-                                                <img src="{{ asset('/images/products/cart/product-2.jpg;') }}"
-                                                    alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i
-                                                class="icon-close"></i></a>
-                                    </div><!-- End .product -->
                                 </div><!-- End .cart-product -->
-
-                                <div class="dropdown-cart-total">
-                                    <span>Total</span>
-
-                                    <span class="cart-total-price">$160.00</span>
-                                </div><!-- End .dropdown-cart-total -->
-
-                                <div class="dropdown-cart-action">
-                                    <a href="cart.html" class="btn btn-primary">View Cart</a>
-                                    <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
                     </div><!-- End .header-right -->
@@ -703,25 +689,25 @@
                                             <div class="form-group">
                                                 <label for="register-email">Username *</label>
                                                 <input type="text" class="form-control" id="register-username"
-                                                    name="username" required>
+                                                    name="register-username" required>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group">
                                                 <label for="register-password">Password *</label>
                                                 <input type="password" class="form-control" id="register-password"
-                                                    value="{{ old('password') }}" name="password" required>
+                                                    value="{{ old('password') }}" name="register-password" required>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group">
                                                 <label for="register-birthday">Birthday *</label>
                                                 <input type="date" class="form-control" id="register-birthday"
-                                                    name="birthday" required>
+                                                    name="register-birthday" required>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group">
                                                 <label for="register-email">Email *</label>
                                                 <input type="email" class="form-control" id="register-email"
-                                                    name="email" value="{{ old('email') }}" required>
+                                                    name="register-email" value="{{ old('email') }}" required>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group">
@@ -733,13 +719,13 @@
                                             <div class="form-group">
                                                 <label for="register-phone">Phone *</label>
                                                 <input type="text" class="form-control" id="register-phone"
-                                                    name="phone" value="{{ old('phone') }}" required>
+                                                    name="register-phone" value="{{ old('phone') }}" required>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group">
                                                 <label for="register-gender">Gender *</label>
                                                 <select type="text" class="form-control" id="register-gender"
-                                                    name="gender" required>
+                                                    name="register-gender" required>
                                                     <option value="Nam" selected>Nam</option>
                                                     <option value="Nam">Nữ</option>
                                                     <option value="Nam">Khác</option>
@@ -749,7 +735,7 @@
                                             <div class="form-group">
                                                 <label for="register-address">Address *</label>
                                                 <input type="text" class="form-control" id="register-address"
-                                                    name="address" value="1 khavancan" required>
+                                                    name="register-address" value="1 khavancan" required>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-footer">
@@ -803,7 +789,7 @@
     <script src="{{ asset('/js/superfish.min.js') }}"></script>
     <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('/js/wNumb.js') }}"></script>
- 
+    <script src="{{ asset('/js/ajax/cart.js') }}"></script>
 
     <!-- Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>

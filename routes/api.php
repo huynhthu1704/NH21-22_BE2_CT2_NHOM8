@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -22,5 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/getNew/{categoryID}/{page}/{perPage}', [ProductController::class, 'getNewProducts']);
 
+// filter
 Route::post('/products/filter', [PaginationController::class, 'getProductByFilter']);
 Route::post('/products/filter/colors', [PaginationController::class, 'getColorByProductId']);
+
