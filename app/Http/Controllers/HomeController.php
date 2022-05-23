@@ -20,7 +20,8 @@ class HomeController extends Controller
         $categories_limit = Category::limit(3)->orderBy('id','ASC')->get();
         $colors = Color::all();
         $product = new ProductController();
+        $banners = new BannerController();
 
-        return view($name, ['categories' => $categories, 'brands'=>$brands, 'colors'=>$colors , 'categories_limit' => $categories_limit ,'productData' => $product] );
+        return view($name, ['categories' => $categories, 'brands'=>$brands, 'colors'=>$colors , 'categories_limit' => $categories_limit ,'productData' => $product , 'banners' => $banners] );
     }
 }

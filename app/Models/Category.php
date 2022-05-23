@@ -10,4 +10,8 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+    public function banners()
+    {
+        return $this->hasMany(Banner::class);
+    }
 }

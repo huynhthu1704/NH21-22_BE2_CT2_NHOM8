@@ -1,11 +1,15 @@
 @extends('master')
 @section('content')
+{{-- @php dd($productData->getTopProducts(-1))
+@endphp --}}
     <main class="main">
         <div class="intro-section bg-lighter pt-5 pb-6">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="intro-slider-container slider-container-ratio slider-container-1 mb-2 mb-lg-0">
+                            
+                            
                             <div class="intro-slider intro-slider-1 owl-carousel owl-simple owl-light owl-nav-inside"
                                 data-toggle="owl"
                                 data-owl-options='{
@@ -16,18 +20,19 @@
                                                                                                                                                                                         }
                                                                                                                                                                                     }
                                                                                                                                                                                 }'>
+                                @foreach ($banners->getBannerByCate(1) as $banner)                                                                                                                                               
                                 <div class="intro-slide">
                                     <figure class="slide-image">
                                         <picture>
                                             <source media="(max-width: 480px)"
-                                                srcset="url('/images/slider/slide-1-480w.jpg')">
-                                            <img src="{{ asset('/images/slider/slide-1.jpg') }}" alt="Image Desc">
+                                                srcset="{{ asset('/images/banners/'.$banner['imgSrc']) }}">
+                                            <img src="{{ asset('/images/banners/'.$banner['imgSrc']) }}" alt="Image Desc">
                                         </picture>
                                     </figure><!-- End .slide-image -->
 
                                     <div class="intro-content">
-                                        <h3 class="intro-subtitle">Topsale Collection</h3><!-- End .h3 intro-subtitle -->
-                                        <h1 class="intro-title">Living Room<br>Furniture</h1><!-- End .intro-title -->
+                                        <h3 class="intro-subtitle">{{ $banner['title'] }}</h3><!-- End .h3 intro-subtitle -->
+                                        <h1 class="intro-title">{{ $banner['content'] }}</h1><!-- End .intro-title -->
 
                                         <a href="{{ asset('category') }}" class="btn btn-outline-white">
                                             <span>SHOP NOW</span>
@@ -35,49 +40,9 @@
                                         </a>
                                     </div><!-- End .intro-content -->
                                 </div><!-- End .intro-slide -->
-
-                                <div class="intro-slide">
-                                    <figure class="slide-image">
-                                        <picture>
-                                            <source media="(max-width: 480px)"
-                                                srcset=" {{ asset('/images/slider/slide-2-480w.jpg') }}">
-                                            <img src="{{ asset('/images/slider/slide-2.jpg') }}" alt="Image Desc">
-                                        </picture>
-                                    </figure><!-- End .slide-image -->
-
-                                    <div class="intro-content">
-                                        <h3 class="intro-subtitle">News and Inspiration</h3><!-- End .h3 intro-subtitle -->
-                                        <h1 class="intro-title">New Arrivals</h1><!-- End .intro-title -->
-
-                                        <a href="{{ asset('category') }}" class="btn btn-outline-white">
-                                            <span>SHOP NOW</span>
-                                            <i class="icon-long-arrow-right"></i>
-                                        </a>
-                                    </div><!-- End .intro-content -->
-                                </div><!-- End .intro-slide -->
-
-                                <div class="intro-slide">
-                                    <figure class="slide-image">
-                                        <picture>
-                                            <source media="(max-width: 480px)"
-                                                srcset="{{ asset('/images/slider/slide-3-480w.jpg') }}">
-                                            <img src="{{ asset('/images/slider/slide-3.jpg') }}" alt="Image Desc">
-                                        </picture>
-                                    </figure><!-- End .slide-image -->
-
-                                    <div class="intro-content">
-                                        <h3 class="intro-subtitle">Outdoor Furniture</h3><!-- End .h3 intro-subtitle -->
-                                        <h1 class="intro-title">Outdoor Dining <br>Furniture</h1>
-                                        <!-- End .intro-title -->
-
-                                        <a href="{{ asset('category') }}" class="btn btn-outline-white">
-                                            <span>SHOP NOW</span>
-                                            <i class="icon-long-arrow-right"></i>
-                                        </a>
-                                    </div><!-- End .intro-content -->
-                                </div><!-- End .intro-slide -->
-                                
+                                @endforeach
                             </div><!-- End .intro-slider owl-carousel owl-simple -->
+                            
 
                             <span class="slider-loader"></span><!-- End .slider-loader -->
                         </div><!-- End .intro-slider-container -->
@@ -85,41 +50,41 @@
                     <div class="col-lg-4">
                         <div class="intro-banners">
                             <div class="row row-sm">
+                                
                                 <div class="col-md-6 col-lg-12">
                                     <div class="banner banner-display">
                                         <a href="#">
-                                            <img src="{{ asset('/images/banners/home/intro/banner-1.jpg') }}"
+                                            <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(2)->imgSrc) }}"
                                                 alt="Banner">
                                         </a>
 
                                         <div class="banner-content">
-                                            <h4 class="banner-subtitle text-darkwhite"><a href="#">Clearence</a></h4>
+                                            <h4 class="banner-subtitle text-darkwhite"><a href="#">{{$banners->getBannerByCate(2)->title}}</a></h4>
                                             <!-- End .banner-subtitle -->
-                                            <h3 class="banner-title text-white"><a href="#">Chairs & Chaises <br>Up to 40%
-                                                    off</a></h3><!-- End .banner-title -->
+                                            <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(2)->content}}</a></h3><!-- End .banner-title -->
                                             <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .banner-content -->
                                     </div><!-- End .banner -->
                                 </div><!-- End .col-md-6 col-lg-12 -->
-
+                                
                                 <div class="col-md-6 col-lg-12">
-                                    <div class="banner banner-display mb-0">
+                                    <div class="banner banner-display">
                                         <a href="#">
-                                            <img src="{{ asset('/images/banners/home/intro/banner-2.jpg') }}"
+                                            <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(3)->imgSrc) }}"
                                                 alt="Banner">
                                         </a>
 
                                         <div class="banner-content">
-                                            <h4 class="banner-subtitle text-darkwhite"><a href="#">New in</a></h4>
+                                            <h4 class="banner-subtitle text-darkwhite"><a href="#">{{$banners->getBannerByCate(3)->title}}</a></h4>
                                             <!-- End .banner-subtitle -->
-                                            <h3 class="banner-title text-white"><a href="#">Best Lighting <br>Collection</a>
-                                            </h3><!-- End .banner-title -->
-                                            <a href="#" class="btn btn-outline-white banner-link">Discover Now<i
+                                            <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(3)->content}}</a></h3><!-- End .banner-title -->
+                                            <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .banner-content -->
                                     </div><!-- End .banner -->
                                 </div><!-- End .col-md-6 col-lg-12 -->
+                                
                             </div><!-- End .row row-sm -->
                         </div><!-- End .intro-banners -->
                     </div><!-- End .col-lg-4 -->
@@ -645,59 +610,65 @@
             <h2 class="title-lg text-center mb-4">Shop by Categories</h2><!-- End .title-lg text-center -->
 
             <div class="row">
+                
                 <div class="col-6 col-lg-4">
                     <div class="banner banner-display banner-link-anim">
                         <a href="#">
-                            <img src="{{ asset('/images/banners/home/banner-1.jpg') }}" alt="Banner">
+                            <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(4)->imgSrc) }}" alt="Banner">
                         </a>
 
                         <div class="banner-content banner-content-center">
-                            <h3 class="banner-title text-white"><a href="#">Outdoor</a></h3><!-- End .banner-title -->
+                            <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(4)->title}}</a></h3><!-- End .banner-title -->
                             <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                     class="icon-long-arrow-right"></i></a>
                         </div><!-- End .banner-content -->
                     </div><!-- End .banner -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
+                
                 <div class="col-6 col-lg-4 order-lg-last">
                     <div class="banner banner-display banner-link-anim">
                         <a href="#">
-                            <img src="{{ asset('/images/banners/home/banner-4.jpg') }}" alt="Banner">
+                            <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(5)->imgSrc) }}" alt="Banner">
                         </a>
 
                         <div class="banner-content banner-content-center">
-                            <h3 class="banner-title text-white"><a href="#">Lighting</a></h3><!-- End .banner-title -->
+                            <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(5)->title}}</a></h3><!-- End .banner-title -->
                             <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                     class="icon-long-arrow-right"></i></a>
                         </div><!-- End .banner-content -->
                     </div><!-- End .banner -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
+                
+                
                 <div class="col-sm-12 col-lg-4 banners-sm">
                     <div class="row">
+                        
                         <div class="banner banner-display banner-link-anim col-lg-12 col-6">
                             <a href="#">
-                                <img src="{{ asset('/images/banners/home/banner-2.jpg') }}" alt="Banner">
+                                <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(6)->imgSrc) }}" alt="Banner">
                             </a>
 
                             <div class="banner-content banner-content-center">
-                                <h3 class="banner-title text-white"><a href="#">Furniture and Design</a></h3>
+                                <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(6)->title}}</a></h3>
                                 <!-- End .banner-title -->
                                 <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                         class="icon-long-arrow-right"></i></a>
                             </div><!-- End .banner-content -->
                         </div><!-- End .banner -->
-
+                        
                         <div class="banner banner-display banner-link-anim col-lg-12 col-6">
                             <a href="#">
-                                <img src="{{ asset('/images/banners/home/banner-3.jpg') }}" alt="Banner">
+                                <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(7)->imgSrc) }}" alt="Banner">
                             </a>
 
                             <div class="banner-content banner-content-center">
-                                <h3 class="banner-title text-white"><a href="#">Kitchen & Utensil</a></h3>
+                                <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(7)->title}}</a></h3>
                                 <!-- End .banner-title -->
                                 <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                         class="icon-long-arrow-right"></i></a>
                             </div><!-- End .banner-content -->
                         </div><!-- End .banner -->
+                        
                     </div>
                 </div><!-- End .col-sm-6 col-lg-3 -->
             </div><!-- End .row -->
@@ -878,7 +849,7 @@
                                                 `</div>
                                             </div>
                                             <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                <a href="#" class="btn-product btn-cart btn-addCart" data-product-id="${product.product_id}"><span>add to cart</span></a>
                                             </div>
                                         </div>
                                     </div>`;
