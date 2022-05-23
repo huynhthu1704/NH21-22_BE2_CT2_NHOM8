@@ -4,14 +4,14 @@
  const total = document.querySelector('.cart-total-price');
 
 const addCart = async (cart) => {
-   
+    
     const data =
     {
         product_id: cart.dataset.productId,
         color_id: cart.dataset.colorId
     }
     const token = document.querySelector('meta[name=csrf-token]').content
-
+   
     const response = await fetch('/cart/add',
         {
             method: 'POST',
@@ -52,10 +52,20 @@ const addCart = async (cart) => {
             </div><!-- End .product -->`;
         }
     }
- 
-    cartCount.innerHTML = count(result.cart);
+    console.log(result);
     total.innerHTML = result.total;
+    cartCount.innerHTML = count(result.cart);
+    
 }
+const addEventAddCart = () => {
+    const btnCart = document.querySelectorAll('.btn-cart')
+    btnCart.forEach(cart => {
+        cart.addEventListener('click', function () {
+            addCart(cart);
+        });
+    });
+}
+addEventAddCart();
 
 async function removeItem(key) {
     console.log(key);

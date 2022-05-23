@@ -310,7 +310,10 @@
                                 <i class="icon-shopping-cart"></i>
                                 @if (session()->has('cart'))
                                     <span class="cart-count">{{ count(session()->get('cart')) }}</span>
+                                @else
+                                    <span class="cart-count">0</span>
                                 @endif
+
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
@@ -329,7 +332,7 @@
 
                                                         <span class="cart-product-info">
                                                             <span class="cart-product-qty">1</span>
-                                                            x {{ $item['price'] }} VND
+                                                            x {{ number_format($item['price'], 0, '', ',') . ' VNĐ' }}
                                                         </span>
                                                     </div><!-- End .product-cart-details -->
                                                     <figure class="product-image-container">
@@ -338,7 +341,8 @@
                                                                 alt="product">
                                                         </a>
                                                     </figure>
-                                                    <a href="javascript:removeItem('{{$key}}')" class="btn-remove" title="Remove Product"><i
+                                                    <a href="javascript:removeItem('{{ $key }}')"
+                                                        class="btn-remove" title="Remove Product"><i
                                                             class="icon-close"></i></a>
                                                 </div><!-- End .product -->
                                             @endforeach
@@ -348,7 +352,7 @@
                                             <span>Total</span>
 
                                             <span
-                                                class="cart-total-price">{{ App\Http\Controllers\CartController::totalPrice($cart) . ' VND' }}</span>
+                                                class="cart-total-price">{{ number_format(App\Http\Controllers\CartController::totalPrice($cart), 0, '', ',') . ' VNĐ' }}</span>
                                         </div><!-- End .dropdown-cart-total -->
 
                                         <div class="dropdown-cart-action">

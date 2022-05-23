@@ -1,47 +1,49 @@
 @extends('master')
 @section('content')
-
     <main class="main">
         <div class="intro-section bg-lighter pt-5 pb-6">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="intro-slider-container slider-container-ratio slider-container-1 mb-2 mb-lg-0">
-                            
-                            
+
+
                             <div class="intro-slider intro-slider-1 owl-carousel owl-simple owl-light owl-nav-inside"
                                 data-toggle="owl"
                                 data-owl-options='{
-                                                                                                                                                                                    "nav": false,
-                                                                                                                                                                                    "responsive": {
-                                                                                                                                                                                        "768": {
-                                                                                                                                                                                            "nav": true
-                                                                                                                                                                                        }
-                                                                                                                                                                                    }
-                                                                                                                                                                                }'>
-                                @foreach ($banners->getBannerByCate(1) as $banner)                                                                                                                                               
-                                <div class="intro-slide">
-                                    <figure class="slide-image">
-                                        <picture>
-                                            <source media="(max-width: 480px)"
-                                                srcset="{{ asset('/images/banners/'.$banner['imgSrc']) }}">
-                                            <img src="{{ asset('/images/banners/'.$banner['imgSrc']) }}" alt="Image Desc">
-                                        </picture>
-                                    </figure><!-- End .slide-image -->
+                                                                                                                                                                                                            "nav": false,
+                                                                                                                                                                                                            "responsive": {
+                                                                                                                                                                                                                "768": {
+                                                                                                                                                                                                                    "nav": true
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                        }'>
+                                @foreach ($banners->getBannerByCate(1) as $banner)
+                                    <div class="intro-slide">
+                                        <figure class="slide-image">
+                                            <picture>
+                                                <source media="(max-width: 480px)"
+                                                    srcset="{{ asset('/images/banners/' . $banner['imgSrc']) }}">
+                                                <img src="{{ asset('/images/banners/' . $banner['imgSrc']) }}"
+                                                    alt="Image Desc">
+                                            </picture>
+                                        </figure><!-- End .slide-image -->
 
-                                    <div class="intro-content">
-                                        <h3 class="intro-subtitle">{{ $banner['title'] }}</h3><!-- End .h3 intro-subtitle -->
-                                        <h1 class="intro-title">{{ $banner['content'] }}</h1><!-- End .intro-title -->
+                                        <div class="intro-content">
+                                            <h3 class="intro-subtitle">{{ $banner['title'] }}</h3>
+                                            <!-- End .h3 intro-subtitle -->
+                                            <h1 class="intro-title">{{ $banner['content'] }}</h1>
+                                            <!-- End .intro-title -->
 
-                                        <a href="{{ asset('category') }}" class="btn btn-outline-white">
-                                            <span>SHOP NOW</span>
-                                            <i class="icon-long-arrow-right"></i>
-                                        </a>
-                                    </div><!-- End .intro-content -->
-                                </div><!-- End .intro-slide -->
+                                            <a href="{{ asset('category') }}" class="btn btn-outline-white">
+                                                <span>SHOP NOW</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </a>
+                                        </div><!-- End .intro-content -->
+                                    </div><!-- End .intro-slide -->
                                 @endforeach
                             </div><!-- End .intro-slider owl-carousel owl-simple -->
-                            
+
 
                             <span class="slider-loader"></span><!-- End .slider-loader -->
                         </div><!-- End .intro-slider-container -->
@@ -49,41 +51,47 @@
                     <div class="col-lg-4">
                         <div class="intro-banners">
                             <div class="row row-sm">
-                                
+
                                 <div class="col-md-6 col-lg-12">
                                     <div class="banner banner-display">
                                         <a href="#">
-                                            <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(2)->imgSrc) }}"
+                                            <img src="{{ asset('/images/banners/' . $banners->getBannerByCate(2)->imgSrc) }}"
                                                 alt="Banner">
                                         </a>
 
                                         <div class="banner-content">
-                                            <h4 class="banner-subtitle text-darkwhite"><a href="#">{{$banners->getBannerByCate(2)->title}}</a></h4>
+                                            <h4 class="banner-subtitle text-darkwhite"><a
+                                                    href="#">{{ $banners->getBannerByCate(2)->title }}</a></h4>
                                             <!-- End .banner-subtitle -->
-                                            <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(2)->content}}</a></h3><!-- End .banner-title -->
+                                            <h3 class="banner-title text-white"><a
+                                                    href="#">{{ $banners->getBannerByCate(2)->content }}</a></h3>
+                                            <!-- End .banner-title -->
                                             <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .banner-content -->
                                     </div><!-- End .banner -->
                                 </div><!-- End .col-md-6 col-lg-12 -->
-                                
+
                                 <div class="col-md-6 col-lg-12">
                                     <div class="banner banner-display">
                                         <a href="#">
-                                            <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(3)->imgSrc) }}"
+                                            <img src="{{ asset('/images/banners/' . $banners->getBannerByCate(3)->imgSrc) }}"
                                                 alt="Banner">
                                         </a>
 
                                         <div class="banner-content">
-                                            <h4 class="banner-subtitle text-darkwhite"><a href="#">{{$banners->getBannerByCate(3)->title}}</a></h4>
+                                            <h4 class="banner-subtitle text-darkwhite"><a
+                                                    href="#">{{ $banners->getBannerByCate(3)->title }}</a></h4>
                                             <!-- End .banner-subtitle -->
-                                            <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(3)->content}}</a></h3><!-- End .banner-title -->
+                                            <h3 class="banner-title text-white"><a
+                                                    href="#">{{ $banners->getBannerByCate(3)->content }}</a></h3>
+                                            <!-- End .banner-title -->
                                             <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .banner-content -->
                                     </div><!-- End .banner -->
                                 </div><!-- End .col-md-6 col-lg-12 -->
-                                
+
                             </div><!-- End .row row-sm -->
                         </div><!-- End .intro-banners -->
                     </div><!-- End .col-lg-4 -->
@@ -93,28 +101,28 @@
 
                 <div class="owl-carousel owl-simple" data-toggle="owl"
                     data-owl-options='{
-                                                                                                                                                                        "nav": false,
-                                                                                                                                                                        "dots": false,
-                                                                                                                                                                        "margin": 30,
-                                                                                                                                                                        "loop": false,
-                                                                                                                                                                        "responsive": {
-                                                                                                                                                                            "0": {
-                                                                                                                                                                                "items":2
-                                                                                                                                                                            },
-                                                                                                                                                                            "420": {
-                                                                                                                                                                                "items":3
-                                                                                                                                                                            },
-                                                                                                                                                                            "600": {
-                                                                                                                                                                                "items":4
-                                                                                                                                                                            },
-                                                                                                                                                                            "900": {
-                                                                                                                                                                                "items":5
-                                                                                                                                                                            },
-                                                                                                                                                                            "1024": {
-                                                                                                                                                                                "items":6
-                                                                                                                                                                            }
-                                                                                                                                                                        }
-                                                                                                                                                                    }'>
+                                                                                                                                                                                                "nav": false,
+                                                                                                                                                                                                "dots": false,
+                                                                                                                                                                                                "margin": 30,
+                                                                                                                                                                                                "loop": false,
+                                                                                                                                                                                                "responsive": {
+                                                                                                                                                                                                    "0": {
+                                                                                                                                                                                                        "items":2
+                                                                                                                                                                                                    },
+                                                                                                                                                                                                    "420": {
+                                                                                                                                                                                                        "items":3
+                                                                                                                                                                                                    },
+                                                                                                                                                                                                    "600": {
+                                                                                                                                                                                                        "items":4
+                                                                                                                                                                                                    },
+                                                                                                                                                                                                    "900": {
+                                                                                                                                                                                                        "items":5
+                                                                                                                                                                                                    },
+                                                                                                                                                                                                    "1024": {
+                                                                                                                                                                                                        "items":6
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                }
+                                                                                                                                                                                            }'>
                     @foreach ($brands as $brand)
                         <a href="#" class="brand">
                             <img src="{{ asset('/images/brands/' . $brand->id . '.png') }}" alt="Brand Name">
@@ -158,39 +166,38 @@
                     aria-labelledby="trendy-all-link">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                                                                                                                                            "nav": false,
-                                                                                                                                                                            "dots": true,
-                                                                                                                                                                            "margin": 20,
-                                                                                                                                                                            "loop": false,
-                                                                                                                                                                            "responsive": {
-                                                                                                                                                                                "0": {
-                                                                                                                                                                                    "items":2
-                                                                                                                                                                                },
-                                                                                                                                                                                "480": {
-                                                                                                                                                                                    "items":2
-                                                                                                                                                                                },
-                                                                                                                                                                                "768": {
-                                                                                                                                                                                    "items":3
-                                                                                                                                                                                },
-                                                                                                                                                                                "992": {
-                                                                                                                                                                                    "items":4
-                                                                                                                                                                                },
-                                                                                                                                                                                "1200": {
-                                                                                                                                                                                    "items":4,
-                                                                                                                                                                                    "nav": true,
-                                                                                                                                                                                    "dots": false
-                                                                                                                                                                                }
-                                                                                                                                                                            }
-                                                                                                                                                                        }'>
+                                                                                                                                                                                                    "nav": false,
+                                                                                                                                                                                                    "dots": true,
+                                                                                                                                                                                                    "margin": 20,
+                                                                                                                                                                                                    "loop": false,
+                                                                                                                                                                                                    "responsive": {
+                                                                                                                                                                                                        "0": {
+                                                                                                                                                                                                            "items":2
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "480": {
+                                                                                                                                                                                                            "items":2
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "768": {
+                                                                                                                                                                                                            "items":3
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "992": {
+                                                                                                                                                                                                            "items":4
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "1200": {
+                                                                                                                                                                                                            "items":4,
+                                                                                                                                                                                                            "nav": true,
+                                                                                                                                                                                                            "dots": false
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                }'>
 
 
                         @foreach ($productData->getTopProducts(-1) as $key => $product)
                             @php
                                 $product_str = 'product-' . $product['product_id'] . '-all';
                             @endphp
-                            <div class="product product-11 text-center">
-
-                                <figure class="{{ asset('product-media') }}" id="{{ $product_str }}">
+                            <div class="product text-center" id="{{ $product_str }}">
+                                <figure class="product-media">
                                     @foreach ($product['colors'] as $key => $color)
                                         @php
                                             $image = explode('#', $color['src']);
@@ -227,25 +234,35 @@
                                     <div class="product-price">
                                         {{ number_format($product['price'], 0, '', ',') . ' VNĐ' }}
                                     </div><!-- End .product-price -->
-
+                                    @php
+                                        $color_id = 0;
+                                    @endphp
                                     {{-- :Link switch color --}}
                                     <div class="product-nav product-nav-dots top-sales">
                                         @foreach ($product['colors'] as $key => $color)
                                             @if (count($product['colors']) == 1)
                                                 @php
+                                                    $color_id = $color['color_id'];
                                                     continue;
                                                 @endphp
                                             @endif
                                             @if ($key == 0)
+                                                @php
+                                                    $color_id = $color['color_id'];
+                                                @endphp
                                                 <a href="javascript:void(0)" class="{{ $product_str }} active"
                                                     style="background: {{ $color['color_code'] }};"
                                                     data-product="{{ $product_str }}"
+                                                    data-color-id="{{ $color['color_id'] }}"
+                                                    data-product-id="{{ $product['product_id'] }}"
                                                     data-color="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] }}">
                                                     <span class="sr-only">Color name</span></a>
                                             @else
                                                 <a href="javascript:void(0)" class="{{ $product_str }}"
                                                     style="background: {{ $color['color_code'] }};"
                                                     data-product="{{ $product_str }}"
+                                                    data-color-id="{{ $color['color_id'] }}"
+                                                    data-product-id="{{ $product['product_id'] }}"
                                                     data-color="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] }}">
                                                     <span class="sr-only">Color name</span>
                                                 </a>
@@ -255,7 +272,9 @@
                                 </div><!-- End .product-body -->
 
                                 <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                    <a href="javascript:void(0)" class="btn-product btn-cart"
+                                        data-product-id="{{ $product['product_id'] }}"
+                                        data-color-id="{{ $color_id }}"><span>add to cart</span></a>
                                 </div><!-- End .product-action -->
                             </div><!-- End .product -->
                         @endforeach
@@ -266,36 +285,37 @@
                 <div class="tab-pane p-0 fade" id="trendy-sofa-tab" role="tabpanel" aria-labelledby="trendy-sofa-tab">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                                                                                                                                            "nav": false,
-                                                                                                                                                                            "dots": true,
-                                                                                                                                                                            "margin": 20,
-                                                                                                                                                                            "loop": false,
-                                                                                                                                                                            "responsive": {
-                                                                                                                                                                                "0": {
-                                                                                                                                                                                    "items":2
-                                                                                                                                                                                },
-                                                                                                                                                                                "480": {
-                                                                                                                                                                                    "items":2
-                                                                                                                                                                                },
-                                                                                                                                                                                "768": {
-                                                                                                                                                                                    "items":3
-                                                                                                                                                                                },
-                                                                                                                                                                                "992": {
-                                                                                                                                                                                    "items":4
-                                                                                                                                                                                },
-                                                                                                                                                                                "1200": {
-                                                                                                                                                                                    "items":4,
-                                                                                                                                                                                    "nav": true,
-                                                                                                                                                                                    "dots": false
-                                                                                                                                                                                }
-                                                                                                                                                                            }
-                                                                                                                                                                        }'>
+                                                                                                                                                                                                    "nav": false,
+                                                                                                                                                                                                    "dots": true,
+                                                                                                                                                                                                    "margin": 20,
+                                                                                                                                                                                                    "loop": false,
+                                                                                                                                                                                                    "responsive": {
+                                                                                                                                                                                                        "0": {
+                                                                                                                                                                                                            "items":2
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "480": {
+                                                                                                                                                                                                            "items":2
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "768": {
+                                                                                                                                                                                                            "items":3
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "992": {
+                                                                                                                                                                                                            "items":4
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "1200": {
+                                                                                                                                                                                                            "items":4,
+                                                                                                                                                                                                            "nav": true,
+                                                                                                                                                                                                            "dots": false
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                }'>
 
                         @foreach ($productData->getTopProducts(1) as $product)
-                            <div class="product product-11 text-center">
-                                @php
-                                    $product_str = 'product-' . $product['product_id'] . '-' . $product['category_name'];
-                                @endphp
+                            @php
+                                $product_str = 'product-' . $product['product_id'] . '-' . $product['category_name'];
+                            @endphp
+                            <div class="product product-11 text-center" id="{{ $product_str }}">
+
                                 <figure class="{{ asset('product-media') }}" id="{{ $product_str }}">
                                     @foreach ($product['colors'] as $key => $color)
                                         @php
@@ -335,23 +355,35 @@
                                     </div><!-- End .product-price -->
 
                                     {{-- :Link switch color --}}
+                                    @php
+                                        $color_id = 0;
+                                    @endphp
                                     <div class="product-nav product-nav-dots top-sales">
                                         @foreach ($product['colors'] as $key => $color)
                                             @if (count($product['colors']) == 1)
                                                 @php
+                                                    $color_id = $color['color_id'];
                                                     continue;
                                                 @endphp
                                             @endif
                                             @if ($key == 0)
+                                                @php
+                                                    $color_id = $color['color_id'];
+                                                @endphp
                                                 <a href="javascript:void(0)" class="{{ $product_str }} active"
+                                                    data-obj="{{ $product_str }}"
                                                     style="background: {{ $color['color_code'] }};"
                                                     data-product="{{ $product_str }}"
+                                                    data-color-id="{{ $color['color_id'] }}"
+                                                    data-product-id="{{ $product['product_id'] }}"
                                                     data-color="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                     <span class="sr-only">Color name</span></a>
                                             @else
                                                 <a href="javascript:void(0)" class="{{ $product_str }}"
                                                     style="background: {{ $color['color_code'] }};"
-                                                    data-product="{{ $product_str }}"
+                                                    data-color-id="{{ $color['color_id'] }}"
+                                                    data-product-id="{{ $product['product_id'] }}"
+                                                    data-product="{{ $product_str }}" data-obj="{{ $product_str }}"
                                                     data-color="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                     <span class="sr-only">Color name</span>
                                                 </a>
@@ -361,7 +393,9 @@
                                 </div><!-- End .product-body -->
 
                                 <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                    <a href="javascript:void(0)" class="btn-product btn-cart"
+                                        data-product-id="{{ $product['product_id'] }}"
+                                        data-color-id="{{ $color_id }}"><span>add to cart</span></a>
                                 </div><!-- End .product-action -->
                             </div><!-- End .product -->
                         @endforeach
@@ -371,37 +405,38 @@
                 <div class="tab-pane p-0 fade" id="trendy-chair-tab" role="tabpanel" aria-labelledby="trendy-chair-tab">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                                                                                                                                            "nav": false,
-                                                                                                                                                                            "dots": true,
-                                                                                                                                                                            "margin": 20,
-                                                                                                                                                                            "loop": false,
-                                                                                                                                                                            "responsive": {
-                                                                                                                                                                                "0": {
-                                                                                                                                                                                    "items":2
-                                                                                                                                                                                },
-                                                                                                                                                                                "480": {
-                                                                                                                                                                                    "items":2
-                                                                                                                                                                                },
-                                                                                                                                                                                "768": {
-                                                                                                                                                                                    "items":3
-                                                                                                                                                                                },
-                                                                                                                                                                                "992": {
-                                                                                                                                                                                    "items":4
-                                                                                                                                                                                },
-                                                                                                                                                                                "1200": {
-                                                                                                                                                                                    "items":4,
-                                                                                                                                                                                    "nav": true,
-                                                                                                                                                                                    "dots": false
-                                                                                                                                                                                }
-                                                                                                                                                                            }
-                                                                                                                                                                        }'>
+                                                                                                                                                                                                    "nav": false,
+                                                                                                                                                                                                    "dots": true,
+                                                                                                                                                                                                    "margin": 20,
+                                                                                                                                                                                                    "loop": false,
+                                                                                                                                                                                                    "responsive": {
+                                                                                                                                                                                                        "0": {
+                                                                                                                                                                                                            "items":2
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "480": {
+                                                                                                                                                                                                            "items":2
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "768": {
+                                                                                                                                                                                                            "items":3
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "992": {
+                                                                                                                                                                                                            "items":4
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "1200": {
+                                                                                                                                                                                                            "items":4,
+                                                                                                                                                                                                            "nav": true,
+                                                                                                                                                                                                            "dots": false
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                }'>
 
                         @foreach ($productData->getTopProducts(3) as $product)
-                            <div class="product product-11 text-center">
-                                @php
-                                    $product_str = 'product-' . $product['product_id'] . '-' . $product['category_name'];
-                                @endphp
-                                <figure class="{{ asset('product-media') }}" id="{{ $product_str }}">
+                            @php
+                                $product_str = 'product-' . $product['product_id'] . '-' . $product['category_name'];
+                            @endphp
+                            <div class="product product-11 text-center" id="{{ $product_str }}">
+
+                                <figure class="{{ asset('product-media') }}">
                                     @foreach ($product['colors'] as $key => $color)
                                         @php
                                             $image = explode('#', $color['src']);
@@ -438,25 +473,35 @@
                                     <div class="product-price">
                                         {{ number_format($product['price'], 0, '', ',') . ' VNĐ' }}
                                     </div><!-- End .product-price -->
-
+                                    @php
+                                        $color_id = 0;
+                                    @endphp
                                     {{-- :Link switch color --}}
                                     <div class="product-nav product-nav-dots top-sales">
                                         @foreach ($product['colors'] as $key => $color)
                                             @if (count($product['colors']) == 1)
                                                 @php
+                                                    $color_id = $color['color_id'];
                                                     continue;
                                                 @endphp
                                             @endif
                                             @if ($key == 0)
+                                                @php
+                                                    $color_id = $color['color_id'];
+                                                @endphp
                                                 <a href="javascript:void(0)" class="{{ $product_str }} active"
                                                     style="background: {{ $color['color_code'] }};"
                                                     data-product="{{ $product_str }}"
+                                                    data-color-id="{{ $color['color_id'] }}"
+                                                    data-product-id="{{ $product['product_id'] }}"
                                                     data-color="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                     <span class="sr-only">Color name</span></a>
                                             @else
                                                 <a href="javascript:void(0)" class="{{ $product_str }}"
                                                     style="background: {{ $color['color_code'] }};"
                                                     data-product="{{ $product_str }}"
+                                                    data-color-id="{{ $color['color_id'] }}"
+                                                    data-product-id="{{ $product['product_id'] }}"
                                                     data-color="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                     <span class="sr-only">Color name</span>
                                                 </a>
@@ -466,7 +511,9 @@
                                 </div><!-- End .product-body -->
 
                                 <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                    <a href="javascript:void(0)" class="btn-product btn-cart"
+                                        data-product-id="{{ $product['product_id'] }}"
+                                        data-color-id="{{ $color_id }}"><span>add to cart</span></a>
                                 </div><!-- End .product-action -->
                             </div><!-- End .product -->
                         @endforeach
@@ -475,37 +522,38 @@
                 <div class="tab-pane p-0 fade" id="trendy-lamp-tab" role="tabpanel" aria-labelledby="trendy-lamp-tab">
                     <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                         data-owl-options='{
-                                                                                                                                                                            "nav": false,
-                                                                                                                                                                            "dots": true,
-                                                                                                                                                                            "margin": 20,
-                                                                                                                                                                            "loop": false,
-                                                                                                                                                                            "responsive": {
-                                                                                                                                                                                "0": {
-                                                                                                                                                                                    "items":2
-                                                                                                                                                                                },
-                                                                                                                                                                                "480": {
-                                                                                                                                                                                    "items":2
-                                                                                                                                                                                },
-                                                                                                                                                                                "768": {
-                                                                                                                                                                                    "items":3
-                                                                                                                                                                                },
-                                                                                                                                                                                "992": {
-                                                                                                                                                                                    "items":4
-                                                                                                                                                                                },
-                                                                                                                                                                                "1200": {
-                                                                                                                                                                                    "items":4,
-                                                                                                                                                                                    "nav": true,
-                                                                                                                                                                                    "dots": false
-                                                                                                                                                                                }
-                                                                                                                                                                            }
-                                                                                                                                                                        }'>
+                                                                                                                                                                                                    "nav": false,
+                                                                                                                                                                                                    "dots": true,
+                                                                                                                                                                                                    "margin": 20,
+                                                                                                                                                                                                    "loop": false,
+                                                                                                                                                                                                    "responsive": {
+                                                                                                                                                                                                        "0": {
+                                                                                                                                                                                                            "items":2
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "480": {
+                                                                                                                                                                                                            "items":2
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "768": {
+                                                                                                                                                                                                            "items":3
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "992": {
+                                                                                                                                                                                                            "items":4
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "1200": {
+                                                                                                                                                                                                            "items":4,
+                                                                                                                                                                                                            "nav": true,
+                                                                                                                                                                                                            "dots": false
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                }'>
 
                         @foreach ($productData->getTopProducts(7) as $product)
-                            <div class="product product-11 text-center">
-                                @php
-                                    $product_str = 'product-' . $product['product_id'] . '-' . $product['category_name'];
-                                @endphp
-                                <figure class="{{ asset('product-media') }}" id="{{ $product_str }}">
+                            @php
+                                $product_str = 'product-' . $product['product_id'] . '-' . $product['category_name'];
+                            @endphp
+                            <div class="product product-11 text-center" id="{{ $product_str }}">
+
+                                <figure class="{{ asset('product-media') }}">
                                     @foreach ($product['colors'] as $key => $color)
                                         @php
                                             $image = explode('#', $color['src']);
@@ -544,10 +592,15 @@
                                     </div><!-- End .product-price -->
 
                                     {{-- :Link switch color --}}
+                                    @php
+                                        $color_id = 0;
+                                    @endphp
+
                                     <div class="product-nav product-nav-dots top-sales">
                                         @foreach ($product['colors'] as $key => $color)
                                             @if (count($product['colors']) == 1)
                                                 @php
+                                                    $color_id = $color['color_id'];
                                                     continue;
                                                 @endphp
                                             @endif
@@ -555,12 +608,16 @@
                                                 <a href="javascript:void(0)" class="{{ $product_str }} active"
                                                     style="background: {{ $color['color_code'] }};"
                                                     data-product="{{ $product_str }}"
+                                                    data-color-id="{{ $color['color_id'] }}"
+                                                    data-product-id="{{ $product['product_id'] }}"
                                                     data-color="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                     <span class="sr-only">Color name</span></a>
                                             @else
                                                 <a href="javascript:void(0)" class="{{ $product_str }}"
                                                     style="background: {{ $color['color_code'] }};"
                                                     data-product="{{ $product_str }}"
+                                                    data-color-id="{{ $color['color_id'] }}"
+                                                    data-product-id="{{ $product['product_id'] }}"
                                                     data-color="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                     <span class="sr-only">Color name</span>
                                                 </a>
@@ -570,7 +627,9 @@
                                 </div><!-- End .product-body -->
 
                                 <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                    <a href="javascript:void(0)" class="btn-product btn-cart"
+                                        data-product-id="{{ $product['product_id'] }}"
+                                        data-color-id="{{ $color_id }}"><span>add to cart</span></a>
                                 </div><!-- End .product-action -->
                             </div><!-- End .product -->
                         @endforeach
@@ -584,10 +643,10 @@
             colorDots.forEach(dot => {
                 dot.addEventListener('click', function() {
 
-                    const productImgs = document.querySelectorAll(`#${this.dataset.product} a`);
+                    const productImgs = document.querySelectorAll(`#${this.dataset.product} figure a`);
 
                     productImgs.forEach(img => {
-                        
+
                         img.classList.add('d-none');
                     });
                     console.log(this.dataset.color);
@@ -597,9 +656,13 @@
                     const colorLinks = document.querySelectorAll(`.${this.dataset.product}`);
 
                     colorLinks.forEach(link => {
-                    
                         link.classList.remove('active');
                     })
+
+                    const container = document.querySelector(`#${this.dataset.obj}`);
+                    const btncart = container.querySelector('.btn-cart');
+                    btncart.dataset.productId = this.dataset.productId
+                    btncart.dataset.colorId = this.dataset.colorId
 
                     this.classList.add('active')
                 })
@@ -609,65 +672,75 @@
             <h2 class="title-lg text-center mb-4">Shop by Categories</h2><!-- End .title-lg text-center -->
 
             <div class="row">
-                
+
                 <div class="col-6 col-lg-4">
                     <div class="banner banner-display banner-link-anim">
                         <a href="#">
-                            <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(4)->imgSrc) }}" alt="Banner">
+                            <img src="{{ asset('/images/banners/' . $banners->getBannerByCate(4)->imgSrc) }}"
+                                alt="Banner">
                         </a>
 
                         <div class="banner-content banner-content-center">
-                            <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(4)->title}}</a></h3><!-- End .banner-title -->
+                            <h3 class="banner-title text-white"><a
+                                    href="#">{{ $banners->getBannerByCate(4)->title }}</a>
+                            </h3><!-- End .banner-title -->
                             <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                     class="icon-long-arrow-right"></i></a>
                         </div><!-- End .banner-content -->
                     </div><!-- End .banner -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
-                
+
                 <div class="col-6 col-lg-4 order-lg-last">
                     <div class="banner banner-display banner-link-anim">
                         <a href="#">
-                            <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(5)->imgSrc) }}" alt="Banner">
+                            <img src="{{ asset('/images/banners/' . $banners->getBannerByCate(5)->imgSrc) }}"
+                                alt="Banner">
                         </a>
 
                         <div class="banner-content banner-content-center">
-                            <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(5)->title}}</a></h3><!-- End .banner-title -->
+                            <h3 class="banner-title text-white"><a
+                                    href="#">{{ $banners->getBannerByCate(5)->title }}</a>
+                            </h3><!-- End .banner-title -->
                             <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                     class="icon-long-arrow-right"></i></a>
                         </div><!-- End .banner-content -->
                     </div><!-- End .banner -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
-                
-                
+
+
                 <div class="col-sm-12 col-lg-4 banners-sm">
                     <div class="row">
-                        
+
                         <div class="banner banner-display banner-link-anim col-lg-12 col-6">
                             <a href="#">
-                                <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(6)->imgSrc) }}" alt="Banner">
+                                <img src="{{ asset('/images/banners/' . $banners->getBannerByCate(6)->imgSrc) }}"
+                                    alt="Banner">
                             </a>
 
                             <div class="banner-content banner-content-center">
-                                <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(6)->title}}</a></h3>
+                                <h3 class="banner-title text-white"><a
+                                        href="#">{{ $banners->getBannerByCate(6)->title }}</a></h3>
                                 <!-- End .banner-title -->
                                 <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                         class="icon-long-arrow-right"></i></a>
                             </div><!-- End .banner-content -->
                         </div><!-- End .banner -->
-                        
+
                         <div class="banner banner-display banner-link-anim col-lg-12 col-6">
                             <a href="#">
-                                <img src="{{ asset('/images/banners/'.$banners->getBannerByCate(7)->imgSrc) }}" alt="Banner">
+                                <img src="{{ asset('/images/banners/' . $banners->getBannerByCate(7)->imgSrc) }}"
+                                    alt="Banner">
                             </a>
 
                             <div class="banner-content banner-content-center">
-                                <h3 class="banner-title text-white"><a href="#">{{$banners->getBannerByCate(7)->title}}</a></h3>
+                                <h3 class="banner-title text-white"><a
+                                        href="#">{{ $banners->getBannerByCate(7)->title }}</a></h3>
                                 <!-- End .banner-title -->
                                 <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
                                         class="icon-long-arrow-right"></i></a>
                             </div><!-- End .banner-content -->
                         </div><!-- End .banner -->
-                        
+
                     </div>
                 </div><!-- End .col-sm-6 col-lg-3 -->
             </div><!-- End .row -->
@@ -703,7 +776,7 @@
 
             <div class="tab-content">
                 <div class="tab-pane p-0 fade show active" id="top-all-tab" role="tabpanel" aria-labelledby="top-all-link">
-                    <div class="products" >
+                    <div class="products">
                         <div class="row justify-content-center" id="allNew">
 
                         </div><!-- End .row -->
@@ -714,7 +787,7 @@
                     </div><!-- End .more-container -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane p-0 fade" id="top-fur-tab" role="tabpanel" aria-labelledby="top-fur-link">
-                    <div class="products" >
+                    <div class="products">
                         <div class="row justify-content-center" id="sofasNew">
                         </div>
                     </div><!-- End .products -->
@@ -725,9 +798,9 @@
                     </div><!-- End .more-container -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane p-0 fade" id="top-decor-tab" role="tabpanel" aria-labelledby="top-decor-link">
-                    <div class="products" >
+                    <div class="products">
                         <div class="row justify-content-center" id="chairNew">
-                         
+
                         </div><!-- End .row -->
                     </div><!-- End .products -->
                     <div class="more-container text-center">
@@ -737,9 +810,9 @@
                     </div><!-- End .more-container -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane p-0 fade" id="top-light-tab" role="tabpanel" aria-labelledby="top-light-link">
-                    <div class="products" >
+                    <div class="products">
                         <div class="row justify-content-center" id="lampNew">
-                    
+
                         </div><!-- End .row -->
                     </div><!-- End .products -->
                     <div class="more-container text-center">
@@ -751,121 +824,7 @@
             </div><!-- End .tab-content -->
 
         </div><!-- End .container -->
-        <script>
-            const btn_LoadMore = document.querySelectorAll('.btn-more');
-            
-            let perpage = 4;
 
-            let all = -1, sofas = -1, chairs = -1, lamps = -1;
-
-            btn_LoadMore.forEach(el => {
-                el.addEventListener('click', () => {
-                    loadMore(el.dataset.categoryId, el.dataset.container, el);
-                })
-                loadMore(el.dataset.categoryId, el.dataset.container, el);
-            });
-         
-           
-            async function loadMore(category_id, container, btnLoad) {
-
-                let p = 0;
-                switch (category_id) {
-                    case '-1':
-                        all++
-                        p = all
-                   
-                    break;
-                    case '1':
-                        sofas++
-                        p = sofas
-                    break;
-                    case '3':
-                        chairs++
-                        p = chairs
-                    break;
-                    case '7':
-                        lamps++
-                        p = lamps
-                    break;
-                }
-             
-
-                const url = "./api/getNew/" + category_id + "/" +  p  + "/" + perpage;
-                const respone = await fetch(url);
-                const result = await respone.json();
-                // const resultArr = [...result];
-                console.log([...result]);
-                const divResult = document.querySelector(`#${container}`);
-                let html = '';
-                let n = result.length - 1;
-
-                if (result.length < 5) {
-                    btnLoad.style.display = 'none';
-                    n = result.length;
-                }
-            
-
-                for (let i = 0; i < n; i++) {
-                    const product = result[i];
-                    html += `<div class="col-6 col-md-4 col-lg-3">
-                                    <div class="product product-11 mt-v3 text-center">
-                                        <figure class="product-media">`;
-
-                                            product.colors.forEach((color, i) => {
-                                                const images = color.src.split("#");
-                                                html += 
-                                                `<a href="#" class="${ i !== 0 ? 'd-none' : ''}">
-                                                    <img src="./images/molla/${product.category_name}/${images[0]}"
-                                                        alt="Product image" class="product-image">
-                                                    <img src="./images/molla/${product.category_name}/${images[1]}"
-                                                        alt="Product image" class="product-image-hover">
-                                                </a>`;
-                                            });
-                                                html +=
-                                                `<div class="product-action-vertical">
-                                                    <a href="#" class="btn-product-icon btn-wishlist "><span>add to
-                                                            wishlist</span></a>
-                                                </div>
-                                            </figure>
-
-                                            <div class="product-body">
-                                                <h3 class="product-title"><a href="#">${product.product_name}</a></h3>
-                                                <div class="product-price">
-                                                    ${formatter.format(product.price)}
-                                                </div>
-
-                                                <div class="product-nav product-nav-dots">`;
-                                                    if (product.colors.length > 1) {
-                                                        product.colors.forEach((color, i) => {
-                                                        html +=
-                                                        `
-                                                        <a href="#" class="${ i===0 ? 'active' : ''}" style="background: ${color.color_code};"><span
-                                                            class="sr-only">Color name</span></a>
-                                                        `
-                                                    });
-                                                    }
-                                                html +=
-                                                `</div>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-cart btn-addCart" data-product-id="${product.product_id}"><span>add to cart</span></a>
-                                            </div>
-                                        </div>
-                                    </div>`;
-                
-
-                
-                }
-            
-                divResult.insertAdjacentHTML('beforeend', html);
-            }
-            var formatter = new Intl.NumberFormat('it-IT', {
-                style: 'currency',
-                currency: 'VND',
-            });
-
-           
-        </script>
 
         <div class="container">
             <hr>
@@ -915,23 +874,23 @@
 
                 <div class="owl-carousel owl-simple carousel-with-shadow" data-toggle="owl"
                     data-owl-options='{
-                                                                                                                                                                        "nav": false,
-                                                                                                                                                                        "dots": true,
-                                                                                                                                                                        "items": 3,
-                                                                                                                                                                        "margin": 20,
-                                                                                                                                                                        "loop": false,
-                                                                                                                                                                        "responsive": {
-                                                                                                                                                                            "0": {
-                                                                                                                                                                                "items":1
-                                                                                                                                                                            },
-                                                                                                                                                                            "600": {
-                                                                                                                                                                                "items":2
-                                                                                                                                                                            },
-                                                                                                                                                                            "992": {
-                                                                                                                                                                                "items":3
-                                                                                                                                                                            }
-                                                                                                                                                                        }
-                                                                                                                                                                    }'>
+                                                                                                                                                                                                "nav": false,
+                                                                                                                                                                                                "dots": true,
+                                                                                                                                                                                                "items": 3,
+                                                                                                                                                                                                "margin": 20,
+                                                                                                                                                                                                "loop": false,
+                                                                                                                                                                                                "responsive": {
+                                                                                                                                                                                                    "0": {
+                                                                                                                                                                                                        "items":1
+                                                                                                                                                                                                    },
+                                                                                                                                                                                                    "600": {
+                                                                                                                                                                                                        "items":2
+                                                                                                                                                                                                    },
+                                                                                                                                                                                                    "992": {
+                                                                                                                                                                                                        "items":3
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                }
+                                                                                                                                                                                            }'>
                     <article class="entry entry-display">
                         <figure class="entry-media">
                             <a href="{{ asset('single') }}">
@@ -1032,5 +991,5 @@
             </div><!-- End .container -->
         </div><!-- End .cta -->
     </main><!-- End .main -->
-
+    <script src="{{ asset('/js/ajax/index.js') }}"></script>
 @endsection('content')
