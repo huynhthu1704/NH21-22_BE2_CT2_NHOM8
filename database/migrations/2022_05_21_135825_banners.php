@@ -15,13 +15,13 @@ class Banners extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cate_id');
+            $table->unsignedBigInteger('category_id');
             $table->string('title', 255);
             $table->string('content',255);
             $table->string('pageName',255);
             $table->string('position', 255);
             $table->string('imgSrc', 500);
-            $table->foreign('cate_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
