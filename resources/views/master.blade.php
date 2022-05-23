@@ -687,7 +687,7 @@
                                             @csrf
 
                                             <div class="form-group">
-                                                <label for="register-email">Username *</label>
+                                                <label for="register-username">Username *</label>
                                                 <input type="text" class="form-control" id="register-username"
                                                     name="register-username" required>
                                             </div><!-- End .form-group -->
@@ -713,7 +713,7 @@
                                             <div class="form-group">
                                                 <label for="register-fullname">Full name *</label>
                                                 <input type="text" class="form-control" id="register-fullname"
-                                                    value="{{ old('fullname') }}" name="fullname" required>
+                                                    value="{{ old('fullname') }}" name="register-fullname" required>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group">

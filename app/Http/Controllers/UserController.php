@@ -34,9 +34,9 @@ class UserController extends Controller
         return view('login', ['categories' => $categories]);
     }
 
+
     public function process_login(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'username' => 'required|string|regex:/\w*$/|max:255',
             'password' => ['required',  Password::min(8)->letters()->numbers()],
@@ -54,7 +54,6 @@ class UserController extends Controller
             return redirect(route('index'));
         } 
         else {
-            echo 'hello';
             return Redirect::back()->withErrors(
                 [
                     'loginfail' => 'Email or password is wrong'
@@ -75,6 +74,8 @@ class UserController extends Controller
             'register-address' => 'required|max:2000',
             'register-gender' => 'required', 'max:5'
         ]);
+        
+        $request->flash();
 
         if ($validator->fails()) {
             return redirect()->route('auth.register')->withErrors($validator)->withInput();
@@ -92,8 +93,6 @@ class UserController extends Controller
             'join_day' => now(),
             'role_id' => 2
         ]);
-
-        $request->flash();
 
         session()->flash('message', 'Your account is created');
 
