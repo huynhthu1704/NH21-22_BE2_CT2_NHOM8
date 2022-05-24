@@ -30,7 +30,7 @@ class CartController extends Controller
                 'product_name' => $item->product->product_name,
                 'color_id' => $item->color_id,
                 'color_name' => $item->product->color_name,
-                'quantity' => 1,
+                'quantity' => isset($input['qty']) ? $input['qty'] : 1,
                 'price' => $item->product->price,
                 'src' => $item->src,
                 'category_name' => $category->category->category_name

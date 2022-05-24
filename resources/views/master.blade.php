@@ -332,12 +332,13 @@
 
                                                         <span class="cart-product-info">
                                                             <span class="cart-product-qty">1</span>
-                                                            x {{ number_format($item['price'], 0, '', ',') . ' VNĐ' }}
+                                                            x
+                                                            {{ number_format($item['price'], 0, '', ',') . ' VNĐ' }}
                                                         </span>
                                                     </div><!-- End .product-cart-details -->
                                                     <figure class="product-image-container">
                                                         <a href="product.html" class="product-image">
-                                                            <img src={{ './images/molla/' . $item['category_name'] . '/' . $item['src'] }}
+                                                            <img src={{ asset('/images/molla/' . $item['category_name'] . '/' . $item['src']) }}
                                                                 alt="product">
                                                         </a>
                                                     </figure>
@@ -801,7 +802,13 @@
             </div><!-- End .modal-dialog -->
         </div><!-- End .modal -->
     @endif
-
+    <div class="alert alert-success alert-dismissible fade " data-dismiss="alert"
+        style="position: fixed; right: 10px; bottom: 10px; padding-right: 50px;" role="alert">
+        <strong>Add cart success</strong> Do you want to <a href="#" class="font-weight-bold">view cart</a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
     <!-- Plugins JS File -->
     <script src="{{ asset('/js/jquery.min.js') }}"></script>
     <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
@@ -810,11 +817,26 @@
     <script src="{{ asset('/js/superfish.min.js') }}"></script>
     <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('/js/wNumb.js') }}"></script>
-    <script src="{{ asset('/js/ajax/cart.js') }}"></script>
+
 
     <!-- Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>
 
+    <script src="{{ asset('/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.hoverIntent.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('/js/superfish.min.js') }}"></script>
+    <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('/js/wNumb.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap-input-spinner.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap-input-spinner.js') }}"></script>
+    <script src="{{ asset('/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.elevateZoom.min.js') }}"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('/js/ajax/cart.js') }}"></script>
 </body>
 
 

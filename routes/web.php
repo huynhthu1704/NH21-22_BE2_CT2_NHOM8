@@ -1,15 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DetailController;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\UserController;
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\Color;
-use App\Models\Image;
-use App\Models\Dimension;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +24,12 @@ use App\Models\Dimension;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::prefix('admin')->group(function () {
-    Route::get('index', function () {
-        return view('admin.index');
-    });
+    Route::get('/', [IndexController::class, 'index'])->name('admin.home');
+    Route::get('/product', [ProductController::class, 'index'])->name('admin.product');
 });
+
+// detail
+Route::get('detail/product-{id}', [DetailController::class, 'getProductById']);
 
 Route::get('cart', function ()
 {

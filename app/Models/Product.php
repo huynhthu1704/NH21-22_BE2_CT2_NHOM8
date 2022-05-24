@@ -24,5 +24,8 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Brand', 'brand_id');
     }
-
+    public function dimension()
+    {
+        return $this->belongsTo(Dimension::class);
+    }
 }

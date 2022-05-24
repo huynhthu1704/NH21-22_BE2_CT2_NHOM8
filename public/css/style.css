@@ -114,5 +114,10 @@ input[name=price_value]:focus::-ms-fill-lower {
 input[name=price_value]:focus::-ms-fill-upper {
     background: #333;
 }
-
+.product-title{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 /*# sourceMappingURL=style.css.map */
