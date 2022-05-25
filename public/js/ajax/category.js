@@ -6,6 +6,7 @@ const colorLinks = document.querySelectorAll('.colorCheckbox');
 const productsCtn = document.querySelector('#products-wraper');
 const pagination = document.querySelector('#pagination');
 
+
 let categories = [], colors = []
     , price = { min: priceRange[0].value, max: priceRange[1].value }
     , brands = [], keywords = ''
@@ -86,10 +87,11 @@ const renderImages = (imgs, category_name, product_id) => {
     let images = ''
 
     imgs.forEach((img, i) => {
-        images += `<a href="product.html"
-                        class="product-${product_id}-img product-${product_id}-${img.color_id}-img ${i > 0 ? 'd-none' : ''}">
-                        <img src="/images/molla/${category_name}/${img.src}" alt="Product image" class="product-image">
-                    </a>`
+        images +=   
+        `<a href="detail/product-${product_id}"
+            class="product-${product_id}-img product-${product_id}-${img.color_id}-img ${i > 0 ? 'd-none' : ''}">
+            <img src="/images/molla/${category_name}/${img.src.split('#')[0]}" alt="Product image" class="product-image">
+        </a>`
     })
 
     return images;

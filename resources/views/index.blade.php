@@ -203,7 +203,7 @@
                                             $image = explode('#', $color['src']);
                                         @endphp
                                         @if ($key == 0)
-                                            <a href='id=1'
+                                            <a href='{{route('detail', ['id' => $product['product_id'] ])}}'
                                                 id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] }}">
                                                 <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                     alt="Product image" class="product-image">
@@ -211,7 +211,7 @@
                                                     alt="Product image" class="product-image-hover">
                                             </a>
                                         @else
-                                            <a href='id=1' class="d-none"
+                                            <a href='{{route('detail', ['id' => $product['product_id'] ])}}' class="d-none"
                                                 id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] }}">
                                                 <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                     alt="Product image" class="product-image">
@@ -322,7 +322,7 @@
                                             $image = explode('#', $color['src']);
                                         @endphp
                                         @if ($key == 0)
-                                            <a href='id=1'
+                                            <a href='{{route('detail', ['id' => $product['product_id'] ])}}'
                                                 id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                 <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                     alt="Product image" class="product-image">
@@ -330,7 +330,7 @@
                                                     alt="Product image" class="product-image-hover">
                                             </a>
                                         @else
-                                            <a href='id=1' class="d-none"
+                                            <a href='{{route('detail', ['id' => $product['product_id'] ])}}' class="d-none"
                                                 id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                 <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                     alt="Product image" class="product-image">
@@ -442,7 +442,7 @@
                                             $image = explode('#', $color['src']);
                                         @endphp
                                         @if ($key == 0)
-                                            <a href='id=1'
+                                            <a href='{{route('detail', ['id' => $product['product_id'] ])}}'
                                                 id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                 <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                     alt="Product image" class="product-image">
@@ -450,7 +450,7 @@
                                                     alt="Product image" class="product-image-hover">
                                             </a>
                                         @else
-                                            <a href='id=1' class="d-none"
+                                            <a href='{{route('detail', ['id' => $product['product_id'] ])}}' class="d-none"
                                                 id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                 <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                     alt="Product image" class="product-image">
@@ -559,7 +559,7 @@
                                             $image = explode('#', $color['src']);
                                         @endphp
                                         @if ($key == 0)
-                                            <a href='id=1'
+                                            <a href='{{route('detail', ['id' => $product['product_id'] ])}}'
                                                 id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                 <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                     alt="Product image" class="product-image">
@@ -567,7 +567,7 @@
                                                     alt="Product image" class="product-image-hover">
                                             </a>
                                         @else
-                                            <a href='id=1' class="d-none"
+                                            <a href='{{route('detail', ['id' => $product['product_id'] ])}}' class="d-none"
                                                 id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                                 <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                     alt="Product image" class="product-image">

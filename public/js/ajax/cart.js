@@ -53,7 +53,6 @@ const addCart = async (cart) => {
         }
     }
 
-    console.log(result);
     total.innerHTML = formatter.format(result.total);
     cartCount.innerHTML = count(result.cart);
     $(".alert").fadeTo(2000, 500).slideUp(500, function(){

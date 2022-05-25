@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DimensionController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\IndexController;
@@ -17,18 +16,9 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\UserController;
-use App\Models\Dimension;
+use App\Models\User;
+use Laravel\Socialite\Facades\Socialite;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
@@ -46,23 +36,74 @@ Route::prefix('admin')->group(function () {
 });
 
 // detail
-Route::get('detail/product-{id}', [DetailController::class, 'getProductById']);
+Route::get('detail/product-{id}', [DetailController::class, 'getProductById'])->name('detail');
 
-Route::get('cart', function ()
-{
-    return view('cart');
-})->name('auth.login');
+Route::get('cart', [CartController::class, 'index'])->name('viewcart');
 
 // User authentication
 Route::prefix('auth')->group(function () {
 
+    //Normal auth 
     Route::get('login', [UserController::class, 'show_form_login'])->name('auth.login');
     Route::get('signup', [UserController::class, 'show_form_register'])->name('auth.register');
-
     Route::post('register-action', [UserController::class, 'process_signup'])->name('auth.register.action');
     Route::post('login-action', [UserController::class, 'process_login'])->name('auth.login.action');
-
     Route::get('logout-action', [UserController::class, 'logout'])->name('auth.logout.action');
+
+    // Socialite auth
+    Route::get('/google/redirect', function () {
+        return Socialite::driver('google')->redirect();
+    })->name('google-login');
+
+    Route::get('/google/callback', function () {
+        $googleUser = Socialite::driver('google')->user();
+
+
+        $user = User::where('username', '=', $googleUser->id)->first();
+
+        if (empty($user)) {
+            $user = User::updateOrCreate(
+                [
+                    'full_name' => $googleUser->name,
+                    'email' => $googleUser->email,
+                    'username' => $googleUser->id,
+                    'password' => $googleUser->id . 'google',
+                    'provider' => 'google',
+                    'role_id' => 2
+                ]
+            );
+        }
+       
+        session()->put('user', $user);
+        return redirect()->route('index');
+    });
+
+    Route::get('/facebook/redirect', function () {
+        return Socialite::driver('facebook')->redirect();
+    })->name('facebook-login');
+
+    Route::get('/facebook/callback', function () {
+        $facebookUser = Socialite::driver('facebook')->user();
+
+        $user = User::where('username', '=', $facebookUser->id)->first();
+
+        if (empty($user)) {
+            $user = User::updateOrCreate(
+                [
+                    'full_name' => $facebookUser->name,
+                    'email' => $facebookUser->email,
+                    'username' => $facebookUser->id,
+                    'password' => $facebookUser->id . 'facebook',
+                    'provider' => 'facebook',
+                    'role_id' => 2
+                ]
+            );
+        }
+
+        // Auth::login($user);
+        session()->put('user', $user);
+        return redirect()->route('index');
+    });
 });
 
 Route::prefix('category')->group(function () {
@@ -70,6 +111,10 @@ Route::prefix('category')->group(function () {
     Route::get('/category-2-col', [PaginationController::class, 'CategoryTwoCol'])->name('category.2col');
 });
 
-// add cart
+// Add cart
 Route::post('/cart/add', [CartController::class, 'addCart']);
 Route::post('/cart/remove', [CartController::class, 'deleteItem']);
+Route::post('/cart/update', [CartController::class, 'updateCart']);
+Route::post('/cart/call', [CartController::class, 'callCart']);
+
+// 

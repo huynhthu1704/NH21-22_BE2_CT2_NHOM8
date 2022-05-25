@@ -42,28 +42,7 @@
         <header class="header">
             <div class="header-top">
                 <div class="container">
-                    <div class="header-left">
-                        <div class="header-dropdown">
-                            <a href="#">Usd</a>
-                            <div class="header-menu">
-                                <ul>
-                                    <li><a href="#">Eur</a></li>
-                                    <li><a href="#">Usd</a></li>
-                                </ul>
-                            </div><!-- End .header-menu -->
-                        </div><!-- End .header-dropdown -->
-
-                        <div class="header-dropdown">
-                            <a href="#">Eng</a>
-                            <div class="header-menu">
-                                <ul>
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                </ul>
-                            </div><!-- End .header-menu -->
-                        </div><!-- End .header-dropdown -->
-                    </div><!-- End .header-left -->
-
+                   
                     <div class="header-right">
                         <ul class="top-menu">
                             <li>
@@ -81,13 +60,7 @@
                                                 
                                             @endphp
                                             <div class="dropdown compare-dropdown">
-                                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false" data-display="static"
-                                                    title="Compare Products" aria-label="Compare Products"
-                                                    style="font-size: 13px">
-                                                    {{ $user[0]->full_name }}
-                                                </a>
-
+                                               
                                                 <div class="dropdown-menu dropdown-menu-right" style="width: 150px">
                                                     <ul class="compare-products flex-column align-items-start">
                                                         <li class="d-block w-100 ml-0 mt-2">
@@ -199,64 +172,8 @@
                                         </div><!-- End .row -->
                                     </div><!-- End .megamenu megamenu-md -->
                                 </li>
-                                <li>
-                                    <a href="{{ url('product') }}" class="sf-with-ul">Product</a>
-
-                                    <div class="megamenu megamenu-sm">
-                                        <div class="row no-gutters">
-                                            <div class="col-md-6">
-                                                <div class="menu-col">
-                                                    <div class="menu-title">Product Details</div>
-                                                    <!-- End .menu-title -->
-                                                    <ul>
-                                                        <li><a href="{{ url('product') }}">Default</a></li>
-                                                    </ul>
-                                                </div><!-- End .menu-col -->
-                                            </div><!-- End .col-md-6 -->
-
-                                            <div class="col-md-6">
-                                                <div class="banner banner-overlay">
-                                                    <a href="category.html">
-                                                        <img src="{{ asset('/images/menu/banner-2.jpg') }}"
-                                                            alt="Banner">
-
-                                                        <div class="banner-content banner-content-bottom">
-                                                            <div class="banner-title text-white">New
-                                                                Trends<br><span><strong>spring 2019</strong></span>
-                                                            </div><!-- End .banner-title -->
-                                                        </div><!-- End .banner-content -->
-                                                    </a>
-                                                </div><!-- End .banner -->
-                                            </div><!-- End .col-md-6 -->
-                                        </div><!-- End .row -->
-                                    </div><!-- End .megamenu megamenu-sm -->
-                                </li>
-                                <li>
-                                    <a href="#" class="sf-with-ul">Pages</a>
-
-                                    <ul>
-                                        <li>
-                                            <a href="{{ url('about') }}">About</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('contact') }}">Contact</a>
-
-                                        </li>
-                                        <li><a href="{{ url('login') }}">Login</a></li>
-                                        <li><a href="{{ url('faq') }}">FAQs</a></li>
-                                        <li><a href="{{ url('coming-soon') }}">Coming Soon</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="{{ url('blog') }}">Blog</a>
-                                </li>
-                                <li>
-                                    <a href="elements-list.html" class="sf-with-ul">Elements</a>
-
-                                    <ul>
-                                        <li><a href="elements-products.html">Products</a></li>
-                                    </ul>
-                                </li>
+                             
+                              
                             </ul><!-- End .menu -->
                         </nav><!-- End .main-nav -->
                     </div><!-- End .header-left -->
@@ -273,37 +190,7 @@
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->
-                        <div class="dropdown compare-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" data-display="static"
-                                title="Compare Products" aria-label="Compare Products">
-                                <i class="icon-random"></i>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <ul class="compare-products">
-                                    <li class="compare-product">
-                                        <a href="#" class="btn-remove" title="Remove Product"><i
-                                                class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">Blue Night Dress</a>
-                                        </h4>
-                                    </li>
-                                    <li class="compare-product">
-                                        <a href="#" class="btn-remove" title="Remove Product"><i
-                                                class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">White Long Skirt</a>
-                                        </h4>
-                                    </li>
-                                </ul>
-
-                                <div class="compare-actions">
-                                    <a href="#" class="action-link">Clear All</a>
-                                    <a href="#" class="btn btn-outline-primary-2"><span>Compare</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div>
-                            </div><!-- End .dropdown-menu -->
-                        </div><!-- End .compare-dropdown -->
-
+                   
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" data-display="static">
@@ -327,7 +214,8 @@
                                                 <div class="product">
                                                     <div class="product-cart-details">
                                                         <h4 class="product-title">
-                                                            <a href="product.html">{{ $item['product_name'] }}</a>
+                                                            <a
+                                                                href="{{ route('detail', ['id' => $item['product_id']]) }}">{{ $item['product_name'] }}</a>
                                                         </h4>
 
                                                         <span class="cart-product-info">
@@ -337,7 +225,8 @@
                                                         </span>
                                                     </div><!-- End .product-cart-details -->
                                                     <figure class="product-image-container">
-                                                        <a href="product.html" class="product-image">
+                                                        <a href="{{ route('detail', ['id' => $item['product_id']]) }}"
+                                                            class="product-image">
                                                             <img src={{ asset('/images/molla/' . $item['category_name'] . '/' . $item['src']) }}
                                                                 alt="product">
                                                         </a>
@@ -357,7 +246,7 @@
                                         </div><!-- End .dropdown-cart-total -->
 
                                         <div class="dropdown-cart-action">
-                                            <a href="cart.html" class="btn btn-primary">View Cart</a>
+                                            <a href="{{ route('viewcart') }}" class="btn btn-primary">View Cart</a>
                                             <a href="checkout.html"
                                                 class="btn btn-outline-primary-2"><span>Checkout</span><i
                                                     class="icon-long-arrow-right"></i></a>
@@ -372,7 +261,8 @@
                                         </div><!-- End .dropdown-cart-total -->
 
                                         <div class="dropdown-cart-action">
-                                            <a href="cart.html" disabled class="btn btn-primary">View Cart</a>
+                                            <a href="{{ route('viewcart') }}" disabled class="btn btn-primary">View
+                                                Cart</a>
                                             <a href="checkout.html" disabled
                                                 class="btn btn-outline-primary-2"><span>Checkout</span><i
                                                     class="icon-long-arrow-right"></i></a>
@@ -449,7 +339,7 @@
 
                                 <ul class="widget-list">
                                     <li><a href="#">Sign In</a></li>
-                                    <li><a href="{{ url('cart') }}">View Cart</a></li>
+                                    <li><a href="{{ route('viewcart') }}">View Cart</a></li>
                                     <li><a href="#">My Wishlist</a></li>
                                     <li><a href="#">Track My Order</a></li>
                                     <li><a href="#">Help</a></li>
@@ -688,13 +578,15 @@
                                             <p class="text-center">or sign in with</p>
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-login btn-g">
+                                                    <a href="{{ route('google-login') }}"
+                                                        class="btn btn-login btn-g">
                                                         <i class="icon-google"></i>
                                                         Login With Google
                                                     </a>
                                                 </div><!-- End .col-6 -->
                                                 <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-login btn-f">
+                                                    <a href="{{ route('facebook-login') }}"
+                                                        class="btn btn-login btn-f">
                                                         <i class="icon-facebook-f"></i>
                                                         Login With Facebook
                                                     </a>
@@ -807,7 +699,7 @@
         <strong>Add cart success</strong> Do you want to <a href="#" class="font-weight-bold">view cart</a>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>
+        </button>
     </div>
     <!-- Plugins JS File -->
     <script src="{{ asset('/js/jquery.min.js') }}"></script>
