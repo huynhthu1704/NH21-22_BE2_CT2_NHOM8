@@ -1,14 +1,23 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\DimensionController;
+use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\RatingController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DetailController;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\UserController;
-
+use App\Models\Dimension;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +35,14 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::prefix('admin')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('admin.home');
     Route::get('/product', [ProductController::class, 'index'])->name('admin.product');
+    Route::get('/brand',[BrandController::class,'index'])->name('admin.brand');
+    Route::get('/category', [CategoryController::class, 'index'])->name('admin.category');
+    Route::get('/dimension',[DimensionController::class,'index'])->name('admin.dimension');
+    Route::get('/discount', [DiscountController::class, 'index'])->name('admin.discount');
+    Route::get('/user',[AdminUserController::class,'index'])->name('admin.user');
+    Route::get('/order', [OrderController::class, 'index'])->name('admin.order');
+    Route::get('/rating',[RatingController::class,'index'])->name('admin.rating');
+    Route::get('/banner',[BannerController::class,'index'])->name('admin.banner');
 });
 
 // detail
