@@ -11,8 +11,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Advanced Form</li>
+                            <li class="breadcrumb-item"><a href="#addProduct">Add product</a></li>
                         </ol>
                     </div>
                 </div>
@@ -26,7 +25,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Responsive Hover Table</h3>
+                                <h3 class="card-title">Product Table</h3>
 
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -47,9 +46,9 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>User</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
+                                            <th>Product name</th>
+                                            <th>Category id</th>
+                                            <th>Price</th>
                                             <th>Reason</th>
 
                                         </tr>
@@ -84,118 +83,153 @@
             </div>
             <!-- /.container-fluid -->
         </section>
-
-        <div class="container-fluid px-5 " id="add-form">
-            <!-- /.content -->
-            <div class="row ">
-                <div class="col-md-12">
-                    <form class="card card-danger">
-                        <div class="card-header">
-                            <h3 class="card-title">Add products</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="add-product-name">Product name</label>
-                                <input type="text" class="form-control" id="add-product-name" name="product-name"
-                                    placeholder="Enter email">
+        <section>
+            <a href="#" id="addProduct"></a>
+            <div class="container-fluid px-5 " id="add-form">
+                <!-- /.content -->
+                <div class="row ">
+                    <div class="col-md-12">
+                        <form class="card card-danger">
+                            <div class="card-header">
+                                <h3 class="card-title">Add products</h3>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Category</label>
-                                        <select class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true"
-                                            name="product-category">
-                                            <option selected="selected" data-select2-id="19">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
-                                        </select>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="add-product-name">Product name</label>
+                                    <input type="text" class="form-control" id="add-product-name" name="product-name"
+                                        placeholder="Enter email">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Category</label>
+                                            <select class="form-control" style="width: 100%;" tabindex="-1"
+                                                aria-hidden="true" name="product-category">
+                                                <option selected="selected" data-select2-id="19">Alabama</option>
+                                                <option>Alaska</option>
+                                                <option>California</option>
+                                                <option>Delaware</option>
+                                                <option>Tennessee</option>
+                                                <option>Texas</option>
+                                                <option>Washington</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Brand</label>
+                                            <select class="form-control" style="width: 100%;" tabindex="-1"
+                                                aria-hidden="true" name="product-brand">
+                                                <option selected="selected" data-select2-id="19">Alabama</option>
+                                                <option>Alaska</option>
+                                                <option>California</option>
+                                                <option>Delaware</option>
+                                                <option>Tennessee</option>
+                                                <option>Texas</option>
+                                                <option>Washington</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Brand</label>
-                                        <select class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true"
-                                            name="product-brand">
-                                            <option selected="selected" data-select2-id="19">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
-                                        </select>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Price (VNĐ)</label>
+                                            <input type="number" min="1000" name="product-price" class="form-control"
+                                                step="1000" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Quantity</label>
+                                            <input type="number" min="0" name="product-quantity" class="form-control"
+                                                step="1" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row ml-1">
+                                    <label class="form-label col-12">Colors</label>
+                                    <div class="form-group clearfix" name="product-color">
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="den" checked>
+                                            <label for="den">
+                                                den
+                                            </label>
+                                        </div>
+                                        <div class="icheck-primary d-inline">
+                                            <input type="checkbox" id="nau" name="r1">
+                                            <label for="nau">
+                                                Nau
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Width</label>
+                                            <input type="number" min="10" name="product-width" class="form-control"
+                                                step="10" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Height</label>
+                                            <input type="number" min="10" name="product-height" class="form-control"
+                                                step="10" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Weight</label>
+                                            <input type="number" min="10" name="product-weight" class="form-control"
+                                                step="10" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Length</label>
+                                            <input type="number" min="10" name="product-length" class="form-control"
+                                                step="10" value="0">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea id="summernote" name="product-description">
+
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="ard-footer">
+                                <div id="actions" class="row">
+                                    <div class="ms-auto col-lg-12">
+                                        <button type="submit" class="btn btn-primary mr-4 mb-4"
+                                            style="margin-left: auto; display: block;">
+                                            <i class="fas fa-upload"></i>
+                                            <span>Add product</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Price (VNĐ)</label>
-                                        <input type="number" min="1000" name="product-price" class="form-control"
-                                            step="1000" value="0">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Quantity</label>
-                                        <input type="number" min="0" name="product-quantity" class="form-control" step="1"
-                                            value="0">
-                                    </div>
-                                </div>
-                            </div>
+                        </form>
+                        <!-- /.card -->
 
-                            <div class="row ml-1">
-                                <label class="form-label col-12">Colors</label>
-                                <div class="form-group clearfix">
-                                    <div class="icheck-primary d-inline">
-                                        <input type="checkbox" id="den" checked>
-                                        <label for="den">
-                                            den
-                                        </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                        <input type="checkbox" id="nau" name="r1">
-                                        <label for="nau">
-                                            Nau
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Quantity</label>
-                                        <textarea id="summernote" name="product-description">
-
-                                        </textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="ard-footer">
-                            <div id="actions" class="row">
-                                <div class="ms-auto col-lg-12">
-                                    <button type="submit" class="btn btn-primary mr-4 mb-4"
-                                        style="margin-left: auto; display: block;">
-                                        <i class="fas fa-upload"></i>
-                                        <span>Add product</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- /.card -->
-
+                    </div>
+                    <!-- /.col (right) -->
                 </div>
-                <!-- /.col (right) -->
             </div>
-        </div>
+        </section>
+
 
         <div class="container-fluid px-5 d-none" id="edit-form">
             <!-- /.content -->
@@ -231,8 +265,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Brand</label>
-                                        <select class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true"
-                                            name="product-brand">
+                                        <select class="form-control" style="width: 100%;" tabindex="-1"
+                                            aria-hidden="true" name="product-brand">
                                             <option selected="selected" data-select2-id="19">Alabama</option>
                                             <option>Alaska</option>
                                             <option>California</option>
@@ -255,8 +289,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Quantity</label>
-                                        <input type="number" min="0" name="product-quantity" class="form-control" step="1"
-                                            value="0">
+                                        <input type="number" min="0" name="product-quantity" class="form-control"
+                                            step="1" value="0">
                                     </div>
                                 </div>
 
@@ -299,12 +333,13 @@
                             <div id="actions" class="row">
                                 <div class="col-lg-6">
                                     <div class="btn-group w-100">
-                                        <label for="input-file" class="btn mb-0 btn-success col fileinput-button dz-clickable">
-                                            
+                                        <label for="input-file"
+                                            class="btn mb-0 btn-success col fileinput-button dz-clickable">
+
                                             <span>Add files</span>
                                         </label>
                                         <button type="submit" class="btn btn-primary col start">
-                                          
+
                                             <span>Start Edit</span>
                                         </button>
                                         <button type="reset" class="btn btn-warning col cancel" onclick="backToAdd()">

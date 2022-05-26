@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->unsignedBigInteger('brand_id');
             $table->text('description');
-            $table->tinyInteger('is_feature');
             $table->unsignedBigInteger('dimension_id');
             $table->integer('quantity');
             $table->integer('sale_amount');
