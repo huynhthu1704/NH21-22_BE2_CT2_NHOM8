@@ -1,5 +1,5 @@
 
-<?php require('headerphp.'); ?>
+<?php require('header.blade.phpphp'); ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->

@@ -39,7 +39,7 @@ Route::prefix('admin')->group(function() {
         return view('admin.index');
     });
     Route::get('data', function() {
-        return view('admin.data');
+        return view('admin.index');
     });
 });
 Route::prefix('auth')->group(function () {

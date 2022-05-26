@@ -38,8 +38,8 @@ Route::prefix('admin')->group(function() {
     Route::get('index', function() {
         return view('admin.index');
     });
-    Route::get('data', function() {
-        return view('admin.data');
+    Route::get('index', function() {
+        return view('admin.index');
     });
 });
 Route::prefix('auth')->group(function () {
