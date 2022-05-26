@@ -1,3 +1,7 @@
+@php
+// dd(Session::forget('user'));
+// Session::forget('user');
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <!-- molla/dashboard.html  22 Nov 2019 10:03:13 GMT -->
@@ -42,7 +46,7 @@
         <header class="header">
             <div class="header-top">
                 <div class="container">
-                   
+
                     <div class="header-right">
                         <ul class="top-menu">
                             <li>
@@ -60,7 +64,14 @@
                                                 
                                             @endphp
                                             <div class="dropdown compare-dropdown">
-                                               
+                                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false" data-display="static"
+                                                    title="Compare Products" aria-label="Compare Products"
+                                                    style="font-size: 13px">
+                                                    {{ $user->full_name }}
+                                                </a>
+
+
                                                 <div class="dropdown-menu dropdown-menu-right" style="width: 150px">
                                                     <ul class="compare-products flex-column align-items-start">
                                                         <li class="d-block w-100 ml-0 mt-2">
@@ -68,7 +79,7 @@
                                                                     class="icon-user"></i> Dashboard</a>
                                                         </li>
                                                         <li class="d-block w-100 ml-0 mt-2">
-                                                            <a href="#" class=""><i
+                                                            <a href="{{route('viewcart')}}" class=""><i
                                                                     class="icon-shopping-cart"></i> Cart</a>
                                                         </li>
                                                         <li class="d-block w-100 ml-0 mt-2">
@@ -172,8 +183,8 @@
                                         </div><!-- End .row -->
                                     </div><!-- End .megamenu megamenu-md -->
                                 </li>
-                             
-                              
+
+
                             </ul><!-- End .menu -->
                         </nav><!-- End .main-nav -->
                     </div><!-- End .header-left -->
@@ -190,7 +201,7 @@
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->
-                   
+
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" data-display="static">
@@ -549,13 +560,13 @@
                                             <div class="form-group">
                                                 <label for="singin-email">Username *</label>
                                                 <input type="text" class="form-control" id="singin-email"
-                                                    name="singin-email" required>
+                                                    name="username" required>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-group">
                                                 <label for="singin-password">Password *</label>
                                                 <input type="password" class="form-control" id="singin-password"
-                                                    name="singin-password" required>
+                                                    name="password" required>
                                             </div><!-- End .form-group -->
 
                                             <div class="form-footer">
