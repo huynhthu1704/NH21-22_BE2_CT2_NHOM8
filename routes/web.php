@@ -24,18 +24,32 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home');
-    Route::get('/product', [AdminProductController::class, 'index'])->name('admin.product');
-    Route::get('/brand',[AdminBrandController::class,'index'])->name('admin.brand');
-    Route::get('/category', [AdminCategoryController::class, 'index'])->name('admin.category');
-    Route::get('/color',[AdminColorController::class,'index'])->name('admin.color');
-    Route::get('/discount', [AdminDiscountController::class, 'index'])->name('admin.discount');
-    Route::get('/user',[AdminAdminUserController::class,'index'])->name('admin.user');
-    Route::get('/order', [AdminOrderController::class, 'index'])->name('admin.order');
-    Route::get('/review',[AdminRatingController::class,'index'])->name('admin.review');
-    Route::get('/banner',[AdminBannerController::class,'index'])->name('admin.banner');
-});
+Route::prefix('admin')->group(
+    function () {
+        Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home');
+        Route::get('/product', [AdminProductController::class, 'index'])->name('admin.product');
+        Route::get('/brand', [AdminBrandController::class, 'index'])->name('admin.brand');
+        Route::get('/category', [AdminCategoryController::class, 'index'])->name('admin.category');
+        Route::get('/color', [AdminColorController::class, 'index'])->name('admin.color');
+        Route::get('/discount', [AdminDiscountController::class, 'index'])->name('admin.discount');
+        Route::get('/user', [AdminAdminUserController::class, 'index'])->name('admin.user');
+        Route::get('/order', [AdminOrderController::class, 'index'])->name('admin.order');
+        Route::get('/review', [AdminRatingController::class, 'index'])->name('admin.review');
+        // Route::get('/banner',[AdminBannerController::class,'index'])->name('admin.banner');
+        Route::resource(
+            'banner',
+            AdminBannerController::class,
+            [
+                'names' => [
+                    'index' => 'admin.banner',
+                    'store' => 'admin.banner.add',
+                    'update' => 'admin.banner.update',
+                    'destroy' => 'admin.banner.delete',
+                ]
+            ]
+        );
+    }
+);
 
 // detail
 Route::get('detail/product-{id}', [DetailController::class, 'getProductById'])->name('detail');
@@ -79,7 +93,7 @@ Route::prefix('auth')->group(function () {
                 ]
             );
         }
-       
+
         session()->put('user', $user);
         return redirect()->route('index');
     });
