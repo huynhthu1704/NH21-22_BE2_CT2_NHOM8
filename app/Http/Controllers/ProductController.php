@@ -40,7 +40,7 @@ class ProductController extends Controller
             'length'
         )
             ->join('images', 'products.id', '=', 'images.product_id')
-            ->join('categories', 'products.cate_id', '=', 'categories.id')
+            ->join('categories', 'products.category_id', '=', 'categories.id')
             ->join('colors', 'colors.id', '=', 'images.color_id')
             ->join('dimensions', 'dimension_id', 'dimensions.id')
             ->where('products.id', $id)->get();
@@ -70,12 +70,12 @@ class ProductController extends Controller
     }
 
 
-    function getTopProducts($cate_id)
+    function getTopProducts($category_id)
     {
-        if ($cate_id == -1) {
+        if ($category_id == -1) {
             $products = Product::orderBy('sale_amount', 'desc')->limit(7)->get();
         } else {
-            $products = Product::where('cate_id', '=', $cate_id)->orderBy('sale_amount', 'desc')->limit(7)->get();
+            $products = Product::where('category_id', '=', $category_id)->orderBy('sale_amount', 'desc')->limit(7)->get();
         }
 
         $arr = [];
@@ -108,18 +108,18 @@ class ProductController extends Controller
 
     function getNewProducts($categoryID, $page, $perPage)
     {
-
         $start = $page * $perPage;
 
         $products = Product::orderBy('sale_amount', 'desc')->limit($perPage + 1)->offset($start);
 
         if($categoryID != -1) {
-            $products = $products->where('cate_id', '=', $categoryID)->get();
+            $products = $products->where('category_id', '=', $categoryID)->get();
         }else{
             $products = $products->get();
         }
 
         $arr = [];
+        
         foreach ($products as $key => $product) {
             
             $category = $product->category;

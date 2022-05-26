@@ -19,7 +19,7 @@ class ColorSeeder extends Seeder
         DB::table('colors')->insert([
             [
                 'color_name' => 'White',
-                'color_code' => '#fff',
+                'color_code' => '#ccc6b6',
                 'created_at' => $faker->dateTimeBetween('2010/1/1', '2015/1/1'),
                 'updated_at' => $faker->dateTimeBetween('2015/1/1')
             ],

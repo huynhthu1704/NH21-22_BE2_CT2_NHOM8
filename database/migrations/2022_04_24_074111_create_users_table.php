@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        
+
         Schema::create('users', function (Blueprint $table) {
 
             $table->charset = 'utf8mb4';
@@ -22,12 +22,13 @@ class CreateUsersTable extends Migration
             $table->string('username', 200)->unique();
             $table->string('password', 200);
             $table->string('email', 2000);
-            $table->date('birthday');
-            $table->string('full_name',200);
-            $table->string('phone', 32);
-            $table->text('address');
-            $table->string('gender', 15);
-            $table->date('join_day');
+            $table->date('birthday')->default(now());
+            $table->string('full_name', 200);
+            $table->string('phone', 32)->default('1');
+            $table->text('address')->default('1');
+            $table->string('gender', 15)->default('1');
+            $table->date('join_day')->default(now());
+            $table->enum('provider', ['normal', 'google', 'facebook'])->default('normal');
             $table->unsignedBigInteger('role_id');
             $table->timestamps();
             $table->foreign('role_id')->references('id')->on('roles');

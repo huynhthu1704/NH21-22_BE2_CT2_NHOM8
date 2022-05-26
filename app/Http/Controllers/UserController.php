@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\User;
-use App\Rules\FullnameRule;
-use Attribute;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
 
@@ -34,9 +34,9 @@ class UserController extends Controller
         return view('login', ['categories' => $categories]);
     }
 
+
     public function process_login(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'username' => 'required|string|regex:/\w*$/|max:255',
             'password' => ['required',  Password::min(8)->letters()->numbers()],
@@ -47,10 +47,19 @@ class UserController extends Controller
         }
 
         $user = DB::table('users')->where('username', $request->input('username'))
-        ->where('password', md5($request->input('password')))->first();
+            ->where('password', md5($request->input('password')))->first();
 
-        dd($user);
-        // session()->push('user', $user);
+        if ($user) {
+            session()->put('user', $user);
+            return redirect(route('index'));
+        } 
+        else {
+            return Redirect::back()->withErrors(
+                [
+                    'loginfail' => 'Email or password is wrong'
+                ]
+            );;
+        }
     }
 
     public function process_signup(Request $request)
@@ -65,6 +74,8 @@ class UserController extends Controller
             'register-address' => 'required|max:2000',
             'register-gender' => 'required', 'max:5'
         ]);
+        
+        $request->flash();
 
         if ($validator->fails()) {
             return redirect()->route('auth.register')->withErrors($validator)->withInput();
@@ -83,14 +94,17 @@ class UserController extends Controller
             'role_id' => 2
         ]);
 
-        $request->flash();
-
         session()->flash('message', 'Your account is created');
 
         return redirect()->route('auth.login');
     }
+
+
     public function logout()
     {
-        return redirect()->route('auth.login');
+        Auth::logout();
+        session()->flush();
+
+        return redirect()->route('index');
     }
 }

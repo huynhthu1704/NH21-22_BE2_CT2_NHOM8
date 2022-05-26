@@ -40,6 +40,12 @@
                                         </div>
                                     @endif
 
+                                    @error('loginfail')
+                                        <div class="alert alert-success mb-2" role="alert"
+                                            style="background: #80000028; border: 1px solid #f10909e0; color:#f10909e0;">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
 
                                     @csrf
                                     <div class="form-group">
