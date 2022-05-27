@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminColorController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\AdminProductController;
-use App\Http\Controllers\Admin\AdminRatingController;
+use App\Http\Controllers\Admin\AdminReviewController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DetailController;
@@ -31,12 +31,7 @@ Route::prefix('admin')->group(
         Route::get('/brand', [AdminBrandController::class, 'index'])->name('admin.brand');
         Route::get('/category', [AdminCategoryController::class, 'index'])->name('admin.category');
         Route::get('/color', [AdminColorController::class, 'index'])->name('admin.color');
-        Route::get('/discount', [AdminDiscountController::class, 'index'])->name('admin.discount');
-        Route::get('/user', [AdminAdminUserController::class, 'index'])->name('admin.user');
-        Route::get('/order', [AdminOrderController::class, 'index'])->name('admin.order');
-        Route::get('/review', [AdminRatingController::class, 'index'])->name('admin.review');
-        // Route::get('/banner',[AdminBannerController::class,'index'])->name('admin.banner');
-        
+
         Route::resource(
             'banner',
             AdminBannerController::class,
@@ -49,12 +44,54 @@ Route::prefix('admin')->group(
                 ]
             ]
         );
-        Route::resource('product', AdminProductController::class)->names([
-            'index' => 'admin.product',
-            'store' => 'admin.product.add',
-            'update' => 'admin.product.update',
-            'destroy' => 'admin.product.delete'
-        ]);
+        Route::resource(
+            'discount',
+            AdminDiscountController::class,
+            [
+                'names' => [
+                    'index' => 'admin.discount',
+                    'store' => 'admin.discount.add',
+                    'update' => 'admin.discount.update',
+                    'destroy' => 'admin.discount.delete',
+                ]
+            ]
+        );
+        Route::resource(
+            'user',
+            AdminUserController::class,
+            [
+                'names' => [
+                    'index' => 'admin.user',
+                    'store' => 'admin.user.add',
+                    'update' => 'admin.user.update',
+                    'destroy' => 'admin.user.delete',
+                ]
+            ]
+        );
+        Route::resource(
+            'order',
+            AdminOrderController::class,
+            [
+                'names' => [
+                    'index' => 'admin.order',
+                    'store' => 'admin.order.add',
+                    'update' => 'admin.order.update',
+                    'destroy' => 'admin.order.delete',
+                ]
+            ]
+        );
+        Route::resource(
+            'review',
+            AdminReviewController::class,
+            [
+                'names' => [
+                    'index' => 'admin.review',
+                    'store' => 'admin.review.add',
+                    'update' => 'admin.review.update',
+                    'destroy' => 'admin.review.delete',
+                ]
+            ]
+        );
     }
 );
 
