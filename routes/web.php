@@ -18,6 +18,7 @@ use App\http\Controllers\HomeController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
+use GuzzleHttp\Client;
 use Laravel\Socialite\Facades\Socialite;
 
 
@@ -114,8 +115,12 @@ Route::prefix('auth')->group(function () {
     })->name('google-login');
 
     Route::get('/google/callback', function () {
+
+        
+       
         $googleUser = Socialite::driver('google')->user();
 
+       
 
         $user = User::where('username', '=', $googleUser->id)->first();
 

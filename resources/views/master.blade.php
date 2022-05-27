@@ -1,6 +1,7 @@
 @php
 // dd(Session::forget('user'));
 // Session::forget('user');
+// dd(openssl_get_cert_locations());
 @endphp
 <!DOCTYPE html>
 <html lang="en">
