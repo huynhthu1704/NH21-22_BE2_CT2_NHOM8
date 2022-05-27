@@ -47,11 +47,10 @@
                                         <tr>
                                             <th>ID</th>
                                             {{-- <th>Username</th> --}}
-                                            <th>Name</th>
+                                            <th>Fullname</th>
                                             <th>Quantity</th>
                                             <th>Shipping fee</th>
                                             <th>Total</th>
-                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -81,18 +80,6 @@
                                             <td>{{$value['quantity']}}</td>
                                             <td>{{$value['shipping_fee']}}</td>
                                             <td>{{$value['total']}}</td>
-                                            @php
-                                               $status = $value['status'] ;
-                                               $color = ""
-                                            @endphp
-                                            @if (status == "Waiting for confirm")
-                                                $color = "red"
-                                            @elseif
-                                            @else 
-                                            $color = "green"
-                                            <td><span style="color : grey">{{$status}}</span></td>
-
-                                            @endif
                                             <td><button class="btn btn-warning">View detail</button></td>
                                         </tr>
                                         @endforeach

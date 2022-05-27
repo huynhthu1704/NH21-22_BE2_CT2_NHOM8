@@ -83,16 +83,13 @@
                                             <td>{{$value['total']}}</td>
                                             @php
                                                $status = $value['status'] ;
-                                               $color = ""
                                             @endphp
-                                            @if (status == "Waiting for confirm")
-                                                $color = "red"
-                                            @elseif
+                                            @if (status == "")
+                                                
+                                            @else if
                                             @else 
-                                            $color = "green"
-                                            <td><span style="color : grey">{{$status}}</span></td>
-
                                             @endif
+                                            <td><span style="">{{$value['status']}}</span></td>
                                             <td><button class="btn btn-warning">View detail</button></td>
                                         </tr>
                                         @endforeach

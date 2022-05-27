@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Customer;
+use App\Models\User;
 use App\Models\Order;
 
 class AdminOrderController extends Controller
@@ -17,14 +17,11 @@ class AdminOrderController extends Controller
     public function index()
     {
         $orders = Order::all();
-        foreach ($orders as $key1 => $value1) {
-            $customers = Customer::where('id', $value1['customer_id'])->get(['first_name', 'last_name']);
-            foreach ($customers as $key2 => $value2) {
-                $value1['customer_name'] = $value2->first_name.$value2->last_name;
-            }
+        foreach ($orders as $key => $value1) {
+            $users = User::where('id', $value1['customer_id'])->get(['first_name', 'last_name']);
+            foreach ($users)
         }
-        // dd($orders);
-        return view('admin.order', ['orders' => $orders]);
+        return view('admin.order', ['order' => $orders]);
     }
 
     /**

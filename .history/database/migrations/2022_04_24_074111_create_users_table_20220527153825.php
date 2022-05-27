@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
             $table->date('join_day')->default(now());
             $table->enum('provider', ['normal', 'google', 'facebook'])->default('normal');
             $table->unsignedBigInteger('role_id');
-            $table->enum('status', ['Activate', 'Inactivate'])->default('Activate');
+            $table->enum('status', ['Waiting for confirm', 'Confirmed', 'Canceled'])->default('Waiting for confirm');
 
             $table->timestamps();
             $table->foreign('role_id')->references('id')->on('roles');

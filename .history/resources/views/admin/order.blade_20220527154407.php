@@ -89,7 +89,6 @@
                                                 $color = "red"
                                             @elseif
                                             @else 
-                                            $color = "green"
                                             <td><span style="color : grey">{{$status}}</span></td>
 
                                             @endif

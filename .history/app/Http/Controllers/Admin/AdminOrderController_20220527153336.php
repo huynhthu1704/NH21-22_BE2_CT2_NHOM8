@@ -18,12 +18,12 @@ class AdminOrderController extends Controller
     {
         $orders = Order::all();
         foreach ($orders as $key1 => $value1) {
-            $customers = Customer::where('id', $value1['customer_id'])->get(['first_name', 'last_name']);
-            foreach ($customers as $key2 => $value2) {
-                $value1['customer_name'] = $value2->first_name.$value2->last_name;
+            $users = Customer::where('id', $value1['customer_id'])->get(['first_name', 'last_name']);
+            foreach ($users as $key2 => $value2) {
+                $user[$value1->id]['customer_name'] = $value2->first_name.$value2->last_name;
             }
         }
-        // dd($orders);
+        dd(orders);
         return view('admin.order', ['orders' => $orders]);
     }
 

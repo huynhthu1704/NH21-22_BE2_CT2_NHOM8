@@ -85,11 +85,10 @@
                                                $status = $value['status'] ;
                                                $color = ""
                                             @endphp
-                                            @if (status == "Waiting for confirm")
-                                                $color = "red"
+                                            @if (status == "")
+                                                
                                             @elseif
                                             @else 
-                                            $color = "green"
                                             <td><span style="color : grey">{{$status}}</span></td>
 
                                             @endif

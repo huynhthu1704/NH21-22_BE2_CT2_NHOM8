@@ -23,7 +23,7 @@ class AdminOrderController extends Controller
                 $value1['customer_name'] = $value2->first_name.$value2->last_name;
             }
         }
-        // dd($orders);
+        dd($orders);
         return view('admin.order', ['orders' => $orders]);
     }
 

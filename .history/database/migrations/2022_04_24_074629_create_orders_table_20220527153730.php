@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->integer('total');
             $table->dateTime('order_date');
             $table->text('note');
-            $table->enum('status', ['Waiting for confirm', 'Confirmed', 'Canceled'])->default('Waiting for confirm');
+            $table->enum('provider', ['Waiting for confirm', 'Confirmed', 'Canceled'])->default('normal');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('customer_id')->references('id')->on('customers');
