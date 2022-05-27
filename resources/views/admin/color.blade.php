@@ -12,7 +12,7 @@
                     
                     <div class="col-sm-6 ">
                         <button onclick="addColor()" class="float-sm-right btn btn-warning"><a
-                                style="font-size: 30; color: white">Add Product</a></button>
+                                style="font-size: 30; color: white">Add Color</a></button>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -32,100 +32,33 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="add-product-name">Color name</label>
-                                        <input type="text" class="form-control" id="add-product-name" name=""
+                                        <input type="text" class="form-control" id="add-product-name" name="color_name"
                                             placeholder="Enter email">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="add-product-name">Color code</label>
-                                        <input type="text" class="form-control" id="add-product-name" name="product-name"
+                                        <input type="text" class="form-control" id="add-product-name" name="color_code"
                                             placeholder="Enter email">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="add-product-name">Password</label>
-                                        <input type="password" class="form-control" id="add-product-name" name="product-name"
-                                            placeholder="Enter password">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="add-product-name">Email</label>
-                                        <input type="text" class="form-control" id="add-product-name" name="product-name"
-                                            placeholder="Enter email">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Birthday</label>
-                                          <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                              <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate">
-                                              <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label col-12">Gender</label>
-                                    <div class="form-group clearfix py-2">
-                                        <div class="icheck-primary d-inline px-3">
-                                          <input type="radio" id="radioPrimary1" name="r1" checked="">
-                                          <label for="radioPrimary1">
-                                              Male
-                                          </label>
-                                        </div>
-                                        <div class="icheck-primary d-inline">
-                                          <input type="radio" id="radioPrimary2" name="r1">
-                                          <label for="radioPrimary2">
-                                              Female
-                                          </label>
-                                        </div>
-                                      </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="add-product-name">User name</label>
-                                        <input type="text" class="form-control" id="add-product-name" name="product-name"
-                                            placeholder="Enter email">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Role</label>
-                                        <select class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true"
-                                            name="product-brand">
-                                            <option selected="selected" data-select2-id="19">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
-                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="ard-footer">
+                        <div class="card-footer">
                             <div id="actions" class="row">
-                                <div class="ms-auto col-lg-12">
-                                    <button type="submit" class="btn btn-primary mr-4 mb-4"
-                                        style="margin-left: auto; display: block;">
-                                        <i class="fas fa-upload"></i>
-                                        <span>Add product</span>
-                                    </button>
+                                <div class="col-lg-6">
+                                    <div class="btn-group w-100">
+                                        <button type="submit" class="btn btn-success col">
+                                            <span>Add color</span>
+                                        </button>
+                                        <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
+                                            <span>Cancel</span>
+                                        </button>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </form>
@@ -305,6 +238,10 @@
     <script>
         const addColor = () => {
             document.querySelector('#add-form').classList.remove('d-none');
+            document.querySelector('#edit-form').classList.add('d-none');;
+        }
+        const cancel = () => {
+            document.querySelector('#add-form').classList.add('d-none');
             document.querySelector('#edit-form').classList.add('d-none');;
         }
         const switchToEdit = (id) => {

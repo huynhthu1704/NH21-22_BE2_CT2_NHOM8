@@ -157,7 +157,7 @@
                                     <div class="col-lg-6">
                                         <div class="btn-group w-100">
                                             <button type="submit" class="btn btn-success col">
-                                                <span>Add banner</span>
+                                                <span>Add Product</span>
                                             </button>
                                             <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
                                                 <span>Cancel</span>

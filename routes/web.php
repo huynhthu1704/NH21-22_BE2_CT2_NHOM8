@@ -27,10 +27,31 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::prefix('admin')->group(
     function () {
         Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home');
-        Route::get('/product', [AdminProductController::class, 'index'])->name('admin.product');
-        Route::get('/brand', [AdminBrandController::class, 'index'])->name('admin.brand');
-        Route::get('/category', [AdminCategoryController::class, 'index'])->name('admin.category');
-        Route::get('/color', [AdminColorController::class, 'index'])->name('admin.color');
+
+        Route::resource('product', AdminProductController::class)->names([
+            'index' => 'admin.product',
+            'store' => 'admin.product.add',
+            'update' => 'admin.product.update',
+            'destroy' => 'admin.product.delete'
+        ]);
+        Route::resource('color', AdminColorController::class)->names([
+            'index' => 'admin.color',
+            'store' => 'admin.color.add',
+            'update' => 'admin.color.update',
+            'destroy' => 'admin.color.delete'
+        ]);
+        Route::resource('brand', AdminBrandController::class)->names([
+            'index' => 'admin.brand',
+            'store' => 'admin.brand.add',
+            'update' => 'admin.brand.update',
+            'destroy' => 'admin.brand.delete'
+        ]);
+        Route::resource('category', AdminCategoryController::class)->names([
+            'index' => 'admin.category',
+            'store' => 'admin.category.add',
+            'update' => 'admin.category.update',
+            'destroy' => 'admin.category.delete'
+        ]);
 
         Route::resource(
             'banner',
