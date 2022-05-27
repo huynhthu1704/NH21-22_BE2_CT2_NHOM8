@@ -4,3 +4,7 @@
 #bannerImg:hover{
     transform: scale(4);
 }
+.description{
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+}

@@ -36,6 +36,7 @@ Route::prefix('admin')->group(
         Route::get('/order', [AdminOrderController::class, 'index'])->name('admin.order');
         Route::get('/review', [AdminRatingController::class, 'index'])->name('admin.review');
         // Route::get('/banner',[AdminBannerController::class,'index'])->name('admin.banner');
+        
         Route::resource(
             'banner',
             AdminBannerController::class,
@@ -48,6 +49,12 @@ Route::prefix('admin')->group(
                 ]
             ]
         );
+        Route::resource('product', AdminProductController::class)->names([
+            'index' => 'admin.product',
+            'store' => 'admin.product.add',
+            'update' => 'admin.product.update',
+            'destroy' => 'admin.product.delete'
+        ]);
     }
 );
 

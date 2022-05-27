@@ -9,109 +9,45 @@
                     <div class="col-sm-6">
                         <h1>Product Form</h1>
                     </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#addProduct">Add product</a></li>
-                        </ol>
+                    <div class="col-sm-6 ">
+                        <button onclick="addProduct()" class="float-sm-right btn btn-warning"><a
+                                style="font-size: 30; color: white">Add Product</a></button>
                     </div>
+
                 </div>
             </div><!-- /.container-fluid -->
         </section>
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid px-5">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Product Table</h3>
-
-                                <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control float-right"
-                                            placeholder="Search">
-
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Product name</th>
-                                            <th>Category id</th>
-                                            <th>Price</th>
-                                            <th>Reason</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>183</td>
-                                            <td>John Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="tag tag-success">Approved</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                            <td><button class="btn btn-success" onclick="switchToEdit(1)">Edit</button></td>
-                                            <td><button class="btn btn-warning">Remove</button></td>
-                                        </tr>
-                                    <tbody>
-                                </table>
-                                <div class="card-footer clearfix">
-                                    <ul class="pagination pagination-sm m-0 float-right">
-                                        <li class="page-item"><a class="page-link" href="#">«</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">»</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                    </div>
-                </div>
-            </div>
-            <!-- /.container-fluid -->
-        </section>
+        {{-- add Product --}}
         <section>
-            <a href="#" id="addProduct"></a>
-            <div class="container-fluid px-5 " id="add-form">
+            <div class="container-fluid px-5 d-none" id="add-form">
                 <!-- /.content -->
                 <div class="row ">
                     <div class="col-md-12">
-                        <form class="card card-danger">
+                        <form class="card card-danger" method="POST" action="{{route('admin.product.add')}}">
+                            {{ csrf_field() }}
                             <div class="card-header">
                                 <h3 class="card-title">Add products</h3>
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="add-product-name">Product name</label>
-                                    <input type="text" class="form-control" id="add-product-name" name="product-name"
-                                        placeholder="Enter email">
+                                    <input type="text" class="form-control" id="add-product-name" name="product_name"
+                                        placeholder="Enter product name">
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Category</label>
                                             <select class="form-control" style="width: 100%;" tabindex="-1"
-                                                aria-hidden="true" name="product-category">
-                                                <option selected="selected" data-select2-id="19">Alabama</option>
-                                                <option>Alaska</option>
-                                                <option>California</option>
-                                                <option>Delaware</option>
-                                                <option>Tennessee</option>
-                                                <option>Texas</option>
-                                                <option>Washington</option>
+                                                aria-hidden="true" name="product_category">
+                                                @foreach ($categories as $key => $value)
+                                                    @if ($key === 0)
+                                                        <option id="{{$value['id']}}" selected="selected" data-select2-id="19">{{$value['category_name']}}</option>
+                                                    @else
+                                                        <option id="{{$value['id']}}">{{$value['category_name']}}</option>
+                                                    @endif
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -119,14 +55,14 @@
                                         <div class="form-group">
                                             <label>Brand</label>
                                             <select class="form-control" style="width: 100%;" tabindex="-1"
-                                                aria-hidden="true" name="product-brand">
-                                                <option selected="selected" data-select2-id="19">Alabama</option>
-                                                <option>Alaska</option>
-                                                <option>California</option>
-                                                <option>Delaware</option>
-                                                <option>Tennessee</option>
-                                                <option>Texas</option>
-                                                <option>Washington</option>
+                                                aria-hidden="true" name="product_brand">
+                                                @foreach ($brands as $key => $value)
+                                                @if ($key === 0)
+                                                    <option id="{{$value['id']}}" selected="selected" data-select2-id="19">{{$value['brand_name']}}</option>
+                                                @else
+                                                    <option id="{{$value['id']}}">{{$value['brand_name']}}</option>
+                                                @endif
+                                            @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -135,14 +71,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Price (VNĐ)</label>
-                                            <input type="number" min="1000" name="product-price" class="form-control"
+                                            <input type="number" min="1000" name="product_price" class="form-control"
                                                 step="1000" value="0">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <input type="number" min="0" name="product-quantity" class="form-control"
+                                            <input type="number" min="0" name="product_quantity" class="form-control"
                                                 step="1" value="0">
                                         </div>
                                     </div>
@@ -150,7 +86,7 @@
 
                                 <div class="row ml-1">
                                     <label class="form-label col-12">Colors</label>
-                                    <div class="form-group clearfix" name="product-color">
+                                    <div class="form-group clearfix" name="product_color">
                                         <div class="icheck-primary d-inline">
                                             <input type="checkbox" id="den" checked>
                                             <label for="den">
@@ -166,42 +102,48 @@
                                     </div>
                                 </div>
                                 <div class="row">
-
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Width</label>
-                                            <input type="number" min="10" name="product-width" class="form-control"
-                                                step="10" value="0">
+                                    <label class="form-label col-12">Dimension</label>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Width</label>
+                                                    <input type="number" min="10" name="product_width" class="form-control"
+                                                        step="10" value="0">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Height</label>
+                                                    <input type="number" min="10" name="product_height" class="form-control"
+                                                        step="10" value="0">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Weight</label>
+                                                    <input type="number" min="10" name="product_weight" class="form-control"
+                                                        step="10" value="0">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Length</label>
+                                                    <input type="number" min="10" name="product_length" class="form-control"
+                                                        step="10" value="0">
+                                                </div>
+                                            </div>
                                         </div>
+                                        
+    
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Height</label>
-                                            <input type="number" min="10" name="product-height" class="form-control"
-                                                step="10" value="0">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Weight</label>
-                                            <input type="number" min="10" name="product-weight" class="form-control"
-                                                step="10" value="0">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Length</label>
-                                            <input type="number" min="10" name="product-length" class="form-control"
-                                                step="10" value="0">
-                                        </div>
-                                    </div>
-
+                                    
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea id="summernote" name="product-description">
+                                            <textarea id="summernote" name="product_description">
 
                                             </textarea>
                                         </div>
@@ -210,15 +152,19 @@
 
                             </div>
 
-                            <div class="ard-footer">
+                            <div class="card-footer">
                                 <div id="actions" class="row">
-                                    <div class="ms-auto col-lg-12">
-                                        <button type="submit" class="btn btn-primary mr-4 mb-4"
-                                            style="margin-left: auto; display: block;">
-                                            <i class="fas fa-upload"></i>
-                                            <span>Add product</span>
-                                        </button>
+                                    <div class="col-lg-6">
+                                        <div class="btn-group w-100">
+                                            <button type="submit" class="btn btn-success col">
+                                                <span>Add banner</span>
+                                            </button>
+                                            <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
+                                                <span>Cancel</span>
+                                            </button>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                         </form>
@@ -230,6 +176,7 @@
             </div>
         </section>
 
+        {{-- edit product --}}
 
         <div class="container-fluid px-5 d-none" id="edit-form">
             <!-- /.content -->
@@ -265,8 +212,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Brand</label>
-                                        <select class="form-control" style="width: 100%;" tabindex="-1"
-                                            aria-hidden="true" name="product-brand">
+                                        <select class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true"
+                                            name="product-brand">
                                             <option selected="selected" data-select2-id="19">Alabama</option>
                                             <option>Alaska</option>
                                             <option>California</option>
@@ -289,8 +236,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Quantity</label>
-                                        <input type="number" min="0" name="product-quantity" class="form-control"
-                                            step="1" value="0">
+                                        <input type="number" min="0" name="product-quantity" class="form-control" step="1"
+                                            value="0">
                                     </div>
                                 </div>
 
@@ -350,8 +297,8 @@
 
                                 <div class="col-lg-6 d-flex align-items-center">
                                     <div class="fileupload-process w-100">
-                                        <div id="total-progress" class="progress progress-striped active"
-                                            role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                        <div id="total-progress" class="progress progress-striped active" role="progressbar"
+                                            aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
                                             <div class="progress-bar progress-bar-success" style="width:0%;"
                                                 data-dz-uploadprogress=""></div>
                                         </div>
@@ -366,6 +313,81 @@
                 <!-- /.col (right) -->
             </div>
         </div>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid px-5">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Product Table</h3>
+
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" name="table_search" class="form-control float-right"
+                                            placeholder="Search">
+
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover">
+                                    <thead style="display: block">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th style="width: 30%">Product name</th>
+                                            <th>Category</th>
+                                            <th>Price</th>
+                                            <th style="width: 30%">Description</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody style="display: block ;overflow-y: auto; overflow-x: hidden;">
+                                        @foreach ($products as $product)
+                                            <tr style="height:100px">
+                                                <td>{{ $product->id }}</td>
+                                                <td>{{ $product->product_name }}</td>
+                                                <td>{{ $product->category_name }}</td>
+                                                <td>{{ $product->price }}</td>
+                                                <td>
+                                                    <p style="height: 50%; overflow-y: scroll; text-overflow: ellipsis;">
+                                                        {{ $product->description }}</p>
+                                                </td>
+                                                <td><button class="btn btn-success" onclick="switchToEdit(1)">Edit</button>
+                                                </td>
+                                                <td><button class="btn btn-warning">Remove</button></td>
+                                            </tr>
+                                        @endforeach
+                                    <tbody>
+                                </table>
+                                <div class="card-footer clearfix">
+                                    <ul class="pagination pagination-sm m-0 float-right">
+                                        <li class="page-item"><a class="page-link" href="#">«</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">»</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+
+
+
     </div>
     <!-- jQuery -->
     <script src="{{ asset('css/admin/plugins/jquery/jquery.min.js') }}"></script>
@@ -383,7 +405,8 @@
     <!-- bootstrap color picker -->
     <script src="{{ asset('css/admin/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
+    </script>
     <!-- Bootstrap Switch -->
     <script src="{{ asset('css/admin/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
     <!-- BS-Stepper -->
@@ -405,6 +428,10 @@
 
     <!-- Page specific script -->
     <script>
+        const addProduct = () => {
+            document.querySelector('#add-form').classList.remove('d-none');
+            document.querySelector('#edit-form').classList.add('d-none');;
+        }
         const switchToEdit = (id) => {
             const add = document.querySelector('#add-form');
             const edit = document.querySelector('#edit-form');
@@ -414,7 +441,10 @@
             const inputId = edit.querySelector('input[name="product-id"]');
             inputId.value = id
         }
-
+        const cancel = () => {
+            document.querySelector('#add-form').classList.add('d-none');
+            document.querySelector('#edit-form').classList.add('d-none');;
+        }
         const backToAdd = () => {
             const add = document.querySelector('#add-form');
             const edit = document.querySelector('#edit-form');

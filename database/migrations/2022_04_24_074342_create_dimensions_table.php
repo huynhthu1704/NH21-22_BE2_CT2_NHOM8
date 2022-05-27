@@ -19,6 +19,7 @@ class CreateDimensionsTable extends Migration
             $table->integer('height');
             $table->integer('weight');
             $table->integer('length');
+            $table->timestamps();
         });
     }
 
