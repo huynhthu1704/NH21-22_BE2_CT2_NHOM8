@@ -259,7 +259,7 @@
 
                                         <div class="dropdown-cart-action">
                                             <a href="{{ route('viewcart') }}" class="btn btn-primary">View Cart</a>
-                                            <a href="checkout.html"
+                                            <a href="{{route('checkout')}}"
                                                 class="btn btn-outline-primary-2"><span>Checkout</span><i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .dropdown-cart-total -->
@@ -275,7 +275,7 @@
                                         <div class="dropdown-cart-action">
                                             <a href="{{ route('viewcart') }}" disabled class="btn btn-primary">View
                                                 Cart</a>
-                                            <a href="checkout.html" disabled
+                                            <a href="{{route('checkout')}}" disabled
                                                 class="btn btn-outline-primary-2"><span>Checkout</span><i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .dropdown-cart-total -->

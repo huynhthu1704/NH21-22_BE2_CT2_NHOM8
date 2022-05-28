@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class AdminCategoryController extends Controller
@@ -14,7 +15,8 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category');
+        $categories = Category::all();
+        return view('admin.category',['categories'=>$categories]);
     }
 
     /**
@@ -35,7 +37,12 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category;
+        $category->category_name = $request->category_name;
+        
+        $category->save();
+
+        return redirect()->route('admin.category');
     }
 
     /**
@@ -69,7 +76,12 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->category_name = $request->category_name;
+        
+        $category->save();
+
+        return redirect()->route('admin.category');
     }
 
     /**
@@ -80,6 +92,7 @@ class AdminCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cate = Category::find($id)->delete();
+        return redirect()->route('admin.category');
     }
 }

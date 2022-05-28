@@ -97,7 +97,7 @@
                                     <div class="form-group">
                                         <label for="add-content">Color code</label>
                                         <input type="color" class="form-control" id="edit-content" name="code"
-                                            placeholder="Enter content" required value="">
+                                        required value="">
                                     </div>
                                 </div>
                             </div>
@@ -144,48 +144,44 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
+
                             <div class="card-header">
-                                <div class="col-sm-6 ">
-                                    <h3 class="card-title">Color Table</h3>
-                                </div>
+                                <h3 class="card-title">Color Table</h3>
                             </div>
                             <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap">
+                            <div class="card-body -responsive ">
+
+                                <table id="example1" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Color name</th>
                                             <th>Color code</th>
-
+                                            <th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($colors as $color)
-                                        <tr>
-                                            <td>{{$color->id}}</td>
-                                            <td>{{$color->color_name}}</td>
-                                            <td>{{$color->color_code}}</td>
-                                            <td><button class="btn btn-success"
-                                                data-name="{{ $color->color_name}}"
-                                                data-color="{{ $color->color_code}}"
-                                                onclick="edit(this,{{$color->id}})"><a
-                                                    style="text-decoration: none">Edit</a></button>
-                                            </td>
-                                            <td><button class="btn btn-warning" onclick="remove({{$color->id}})">Remove</button></td>
-                                        </tr>
+                                        @foreach ($colors as $key => $value)
+                                           
+                                            <tr>
+                                                <td>{{ $value['id'] }}</td>
+                                                <td>{{ $value['color_name'] }}</td>
+                                                <td>{{ $value['color_code'] }}</td>
+                                                <td><button class="btn btn-success"
+                                                    data-name="{{ $value['color_name']}}"
+                                                    data-color="{{ $value['color_code']}}"
+                                                    onclick="edit(this,{{$value['id']}})"><a
+                                                        style="text-decoration: none">Edit</a></button>
+                                                </td>
+                                                <td><button class="btn btn-warning" onclick="remove({{$value['id']}})">Remove</button></td>
+                                                
+                                            </tr>
                                         @endforeach
                                     <tbody>
                                 </table>
-                                <div class="card-footer clearfix">
-                                    <ul class="pagination pagination-sm m-0 float-right">
-                                        <li class="page-item"><a class="page-link" href="#">«</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">»</a></li>
-                                    </ul>
-                                </div>
+
+                        
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -232,6 +228,19 @@
     <script src="{{ asset('css/admin/plugins/codemirror/mode/css/css.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/codemirror/mode/xml/xml.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="{{ asset('css/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
     <!-- Page specific script -->
     <script>
@@ -247,17 +256,20 @@
             const add = document.querySelector('#add-form');
             const edit = document.querySelector('#edit-form');
             const name = sender.dataset.name;
-            const code = sender.dataset.code;
+            const code = sender.dataset.color;
             add.classList.add('d-none');
             edit.classList.remove('d-none');
             edit.querySelector('input[name="color_id"]').value = id;
             edit.querySelector('input[name="name"]').value = name;
             edit.querySelector('input[name="code"]').value = code;
+            console.log(edit.querySelector('input[name="color_id"]'));
         }
+        
         function editColor() {
             const edit = document.getElementById('form-edit');
             const id = edit.querySelector('input[name="color_id"]').value;
             const action = "{{ url('admin/color') }}/" + id;
+            
             edit.action = action;
             edit.submit();
         }
@@ -271,6 +283,14 @@
             }
 
         }
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
         $(function() {
             // Summernote
             $('#summernote').summernote()

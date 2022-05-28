@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminReviewController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DetailController;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
@@ -124,6 +125,7 @@ Route::prefix('admin')->group(
 Route::get('detail/product-{id}', [DetailController::class, 'getProductById'])->name('detail');
 
 Route::get('cart', [CartController::class, 'index'])->name('viewcart');
+Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
 
 // User authentication
 Route::prefix('auth')->group(function () {
