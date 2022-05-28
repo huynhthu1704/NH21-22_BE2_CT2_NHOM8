@@ -9,8 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Order {{$order->id}}</h1>
+                        <h1>User</h1>
                     </div>
+                    {{-- <div class="col-sm-6 ">
+                        <span style="color: red">{{Session::has('msg')?Session::get('msg'): ""}}</span>
+                        <button onclick="add()" class="float-sm-right btn btn-warning"><a style="font-size: 30; color: white">Add discount</a></button>
+                    </div> --}}
                 </div>
             </div><!-- /.container-fluid -->
 
@@ -23,6 +27,18 @@
                                 <div class="card-header">
                                     <h3 class="card-title">User List</h3>
 
+                                    <div class="card-tools">
+                                        <div class="input-group input-group-sm" style="width: 150px;">
+                                            <input type="text" name="_search" class="form-control float-right"
+                                                placeholder="Search">
+
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-default">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body -responsive p-0">
@@ -39,8 +55,31 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @foreach ($orders as $key => $value)
-                                               
+                                            @foreach ($orders as $key => $value)
+                                                {{-- @php
+                                            $email =$value['email'];
+                                            $str = explode('@', $email);
+                                            function decode($n)
+                                                {
+                                                    return ('*');
+                                                }
+                                                $str1 = substr($str[0], 0, 3);
+                                                $str2 = substr($str[0], 4);
+                                            $transformStr = array_map('decode' , str_split($str2));
+                                            $result = $str1.implode($transformStr).'@'.$str[1];
+
+                                            $phone = $value['phone'];
+                                                $str1 = substr($phone, 0, strlen($phone) - 4);
+                                                $str2 = substr($phone, strlen($phone) - 3);
+                                            $transformStr2 = array_map('decode' , str_split($str2));
+                                            $result2 = $str1.implode($transformStr2);
+                                        @endphp --}}
+                                                <tr>
+                                                    <td>
+                                                        <a href="./data.html">{{ $value['id'] }}</a>
+                                                        <a href="{{ url('admin/order/detail-' . $value['id']) }}">{{ $value['id'] }}</a>
+                                                    </td>
+                                                    {{-- <td>{{$value['username']}}</td> --}}
                                                     <td>{{ $value['customer_name'] }}</td>
                                                     <td>{{ $value['quantity'] }}</td>
                                                     <td>{{ $value['shipping_fee'] }}</td>
@@ -57,9 +96,16 @@
                                                         @endif
                                                     </td>
                                                 </tr>
-                                            @endforeach --}}
+                                            @endforeach
                                         <tbody>
                                     </table>
+                                    <div class="card-footer clearfix">
+                                        <ul class="pagination pagination-sm m-0 float-right">
+                                            <li class="page-item"><a class="page-link" href="#">«</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">»</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                             </div>

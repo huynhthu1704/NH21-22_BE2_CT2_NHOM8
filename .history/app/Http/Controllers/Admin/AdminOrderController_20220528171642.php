@@ -62,20 +62,19 @@ class AdminOrderController extends Controller
         $orderItems = OrderItem::where('order_id', 1)->get();
         $arr = [];
         // dd($orderItems);
-        $arr = [];
-        foreach ($orderItems as $key => $value) {
-            $product = Product::find($value['product_id']);
-            $arr['item'.$value['id']] = [
-                    'product_id' => $product->id,
-                    'product_name' => $product->product_name,
-                    'quantity' => $value['quantity'],
-                    'price' => $value['price'],
-                    'discount_price'=> $value['discount_price']
-            ];
-        }
-        $order['item'] = $arr;
+        $order['item'] = [];
 
-        // dd($order);
+        // foreach ($orderItems as $key => $value) {
+        //     $product = Product::find($value['product_id']);
+        //     $order['item']['item'.$value['id']] = [
+        //             'product_id' => $product->id,
+        //             'product_name' => $product->product_name,
+        //             'quantity' => $value['quantity'],
+        //             'price' => $value['price'],
+        //             'discount_price'=> $value['discount_price']
+        //     ];
+        // }
+        dd($order);
 
         return view('admin.order-detail', ['order' => $order]);
     }

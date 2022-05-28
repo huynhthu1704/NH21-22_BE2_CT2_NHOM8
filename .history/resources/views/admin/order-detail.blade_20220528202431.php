@@ -39,8 +39,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @foreach ($orders as $key => $value)
-                                               
+                                            @foreach ($orders as $key => $value)
+                                                {{-- @php
+                                                <tr>
+                                                    <td>
+                                                        <a href="./data.html">{{ $value['id'] }}</a>
+                                                        <a href="{{ url('admin/order/detail-' . $value['id']) }}">{{ $value['id'] }}</a>
+                                                    </td>
+                                                    {{-- <td>{{$value['username']}}</td> --}}
                                                     <td>{{ $value['customer_name'] }}</td>
                                                     <td>{{ $value['quantity'] }}</td>
                                                     <td>{{ $value['shipping_fee'] }}</td>
@@ -57,9 +63,16 @@
                                                         @endif
                                                     </td>
                                                 </tr>
-                                            @endforeach --}}
+                                            @endforeach
                                         <tbody>
                                     </table>
+                                    <div class="card-footer clearfix">
+                                        <ul class="pagination pagination-sm m-0 float-right">
+                                            <li class="page-item"><a class="page-link" href="#">«</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">»</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                             </div>

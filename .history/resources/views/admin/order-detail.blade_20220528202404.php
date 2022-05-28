@@ -39,8 +39,31 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @foreach ($orders as $key => $value)
-                                               
+                                            @foreach ($orders as $key => $value)
+                                                {{-- @php
+                                            $email =$value['email'];
+                                            $str = explode('@', $email);
+                                            function decode($n)
+                                                {
+                                                    return ('*');
+                                                }
+                                                $str1 = substr($str[0], 0, 3);
+                                                $str2 = substr($str[0], 4);
+                                            $transformStr = array_map('decode' , str_split($str2));
+                                            $result = $str1.implode($transformStr).'@'.$str[1];
+
+                                            $phone = $value['phone'];
+                                                $str1 = substr($phone, 0, strlen($phone) - 4);
+                                                $str2 = substr($phone, strlen($phone) - 3);
+                                            $transformStr2 = array_map('decode' , str_split($str2));
+                                            $result2 = $str1.implode($transformStr2);
+                                        @endphp --}}
+                                                <tr>
+                                                    <td>
+                                                        <a href="./data.html">{{ $value['id'] }}</a>
+                                                        <a href="{{ url('admin/order/detail-' . $value['id']) }}">{{ $value['id'] }}</a>
+                                                    </td>
+                                                    {{-- <td>{{$value['username']}}</td> --}}
                                                     <td>{{ $value['customer_name'] }}</td>
                                                     <td>{{ $value['quantity'] }}</td>
                                                     <td>{{ $value['shipping_fee'] }}</td>
@@ -57,9 +80,16 @@
                                                         @endif
                                                     </td>
                                                 </tr>
-                                            @endforeach --}}
+                                            @endforeach
                                         <tbody>
                                     </table>
+                                    <div class="card-footer clearfix">
+                                        <ul class="pagination pagination-sm m-0 float-right">
+                                            <li class="page-item"><a class="page-link" href="#">«</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">»</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                             </div>

@@ -73,9 +73,9 @@ class AdminOrderController extends Controller
                     'discount_price'=> $value['discount_price']
             ];
         }
-        $order['item'] = $arr;
+        $order['item'] = [];
 
-        // dd($order);
+        dd($order);
 
         return view('admin.order-detail', ['order' => $order]);
     }

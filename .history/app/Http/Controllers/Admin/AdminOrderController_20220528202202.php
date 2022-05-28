@@ -75,7 +75,7 @@ class AdminOrderController extends Controller
         }
         $order['item'] = $arr;
 
-        // dd($order);
+        dd($order);
 
         return view('admin.order-detail', ['order' => $order]);
     }

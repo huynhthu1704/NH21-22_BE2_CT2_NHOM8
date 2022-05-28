@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderItem;
-use App\Models\Product;
 
 class AdminOrderController extends Controller
 {
@@ -61,23 +60,18 @@ class AdminOrderController extends Controller
         $order = Order::where('id', 1)->first();
         $orderItems = OrderItem::where('order_id', 1)->get();
         $arr = [];
-        // dd($orderItems);
-        $arr = [];
+        dd($orderItems);
         foreach ($orderItems as $key => $value) {
-            $product = Product::find($value['product_id']);
-            $arr['item'.$value['id']] = [
-                    'product_id' => $product->id,
-                    'product_name' => $product->product_name,
+            $arr[$value['id']] = [
+                    'product_id' => $value['product_id'],
                     'quantity' => $value['quantity'],
                     'price' => $value['price'],
                     'discount_price'=> $value['discount_price']
             ];
         }
-        $order['item'] = $arr;
+        dd($arr);
 
-        // dd($order);
-
-        return view('admin.order-detail', ['order' => $order]);
+        return view('admin.order-detail', ['orderItems' => OrderItem::all()]);
     }
 
     /**

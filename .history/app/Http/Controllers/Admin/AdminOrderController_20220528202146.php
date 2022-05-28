@@ -62,6 +62,7 @@ class AdminOrderController extends Controller
         $orderItems = OrderItem::where('order_id', 1)->get();
         $arr = [];
         // dd($orderItems);
+        $order['item'] = [];
         $arr = [];
         foreach ($orderItems as $key => $value) {
             $product = Product::find($value['product_id']);
@@ -73,9 +74,7 @@ class AdminOrderController extends Controller
                     'discount_price'=> $value['discount_price']
             ];
         }
-        $order['item'] = $arr;
-
-        // dd($order);
+        dd($order);
 
         return view('admin.order-detail', ['order' => $order]);
     }
