@@ -37,7 +37,11 @@ class AdminColorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $color = new Color;
+        $color->color_name = $request->color_name;
+        $color->color_code = $request->color_code;
+        $color->save();
+        return redirect()->route('admin.color');
     }
 
     /**
@@ -59,7 +63,7 @@ class AdminColorController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -71,7 +75,13 @@ class AdminColorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $color = Color::find($id);
+        $color->color_name = $request->name;
+        $color->color_code = $request->code;
+        $msg = "Added successfully";
+        $color->save();
+
+        return redirect()->route('admin.color', ['msg' => $msg]);
     }
 
     /**
