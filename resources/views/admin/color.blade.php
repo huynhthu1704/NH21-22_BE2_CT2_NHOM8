@@ -11,8 +11,7 @@
                     </div>
                     
                     <div class="col-sm-6 ">
-                        <button onclick="addColor()" class="float-sm-right btn btn-warning"><a
-                                style="font-size: 30; color: white">Add Color</a></button>
+                        <button onclick="addColor()" class="float-sm-right btn btn-warning">Add Color</button>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -23,7 +22,8 @@
             <!-- /.content -->
             <div class="row ">
                 <div class="col-md-12">
-                    <form class="card card-danger">
+                    <form class="card card-danger" method="POST" action="{{route('admin.color.add')}}">
+                        {{ csrf_field() }}
                         <div class="card-header">
                             <h3 class="card-title">Add Color</h3>
                         </div>
@@ -69,73 +69,48 @@
             </div>
         </div>
         {{-- edit color --}}
-        <div class="container-fluid px-5 d-none" id="edit-form">
+        <div class="container-fluid px-5 d-none" id="edit-form" enctype="multipart/form-data">
+            {{ csrf_field()}}
+            @method('put')
             <!-- /.content -->
             <div class="row">
                 <div class="col-md-12">
-                    <form class="card card-danger">
-                        <input type="text" name="product-id" hidden value="">
+                    <form class="card card-danger" method="POST" action="" id="form-edit">
                         <div class="card-header">
-                            <h3 class="card-title">Edit Review</h3>
+                            <h3 class="card-title">Add Color</h3>
                         </div>
                         <div class="card-body">
-                            <div class="form-group">
-                                <label>Product</label>
-                                <select class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true"
-                                    name="product-brand">
-                                    <option selected="selected" data-select2-id="19">Alabama</option>
-                                    <option>Alaska</option>
-                                    <option>California</option>
-                                    <option>Delaware</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option>Washington</option>
-                                </select>
-                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="add-product-name">Content</label>
-                                        <input type="text" class="form-control" id="add-product-name" name="product-name"
-                                            placeholder="">
+                                        <label for="add-product-name">Color name</label>
+                                        <input type="text" class="form-control" id="edit-color-name" name="color_name"
+                                            placeholder="Enter color name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Rating value</label>
-                                            <input type="number" min="0" max="5" name="product-quantity"
-                                                class="form-control" step="1" value="0">
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="add-product-name">Color code</label>
+                                        <input type="text" class="form-control" id="edit-color-code" name="color_code"
+                                            placeholder="Enter color code">
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+
                         <div class="card-footer">
                             <div id="actions" class="row">
                                 <div class="col-lg-6">
                                     <div class="btn-group w-100">
-
-                                        <button type="submit" class="btn btn-primary col start">
-
-                                            <span>Start Edit</span>
+                                        <button type="submit" class="btn btn-success col">
+                                            <span>Edit color</span>
                                         </button>
-                                        <button type="reset" class="btn btn-warning col cancel" onclick="backToAdd()">
-                                            <span>Cancel Edit</span>
+                                        <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
+                                            <span>Cancel</span>
                                         </button>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 d-flex align-items-center">
-                                    <div class="fileupload-process w-100">
-                                        <div id="total-progress" class="progress progress-striped active" role="progressbar"
-                                            aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                            <div class="progress-bar progress-bar-success" style="width:0%;"
-                                                data-dz-uploadprogress=""></div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </form>
@@ -168,14 +143,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($colors as $color)
                                         <tr>
-                                            <td>183</td>
-                                            <td>John Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><button class="btn btn-success" onclick="switchToEdit(1)">Edit</button>
+                                            <td>{{$color->id}}</td>
+                                            <td>{{$color->color_name}}</td>
+                                            <td>{{$color->color_code}}</td>
+                                            <td><button class="btn btn-success" onclick="edit(this,{{$color->id}})" data-name="{{$color->color_name}}" data-code="{{$color->color_code}}">Edit</button>
                                             </td>
                                             <td><button class="btn btn-warning">Remove</button></td>
                                         </tr>
+                                        @endforeach
                                     <tbody>
                                 </table>
                                 <div class="card-footer clearfix">
@@ -238,29 +215,19 @@
     <script>
         const addColor = () => {
             document.querySelector('#add-form').classList.remove('d-none');
-            document.querySelector('#edit-form').classList.add('d-none');;
+            document.querySelector('#edit-form').classList.add('d-none');
         }
         const cancel = () => {
             document.querySelector('#add-form').classList.add('d-none');
             document.querySelector('#edit-form').classList.add('d-none');;
         }
-        const switchToEdit = (id) => {
+        function edit (sender ,id){
             const add = document.querySelector('#add-form');
             const edit = document.querySelector('#edit-form');
             edit.classList.remove('d-none')
 
             const inputId = edit.querySelector('input[name="product-id"]');
             inputId.value = id
-        }
-
-        const backToAdd = () => {
-            const add = document.querySelector('#add-form');
-            const edit = document.querySelector('#edit-form');
-
-            edit.classList.add('d-none')
-
-            const inputId = edit.querySelector('input[name="product-id"]');
-            inputId.value = null
         }
 
         $(function() {

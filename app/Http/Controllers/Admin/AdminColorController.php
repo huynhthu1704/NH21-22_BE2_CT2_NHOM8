@@ -37,7 +37,11 @@ class AdminColorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $color = new Color;
+        $color->color_name = $request->color_name;
+        $color->color_code = $request->color_code;
+        $color->save();
+        return redirect()->route('admin.color');
     }
 
     /**
