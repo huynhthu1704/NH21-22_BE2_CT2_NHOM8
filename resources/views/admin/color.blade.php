@@ -74,7 +74,7 @@
             <!-- /.content -->
             <div class="row">
                 <div class="col-md-12">
-                    <form id="form-edit" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
+                    <form id="form-edit" class="card card-danger" method="POST" action="{{route('admin.color')}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         @method('put')
 
@@ -97,7 +97,7 @@
                                     <div class="form-group">
                                         <label for="add-content">Color code</label>
                                         <input type="color" class="form-control" id="edit-content" name="code"
-                                            placeholder="Enter content" required>
+                                            placeholder="Enter content" required value="">
                                     </div>
                                 </div>
                             </div>

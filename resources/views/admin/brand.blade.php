@@ -9,11 +9,118 @@
                     <div class="col-sm-6">
                         <h1>Brand Form</h1>
                     </div>
-                    
+                    <div class="col-sm-6 ">
+                        <button onclick="addBrand()" class="float-sm-right btn btn-warning">Add brand</button>
+                    </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
+        <div class="container-fluid px-5 d-none" id="add-form">
+            <!-- /.content -->
+            <div class="row ">
+                <div class="col-md-12">
+                    <!-- /.card -->
+                    <form class="card card-danger" method="POST" action="{{ route('admin.brand.add') }}"
+                        enctype="multipart/form-data">
+                        {{ csrf_field() }}
 
+                        <div class="card-header">
+                            <h3 class="card-title">Add Brand</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="add-name">Brand Name</label>
+                                <input type="text" class="form-control" id="add-name" name="name"
+                                    placeholder="Enter Brand name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="img">Select a file:</label>
+                                <input type="file" id="img" name="img" accept="image/*" required>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div id="actions" class="row">
+                                <div class="col-lg-6">
+                                    <div class="btn-group w-100">
+                                        <button type="submit" class="btn btn-success col">
+                                            <span>Add Brand</span>
+                                        </button>
+                                        <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
+                                            <span>Cancel</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.col (right) -->
+            </div>
+        </div>
+
+        <div class="container-fluid px-5 d-none" id="edit-form">
+            <!-- /.content -->
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <form id="form-edit" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        @method('put')
+
+                        <div class="card-header">
+                            <h3 class="card-title">Edit Brand</h3>
+                        </div>
+                        <div class="card-body">
+                            <input hidden type="text" class="form-control" id="edit-id" name="brand_id"
+                                placeholder="Enter title" required value="">
+                            <div class="form-group">
+
+                                <label for="add-name">Brand Name</label>
+                                <input type="text" class="form-control" id="edit-name" name="brand_name"
+                                    placeholder="Enter brand name" required value="">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="img">Select a file:</label>
+                                <input type="file" id="img" name="img" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div id="actions" class="row">
+                                <div class="col-lg-6">
+                                    <div class="btn-group w-100">
+                                        <button id="btn-edit" class="btn btn-success col" onclick="editBrand()">
+                                            <span>Edit brand</span>
+                                        </button>
+                                        <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
+                                            <span>Cancel Edit</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                    <!-- /.card -->
+
+                </div>
+                <!-- /.col (right) -->
+            </div>
+        </div>
+        <div class="container-fluid px-5" id="remove-form">
+            <!-- /.content -->
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="form-remove" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        @method('delete')
+                    </form>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col (right) -->
+            </div>
+        </div>
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid px-5">
@@ -40,6 +147,7 @@
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
                                     <thead>
+
                                         <tr>
                                             <th>ID</th>
                                             <th>Brand Name</th>
@@ -48,13 +156,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>183</td>
-                                            <td><span class="tag tag-success">Approved</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                            <td><button class="btn btn-success" onclick="switchToEdit(1)">Edit</button></td>
-                                            <td><button class="btn btn-warning">Remove</button></td>
-                                        </tr>
+                                        @foreach ($brands as $brand)
+                                            <tr>
+                                                <td>{{ $brand->id }}</td>
+                                                <td>{{ $brand->brand_name}}</td>
+                                                <td><img id="brandImg" width="60" height="60"
+                                                        src="{{ asset('/images/brands/' . $brand->img) }}" alt="">
+                                                </td>
+                                                <td><button class="btn btn-success" data-name="{{ $brand->brand_name }}"
+                                                        onclick="edit(this,{{ $brand->id }})"><a
+                                                            style="text-decoration: none">Edit</a></button></td>
+                                                <td><button class="btn btn-warning"
+                                                        onclick="remove({{ $brand->id }})">Remove</button></td>
+                                            </tr>
+                                        @endforeach
                                     <tbody>
                                 </table>
                                 <div class="card-footer clearfix">
@@ -76,110 +191,7 @@
             <!-- /.container-fluid -->
         </section>
 
-        <div class="container-fluid px-5 " id="add-form">
-            <!-- /.content -->
-            <div class="row ">
-                <div class="col-md-12">
-                    <form class="card card-danger">
-                        <div class="card-header">
-                            <h3 class="card-title">Add brands</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="add-brand-name">Brand name</label>
-                                <input type="text" class="form-control" id="add-brand-name" name="brand-name"
-                                    placeholder="Enter email">
-                            </div>
-                            <input type="file" hidden multiple name="brand-image" accept="image/*" id="input-file">
-                            <div id="actions" class="row">
-                                <div class="col-lg-6">
-                                    <div class="btn-group w-100">
-                                        <label for="input-file" class="btn mb-0 btn-success col fileinput-button dz-clickable">
-                                            
-                                            <span>Add files</span>
-                                        </label>
 
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                
-
-                        <div class="card-footer">
-                            <div id="actions" class="row">
-                                <div class="ms-auto col-lg-12">
-                                    <button type="submit" class="btn btn-primary mr-4 mb-4"
-                                        style="margin-left: auto; display: block;">
-                                        <i class="fas fa-upload"></i>
-                                        <span>Add brand</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- /.card -->
-
-                </div>
-                <!-- /.col (right) -->
-            </div>
-        </div>
-
-        <div class="container-fluid px-5 d-none" id="edit-form">
-            <!-- /.content -->
-            <div class="row">
-                <div class="col-md-12">
-                    <form class="card card-danger">
-                        <input type="text" name="brand-id" hidden value="">
-                        <div class="card-header">
-                            <h3 class="card-title">Edit brand</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="add-brand-name">Brand name</label>
-                                <input type="text" class="form-control" id="add-brand-name" name="brand-name"
-                                    placeholder="Enter email">
-                            </div>
-                            
-
-                        </div>
-                        <input type="file" hidden multiple name="brand-image" accept="image/*" id="input-file">
-                        <div class="card-footer">
-                            <div id="actions" class="row">
-                                <div class="col-lg-6">
-                                    <div class="btn-group w-100">
-                                        <label for="input-file" class="btn mb-0 btn-success col fileinput-button dz-clickable">
-                                            
-                                            <span>Add files</span>
-                                        </label>
-                                        <button type="submit" class="btn btn-primary col start">
-                                          
-                                            <span>Start Edit</span>
-                                        </button>
-                                        <button type="reset" class="btn btn-warning col cancel" onclick="backToAdd()">
-                                            <span>Cancel Edit</span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 d-flex align-items-center">
-                                    <div class="fileupload-process w-100">
-                                        <div id="total-progress" class="progress progress-striped active"
-                                            role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                            <div class="progress-bar progress-bar-success" style="width:0%;"
-                                                data-dz-uploadprogress=""></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- /.card -->
-
-                </div>
-                <!-- /.col (right) -->
-            </div>
-        </div>
     </div>
     <!-- jQuery -->
     <script src="{{ asset('css/admin/plugins/jquery/jquery.min.js') }}"></script>
@@ -197,7 +209,8 @@
     <!-- bootstrap color picker -->
     <script src="{{ asset('css/admin/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
+    </script>
     <!-- Bootstrap Switch -->
     <script src="{{ asset('css/admin/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
     <!-- BS-Stepper -->
@@ -219,25 +232,42 @@
 
     <!-- Page specific script -->
     <script>
-        const switchToEdit = (id) => {
-            const add = document.querySelector('#add-form');
-            const edit = document.querySelector('#edit-form');
-            add.classList.add('d-none')
-            edit.classList.remove('d-none')
-
-            const inputId = edit.querySelector('input[name="product-id"]');
-            inputId.value = id
+        const addBrand = () => {
+            document.querySelector('#add-form').classList.remove('d-none');
+            document.querySelector('#edit-form').classList.add('d-none');;
         }
 
-        const backToAdd = () => {
+        function edit(sender, id) {
             const add = document.querySelector('#add-form');
             const edit = document.querySelector('#edit-form');
+            const name = sender.dataset.name;
+            add.classList.add('d-none');
+            edit.classList.remove('d-none');
+            edit.querySelector('input[name="brand_id"]').value = id;
+            edit.querySelector('input[name="brand_name"]').value = name;
+        }
 
-            add.classList.remove('d-none')
-            edit.classList.add('d-none')
+        function editBanner() {
+            const edit = document.getElementById('form-edit');
+            const id = edit.querySelector('input[name="brand_id"]').value;
+            const action = "{{ url('admin/brand') }}/" + id;
+            edit.action = action;
+            edit.submit();
+        }
 
-            const inputId = edit.querySelector('input[name="product-id"]');
-            inputId.value = null
+        const cancel = () => {
+            document.querySelector('#add-form').classList.add('d-none');
+            document.querySelector('#edit-form').classList.add('d-none');;
+        }
+        const remove = (id) => {
+            const result = confirm("Do you want to delete this brand");
+            if (result) {
+                const removeForm = document.getElementById('form-remove');
+                const action = "{{ url('admin/brand') }}/" + id;
+                removeForm.action = action;
+                removeForm.submit();
+            }
+
         }
 
         $(function() {
