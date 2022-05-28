@@ -74,7 +74,7 @@
             <!-- /.content -->
             <div class="row">
                 <div class="col-md-12">
-                    <form id="form-edit" class="card card-danger" method="POST" action="{{route('admin.color')}}" enctype="multipart/form-data">
+                    <form id="form-edit" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         @method('put')
 
@@ -124,6 +124,20 @@
                 <!-- /.col (right) -->
             </div>
         </div>
+        <div class="container-fluid px-5" id="remove-form">
+            <!-- /.content -->
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="form-remove" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        @method('delete')
+                        
+                    </form>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col (right) -->
+            </div>
+        </div>
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid px-5">
@@ -155,10 +169,10 @@
                                             <td><button class="btn btn-success"
                                                 data-name="{{ $color->color_name}}"
                                                 data-color="{{ $color->color_code}}"
-                                                onclick="edit(this,{{$color->color_id}})"><a
+                                                onclick="edit(this,{{$color->id}})"><a
                                                     style="text-decoration: none">Edit</a></button>
                                             </td>
-                                            <td><button class="btn btn-warning">Remove</button></td>
+                                            <td><button class="btn btn-warning" onclick="remove({{$color->id}})">Remove</button></td>
                                         </tr>
                                         @endforeach
                                     <tbody>
@@ -247,7 +261,16 @@
             edit.action = action;
             edit.submit();
         }
+        const remove = (id) => {
+            const result = confirm("Do you want to delete this color");
+            if (result) {
+                const removeForm = document.getElementById('form-remove');
+                const action = "{{ url('admin/color') }}/" + id;
+                removeForm.action = action;
+                removeForm.submit();
+            }
 
+        }
         $(function() {
             // Summernote
             $('#summernote').summernote()

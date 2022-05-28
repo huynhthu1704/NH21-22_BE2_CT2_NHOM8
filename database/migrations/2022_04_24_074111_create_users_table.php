@@ -24,9 +24,9 @@ class CreateUsersTable extends Migration
             $table->string('email', 2000);
             $table->date('birthday')->default(now());
             $table->string('full_name', 200);
-            $table->string('phone', 32)->default('1');
+            $table->string('phone', 32)->default('');
             $table->text('address')->default('');
-            $table->string('gender', 15)->default('1');
+            $table->string('gender', 15)->default('');
             $table->date('join_day')->default(now());
             $table->enum('provider', ['normal', 'google', 'facebook'])->default('normal');
             $table->unsignedBigInteger('role_id');

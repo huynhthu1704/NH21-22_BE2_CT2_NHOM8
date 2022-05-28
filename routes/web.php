@@ -18,6 +18,8 @@ use App\http\Controllers\HomeController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\UserController;
 use App\Mail\WelcomeMail;
+use App\Models\Color;
+use App\Models\Product;
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Mail;
@@ -166,24 +168,27 @@ Route::prefix('auth')->group(function () {
     })->name('facebook-login');
 
     Route::get('/facebook/callback', function () {
-        $facebookUser = Socialite::driver('facebook')->user();
 
-        $user = User::where('username', '=', $facebookUser->id)->first();
+        $facebookUser = Socialite::driver('facebook')->user();
+        dd($facebookUser);
+        $user = User::where('username', '=', md5($facebookUser->id))
+        ->where('password', '=', md5($facebookUser->id . 'facebook'))
+        ->user
+        ->first();
 
         if (empty($user)) {
             $user = User::updateOrCreate(
                 [
                     'full_name' => $facebookUser->name,
                     'email' => $facebookUser->email,
-                    'username' => $facebookUser->id,
-                    'password' => $facebookUser->id . 'facebook',
+                    'username' => md5($facebookUser->id),
+                    'password' => md5($facebookUser->id . 'facebook'),
                     'provider' => 'facebook',
                     'role_id' => 2
                 ]
             );
         }
 
-        // Auth::login($user);
         session()->put('user', $user);
         return redirect()->route('index');
     });
@@ -195,8 +200,22 @@ Route::prefix('category')->group(function () {
 });
 
 // Add cart
-Route::post('/cart/add', [CartController::class, 'addCart']);
-Route::post('/cart/remove', [CartController::class, 'deleteItem']);
-Route::post('/cart/update', [CartController::class, 'updateCart']);
-Route::post('/cart/call', [CartController::class, 'callCart']);
+Route::prefix('/cart')->group(function () {
+    Route::post('add', [CartController::class, 'addCart']);
+    Route::post('remove', [CartController::class, 'deleteItem']);
+    Route::post('update', [CartController::class, 'updateCart']);
+    Route::post('call', [CartController::class, 'callCart']);
+});
 
+
+Route::get('/asd', function ()
+{
+    $product = Product::paginate(10);
+   
+   echo json_encode($product->items());
+});
+
+Route::get('dashboard', function ()
+{
+    return view('dashboard');
+});

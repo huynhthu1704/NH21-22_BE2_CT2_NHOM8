@@ -89,7 +89,7 @@ class AdminBrandController extends Controller
     public function update(Request $request, $id)
     {
         $brand = Brand::find($id);
-        $brand->brand_name = $request->name;
+        $brand->brand_name = $request->brand_name;
         if ($request->hasFile('img')) {
             $allowedFileExtension = ['pdf', 'jpg', 'png', 'docx'];
             $file = $request->file('img');
@@ -115,6 +115,7 @@ class AdminBrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand = Brand::find($id)->delete();
+        return redirect()->route('admin.brand');
     }
 }

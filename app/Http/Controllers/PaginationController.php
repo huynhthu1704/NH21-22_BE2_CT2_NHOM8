@@ -15,7 +15,7 @@ class PaginationController extends Controller
     public function index(Request $request)
     {
         $products = Product::limit(12);
-        return View('category', ['products' => $products, 'brandId' => $request->brandId]);
+        return View('category', ['products' => $products, 'brandId' => $request->brandId, 'keyword' => $request->keyword, 'categoryId' => $request->categoryId]);
     }
 
     public function CategoryTwoCol(Request $request)
@@ -25,9 +25,10 @@ class PaginationController extends Controller
 
     public function getProductByFilter(Request $request)
     {
+
         $input = $request->all();
         $start = ($input['page'] - 1) * $input['perpage'];
-
+        
         $products = Product::whereBetween('price', [$input['price']['min'], $input['price']['max']]);
 
         if (!empty($input['categories'])) {
@@ -40,7 +41,11 @@ class PaginationController extends Controller
             $productIdWithColors = Image::select('product_id')->whereIn('color_id', $input['colors'])->distinct()->get();
             $products = $products->whereIn('id', $productIdWithColors);
         }
-        
+ 
+        if ($input['keyword'] != '') {
+            $products = $products->where('product_name', 'like', '%'.$input['keyword'].'%');
+        }
+
         $total = count($products->get());
         $numPages = ceil($total / $input['perpage']);
         $products = $products->whereBetween('price', [$input['price']['min'], $input['price']['max']]);
