@@ -4,18 +4,18 @@
         <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
             <div class="container d-flex align-items-center">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Products</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Default</li>
+                    <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('category')}}">Shop</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Product</li>
                 </ol>
 
                 <nav class="product-pager ml-auto" aria-label="Product">
-                    <a class="product-pager-link product-pager-prev" href="#" aria-label="Previous" tabindex="-1">
+                    <a class="product-pager-link product-pager-prev" href="{{route('detail', ['id' => ($product[0]->product->id - 1)])}}" aria-label="Previous" tabindex="-1">
                         <i class="icon-angle-left"></i>
                         <span>Prev</span>
                     </a>
 
-                    <a class="product-pager-link product-pager-next" href="#" aria-label="Next" tabindex="-1">
+                    <a class="product-pager-link product-pager-next" href="{{route('detail', ['id' => ($product[0]->product->id + 1)])}}" aria-label="Next" tabindex="-1">
                         <span>Next</span>
                         <i class="icon-angle-right"></i>
                     </a>
@@ -162,24 +162,8 @@
                             aria-labelledby="product-desc-link">
                             <div class="product-desc-content">
                                 <h3>Product Information</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat
-                                    mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper
-                                    suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam
-                                    porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Phasellus ultrices
-                                    nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique
-                                    cursus. </p>
-                                <ul>
-                                    <li>Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit. </li>
-                                    <li>Vivamus finibus vel mauris ut vehicula.</li>
-                                    <li>Nullam a magna porttitor, dictum risus nec, faucibus sapien.</li>
-                                </ul>
-
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat
-                                    mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper
-                                    suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam
-                                    porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Phasellus ultrices
-                                    nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique
-                                    cursus. </p>
+                                <p>{{$product[0]->product->description}}</p>
+                               
                             </div><!-- End .product-desc-content -->
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane fade" id="product-info-tab" role="tabpanel"
@@ -324,7 +308,7 @@
                                         $image = explode('#', $color['src']);
                                     @endphp
                                     @if ($key == 0)
-                                        <a href='id=1'
+                                        <a href='{{route('detail', ['id' => $product['product_id']])}}'
                                             id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                             <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                 alt="Product image" class="product-image">
@@ -332,7 +316,7 @@
                                                 alt="Product image" class="product-image-hover">
                                         </a>
                                     @else
-                                        <a href='id=1' class="d-none"
+                                        <a href='{{route('detail', ['id' => $product['product_id']])}}' class="d-none"
                                             id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                             <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                 alt="Product image" class="product-image">

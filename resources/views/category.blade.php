@@ -1,7 +1,8 @@
 @extends('master')
 @section('content')
     <input type="text" hidden name="column" value="3">
-    <input type="text" hidden name="column" value="{{ isset($keyword) ? $keyword : '' }}">
+
+    <input type="text" hidden name="keyword2" value="{{ isset($keyword) ? $keyword : '' }}">
 
     <main class="main">
         <div class="page-header text-center" style="background-image: url('/images/page-header-bg.jpg')">
@@ -12,8 +13,7 @@
         <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Categories</li>
                 </ol>
             </div><!-- End .container -->
@@ -104,6 +104,7 @@
                                                 <div class="filter-item">
                                                     <div class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input" name="category"
+                                                            {{$categoryId == $category->id ? 'checked' : '' }}
                                                             value="{{ $category->id }}" id="cat-{{ $category->id }}">
                                                         <label class="custom-control-label"
                                                             for="cat-{{ $category->id }}">{{ $category->category_name }}</label>
@@ -136,7 +137,7 @@
                                                 <div class="filter-item">
                                                     <div class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input" name="brand"
-                                                            @isset($brandId) {{ $brandId == $brand->id ? 'checked' : ''}} @endisset
+                                                            @isset($brandId) {{ $brandId == $brand->id ? 'checked' : '' }} @endisset
                                                             value="{{ $brand->id }}" id="brand-{{ $brand->id }}">
                                                         <label class="custom-control-label"
                                                             for="brand-{{ $brand->id }}">{{ $brand->brand_name }}</label>

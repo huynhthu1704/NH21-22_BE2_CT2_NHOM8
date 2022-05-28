@@ -33,7 +33,7 @@ const addCart = async (cart) => {
                 `<div class="product">
                 <div class="product-cart-details">
                     <h4 class="product-title">
-                        <a href="product.html">${product.product_name}</a>
+                        <a href="detail/product-${product.product_id}">${product.product_name}</a>
                     </h4>
 
                     <span class="cart-product-info">
@@ -42,7 +42,7 @@ const addCart = async (cart) => {
                     </span>
                 </div><!-- End .product-cart-details -->
                 <figure class="product-image-container">
-                    <a href="product.html" class="product-image">
+                    <a href="detail/product-${product.product_id}" class="product-image">
                         <img src="/images/molla/${product.category_name}/${product.src}"
                             alt="product">
                     </a>
@@ -78,9 +78,9 @@ async function removeItem(key) {
             body: JSON.stringify(data)
         })
 
+        
     const result = await response.json();
 
-    console.log(result);
     product_container.innerHTML = '';
 
     for (const key in result.cart) {
@@ -90,7 +90,7 @@ async function removeItem(key) {
                 `<div class="product">
                 <div class="product-cart-details">
                     <h4 class="product-title">
-                        <a href="product.html">${product.product_name}</a>
+                        <a href="detail/product-${product.product_id}">${product.product_name}</a>
                     </h4>
 
                     <span class="cart-product-info">
@@ -99,7 +99,7 @@ async function removeItem(key) {
                     </span>
                 </div><!-- End .product-cart-details -->
                 <figure class="product-image-container">
-                    <a href="product.html" class="product-image">
+                    <a href="detail/product-${product.product_id}" class="product-image">
                         <img src="/images/molla/${product.category_name}/${product.src}"
                             alt="product">
                     </a>
@@ -111,7 +111,7 @@ async function removeItem(key) {
     }
 
     cartCount.innerHTML = count(result.cart);
-    total.innerHTML = result.total;
+    total.innerHTML = formatter.format(result.total);
 }
 
 function count(obj) {
@@ -143,7 +143,9 @@ var formatter = new Intl.NumberFormat('it-IT', {
 });
 
 const addCartDetail = async (cart) => {
+
     const qty = document.querySelector('input#qty').value;
+
     const data =
     {
         product_id: cart.dataset.productId,
@@ -173,7 +175,7 @@ const addCartDetail = async (cart) => {
                 `<div class="product">
                 <div class="product-cart-details">
                     <h4 class="product-title">
-                        <a href="product.html">${product.product_name}</a>
+                        <a href="detail/product-${product.product_id}">${product.product_name}</a>
                     </h4>
 
                     <span class="cart-product-info">
@@ -182,7 +184,7 @@ const addCartDetail = async (cart) => {
                     </span>
                 </div><!-- End .product-cart-details -->
                 <figure class="product-image-container">
-                    <a href="product.html" class="product-image">
+                    <a href="detail/product-${product.product_id}" class="product-image">
                         <img src="/images/molla/${product.category_name}/${product.src}"
                             alt="product">
                     </a>

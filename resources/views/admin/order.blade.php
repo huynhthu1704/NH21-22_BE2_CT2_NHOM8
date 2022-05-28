@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('main')
-{{-- {{dd($categories)}} --}}
+    {{-- {{dd($categories)}} --}}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -18,45 +18,34 @@
                 </div>
             </div><!-- /.container-fluid -->
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid px-5">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">User List</h3>
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid px-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
 
-                                <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="_search" class="form-control float-right"
-                                            placeholder="Search">
-
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
+                                <div class="card-header">
+                                    <h3 class="card-title">User List</h3>
                                 </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body -responsive p-0">
-                                <table class="table table-hover text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            {{-- <th>Username</th> --}}
-                                            <th>Name</th>
-                                            <th>Quantity</th>
-                                            <th>Shipping fee</th>
-                                            <th>Total</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($orders as $key=>$value)
-                                        {{-- @php
+                                <!-- /.card-header -->
+                                <div class="card-body -responsive ">
+
+                                    <table id="example1" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                {{-- <th>Username</th> --}}
+                                                <th>Name</th>
+                                                <th>Quantity</th>
+                                                <th>Shipping fee</th>
+                                                <th>Total</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($orders as $key => $value)
+                                                {{-- @php
                                             $email =$value['email'];
                                             $str = explode('@', $email);
                                             function decode($n)
@@ -74,47 +63,40 @@
                                             $transformStr2 = array_map('decode' , str_split($str2));
                                             $result2 = $str1.implode($transformStr2);
                                         @endphp --}}
-                                        <tr>
-                                            <td>{{$value['id']}}</td>
-                                            {{-- <td>{{$value['username']}}</td> --}}
-                                            <td>{{$value['customer_name']}}</td>
-                                            <td>{{$value['quantity']}}</td>
-                                            <td>{{$value['shipping_fee']}}</td>
-                                            <td>{{$value['total']}}</td>
-                                            @php
-                                               $status = $value['status'] ;
-                                               $color = ""
-                                            @endphp
-                                            @if (status == "Waiting for confirm")
-                                                $color = "red"
-                                            @elseif
-                                            @else 
-                                            $color = "green"
-                                            <td><span style="color : grey">{{$status}}</span></td>
-
-                                            @endif
-                                            <td><button class="btn btn-warning">View detail</button></td>
-                                        </tr>
-                                        @endforeach
-                                    <tbody>
+                                                <tr>
+                                                    <td>{{ $value['id'] }}</td>
+                                                    {{-- <td>{{$value['username']}}</td> --}}
+                                                    <td>{{ $value['customer_name'] }}</td>
+                                                    <td>{{ $value['quantity'] }}</td>
+                                                    <td>{{ $value['shipping_fee'] }}</td>
+                                                    <td>{{ $value['total'] }}</td>
+                                                    @php
+                                                        $status = $value['status'];
+                                                        $color = '';
+                                                    @endphp
+                                                    @if (status == 'Waiting for confirm')
+                                                        $color = "red"
+                                                    @else
+                                                        $color = "green"
+                                                        <td><span style="color : grey">{{ $status }}</span></td>
+                                                    @endif
+                                                    <td><button class="btn btn-warning">View detail</button></td>
+                                                </tr>
+                                            @endforeach
+                                        <tbody>
                                     </table>
-                                <div class="card-footer clearfix">
-                                    <ul class="pagination pagination-sm m-0 float-right">
-                                        <li class="page-item"><a class="page-link" href="#">«</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">»</a></li>
-                                    </ul>
+
+                            
                                 </div>
+                                <!-- /.card-body -->
                             </div>
-                            <!-- /.card-body -->
+                            <!-- /.card -->
                         </div>
-                        <!-- /.card -->
                     </div>
                 </div>
-            </div>
-            <!-- /.container-fluid -->
-        </section>
-     
+                <!-- /.container-fluid -->
+            </section>
+
     </div>
     <!-- jQuery -->
     <script src="{{ asset('css/admin/plugins/jquery/jquery.min.js') }}"></script>
@@ -132,7 +114,8 @@
     <!-- bootstrap color picker -->
     <script src="{{ asset('css/admin/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
+    </script>
     <!-- Bootstrap Switch -->
     <script src="{{ asset('css/admin/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
     <!-- BS-Stepper -->
@@ -152,27 +135,52 @@
     <script src="{{ asset('css/admin/plugins/codemirror/mode/xml/xml.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
 
+    <!-- DataTables  & Plugins -->
+    <script src="{{ asset('css/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+
     <!-- Page specific script -->
     <script type="text/javascript">
-         const add = () => {
+
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+
+        const add = () => {
             document.querySelector('#add-form').classList.remove('d-none');
             document.querySelector('#edit-form').classList.add('d-none');;
         }
+        
         const edit = (id) => {
             const add = document.querySelector('#add-form');
             const edit = document.querySelector('#edit-form');
             add.classList.add('d-none')
             edit.classList.remove('d-none')
-           document.querySelector('#edit-form').action;
-          document.querySelector('#edit-form').querySelector('input[name="id"]').value = id;
-          document.querySelector('#edit-form').querySelector('input[name="value"]').value = id;
-          document.querySelector('#edit-form').querySelector('input[name="content"]').value = id;
-          document.querySelector('#edit-form').querySelector('input[name="startDay"]').value = id;
-          document.querySelector('#edit-form').querySelector('input[name="endDay"]').value = id;
-          <?php echo "hi"?>
+            document.querySelector('#edit-form').action;
+            document.querySelector('#edit-form').querySelector('input[name="id"]').value = id;
+            document.querySelector('#edit-form').querySelector('input[name="value"]').value = id;
+            document.querySelector('#edit-form').querySelector('input[name="content"]').value = id;
+            document.querySelector('#edit-form').querySelector('input[name="startDay"]').value = id;
+            document.querySelector('#edit-form').querySelector('input[name="endDay"]').value = id;
+            <?php echo 'hi'; ?>
 
         }
-        const cancel= () => {
+        const cancel = () => {
             document.querySelector('#add-form').classList.add('d-none');
             document.querySelector('#edit-form').classList.add('d-none');;
         }
