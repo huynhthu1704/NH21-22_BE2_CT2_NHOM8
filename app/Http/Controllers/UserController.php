@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeMail;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
@@ -93,9 +95,9 @@ class UserController extends Controller
             'join_day' => now(),
             'role_id' => 2
         ]);
-
+        
+        Mail::to($request->input('register-email'))->send(new WelcomeMail());
         session()->flash('message', 'Your account is created');
-
         return redirect()->route('auth.login');
     }
 

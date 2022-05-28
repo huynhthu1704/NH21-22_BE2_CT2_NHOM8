@@ -1,8 +1,7 @@
 @extends('master')
 @section('content')
-    
     <input type="text" hidden name="column" value="3">
-    <input type="text" hidden name="column" value="{{isset($keyword) ? $keyword : ''}}">
+    <input type="text" hidden name="column" value="{{ isset($keyword) ? $keyword : '' }}">
 
     <main class="main">
         <div class="page-header text-center" style="background-image: url('/images/page-header-bg.jpg')">
@@ -53,7 +52,7 @@
                                         </svg>
                                     </a>
 
-                                    <a href="{{route('category')}}"  class="btn-layout active" >
+                                    <a href="{{ route('category') }}" class="btn-layout active">
                                         <svg width="16" height="10">
                                             <rect x="0" y="0" width="4" height="4" />
                                             <rect x="6" y="0" width="4" height="4" />
@@ -137,6 +136,7 @@
                                                 <div class="filter-item">
                                                     <div class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input" name="brand"
+                                                            @isset($brandId) {{ $brandId == $brand->id ? 'checked' : ''}} @endisset
                                                             value="{{ $brand->id }}" id="brand-{{ $brand->id }}">
                                                         <label class="custom-control-label"
                                                             for="brand-{{ $brand->id }}">{{ $brand->brand_name }}</label>

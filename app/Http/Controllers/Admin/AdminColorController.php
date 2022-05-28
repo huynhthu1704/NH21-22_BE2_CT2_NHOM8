@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Color;
 
 class AdminColorController extends Controller
 {
@@ -14,7 +15,8 @@ class AdminColorController extends Controller
      */
     public function index()
     {
-        return view('admin.color');
+        $colors = Color::all();
+        return view('admin.color',['colors'=>$colors]);
     }
 
     /**
