@@ -247,7 +247,7 @@
             edit.querySelector('input[name="brand_name"]').value = name;
         }
 
-        function editBanner() {
+        function editBrand() {
             const edit = document.getElementById('form-edit');
             const id = edit.querySelector('input[name="brand_id"]').value;
             const action = "{{ url('admin/brand') }}/" + id;

@@ -92,6 +92,7 @@ class AdminColorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $color = Color::find($id)->delete();
+        return redirect()->route('admin.color');
     }
 }
