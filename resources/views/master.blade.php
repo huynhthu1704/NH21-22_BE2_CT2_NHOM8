@@ -1,7 +1,8 @@
 @php
-// dd(Session::forget('user'));
+// Session::forget('user');
 // Session::forget('user');
 // dd(openssl_get_cert_locations());
+
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -69,14 +70,14 @@
                                                     aria-haspopup="true" aria-expanded="false" data-display="static"
                                                     title="Compare Products" aria-label="Compare Products"
                                                     style="font-size: 13px">
-                                                    {{ $user->full_name }}
+                                                    {{ $user->fullname }}
                                                 </a>
 
 
                                                 <div class="dropdown-menu dropdown-menu-right" style="width: 150px">
                                                     <ul class="compare-products flex-column align-items-start">
                                                         <li class="d-block w-100 ml-0 mt-2">
-                                                            <a href="#" class=""><i
+                                                            <a href="{{ route('dashboard') }}" class=""><i
                                                                     class="icon-user"></i> Dashboard</a>
                                                         </li>
                                                         <li class="d-block w-100 ml-0 mt-2">

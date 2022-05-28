@@ -243,6 +243,7 @@
             document.querySelector('#add-form').classList.add('d-none');
             document.querySelector('#edit-form').classList.add('d-none');;
         }
+        
         function edit (sender ,id){
             const add = document.querySelector('#add-form');
             const edit = document.querySelector('#edit-form');
@@ -254,6 +255,7 @@
             edit.querySelector('input[name="name"]').value = name;
             edit.querySelector('input[name="code"]').value = code;
         }
+
         function editColor() {
             const edit = document.getElementById('form-edit');
             const id = edit.querySelector('input[name="color_id"]').value;

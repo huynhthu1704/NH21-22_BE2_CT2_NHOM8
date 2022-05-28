@@ -35,16 +35,19 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                {{-- <th>Username</th> --}}
-                                                <th>Name</th>
+                                                <th>Username</th>
+                                                {{-- <th>Name</th>
                                                 <th>Quantity</th>
                                                 <th>Shipping fee</th>
                                                 <th>Total</th>
-                                                <th>Status</th>
+                                                <th>Status</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($orders as $key => $value)
+                                            @php
+                                                $products = \App\Models\Product::all();
+                                            @endphp
+                                            @foreach ($products as $key => $value)
                                                 {{-- @php
                                             $email =$value['email'];
                                             $str = explode('@', $email);
@@ -63,9 +66,9 @@
                                             $transformStr2 = array_map('decode' , str_split($str2));
                                             $result2 = $str1.implode($transformStr2);
                                         @endphp --}}
-                                                <tr>
+                                                {{-- <tr>
                                                     <td>{{ $value['id'] }}</td>
-                                                    {{-- <td>{{$value['username']}}</td> --}}
+                                                    <td>{{$value['username']}}</td>
                                                     <td>{{ $value['customer_name'] }}</td>
                                                     <td>{{ $value['quantity'] }}</td>
                                                     <td>{{ $value['shipping_fee'] }}</td>
@@ -81,6 +84,10 @@
                                                         <td><span style="color : grey">{{ $status }}</span></td>
                                                     @endif
                                                     <td><button class="btn btn-warning">View detail</button></td>
+                                                </tr> --}}
+                                                <tr>
+                                                    <td>{{ $value['id'] }}</td>
+                                                    <td>{{ $value['product_name'] }}</td>
                                                 </tr>
                                             @endforeach
                                         <tbody>
