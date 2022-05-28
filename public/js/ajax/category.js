@@ -7,9 +7,11 @@ const productsCtn = document.querySelector('#products-wraper');
 const pagination = document.querySelector('#pagination');
 
 
-let categories = [], colors = []
+let categories = [...document.querySelectorAll('input[name=category]:checked')].map(el=>el.value)
+    , colors = []
     , price = { min: priceRange[0].value, max: priceRange[1].value }
-    , brands = [], keywords = ''
+    , brands = [...document.querySelectorAll('input[name=brand]:checked')].map(el=>el.value)
+    , keywords = ''
     , sort = { sortby: sortby.value, type: sortby.options[sortby.selectedIndex].getAttribute('data-sort') };
 
 const getProductsByFilter = async (page = 1, perpage = 12) => {
@@ -23,7 +25,7 @@ const getProductsByFilter = async (page = 1, perpage = 12) => {
         price: price,
         sortby: sort
     }
-
+    console.log(data);
     const token = document.querySelector('meta[name=csrf-token]').content
 
     const response = await fetch(`/api/products/filter?page=${page}&perpage=${perpage}`, {

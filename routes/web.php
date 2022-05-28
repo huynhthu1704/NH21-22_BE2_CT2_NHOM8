@@ -17,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\UserController;
+use App\Mail\WelcomeMail;
 use App\Models\User;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
 
 
@@ -138,11 +140,7 @@ Route::prefix('auth')->group(function () {
 
     Route::get('/google/callback', function () {
 
-        
-       
         $googleUser = Socialite::driver('google')->user();
-
-       
 
         $user = User::where('username', '=', $googleUser->id)->first();
 
@@ -192,7 +190,7 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::prefix('category')->group(function () {
-    Route::get('/', [PaginationController::class, 'index'])->name('category');
+    Route::get('/{brandName?}/{brandId?}', [PaginationController::class, 'index'])->name('category');
     Route::get('/category-2-col', [PaginationController::class, 'CategoryTwoCol'])->name('category.2col');
 });
 
@@ -202,4 +200,3 @@ Route::post('/cart/remove', [CartController::class, 'deleteItem']);
 Route::post('/cart/update', [CartController::class, 'updateCart']);
 Route::post('/cart/call', [CartController::class, 'callCart']);
 
-// 

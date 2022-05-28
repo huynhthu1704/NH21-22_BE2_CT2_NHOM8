@@ -61,12 +61,12 @@
 
                                         <div class="banner-content">
                                             <h4 class="banner-subtitle text-darkwhite"><a
-                                                    href="#">{{ $banners->getBannerByCate(2)->title }}</a></h4>
+                                                    href="{{route('category')}}">{{ $banners->getBannerByCate(2)->title }}</a></h4>
                                             <!-- End .banner-subtitle -->
                                             <h3 class="banner-title text-white"><a
-                                                    href="#">{{ $banners->getBannerByCate(2)->content }}</a></h3>
+                                                    href="{{route('category')}}">{{ $banners->getBannerByCate(2)->content }}</a></h3>
                                             <!-- End .banner-title -->
-                                            <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
+                                            <a href="{{route('category')}}" class="btn btn-outline-white banner-link">Shop Now<i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .banner-content -->
                                     </div><!-- End .banner -->
@@ -81,12 +81,12 @@
 
                                         <div class="banner-content">
                                             <h4 class="banner-subtitle text-darkwhite"><a
-                                                    href="#">{{ $banners->getBannerByCate(3)->title }}</a></h4>
+                                                    href="{{route('category')}}">{{ $banners->getBannerByCate(3)->title }}</a></h4>
                                             <!-- End .banner-subtitle -->
                                             <h3 class="banner-title text-white"><a
-                                                    href="#">{{ $banners->getBannerByCate(3)->content }}</a></h3>
+                                                    href="{{route('category')}}">{{ $banners->getBannerByCate(3)->content }}</a></h3>
                                             <!-- End .banner-title -->
-                                            <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
+                                            <a href="{{route('category')}}" class="btn btn-outline-white banner-link">Shop Now<i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .banner-content -->
                                     </div><!-- End .banner -->
@@ -124,7 +124,7 @@
                                                                                                                                                                                                         }
                                                                                                                                                                                                     }'>
                     @foreach ($brands as $brand)
-                        <a href="#" class="brand">
+                        <a href="{{route('category', ['brandId' => $brand->id, 'brandName' => $brand->brand_name])}}" class="brand">
                             <img src="{{ asset('/images/brands/' . $brand->id . '.png') }}" alt="Brand Name">
                         </a>
                     @endforeach
