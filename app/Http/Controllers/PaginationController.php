@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Redirect;
 class PaginationController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::limit(12);
-        return View('category', ['products' => $products]);
+        return View('category', ['products' => $products, 'brandId' => $request->brandId]);
     }
 
-    public function CategoryTwoCol()
+    public function CategoryTwoCol(Request $request)
     {
         return View('category-2cols');
     }
@@ -75,6 +75,7 @@ class PaginationController extends Controller
         $arr['currentPage'] = $input['page'];
         $arr['total'] = $total;
         $arr['quantity'] = count($products);
+
         return response()->json($arr);
     }
 
