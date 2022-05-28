@@ -23,12 +23,12 @@ class CreateUsersTable extends Migration
             $table->string('password', 200);
             $table->string('email', 2000);
             $table->date('birthday')->default(now());
-            $table->string('full_name', 200);
+            $table->string('fullname', 200);
             $table->string('phone', 32)->default('');
             $table->text('address')->default('');
             $table->string('gender', 15)->default('');
             $table->date('join_day')->default(now());
-            $table->enum('provider', ['normal', 'google', 'facebook'])->default('normal');
+            $table->enum('provider', ['normal', 'google', 'facebook']);
             $table->unsignedBigInteger('role_id');
             $table->enum('status', ['Activate', 'Inactivate'])->default('Activate');
 

@@ -252,6 +252,7 @@
             document.querySelector('#add-form').classList.add('d-none');
             document.querySelector('#edit-form').classList.add('d-none');;
         }
+        
         function edit (sender ,id){
             const add = document.querySelector('#add-form');
             const edit = document.querySelector('#edit-form');
