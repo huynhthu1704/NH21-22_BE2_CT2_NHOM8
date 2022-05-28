@@ -33,14 +33,14 @@
                                     <div class="form-group">
                                         <label for="add-product-name">Color name</label>
                                         <input type="text" class="form-control" id="add-product-name" name="color_name"
-                                            placeholder="Enter email">
+                                            placeholder="Enter color name" required value="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="add-product-name">Color code</label>
-                                        <input type="text" class="form-control" id="add-product-name" name="color_code"
-                                            placeholder="Enter email">
+                                        <input type="color" class="form-control" id="add-product-name" name="color_code"
+                                            required value="">
                                     </div>
                                 </div>
                             </div>
@@ -69,44 +69,48 @@
             </div>
         </div>
         {{-- edit color --}}
-        <div class="container-fluid px-5 d-none" id="edit-form" enctype="multipart/form-data">
-            {{ csrf_field()}}
-            @method('put')
+        <div class="container-fluid px-5 d-none" id="edit-form" >
+            
             <!-- /.content -->
             <div class="row">
                 <div class="col-md-12">
-                    <form class="card card-danger" method="POST" action="" id="form-edit">
+                    <form id="form-edit" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        @method('put')
+
                         <div class="card-header">
-                            <h3 class="card-title">Add Color</h3>
+                            <h3 class="card-title">Edit Color</h3>
                         </div>
                         <div class="card-body">
+                            <input hidden type="text" class="form-control" id="edit-id" name="color_id"
+                                placeholder="Enter title" required value="">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="add-product-name">Color name</label>
-                                        <input type="text" class="form-control" id="edit-color-name" name="color_name"
-                                            placeholder="Enter color name">
+
+                                        <label for="add-title">Color Name</label>
+                                        <input type="text" class="form-control" id="edit-title" name="name"
+                                            placeholder="Enter color name" required value="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="add-product-name">Color code</label>
-                                        <input type="text" class="form-control" id="edit-color-code" name="color_code"
-                                            placeholder="Enter color code">
+                                        <label for="add-content">Color code</label>
+                                        <input type="color" class="form-control" id="edit-content" name="code"
+                                            placeholder="Enter content" required>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="card-footer">
                             <div id="actions" class="row">
                                 <div class="col-lg-6">
                                     <div class="btn-group w-100">
-                                        <button type="submit" class="btn btn-success col">
-                                            <span>Edit color</span>
+                                        <button id="btn-edit" class="btn btn-success col" onclick="editColor()">
+                                            <span>Edit Color</span>
                                         </button>
                                         <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
-                                            <span>Cancel</span>
+                                            <span>Cancel Edit</span>
                                         </button>
                                     </div>
                                 </div>
@@ -148,7 +152,11 @@
                                             <td>{{$color->id}}</td>
                                             <td>{{$color->color_name}}</td>
                                             <td>{{$color->color_code}}</td>
-                                            <td><button class="btn btn-success" onclick="edit(this,{{$color->id}})" data-name="{{$color->color_name}}" data-code="{{$color->color_code}}">Edit</button>
+                                            <td><button class="btn btn-success"
+                                                data-name="{{ $color->color_name}}"
+                                                data-color="{{ $color->color_code}}"
+                                                onclick="edit(this,{{$color->color_id}})"><a
+                                                    style="text-decoration: none">Edit</a></button>
                                             </td>
                                             <td><button class="btn btn-warning">Remove</button></td>
                                         </tr>
@@ -224,10 +232,20 @@
         function edit (sender ,id){
             const add = document.querySelector('#add-form');
             const edit = document.querySelector('#edit-form');
-            edit.classList.remove('d-none')
-
-            const inputId = edit.querySelector('input[name="product-id"]');
-            inputId.value = id
+            const name = sender.dataset.name;
+            const code = sender.dataset.code;
+            add.classList.add('d-none');
+            edit.classList.remove('d-none');
+            edit.querySelector('input[name="color_id"]').value = id;
+            edit.querySelector('input[name="name"]').value = name;
+            edit.querySelector('input[name="code"]').value = code;
+        }
+        function editColor() {
+            const edit = document.getElementById('form-edit');
+            const id = edit.querySelector('input[name="color_id"]').value;
+            const action = "{{ url('admin/color') }}/" + id;
+            edit.action = action;
+            edit.submit();
         }
 
         $(function() {
