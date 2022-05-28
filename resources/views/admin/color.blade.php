@@ -74,7 +74,8 @@
             <!-- /.content -->
             <div class="row">
                 <div class="col-md-12">
-                    <form id="form-edit" class="card card-danger" method="POST" action="{{route('admin.color')}}" enctype="multipart/form-data">
+
+                    <form id="form-edit" class="card card-danger" method="POST" action="{{ route('admin.color.update', '-1') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         @method('put')
 
@@ -124,6 +125,7 @@
                 <!-- /.col (right) -->
             </div>
         </div>
+        
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid px-5">
@@ -240,13 +242,13 @@
             edit.querySelector('input[name="name"]').value = name;
             edit.querySelector('input[name="code"]').value = code;
         }
-        function editColor() {
-            const edit = document.getElementById('form-edit');
-            const id = edit.querySelector('input[name="color_id"]').value;
-            const action = "{{ url('admin/color') }}/" + id;
-            edit.action = action;
-            edit.submit();
-        }
+        // function editColor() {
+        //     const edit = document.getElementById('form-edit');
+        //     const id = edit.querySelector('input[name="color_id"]').value;
+        //     const action = "{{ url('admin/color') }}/" + id;
+        //     edit.action = action;
+        //     edit.submit();
+        // }
 
         $(function() {
             // Summernote

@@ -141,7 +141,7 @@
                                                                     {{ $item->category_name }}
                                                                 </div><!-- End .menu-title -->
                                                                 <ul>
-                                                                    <li><a href="{{ url('category-list') }}">Shop
+                                                                    <li><a href="{{ route('category', ['categoryId' => $item->id]) }}">Shop
                                                                             List</a></li>
                                                                 </ul>
                                                             @endforeach
@@ -706,6 +706,7 @@
             </div><!-- End .modal-dialog -->
         </div><!-- End .modal -->
     @endif
+    
     <div class="alert alert-success alert-dismissible fade " data-dismiss="alert"
         style="position: fixed; right: 10px; bottom: 10px; padding-right: 50px;" role="alert">
         <strong>Add cart success</strong> Do you want to <a href="#" class="font-weight-bold">view cart</a>
@@ -713,6 +714,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+
     <!-- Plugins JS File -->
     <script src="{{ asset('/js/jquery.min.js') }}"></script>
     <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>

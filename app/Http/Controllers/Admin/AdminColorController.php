@@ -75,7 +75,8 @@ class AdminColorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $color = Color::find($id);
+        $color = Color::find(1);
+  
         $color->color_name = $request->name;
         $color->color_code = $request->code;
         $msg = "Added successfully";

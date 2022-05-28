@@ -41,8 +41,6 @@
     <!-- Bootstrap Color Picker -->
     <link rel="stylesheet"
         href="{{ asset('css/admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}">
-    <!-- BS Stepper -->
-    <link rel="stylesheet" href="{{ asset('css/adminplugins/bs-stepper/css/bs-stepper.min.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('css/admin/plugins/summernote/summernote-bs4.min.css') }}">
 
@@ -50,9 +48,14 @@
     <!-- CodeMirror -->
     <link rel="stylesheet" href="{{ asset('css/admin/plugins/codemirror/codemirror.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/plugins/codemirror/theme/monokai.css') }}">
+    
     <!-- SimpleMDE -->
-    <link rel="stylesheet" href="{{ asset('css/admin/plugins/simplemde/simplemde.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/admin/custom_style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/admin/custom_style.css') }}">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('css/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
