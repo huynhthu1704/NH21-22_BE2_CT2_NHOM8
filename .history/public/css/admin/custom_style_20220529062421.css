@@ -5,7 +5,7 @@
     transform: scale(4);
 }
 
-.productImg:hover{
+#bannerImg:hover{
     transform: scale(4);
 }
 .w-5 {
@@ -14,8 +14,4 @@
 .description{
     overflow-y: scroll;
     text-overflow: ellipsis;
-}
-.customer-info {
-    font-size: 25;
-
 }

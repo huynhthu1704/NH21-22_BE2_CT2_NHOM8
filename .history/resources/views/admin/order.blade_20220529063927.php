@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Order List</h1>
+                        <h1>Order</h1>
                     </div>
                     {{-- <div class="col-sm-6 ">
                         <span style="color: red">{{Session::has('msg')?Session::get('msg'): ""}}</span>
@@ -17,19 +17,7 @@
                     </div> --}}
                 </div>
             </div><!-- /.container-fluid -->
- <div class="container-fluid px-5" id="confirm-form">
-                <!-- /.content -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <form id="form-confirm" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            @method('put')
-                        </form>
-                        <!-- /.card -->
-                    </div>
-                    <!-- /.col (right) -->
-                </div>
-            </div>
+
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid px-5">
@@ -172,12 +160,12 @@
 
     <!-- Page specific script -->
     <script type="text/javascript">
- const confirm = (id) => {
-            const form =  document.getElementById('form-confirm');
+ const changeStatus = (id) => {
+            const form =  document.querySelector('form-change-status');
             const action = "{{ url('admin/order') }}/" + id;
-            console.log(action);
                 form.action = action;
                 form.submit();
+          
         }
         $(function() {
             $("#example1").DataTable({
@@ -188,7 +176,32 @@
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
 
+        const add = () => {
+            document.querySelector('#add-form').classList.remove('d-none');
+            document.querySelector('#edit-form').classList.add('d-none');;
+        }
         
+        const edit = (id) => {
+            const add = document.querySelector('#add-form');
+            const edit = document.querySelector('#edit-form');
+            add.classList.add('d-none')
+            edit.classList.remove('d-none')
+            document.querySelector('#edit-form').action;
+            document.querySelector('#edit-form').querySelector('input[name="id"]').value = id;
+            document.querySelector('#edit-form').querySelector('input[name="value"]').value = id;
+            document.querySelector('#edit-form').querySelector('input[name="content"]').value = id;
+            document.querySelector('#edit-form').querySelector('input[name="startDay"]').value = id;
+            document.querySelector('#edit-form').querySelector('input[name="endDay"]').value = id;
+            <?php echo 'hi'; ?>
+
+        }
+        const cancel = () => {
+            document.querySelector('#add-form').classList.add('d-none');
+            document.querySelector('#edit-form').classList.add('d-none');;
+        }
+        const confirm = (id) => {
+            alert(id);
+        }
         $(function() {
             // Summernote
             $('#summernote').summernote()

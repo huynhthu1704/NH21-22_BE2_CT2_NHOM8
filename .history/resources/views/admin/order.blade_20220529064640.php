@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Order List</h1>
+                        <h1>Order</h1>
                     </div>
                     {{-- <div class="col-sm-6 ">
                         <span style="color: red">{{Session::has('msg')?Session::get('msg'): ""}}</span>
@@ -173,9 +173,9 @@
     <!-- Page specific script -->
     <script type="text/javascript">
  const confirm = (id) => {
-            const form =  document.getElementById('form-confirm');
+     alert("hihi");
+            const form =  document.querySelector('form-confirm');
             const action = "{{ url('admin/order') }}/" + id;
-            console.log(action);
                 form.action = action;
                 form.submit();
         }

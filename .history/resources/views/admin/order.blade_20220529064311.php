@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Order List</h1>
+                        <h1>Order</h1>
                     </div>
                     {{-- <div class="col-sm-6 ">
                         <span style="color: red">{{Session::has('msg')?Session::get('msg'): ""}}</span>
@@ -17,13 +17,13 @@
                     </div> --}}
                 </div>
             </div><!-- /.container-fluid -->
- <div class="container-fluid px-5" id="confirm-form">
+ <div class="container-fluid px-5" id="change-status-form">
                 <!-- /.content -->
                 <div class="row">
                     <div class="col-md-12">
-                        <form id="form-confirm" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
+                        <form id="form-change-status" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
                             {{ csrf_field() }}
-                            @method('put')
+                            @method('post')
                         </form>
                         <!-- /.card -->
                     </div>
@@ -173,11 +173,11 @@
     <!-- Page specific script -->
     <script type="text/javascript">
  const confirm = (id) => {
-            const form =  document.getElementById('form-confirm');
+            const form =  document.querySelector('form-change-status');
             const action = "{{ url('admin/order') }}/" + id;
-            console.log(action);
                 form.action = action;
                 form.submit();
+          
         }
         $(function() {
             $("#example1").DataTable({

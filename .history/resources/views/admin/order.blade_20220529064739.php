@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Order List</h1>
+                        <h1>Order</h1>
                     </div>
                     {{-- <div class="col-sm-6 ">
                         <span style="color: red">{{Session::has('msg')?Session::get('msg'): ""}}</span>

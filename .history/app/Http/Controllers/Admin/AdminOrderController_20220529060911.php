@@ -11,10 +11,6 @@ use App\Models\Product;
 
 class AdminOrderController extends Controller
 {
-    public function getCustomer($id)
-    {
-        return Customer::find($id)->first();
-    }
     /**
      * Display a listing of the resource.
      *
@@ -78,7 +74,7 @@ class AdminOrderController extends Controller
             $arr[$item->id] =  OrderItem::with('product')->whereRelation('product', 'id', $item->product_id)->first();
         }
         $order->orderItem = $arr;
-        // dd($order);
+        dd($order);
 
         return view('admin.order-detail', ['order' => $order]);
     }
@@ -103,10 +99,7 @@ class AdminOrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $order = Order::find($id);
-        $order->status = "Confirmed";
-        $order->save();
-        return redirect()->back()->with('msg', "This order is confirmed");
+        //
     }
 
     /**
@@ -117,5 +110,6 @@ class AdminOrderController extends Controller
      */
     public function destroy($id)
     {
+        //
     }
 }

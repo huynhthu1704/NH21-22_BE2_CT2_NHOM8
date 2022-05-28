@@ -104,9 +104,7 @@ class AdminOrderController extends Controller
     public function update(Request $request, $id)
     {
         $order = Order::find($id);
-        $order->status = "Confirmed";
-        $order->save();
-        return redirect()->back()->with('msg', "This order is confirmed");
+        $order->status =
     }
 
     /**
