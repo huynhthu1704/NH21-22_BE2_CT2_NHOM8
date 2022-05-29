@@ -1,17 +1,17 @@
 .addProductLink {
     font-size: 30;
 }
-#bannerImg:hover {
+#bannerImg:hover{
     transform: scale(4);
 }
 
-.productImg:hover {
+.productImg:hover{
     transform: scale(4);
 }
 .w-5 {
     display: none;
 }
-.description {
+.description{
     overflow-y: scroll;
     text-overflow: ellipsis;
 }
@@ -20,6 +20,5 @@
 }
 .review-content {
     overflow-y: scroll;
-    word-wrap: break-word;
-    text-overflow: ellipsis;
+     word-wrap: break-word; text-overflow: ellipsis
 }

@@ -47,6 +47,7 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($orders as $key => $value)
+                                            <a href="ww.scuoll"></a>
                                                 <tr>
                                                     <td>
                                                         <a
@@ -70,7 +71,7 @@
                                                                 onclick="confirm({{ $value['id'] }})">Confirm</button>
                                                         @endif
                                                     </td>
-                                                </tr>
+                                                </tr></a>
                                             @endforeach
                                         <tbody>
                                     </table>

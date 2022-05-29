@@ -1,5 +1,6 @@
 @extends('admin.master')
 @section('main')
+    {{-- {{dd($categories)}} --}}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -8,77 +9,88 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Order List</h1>
+                        <h1>Order #{{ $order->id }}</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
-
-            <!-- Confirm form -->
-            <div class="container-fluid px-5" id="confirm-form">
-                <div class="row">
-                    <div class="col-md-12">
-                        <form id="form-confirm" class="card card-danger" method="POST" action=""
-                            enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            @method('put')
-                        </form>
-                    </div>
-                </div>
-            </div>
-
+           
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid px-5">
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-body -responsive ">
-                                    <table id="example1" class="table table-bordered table-hover">
+                                <div class="card-header">
+                                    <h3>Customer information</h3>
+                                    @php
+                                        $orderController = new App\Http\Controllers\Admin\AdminOrderController();
+                                        $customer = $orderController->getCustomer($order->customer_id);
+                                        $fullName = $customer->first_name . ' ' . $customer->last_name;
+                                    @endphp
+                                    <h5>Name: {{ $fullName }}</h5>
+                                    <h5 >Address: {{ $customer->address }}</h5>
+                                    <h5 >Phone: {{ $customer->phone_number }}</h5>
+                                    <h5 >Email: {{ $customer->email }}</h5>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body -responsive p-0">
+                                    <table class="table table-hover text-nowrap">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>Product</th>
                                                 <th>Name</th>
                                                 <th>Quantity</th>
-                                                <th>Shipping fee</th>
+                                                <th>Price</th>
+                                                <th>Discount</th>
                                                 <th>Total</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                {{-- <th>Total</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($orders as $key => $value)
-                                                <tr>
-                                                    <td>
-                                                        <a
-                                                            href="{{ url('admin/order/' . $value['id']) }}">{{ $value['id'] }}</a>
-                                                    </td>
-                                                    @php
-                                                        $customerName = $value->customer->first_name . ' ' . $value->customer->last_name;
-                                                    @endphp
-                                                    <td>{{ $customerName }} </td>
-                                                    <td>{{ $value['quantity'] }}</td>
-                                                    <td>{{ $value['shipping_fee'] }}</td>
-                                                    <td>{{ $value['total'] }}</td>
-                                                    @php
-                                                        $status = $value['status'];
-                                                    @endphp
-                                                    <td><span>{{ $status }}</span>
-                                                    </td>
-                                                    <td>
-                                                        @if ($status == 'Waiting for confirm')
-                                                            <button style="color: white" class="btn btn-warning"
-                                                                onclick="confirm({{ $value['id'] }})">Confirm</button>
-                                                        @endif
-                                                    </td>
+                                            @php
+                                                $orderItems = $order->orderItem;
+                                                $products = new App\Http\Controllers\Admin\AdminProductController();
+                                            @endphp
+                                            @foreach ($orderItems as $orderItem)
+                                                @php
+                                                    $product = $orderItem->product;
+                                                    $images = $products->getImage($product->id, $orderItem->color_id)->src;
+                                                    $category = $products->getCategory($product->category_id);
+                                                    //    dd($images);
+                                                    $img1 = explode('#', $images)[0];
+                                                    $quantity = $orderItem->quantity;
+                                                    $price =  $orderItem->price;
+                                                @endphp
+                                                <td><img class="productImg" width="60" height="60"
+                                                        src="{{ asset('images/molla/' . $category->category_name . '/' . $img1) }}"
+                                                        alt=""></td>
+                                                        <td>{{ $product->product_name }}</td>
+                                                <td>{{ $quantity }}</td>
+                                                <td>{{$price }}</td>
+                                                <td>{{ $orderItem->discount_price }}</td>
+                                                <td>{{ $total}}</td>
                                                 </tr>
                                             @endforeach
                                         <tbody>
                                     </table>
                                 </div>
                                 <!-- /.card-body -->
+                                <div class="cart-footer p-3">
+                                    <h5>Sub total: {{$order->subtotal}}</h5>
+                                    <h5>Delivery fee: {{$order->shipping_fee}}</h5>
+                                    <h5  style = "font-weight: bold">Total: {{$order->total}}</h5>
+                                </div>
                             </div>
                             <!-- /.card -->
                         </div>
+                    </div>
+                    <div class="row">
+                        {{-- <div class="col-12">
+                            <h5>Sub total:</h5>
+                            <h5>Delivery fee:</h5>
+                            <h5>Total:</h5>
+                        </div> --}}
+                       
                     </div>
                 </div>
                 <!-- /.container-fluid -->
@@ -122,39 +134,10 @@
     <script src="{{ asset('css/admin/plugins/codemirror/mode/xml/xml.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
 
-    <!-- DataTables  & Plugins -->
-    <script src="{{ asset('css/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/pdfmake/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/pdfmake/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-
     <!-- Page specific script -->
     <script type="text/javascript">
-        const confirm = (id) => {
-            const form = document.getElementById('form-confirm');
-            const action = "{{ url('admin/order') }}/" + id;
-            console.log(action);
-            form.action = action;
-            form.submit();
-        }
-        $(function() {
-            $("#example1").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        });
-
-
+       
+       
         $(function() {
             // Summernote
             $('#summernote').summernote()

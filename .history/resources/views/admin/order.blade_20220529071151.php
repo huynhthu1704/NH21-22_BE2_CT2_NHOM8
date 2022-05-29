@@ -47,6 +47,7 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($orders as $key => $value)
+                                            <a href=""></a>
                                                 <tr>
                                                     <td>
                                                         <a

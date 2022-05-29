@@ -70,7 +70,7 @@
                                                                 onclick="confirm({{ $value['id'] }})">Confirm</button>
                                                         @endif
                                                     </td>
-                                                </tr>
+                                                </tr></a>
                                             @endforeach
                                         <tbody>
                                     </table>

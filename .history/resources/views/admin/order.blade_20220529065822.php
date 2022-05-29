@@ -52,10 +52,9 @@
                                                         <a
                                                             href="{{ url('admin/order/' . $value['id']) }}">{{ $value['id'] }}</a>
                                                     </td>
-                                                    @php
-                                                        $customerName = $value->customer->first_name . ' ' . $value->customer->last_name;
-                                                    @endphp
-                                                    <td>{{ $customerName }} </td>
+                                                    
+                                                    <td>{{ $value->customer->first_name . ' ' . $value->customer->last_name }}
+                                                    </td>
                                                     <td>{{ $value['quantity'] }}</td>
                                                     <td>{{ $value['shipping_fee'] }}</td>
                                                     <td>{{ $value['total'] }}</td>
@@ -74,6 +73,13 @@
                                             @endforeach
                                         <tbody>
                                     </table>
+                                    <div class="card-footer clearfix">
+                                        <ul class="pagination pagination-sm m-0 float-right">
+                                            <li class="page-item"><a class="page-link" href="#">«</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">»</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                             </div>

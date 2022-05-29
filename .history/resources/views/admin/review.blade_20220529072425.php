@@ -1,5 +1,6 @@
 @extends('admin.master')
 @section('main')
+    {{-- {{dd($reviews)}} --}}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -8,23 +9,14 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Order List</h1>
-                    </div>
-                </div>
-            </div><!-- /.container-fluid -->
-
-            <!-- Confirm form -->
-            <div class="container-fluid px-5" id="confirm-form">
-                <div class="row">
-                    <div class="col-md-12">
-                        <form id="form-confirm" class="card card-danger" method="POST" action=""
-                            enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            @method('put')
-                        </form>
-                    </div>
-                </div>
-            </div>
+                        <h1>Review List</h1>
+                    </div> 
+            {{-- <div class="col-sm-6 ">
+                        <span style="color: red">{{Session::has('msg')?Session::get('msg'): ""}}</span>
+                        <button onclick="add()" class="float-sm-right btn btn-warning"><a style="font-size: 30; color: white">Add discount</a></button>
+                    </div> --}}
+             </div>
+            </div><!-- /.container-fluid --> 
 
             <!-- Main content -->
             <section class="content">
@@ -36,45 +28,92 @@
                                     <table id="example1" class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Quantity</th>
-                                                <th>Shipping fee</th>
-                                                <th>Total</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                <th style="width: 5%">ID</th>
+                                                <th style="width: 10%">Username</th>
+                                                <th style="width: 50%">Content</th>
+                                                <th style="width: 20%">Rating</th>
+                                                <th style="width: 15%">Product</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($orders as $key => $value)
+                                            @foreach ($reviews as $key => $value)
+                                                @php
+                                                @endphp
                                                 <tr>
-                                                    <td>
-                                                        <a
-                                                            href="{{ url('admin/order/' . $value['id']) }}">{{ $value['id'] }}</a>
-                                                    </td>
-                                                    @php
-                                                        $customerName = $value->customer->first_name . ' ' . $value->customer->last_name;
-                                                    @endphp
-                                                    <td>{{ $customerName }} </td>
-                                                    <td>{{ $value['quantity'] }}</td>
-                                                    <td>{{ $value['shipping_fee'] }}</td>
-                                                    <td>{{ $value['total'] }}</td>
-                                                    @php
-                                                        $status = $value['status'];
-                                                    @endphp
-                                                    <td><span>{{ $status }}</span>
+                                                    <td>{{ $value['id'] }}</td>
+                                                    <td>{{ $value['username'] }}</td>
+                                                    <td style="display: block">
+                                                        <p
+                                                            style="overflow-y: scroll; word-wrap: break-word; height: 50px; text-overflow: ellipsis">
+                                                            {{ $value['content'] }}</p>
                                                     </td>
                                                     <td>
-                                                        @if ($status == 'Waiting for confirm')
-                                                            <button style="color: white" class="btn btn-warning"
-                                                                onclick="confirm({{ $value['id'] }})">Confirm</button>
-                                                        @endif
+                                                        @php
+                                                            $rating = $value['rating_value'];
+                                                        @endphp
+                                                        @for ($i = 1; $i <= 5; $i++)
+                                                            @if ($i <= $rating)
+                                                                <i style="color: yellow" class="fas fa-solid fa-star"></i>
+                                                            @else
+                                                                <i style="color: grey" class="fas fa-solid fa-star"></i>
+                                                            @endif
+                                                        @endfor
                                                     </td>
+                                                    <td><a
+                                                            href="{{ route('detil')}}">{{ $value['product_name'] }}</a>
+                                                    </td>
+                                                    {{-- <td><button class="btn btn-warning">View review</button></td> --}}
                                                 </tr>
                                             @endforeach
                                         <tbody>
                                     </table>
                                 </div>
+                                <!-- /.card-header -->
+                                {{-- <div class="card-body -responsive p-0">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 5%">ID</th>
+                                            <th style="width: 10%">Username</th>
+                                            <th style="width: 50%">Content</th>
+                                            <th style="width: 20%">Rating</th>
+                                            <th style="width: 15%">Product</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($reviews as $key => $value)
+                                        @php
+                                        @endphp
+                                        <tr>
+                                            <td>{{$value['id']}}</td>
+                                            <td>{{$value['username']}}</td>
+                                            <td style="display: block"><p style="overflow-y: scroll; word-wrap: break-word; height: 100px; text-overflow: ellipsis">{{$value['content']}}</p></td>
+                                            <td>
+                                            @php
+                                            $rating = $value['rating_value'];
+                                            @endphp
+                                            @for ($i = 1; $i <= 5; $i++) 
+                                                @if ($i <= $rating)
+                                                <i style="color: yellow" class="fas fa-solid fa-star"></i>
+                                                @else
+                                                <i style="color: grey"  class="fas fa-solid fa-star"></i>
+                                                @endif
+                                            @endfor
+                                           </td>
+                                            <td><a href="{{url('product/'.$value['product_name'])}}">{{$value['product_name']}}</a></td>
+                                            <td><button class="btn btn-warning">View review</button></td>
+                                        </tr>
+                                        @endforeach
+                                    <tbody>
+                                    </table>
+                                <div class="card-footer clearfix">
+                                    <ul class="pagination pagination-sm m-0 float-right">
+                                        <li class="page-item"><a class="page-link" href="#">«</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">»</a></li>
+                                    </ul>
+                                </div>
+                            </div> --}}
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
@@ -135,16 +174,8 @@
     <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-
     <!-- Page specific script -->
     <script type="text/javascript">
-        const confirm = (id) => {
-            const form = document.getElementById('form-confirm');
-            const action = "{{ url('admin/order') }}/" + id;
-            console.log(action);
-            form.action = action;
-            form.submit();
-        }
         $(function() {
             $("#example1").DataTable({
                 "responsive": true,
@@ -153,8 +184,6 @@
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
-
-
         $(function() {
             // Summernote
             $('#summernote').summernote()
