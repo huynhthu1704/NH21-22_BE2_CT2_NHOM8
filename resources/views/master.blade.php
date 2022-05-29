@@ -776,43 +776,49 @@
             district: "register-district",
             ward: "register-ward"
         });
-        
-        const formLogin = document.querySelector('#register-master');
-   
-        formLogin.addEventListener('submit', (e) => {
 
-            e.preventDefault();
-            const province = document.querySelector('.register-city')
-            const district = document.querySelector('.register-district')
-            const ward = document.querySelector('.register-ward')
-            const formData = new FormData(e.target)
+        try {
+            
+            const formLogin = document.querySelector('#register-master');
 
-            formData.set('register-city', `${province.options[province.selectedIndex].text}-${province.value}`);
-            formData.set('register-district', `${district.options[district.selectedIndex].text}-${district.value}`);
-            formData.set('register-ward', `${ward.options[ward.selectedIndex].text}-${ward.value}`);
+            formLogin.addEventListener('submit', (e) => {
+
+                e.preventDefault();
+                const province = document.querySelector('.register-city')
+                const district = document.querySelector('.register-district')
+                const ward = document.querySelector('.register-ward')
+                const formData = new FormData(e.target)
+
+                formData.set('register-city', `${province.options[province.selectedIndex].text}-${province.value}`);
+                formData.set('register-district',
+                    `${district.options[district.selectedIndex].text}-${district.value}`);
+                formData.set('register-ward', `${ward.options[ward.selectedIndex].text}-${ward.value}`);
 
 
-            const formProps = Object.fromEntries(formData);
+                const formProps = Object.fromEntries(formData);
 
-            const fakeForm = document.createElement('form');
+                const fakeForm = document.createElement('form');
 
-            fakeForm.method = formLogin.method
-            fakeForm.action = formLogin.action
-       
-            for (const key in formProps) {
-                if (formProps.hasOwnProperty(key)) {
-                    const hiddenField = document.createElement('input');
-                    hiddenField.type = 'hidden';
-                    hiddenField.name = key;
-                    hiddenField.value = formProps[key];
-                    fakeForm.appendChild(hiddenField);
+                fakeForm.method = formLogin.method
+                fakeForm.action = formLogin.action
+
+                for (const key in formProps) {
+                    if (formProps.hasOwnProperty(key)) {
+                        const hiddenField = document.createElement('input');
+                        hiddenField.type = 'hidden';
+                        hiddenField.name = key;
+                        hiddenField.value = formProps[key];
+                        fakeForm.appendChild(hiddenField);
+                    }
                 }
-            }
 
-            document.body.appendChild(fakeForm);
+                document.body.appendChild(fakeForm);
 
-            fakeForm.submit();
-        });
+                fakeForm.submit();
+            });
+        } catch (error) {
+
+        }
     </script>
 
 </body>

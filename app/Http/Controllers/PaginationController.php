@@ -60,8 +60,10 @@ class PaginationController extends Controller
                     'product_id' => $product->id,
                     'product_name' =>  $product->product_name,
                     'price' =>  $product->price,
+                    'sales_price' => ($product->price / 100) * (100 - $product->discount->discount_value),
                     'sale_amount' => $product->sale_amount,
                     'category_name' => $category->category_name,
+                    'discount' => $product->discount->discount_value
                 ];
 
             foreach ($product->images as $img) {

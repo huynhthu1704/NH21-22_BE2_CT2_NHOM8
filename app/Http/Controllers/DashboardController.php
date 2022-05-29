@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,7 @@ class DashboardController extends Controller
         }
 
         $user = session()->get('user');
-        $orders = Order::where("user_id", '=', $user->id)->orderBy('created_at', 'desc');
+        $orders = Order::select('*')->with(["orderItem"])->where("user_id", '=', $user->id)->orderBy('created_at', 'desc')->get();
 
         $data =
             [
@@ -41,9 +42,12 @@ class DashboardController extends Controller
                 'confirm-password' => ['required',  Password::min(8)->letters()->numbers()],
                 'email' => 'required|email',
                 'birthday' => 'required|before:-10 year',
-                'fullname' => 'required|regex:/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/',
+                'fullname' => 'required',
                 'phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
                 'address' => 'required|max:2000',
+                'city' => 'require',
+                'district' => 'require',
+                'ward' => 'require',
                 'gender' => 'required', 'max:5'
             ]);
 
@@ -60,6 +64,9 @@ class DashboardController extends Controller
                         'fullname' => $input['fullname'],
                         'phone' => $input['phone'],
                         'address' => $input['address'],
+                        'city' => $input['city'],
+                        'district' => $input['district'],
+                        'ward' => $input['ward'],
                         'gender' => $input['gender'],
                     ]
                 );
@@ -71,7 +78,7 @@ class DashboardController extends Controller
             $validator = Validator::make($request->all(), [
                 'email' => 'required|email',
                 'birthday' => 'required|before:-10 year',
-                'fullname' => 'required|regex:/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/',
+                'fullname' => 'required',
                 'phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
                 'address' => 'required|max:2000',
                 'gender' => 'required', 'max:5'
@@ -88,6 +95,9 @@ class DashboardController extends Controller
                     'fullname' => $input['fullname'],
                     'phone' => $input['phone'],
                     'address' => $input['address'],
+                    'city' => $input['register-city'],
+                    'district' => $input['register-district'],
+                    'ward' => $input['register-ward'],
                     'gender' => $input['gender'],
                 ]
             );
