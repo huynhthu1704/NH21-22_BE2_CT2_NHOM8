@@ -17,11 +17,11 @@ class CreateCustomersTable extends Migration
             $table->id();
             $table->string('first_name', 200);
             $table->string('last_name', 200);
-            $table->text('address');
-            $table->string('zip_code',200);
+            $table->string('city', 200);
+            $table->string('district', 200);
+            $table->string('ward', 200);
             $table->string('phone_number', 15);
             $table->string('email', 2000);
-            $table->string('gender', 10);
             $table->timestamps();
         });
     }
