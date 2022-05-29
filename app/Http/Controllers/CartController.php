@@ -106,4 +106,12 @@ class CartController extends Controller
         $item = $cart[$input['product_id']. '-' . $input['color_id']]; 
         return response()->json(['totalPrice' => self::totalPrice(Session::get('cart')), 'totalItemPrice' => ($item['price'] * $item['quantity'])]);
     }
+    public static function totalQuantity($cart)
+    {
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['quantity'];
+        }
+        return $total;
+    }
 }
