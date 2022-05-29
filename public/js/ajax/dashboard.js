@@ -97,5 +97,6 @@ formRate.addEventListener('submit', async (e) => {
             $(".alert").slideUp(500);
         });
     }
-    $('form.rating').modal().hide();
+
+    document.querySelector('.close').click();
 });

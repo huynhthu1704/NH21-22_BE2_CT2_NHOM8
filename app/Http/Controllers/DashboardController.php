@@ -120,6 +120,7 @@ class DashboardController extends Controller
             $review->product_id = $input['product_id'];
             $review->rating_value = $input['rating_value'];
             $review->content = $input['content'];
+            $review->title = $input['title'];
             $review->save();
 
             $order = OrderItem::find($input['order_item_id']);

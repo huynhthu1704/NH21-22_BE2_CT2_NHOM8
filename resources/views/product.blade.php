@@ -4,18 +4,22 @@
         <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
             <div class="container d-flex align-items-center">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('category')}}">Shop</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('category') }}">Shop</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Product</li>
                 </ol>
 
                 <nav class="product-pager ml-auto" aria-label="Product">
-                    <a class="product-pager-link product-pager-prev" href="{{route('detail', ['id' => ($product[0]->product->id - 1)])}}" aria-label="Previous" tabindex="-1">
+                    <a class="product-pager-link product-pager-prev"
+                        href="{{ route('detail', ['id' => $product[0]->product->id - 1]) }}" aria-label="Previous"
+                        tabindex="-1">
                         <i class="icon-angle-left"></i>
                         <span>Prev</span>
                     </a>
 
-                    <a class="product-pager-link product-pager-next" href="{{route('detail', ['id' => ($product[0]->product->id + 1)])}}" aria-label="Next" tabindex="-1">
+                    <a class="product-pager-link product-pager-next"
+                        href="{{ route('detail', ['id' => $product[0]->product->id + 1]) }}" aria-label="Next"
+                        tabindex="-1">
                         <span>Next</span>
                         <i class="icon-angle-right"></i>
                     </a>
@@ -46,7 +50,7 @@
                                             $imgsrc = explode('#', $item->src);
                                         @endphp
                                         <div id="product-zoom-gallery"
-                                            class="product-image-gallery list-image-{{$k}} {{ $k != 0 ? 'd-none' : '' }}">
+                                            class="product-image-gallery list-image-{{ $k }} {{ $k != 0 ? 'd-none' : '' }}">
                                             @foreach ($imgsrc as $key => $src)
                                                 <a class="product-gallery-item {{ $key == 0 ? 'active' : '' }} " href="#"
                                                     data-image="{{ asset('images/molla/' . $category->category->category_name . '/' . $src) }}"
@@ -68,9 +72,16 @@
 
                                 <div class="ratings-container">
                                     <div class="ratings">
-                                        <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                                        @php
+                                            $rvCount = count($reviews);
+                                        
+                                        @endphp
+
+                                        <div class="ratings-val" style="width: {{ $avgRv }}%;"></div>
+                                        <!-- End .ratings-val -->
                                     </div><!-- End .ratings -->
-                                    <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews )</a>
+                                    <a class="ratings-text" href="#product-review-link" id="review-link">(
+                                        {{ $rvCount }} Reviews )</a>
                                 </div><!-- End .rating-container -->
 
                                 <div class="product-price">
@@ -87,13 +98,12 @@
 
                                     <div class="product-nav product-nav-dots detail-colors">
                                         @foreach ($product as $key => $item)
-                                            <a href="javascript:void(0)" 
-                                            class="{{ $key == 0 ? 'active' : '' }}"
-                                            data-color-id="{{$item->color->id}}"
-                                            data-list="list-image-{{$key}}"
-                                            data-product-id="{{$item->product->id}}"
-                                            style="background: {{$item->color->color_code}};"><span
-                                                    class="sr-only">{{$item->color->color_name}}</span></a>
+                                            <a href="javascript:void(0)" class="{{ $key == 0 ? 'active' : '' }}"
+                                                data-color-id="{{ $item->color->id }}"
+                                                data-list="list-image-{{ $key }}"
+                                                data-product-id="{{ $item->product->id }}"
+                                                style="background: {{ $item->color->color_code }};"><span
+                                                    class="sr-only">{{ $item->color->color_name }}</span></a>
                                         @endforeach
                                     </div><!-- End .product-nav -->
                                 </div>
@@ -109,11 +119,9 @@
                                 </div><!-- End .details-filter-row -->
 
                                 <div class="product-details-action">
-                                    <a href="javascript:void(0)" 
-                                    data-product-id="{{$product[0]->product->id}}"
-                                    data-color-id="{{$product[0]->color->id}}"
-                                    onclick="addCartDetail(this)"
-                                    class="btn-product btn-cart detail-cart"><span>add to cart</span></a>
+                                    <a href="javascript:void(0)" data-product-id="{{ $product[0]->product->id }}"
+                                        data-color-id="{{ $product[0]->color->id }}" onclick="addCartDetail(this)"
+                                        class="btn-product btn-cart detail-cart"><span>add to cart</span></a>
 
                                 </div><!-- End .product-details-action -->
 
@@ -154,7 +162,8 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab"
-                                role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
+                                role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews
+                                ({{ $rvCount }})</a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -162,8 +171,8 @@
                             aria-labelledby="product-desc-link">
                             <div class="product-desc-content">
                                 <h3>Product Information</h3>
-                                <p>{{$product[0]->product->description}}</p>
-                               
+                                <p>{{ $product[0]->product->description }}</p>
+
                             </div><!-- End .product-desc-content -->
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane fade" id="product-info-tab" role="tabpanel"
@@ -203,65 +212,35 @@
                         <div class="tab-pane fade" id="product-review-tab" role="tabpanel"
                             aria-labelledby="product-review-link">
                             <div class="reviews">
-                                <h3>Reviews (2)</h3>
-                                <div class="review">
-                                    <div class="row no-gutters">
-                                        <div class="col-auto">
-                                            <h4><a href="#">Samanta J.</a></h4>
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 80%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                            </div><!-- End .rating-container -->
-                                            <span class="review-date">6 days ago</span>
-                                        </div><!-- End .col -->
-                                        <div class="col">
-                                            <h4>Good, perfect size</h4>
+                                <h3>Reviews ({{ $rvCount }})</h3>
+                                @foreach ($reviews as $item)
+                                    <div class="review">
+                                        <div class="row no-gutters">
+                                            <div class="col-auto">
+                                                <h4><a href="#">{{$item->user->fullname}}</a></h4>
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 80%;"></div>
+                                                        <!-- End .ratings-val -->
+                                                    </div><!-- End .ratings -->
+                                                </div><!-- End .rating-container -->
+                                                <span class="review-date">{{$item->created_at}}</span>
+                                            </div><!-- End .col -->
+                                            <div class="col">
+                                                <h4>{{$item->title}}</h4>
 
-                                            <div class="review-content">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cum
-                                                    dolores assumenda asperiores facilis porro reprehenderit animi culpa
-                                                    atque blanditiis commodi perspiciatis doloremque, possimus, explicabo,
-                                                    autem fugit beatae quae voluptas!</p>
-                                            </div><!-- End .review-content -->
+                                                <div class="review-content">
+                                                    <p>{{$item->content}}</p>
+                                                </div><!-- End .review-content -->
 
-                                            <div class="review-action">
-                                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
-                                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
-                                            </div><!-- End .review-action -->
-                                        </div><!-- End .col-auto -->
-                                    </div><!-- End .row -->
-                                </div><!-- End .review -->
+                                                <div class="review-action">
+                                                    
+                                                </div><!-- End .review-action -->
+                                            </div><!-- End .col-auto -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .review -->
+                                @endforeach
 
-                                <div class="review">
-                                    <div class="row no-gutters">
-                                        <div class="col-auto">
-                                            <h4><a href="#">John Doe</a></h4>
-                                            <div class="ratings-container">
-                                                <div class="ratings">
-                                                    <div class="ratings-val" style="width: 100%;"></div>
-                                                    <!-- End .ratings-val -->
-                                                </div><!-- End .ratings -->
-                                            </div><!-- End .rating-container -->
-                                            <span class="review-date">5 days ago</span>
-                                        </div><!-- End .col -->
-                                        <div class="col">
-                                            <h4>Very good</h4>
-
-                                            <div class="review-content">
-                                                <p>Sed, molestias, tempore? Ex dolor esse iure hic veniam laborum blanditiis
-                                                    laudantium iste amet. Cum non voluptate eos enim, ab cumque nam, modi,
-                                                    quas iure illum repellendus, blanditiis perspiciatis beatae!</p>
-                                            </div><!-- End .review-content -->
-
-                                            <div class="review-action">
-                                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>
-                                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
-                                            </div><!-- End .review-action -->
-                                        </div><!-- End .col-auto -->
-                                    </div><!-- End .row -->
-                                </div><!-- End .review -->
                             </div><!-- End .reviews -->
                         </div><!-- .End .tab-pane -->
                     </div><!-- End .tab-content -->
@@ -271,30 +250,30 @@
 
                 <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
                     data-owl-options='{
-                                                                                                                                                                                                "nav": false,
-                                                                                                                                                                                                "dots": true,
-                                                                                                                                                                                                "margin": 20,
-                                                                                                                                                                                                "loop": false,
-                                                                                                                                                                                                "responsive": {
-                                                                                                                                                                                                    "0": {
-                                                                                                                                                                                                        "items":2
-                                                                                                                                                                                                    },
-                                                                                                                                                                                                    "480": {
-                                                                                                                                                                                                        "items":2
-                                                                                                                                                                                                    },
-                                                                                                                                                                                                    "768": {
-                                                                                                                                                                                                        "items":3
-                                                                                                                                                                                                    },
-                                                                                                                                                                                                    "992": {
-                                                                                                                                                                                                        "items":4
-                                                                                                                                                                                                    },
-                                                                                                                                                                                                    "1200": {
-                                                                                                                                                                                                        "items":4,
-                                                                                                                                                                                                        "nav": true,
-                                                                                                                                                                                                        "dots": false
+                                                                                                                                                                                                    "nav": false,
+                                                                                                                                                                                                    "dots": true,
+                                                                                                                                                                                                    "margin": 20,
+                                                                                                                                                                                                    "loop": false,
+                                                                                                                                                                                                    "responsive": {
+                                                                                                                                                                                                        "0": {
+                                                                                                                                                                                                            "items":2
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "480": {
+                                                                                                                                                                                                            "items":2
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "768": {
+                                                                                                                                                                                                            "items":3
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "992": {
+                                                                                                                                                                                                            "items":4
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        "1200": {
+                                                                                                                                                                                                            "items":4,
+                                                                                                                                                                                                            "nav": true,
+                                                                                                                                                                                                            "dots": false
+                                                                                                                                                                                                        }
                                                                                                                                                                                                     }
-                                                                                                                                                                                                }
-                                                                                                                                                                                            }'>
+                                                                                                                                                                                                }'>
 
                     @foreach ($productData->getTopProducts($category->category_id) as $product)
                         @php
@@ -308,7 +287,7 @@
                                         $image = explode('#', $color['src']);
                                     @endphp
                                     @if ($key == 0)
-                                        <a href='{{route('detail', ['id' => $product['product_id']])}}'
+                                        <a href='{{ route('detail', ['id' => $product['product_id']]) }}'
                                             id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                             <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                 alt="Product image" class="product-image">
@@ -316,7 +295,8 @@
                                                 alt="Product image" class="product-image-hover">
                                         </a>
                                     @else
-                                        <a href='{{route('detail', ['id' => $product['product_id']])}}' class="d-none"
+                                        <a href='{{ route('detail', ['id' => $product['product_id']]) }}'
+                                            class="d-none"
                                             id="{{ 'product-' . $product['product_id'] . '-' . $color['color_name'] . '-' . $product['category_name'] }}">
                                             <img src="{{ asset('/images/molla/' . $product['category_name'] . '/' . $image[0]) }}"
                                                 alt="Product image" class="product-image">

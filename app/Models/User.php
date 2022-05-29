@@ -22,10 +22,12 @@ class User extends Authenticatable
         'join_day',
         'role_id'
     ];
-    function review() {
+
+
+    function reviews() {
         $this->hasMany(Review::class);
     }
-    public function order()
+    public function orders()
     {
         $this->hasMany(Order::class);
     }
