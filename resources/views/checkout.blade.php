@@ -106,18 +106,19 @@
                                                     </td>
                                                     <td>{{ number_format($item['price'], 0, '', ',') }}&nbsp;VNĐ</td>
                                                 </tr>
+                                                <input hidden type="text" name="quantity" value="">
 												@endforeach
                                                 <tr class="summary-subtotal">
                                                     <td>Subtotal:</td>
-                                                    <td>$160.00</td>
+                                                    <td name="subtotal">$160.00</td>
                                                 </tr><!-- End .summary-subtotal -->
                                                 <tr>
                                                     <td>Shipping:</td>
-                                                    <td>Free shipping</td>
+                                                    <td name="shipping_fee">Free shipping</td>
                                                 </tr>
                                                 <tr class="summary-total">
                                                     <td>Total:</td>
-                                                    <td>$160.00</td>
+                                                    <td name="total">$160.00</td>
                                                 </tr><!-- End .summary-total -->
 												
                                             </tbody>
