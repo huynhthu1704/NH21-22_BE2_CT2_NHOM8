@@ -20,6 +20,7 @@ class CreateCustomersTable extends Migration
             $table->string('city', 200);
             $table->string('district', 200);
             $table->string('ward', 200);
+            $table->string('address', 200);
             $table->string('phone_number', 15);
             $table->string('email', 2000);
             $table->timestamps();

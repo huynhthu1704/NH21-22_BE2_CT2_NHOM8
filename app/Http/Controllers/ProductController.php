@@ -13,9 +13,10 @@ class ProductController extends Controller
     function __construct()
     {
         $this->product = new Product();
-    } 
+    }
 
-    function  index($id) {
+    function  index($id)
+    {
         $pro = new ProductController();
         return view('product', ['product' => $pro->getDetail($id)]);
     }
@@ -44,28 +45,28 @@ class ProductController extends Controller
             ->join('colors', 'colors.id', '=', 'images.color_id')
             ->join('dimensions', 'dimension_id', 'dimensions.id')
             ->where('products.id', $id)->get();
-            $product = [];
-            foreach($products as $key=>$value) {
-                $product[$value->product_id] = [
-                    'name'=> $value->product_name,
-                    'description'=>$value->description,
-                    'price'=>$value->sale_amount,
-                    'category_name'=>$value->category_name,
-                    'dimension_id'=>$value->dimension_id,
-                    'width'=>$value->width,
-                    'height'=> $value-> height,
-                    'weight'=>$value->weight,
-                    'length'=>$value->length
-                ];
-            }
-            foreach($products as $key=>$value) {
-                $product[$value->product_id]['colors'] = [
-                    'color_id' => $value->color_id,
-                    'color_name' => $value->color_name,
-                    'color_code' => $value->color_code,
-                    'src' => $value->src
-                ];
-            }
+        $product = [];
+        foreach ($products as $key => $value) {
+            $product[$value->product_id] = [
+                'name' => $value->product_name,
+                'description' => $value->description,
+                'price' => $value->sale_amount,
+                'category_name' => $value->category_name,
+                'dimension_id' => $value->dimension_id,
+                'width' => $value->width,
+                'height' => $value->height,
+                'weight' => $value->weight,
+                'length' => $value->length
+            ];
+        }
+        foreach ($products as $key => $value) {
+            $product[$value->product_id]['colors'] = [
+                'color_id' => $value->color_id,
+                'color_name' => $value->color_name,
+                'color_code' => $value->color_code,
+                'src' => $value->src
+            ];
+        }
         return $product;
     }
 
@@ -80,29 +81,32 @@ class ProductController extends Controller
 
         $arr = [];
         foreach ($products as $product) {
-            
+
             $category = $product->category;
 
-            $arr[$product->id] = 
-            [
-                'product_id' => $product->id,
-                'product_name' =>  $product->product_name,
-                'price' =>  $product->price,
-                'sale_amount' => $product->sale_amount,
-                'category_name' => $category->category_name,
-            ];
+            $arr[$product->id] =
+                [
+                    'product_id' => $product->id,
+                    'product_name' =>  $product->product_name,
+                    'price' =>  $product->price,
+                    'sales_price' => ($product->price / 100) * (100 - $product->discount->discount_value),
+                    'sale_amount' => $product->sale_amount,
+                    'category_name' => $category->category_name,
+                    'discount' => $product->discount->discount_value
+                ];
 
             foreach ($product->images as $img) {
                 $color = $img->color;
-                $arr[$product->id]['colors'][] = 
-                [
-                    'src' => $img->src,  
-                    'color_id' => $color->id,
-                    'color_name' => $color->color_name,
-                    'color_code' => $color->color_code,
-                ];
+                $arr[$product->id]['colors'][] =
+                    [
+                        'src' => $img->src,
+                        'color_id' => $color->id,
+                        'color_name' => $color->color_name,
+                        'color_code' => $color->color_code,
+                    ];
             }
         }
+
         return $arr;
     }
 
@@ -112,40 +116,41 @@ class ProductController extends Controller
 
         $products = Product::orderBy('sale_amount', 'desc')->limit($perPage + 1)->offset($start);
 
-        if($categoryID != -1) {
+        if ($categoryID != -1) {
             $products = $products->where('category_id', '=', $categoryID)->get();
-        }else{
+        } else {
             $products = $products->get();
         }
 
         $arr = [];
-        
+
         foreach ($products as $key => $product) {
-            
+
             $category = $product->category;
 
-            $arr[$key] = 
-            [
-                'product_id' => $product->id,
-                'product_name' =>  $product->product_name,
-                'price' =>  $product->price,
-                'sale_amount' => $product->sale_amount,
-                'category_name' => $category->category_name,
-            ];
+            $arr[$key] =
+                [
+                    'product_id' => $product->id,
+                    'product_name' =>  $product->product_name,
+                    'price' =>  $product->price,
+                    'sales_price' => ($product->price / 100) * (100 - $product->discount->discount_value),
+                    'sale_amount' => $product->sale_amount,
+                    'category_name' => $category->category_name,
+                    'discount' => $product->discount->discount_value
+                ];
 
             foreach ($product->images as $img) {
                 $color = $img->color;
-                $arr[$key]['colors'][] = 
-                [
-                    'src' => $img->src,  
-                    'color_id' => $color->id,
-                    'color_name' => $color->color_name,
-                    'color_code' => $color->color_code,
-                ];
+                $arr[$key]['colors'][] =
+                    [
+                        'src' => $img->src,
+                        'color_id' => $color->id,
+                        'color_name' => $color->color_name,
+                        'color_code' => $color->color_code,
+                    ];
             }
         }
 
         return json_encode($arr);
     }
-
 }

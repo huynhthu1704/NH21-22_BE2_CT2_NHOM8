@@ -66,6 +66,7 @@ class UserController extends Controller
 
     public function process_signup(Request $request)
     {
+      
         $validator = Validator::make($request->all(), [
             'register-username' => 'required|string|regex:/\w*$/|max:255|unique:users,username',
             'register-password' => ['required',  Password::min(8)->letters()->numbers()],
@@ -75,6 +76,7 @@ class UserController extends Controller
             'register-city' => 'required',
             'register-district' => 'required',
             'register-ward' => 'required',
+            'register-address' => 'required',
             'register-phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'register-gender' => 'required', 'max:5'
         ]);
@@ -82,7 +84,7 @@ class UserController extends Controller
         $request->flash();
 
         if ($validator->fails()) {
-            dd($validator->errors());
+         
             return redirect()->route('auth.register')->withErrors($validator)->withInput();
         }
 
@@ -96,6 +98,7 @@ class UserController extends Controller
             'city' => $request->input('register-city'),
             'district' => $request->input('register-district'),
             'ward' => $request->input('register-ward'),
+            'address' => $request->input('register-address'),
             'gender' => $request->input('register-gender'),
             'join_day' => now(),
             'role_id' => 2

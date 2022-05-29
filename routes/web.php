@@ -27,7 +27,7 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
@@ -129,6 +129,7 @@ Route::get('detail/product-{id}', [DetailController::class, 'getProductById'])->
 Route::get('cart', [CartController::class, 'index'])->name('viewcart');
 Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
 Route::post('placeOrder',[CheckoutController::class,'placeOrder'])->name('placeOrder');
+Route::post('shipping',[CheckoutController::class,'getShipping'])->name('shipping');
 
 // User authentication
 Route::prefix('auth')->group(function () {
@@ -148,26 +149,27 @@ Route::prefix('auth')->group(function () {
     Route::get('/google/callback', function () {
 
         $googleUser = Socialite::driver('google')->user();
-
+        
         $user = User::select('*')->where('username', '=', md5($googleUser->id))
-            ->where('password', '=', md5($googleUser->id . 'facebook'))
+            ->where('password', '=', md5($googleUser->id . 'google'))
             ->first();
 
         if (empty($user)) {
             DB::table('users')->insert([
                 'fullname' => $googleUser->name,
                 'email' => $googleUser->email,
-                'username' => $googleUser->id,
-                'password' => $googleUser->id . 'google',
+                'username' => md5($googleUser->id),
+                'password' => md5($googleUser->id . 'google'),
                 'provider' => 'google',
                 'role_id' => 2
             ]);
             $user = User::select('*')->where('username', '=', md5($googleUser->id))
-                ->where('password', '=', md5($googleUser->id . 'facebook'))
+                ->where('password', '=', md5($googleUser->id . 'google'))
                 ->first();
         }
-
+       
         session()->put('user', $user);
+
         return redirect()->route('index');
     });
 
@@ -217,4 +219,5 @@ Route::prefix('/cart')->group(function () {
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/profile/edit', [DashboardController::class, 'setProfile'])->name('dashboard.edit');
 });
