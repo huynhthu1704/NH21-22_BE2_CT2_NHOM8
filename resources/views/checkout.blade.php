@@ -26,8 +26,17 @@
                                     enter your code</span></label>
                         </form>
                     </div><!-- End .checkout-discount -->
-                    <form action="{{route('placeOrder')}}" method="POST">
+                    @if (Session::has('cart'))
+                    @php
+                    $cart = Session::get('cart');
+                @endphp
+                    <form action="{{ route('placeOrder') }}" method="POST" >
+                        
                         {{ csrf_field() }}
+                        <input hidden type="text"  name="quantity" value="{{ App\Http\Controllers\CartController::totalQuantity($cart) }}">
+                        <input hidden type="text"  name="subtotal" value="{{ App\Http\Controllers\CartController::totalPrice($cart) }}">
+                        <input hidden type="text"  name="shipping_fee" value="0">
+                        <input hidden type="text"  name="total" value="{{ App\Http\Controllers\CartController::totalPrice($cart) }}">
                         <div class="row">
                             <div class="col-lg-9">
                                 <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
@@ -49,17 +58,18 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <label>Province / City *</label>
-                                        <select name="ls_province" class="form-control"  required ></select>
+                                        <select id="city" name="ls_province" class="form-control"
+                                            onchange="getShipping(this)" required></select>
 
                                     </div><!-- End .col-sm-6 -->
                                     <div class="col-sm-4">
                                         <label>Distric / County *</label>
-                                        <select  name="ls_district" class="form-control" required ></select>
+                                        <select name="ls_district" class="form-control" required></select>
                                     </div><!-- End .col-sm-6 -->
                                     <div class="col-sm-4">
 
                                         <label>Ward / County *</label>
-                                        <select name="ls_ward" class="form-control"  required ></select>
+                                        <select name="ls_ward" class="form-control" required></select>
                                     </div><!-- End .col-sm-6 -->
                                 </div><!-- End .row -->
 
@@ -79,11 +89,12 @@
                                 </div>
                                 <label>Order notes (optional)</label>
                                 <textarea class="form-control" cols="30" rows="4"
-                                    placeholder="Notes about your order, e.g. special notes for delivery" name="note"></textarea>
+                                    placeholder="Notes about your order, e.g. special notes for delivery"
+                                    name="note"></textarea>
 
                             </div><!-- End .col-lg-9 -->
                             <aside class="col-lg-3">
-                                @if (Session::has('cart'))
+                                
                                     <div class="summary">
                                         <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
 
@@ -96,31 +107,33 @@
                                             </thead>
 
                                             <tbody>
-												@php
-                                                	$cart = Session::get('cart');
-                                                @endphp
+                                               
                                                 @foreach ($cart as $item)
-                                                <tr id="cart-item-{{ $item['product_id'] }}-{{ $item['color_id'] }}">
-                                                    <td><a
-														href="{{ url('/product') }}">{{ $item['product_name'] }}</a>
-                                                    </td>
-                                                    <td>{{ number_format($item['price'], 0, '', ',') }}&nbsp;VNĐ</td>
-                                                </tr>
-                                                <input hidden type="text" name="quantity" value="">
-												@endforeach
+                                                    <tr
+                                                        id="cart-item-{{ $item['product_id'] }}-{{ $item['color_id'] }}">
+                                                        <td><a
+                                                                href="{{ url('/product') }}">{{ $item['product_name'] }}</a>
+                                                        </td>
+                                                        <td>{{ number_format($item['price'] * $item['quantity'], 0, '', '.') }}&nbsp;VNĐ
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                
                                                 <tr class="summary-subtotal">
                                                     <td>Subtotal:</td>
-                                                    <td name="subtotal">$160.00</td>
+                                                    <td name="subtotal" data-subtotal="{{App\Http\Controllers\CartController::totalPrice($cart)}}">
+                                                        {{ number_format(App\Http\Controllers\CartController::totalPrice($cart), 0, '', '.') . ' VNĐ' }}
+                                                    </td>
                                                 </tr><!-- End .summary-subtotal -->
                                                 <tr>
                                                     <td>Shipping:</td>
-                                                    <td name="shipping_fee">Free shipping</td>
+                                                    <td name="shipping_fee"></td>
                                                 </tr>
                                                 <tr class="summary-total">
                                                     <td>Total:</td>
-                                                    <td name="total">$160.00</td>
+                                                    <td name="total"></td>
                                                 </tr><!-- End .summary-total -->
-												
+
                                             </tbody>
                                         </table><!-- End .table table-summary -->
 
@@ -129,12 +142,14 @@
                                             <span class="btn-hover-text">Proceed to Checkout</span>
                                         </button>
                                     </div><!-- End .summary -->
-                                @else
-                                    Your cart is empty
-                                @endif
+                                
                             </aside><!-- End .col-lg-3 -->
                         </div><!-- End .row -->
+                        
                     </form>
+                    @else
+                                    Your cart is empty
+                                @endif
                 </div><!-- End .container -->
             </div><!-- End .checkout -->
         </div><!-- End .page-content -->
@@ -142,12 +157,53 @@
 
     <script src="{{ asset('/js/ajax/vietnam.js') }}"></script>
     <script>
+        var formatter = new Intl.NumberFormat('it-IT', {
+            style: 'currency',
+            currency: 'VND',
+        });
         var localpicker = new LocalPicker({
             province: "ls_province",
             district: "ls_district",
             ward: "ls_ward"
         });
 
+        async function getShipping(city) {
+            const url = "/shipping"
+            const data = {
+
+            }
+            const token = document.querySelector('meta[name=csrf-token]').content
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    "Content-type": "application/json;charset=UTF-8",
+                    'X-CSRF-TOKEN': token,
+                },
+                body: JSON.stringify(data)
+            })
+
+            const result = await response.json();
+            const shipping = document.querySelector('td[name=shipping_fee]');
+            const total = document.querySelector('td[name=total]');
+            const shipping1 = document.querySelector('input[name=shipping_fee]');
+            const subtotal = document.querySelector('td[name=subtotal');
+            const total1 = document.querySelector('input[name=total');
+            
+            if (city.options[city.selectedIndex].text == "Hồ Chí Minh") {
+
+                shipping.innerHTML = formatter.format(result[0].price)
+                shipping1.value = result[0].price
+                total.innerHTML =formatter.format( +subtotal.dataset.subtotal + result[0].price)
+                total1.value = +subtotal.dataset.subtotal + result[0].price
+            }else{
+                shipping.innerHTML = formatter.format(result[1].price)
+                shipping1.value = result[1].price
+                total.innerHTML =formatter.format( +subtotal.dataset.subtotal + result[1].price)
+                total1.value = +subtotal.dataset.subtotal + result[1].price
+
+            }
+
+        }
         
     </script>
 @endsection('content')

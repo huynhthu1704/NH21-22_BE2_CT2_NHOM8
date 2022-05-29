@@ -3,18 +3,32 @@
 namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\ShippingFee as ModelsShippingFee;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use App\Models\ShippingFee;
 
 class CheckoutController extends Controller
 {
     public function index()
     {
-        return view('checkout');
+        if(Session::has('user')){
+            return view('checkout');
+        }else{
+            return redirect()->route('auth.login');
+        }
+        
+    }
+    public function getShipping()
+    {
+        $shippings = ShippingFee::all();
+        return response()->json($shippings);
     }
     public function placeOrder(Request $request)
     {
+        $user = Session::get('user');
        $customer = new Customer;
        $customer->first_name = $request->input('fname');
        $customer->last_name = $request->input('fname');
@@ -23,17 +37,18 @@ class CheckoutController extends Controller
        $customer->ward = $request->input('ls_ward');
        $customer->phone_number = $request->input('phone');
        $customer->email = $request->input('email');
-    //    $customer->save();
+       $customer->save();
 
        $order = new Order;
        $order->customer_id = $customer->id;
-       echo Auth::id();
-    //    $order->user_id = Auth::id();
-    //    $order->quantity = $request->quantity;
-    //    $order->subtotal = $request->subtotal;
-    //    $order->shipping_fee = $request->shipping_fee;
-    //    $order->total = $request->total;
-    //    $order->order_date = Carbon::now();
+       $order->user_id = $user->id;
+       $order->quantity = $request->input('quantity');
+       $order->subtotal = $request->input('subtotal');
+       $order->shipping_fee = $request->input('shipping_fee');
+       $order->total = $request->input('total');
+       $order->note = $request->input('note');
+       $order->order_date = now();
+        $order->save();
 
         
 
