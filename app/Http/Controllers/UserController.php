@@ -83,7 +83,7 @@ class UserController extends Controller
         $request->flash();
 
         if ($validator->fails()) {
-            dd($validator->errors());
+         
             return redirect()->route('auth.register')->withErrors($validator)->withInput();
         }
 

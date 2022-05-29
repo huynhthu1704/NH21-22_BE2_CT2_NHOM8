@@ -149,26 +149,27 @@ Route::prefix('auth')->group(function () {
     Route::get('/google/callback', function () {
 
         $googleUser = Socialite::driver('google')->user();
-
+        
         $user = User::select('*')->where('username', '=', md5($googleUser->id))
-            ->where('password', '=', md5($googleUser->id . 'facebook'))
+            ->where('password', '=', md5($googleUser->id . 'google'))
             ->first();
 
         if (empty($user)) {
             DB::table('users')->insert([
                 'fullname' => $googleUser->name,
                 'email' => $googleUser->email,
-                'username' => $googleUser->id,
-                'password' => $googleUser->id . 'google',
+                'username' => md5($googleUser->id),
+                'password' => md5($googleUser->id . 'google'),
                 'provider' => 'google',
                 'role_id' => 2
             ]);
             $user = User::select('*')->where('username', '=', md5($googleUser->id))
-                ->where('password', '=', md5($googleUser->id . 'facebook'))
+                ->where('password', '=', md5($googleUser->id . 'google'))
                 ->first();
         }
-
+       
         session()->put('user', $user);
+
         return redirect()->route('index');
     });
 

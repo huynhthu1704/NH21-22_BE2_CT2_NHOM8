@@ -726,7 +726,7 @@
     @endif
 
     <div class="alert alert-success alert-dismissible fade " data-dismiss="alert"
-        style="position: fixed; right: 10px; bottom: 10px; padding-right: 50px;" role="alert">
+        style="position: fixed; right: 10px; bottom: 10px; padding-right: 50px;z-index: 999;" role="alert">
         <strong>Add cart success</strong> Do you want to <a href="#" class="font-weight-bold">view cart</a>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
