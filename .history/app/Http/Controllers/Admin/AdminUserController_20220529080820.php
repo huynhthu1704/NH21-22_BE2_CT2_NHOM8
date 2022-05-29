@@ -14,9 +14,8 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        dd($users);
-        return view('admin.user', ['users' => $users]);
+        $user = User::all();
+        return view('admin.user', ['users' => );
     }
 
     /**

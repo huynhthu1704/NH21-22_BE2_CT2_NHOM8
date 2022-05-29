@@ -14,9 +14,7 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        dd($users);
-        return view('admin.user', ['users' => $users]);
+        return view('admin.user', ['users' => User::all()]);
     }
 
     /**
@@ -73,8 +71,6 @@ class AdminUserController extends Controller
     {
         $user = User::find($id);
         $user->status = "Blocked";
-        $user->save();
-        return redirect()->back();
     }
 
     /**

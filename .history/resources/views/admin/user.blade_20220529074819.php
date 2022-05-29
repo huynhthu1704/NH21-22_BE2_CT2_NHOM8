@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-body -responsive">
+                                <div class="card-body -responsive p-0">
                                     <table id="example1" class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
@@ -74,7 +74,7 @@
                                                     <td><button class="btn btn-warning"
                                                         onclick="report({{ $value['id'] }})">Report user</button></td>
                                                    @else
-                                                   <td></td>
+                                                   
                                                         @endif
                                                 </tr>
                                             @endforeach

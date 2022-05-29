@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('main')
-    {{-- {{dd($categories)}} --}}
+{{-- {{dd($categories)}} --}}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -11,85 +11,74 @@
                     <div class="col-sm-6">
                         <h1>User</h1>
                     </div>
+                    {{-- <div class="col-sm-6 ">
+                        <span style="color: red">{{Session::has('msg')?Session::get('msg'): ""}}</span>
+                        <button onclick="add()" class="float-sm-right btn btn-warning"><a style="font-size: 30; color: white">Add discount</a></button>
+                    </div> --}}
                 </div>
             </div><!-- /.container-fluid -->
-            <div class="container-fluid px-5" id="report-form">
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid px-5">
                 <div class="row">
-                    <div class="col-md-12">
-                        <form id="form-report" class="card card-danger" method="POST" action=""
-                            enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            @method('put')
-                        </form>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body -responsive p-0">
+                                <table id="example1" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Username</th>
+                                            <th>Fullname</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Join day</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($users as $key=>$value)
+                                        @php
+                                            $email =$value['email'];
+                                            $str = explode('@', $email);
+                                            function decode($n)
+                                                {
+                                                    return ('*');
+                                                }
+                                                $str1 = substr($str[0], 0, 3);
+                                                $str2 = substr($str[0], 4);
+                                            $transformStr = array_map('decode' , str_split($str2));
+                                            $result = $str1.implode($transformStr).'@'.$str[1];
+
+                                            $phone = $value['phone'];
+                                                $str1 = substr($phone, 0, strlen($phone) - 4);
+                                                $str2 = substr($phone, strlen($phone) - 3);
+                                            $transformStr2 = array_map('decode' , str_split($str2));
+                                            $result2 = $str1.implode($transformStr2);
+                                        @endphp
+                                        <tr>
+                                            <td>{{ $value['id'] }}</td>
+                                            <td>{{ $value['username'] }}</td>
+                                            <td>{{ $value['full_name'] }}</td>
+                                            <td>{{ $result }}</td>
+                                            <td>{{$result2}}</td>
+                                            <td>{{$value['join_day']}}</td>
+                                            <td><button class="btn btn-warning" onclick="report({{$value['id']}})">Report user</button></td>
+                                        </tr>
+                                        @endforeach
+                                    <tbody>
+                                    </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
                     </div>
                 </div>
             </div>
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid px-5">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body -responsive">
-                                    <table id="example1" class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Username</th>
-                                                <th>Fullname</th>
-                                                <th>Email</th>
-                                                <th>Phone</th>
-                                                <th>Join day</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($users as $key => $value)
-                                                @php
-                                                    $email = $value['email'];
-                                                    $str = explode('@', $email);
-                                                    function decode($n)
-                                                    {
-                                                        return '*';
-                                                    }
-                                                    $str1 = substr($str[0], 0, 3);
-                                                    $str2 = substr($str[0], 4);
-                                                    $transformStr = array_map('decode', str_split($str2));
-                                                    $emailAfterDecode = $str1 . implode($transformStr) . '@' . $str[1];
-                                                    
-                                                    $phone = $value['phone'];
-                                                    $str1 = substr($phone, 0, strlen($phone) - 4);
-                                                    $str2 = substr($phone, strlen($phone) - 3);
-                                                    $transformStr2 = array_map('decode', str_split($str2));
-                                                    $phoneAfterDecode = $str1 . implode($transformStr2);
-                                                @endphp
-                                                <tr>
-                                                    <td>{{ $value['id'] }}</td>
-                                                    <td>{{ $value['username'] }}</td>
-                                                    <td>{{ $value['full_name'] }}</td>
-                                                    <td>{{ $emailAfterDecode }}</td>
-                                                    <td>{{ $phoneAfterDecode }}</td>
-                                                    <td>{{ $value['join_day'] }}</td>
-                                                    @if ($value['status'] != "Blocked")
-                                                    <td><button class="btn btn-warning"
-                                                        onclick="report({{ $value['id'] }})">Report user</button></td>
-                                                   @else
-                                                   <td></td>
-                                                        @endif
-                                                </tr>
-                                            @endforeach
-                                        <tbody>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                    </div>
-                </div>
-                <!-- /.container-fluid -->
-            </section>
-
+            <!-- /.container-fluid -->
+        </section>
+     
     </div>
     <!-- jQuery -->
     <script src="{{ asset('css/admin/plugins/jquery/jquery.min.js') }}"></script>
@@ -107,8 +96,7 @@
     <!-- bootstrap color picker -->
     <script src="{{ asset('css/admin/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
-    </script>
+    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
     <!-- Bootstrap Switch -->
     <script src="{{ asset('css/admin/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
     <!-- BS-Stepper -->
@@ -128,29 +116,29 @@
     <script src="{{ asset('css/admin/plugins/codemirror/mode/xml/xml.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
 
-    <!-- DataTables  & Plugins -->
-    <script src="{{ asset('css/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/pdfmake/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/pdfmake/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+      <!-- DataTables  & Plugins -->
+      <script src="{{ asset('css/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+      <script src="{{ asset('css/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+      <script src="{{ asset('css/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+      <script src="{{ asset('css/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+      <script src="{{ asset('css/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+      <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+      <script src="{{ asset('css/admin/plugins/jszip/jszip.min.js') }}"></script>
+      <script src="{{ asset('css/admin/plugins/pdfmake/pdfmake.min.js') }}"></script>
+      <script src="{{ asset('css/admin/plugins/pdfmake/vfs_fonts.js') }}"></script>
+      <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+      <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+      <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
     <!-- Page specific script -->
     <script type="text/javascript">
-        const report = (id) => {
-            const form = document.getElementById('form-report');
-            const action = "{{url('admin/user')}}/"+id;
-            form.action = action;
-            form.submit();
+         const report = () => {
+          const form = document.getElementById('form-report');
+          const action = "";
+          form.action = action;
+          form.submit();
         }
-
+       
         $(function() {
             $("#example1").DataTable({
                 "responsive": true,

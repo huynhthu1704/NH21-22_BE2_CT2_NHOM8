@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-body -responsive">
+                                <div class="card-body -responsive p-0">
                                     <table id="example1" class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
@@ -70,12 +70,8 @@
                                                     <td>{{ $emailAfterDecode }}</td>
                                                     <td>{{ $phoneAfterDecode }}</td>
                                                     <td>{{ $value['join_day'] }}</td>
-                                                    @if ($value['status'] != "Blocked")
                                                     <td><button class="btn btn-warning"
-                                                        onclick="report({{ $value['id'] }})">Report user</button></td>
-                                                   @else
-                                                   <td></td>
-                                                        @endif
+                                                            onclick="report({{ $value['id'] }})">Report user</button></td>
                                                 </tr>
                                             @endforeach
                                         <tbody>
@@ -144,9 +140,9 @@
 
     <!-- Page specific script -->
     <script type="text/javascript">
-        const report = (id) => {
+        const report = () => {
             const form = document.getElementById('form-report');
-            const action = "{{url('admin/user')}}/"+id;
+            const action = "{{url('admin/')}}";
             form.action = action;
             form.submit();
         }

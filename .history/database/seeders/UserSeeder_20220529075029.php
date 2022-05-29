@@ -17,7 +17,6 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'id' => 1,
                 'username'       => 'thuhuynh',
                 'password'             => '12345',
                 'email'             => 'huynhthungocthu1704@gmail.com',
@@ -31,16 +30,15 @@ class UserSeeder extends Seeder
                 'role_id'             => '1',
             ],
             [
-                'id' => 2,
-                'username'       => 'hongngoc',
+                'username'       => 'thuhuynh',
                 'password'             => '12345',
-                'email'             => 'buihongngoc@gmail.com',
-                'birthday'             => '2002-05-29',
-                'full_name'             => 'Bui Hong Ngoc',
-                'phone'             => '0368854167',
+                'email'             => 'huynhthungocthu1704@gmail.com',
+                'birthday'             => '2002-05-27',
+                'full_name'             => 'Huynh Thi Ngoc Thu',
+                'phone'             => '0368854166',
                 'address'             => '53 Vo Van Ngan ,Linh Chieu, Thu Duc',
                 'gender'             => '1',
-                'join_day'             => '2022-05-29',
+                'join_day'             => '2022-05-27',
                 'provider'             => 'normal',
                 'role_id'             => '1',
             ],
