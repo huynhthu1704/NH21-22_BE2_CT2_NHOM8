@@ -160,14 +160,14 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('admin.home') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Widgets
                                 </p>
                             </a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.product') }}" class="nav-link">
                                 <i class="fas fa-solid fa-couch"></i>

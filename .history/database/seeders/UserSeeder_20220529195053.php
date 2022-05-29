@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
                 'role_id'        => '1',
             ],
             [
-                'id'             => 2,
+                'id'             => 1,
                 'username'       => 'hongngoc',
                 'password'       =>  md5('ngoc12345'),
                 'email'          => 'buihongngoc.tdc2020@gmail.com',

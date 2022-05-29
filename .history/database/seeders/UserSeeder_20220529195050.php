@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             [
                 'id'             => 1,
                 'username'       => 'thuhuynh',
-                'password'       =>  md5('thu12345'),
+                'password'       => md5('thu12345'),
                 'email'          => 'huynhthungocthu1704@gmail.com',
                 'birthday'       => '2002-05-27',
                 'fullname'       => 'Huynh Thi Ngoc Thu',
@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
                 'role_id'        => '1',
             ],
             [
-                'id'             => 2,
+                'id'             => 1,
                 'username'       => 'hongngoc',
                 'password'       =>  md5('ngoc12345'),
                 'email'          => 'buihongngoc.tdc2020@gmail.com',
