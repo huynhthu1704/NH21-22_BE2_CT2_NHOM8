@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-
+    public $timestamps = true;
     public function orderItem() {
         return $this->hasMany(OrderItem::class);
     }

@@ -21,12 +21,12 @@ class CreateOrdersTable extends Migration
             $table->integer('subtotal');
             $table->integer('shipping_fee');
             $table->integer('total');
-            $table->dateTime('order_date');
+            $table->dateTime('order_date')->default(now());
             $table->text('note');
             $table->enum('status', ['Waiting for confirm', 'Confirmed', 'Canceled'])->default('Waiting for confirm');
-            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('customer_id')->references('id')->on('customers');
+            $table->timestamps();
         });
     }
 
