@@ -1,0 +1,20 @@
+.addProductLink {
+    font-size: 30;
+}
+#bannerImg:hover{
+    transform: scale(4);
+}
+
+.productImg:hover{
+    transform: scale(4);
+}
+.w-5 {
+    display: none;
+}
+.description{
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+}
+.customer-info {
+    
+}
