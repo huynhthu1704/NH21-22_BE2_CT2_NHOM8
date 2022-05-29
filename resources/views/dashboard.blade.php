@@ -51,7 +51,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="tab-dashboard" role="tabpanel"
                                     aria-labelledby="tab-dashboard-link">
-                                    <p>Hello <span class="font-weight-normal text-dark">{{ $user->full_name }}</span> (not
+                                    <p>Hello <span class="font-weight-normal text-dark">{{ $user->fullname }}</span> (not
                                         <span class="font-weight-normal text-dark">your account</span>? <a
                                             href="{{ route('auth.logout.action') }}">Log out</a>)
                                         <br>
@@ -65,77 +65,41 @@
 
                                 <div class="tab-pane fade" id="tab-orders" role="tabpanel"
                                     aria-labelledby="tab-orders-link">
-                                    <p>No order has been made yet.</p>
-                                    <a href="{{ route('category') }}" class="btn btn-outline-primary-2"><span>GO
-                                            SHOP</span><i class="icon-long-arrow-right"></i></a>
+                                    @if (empty($orders))
+                                        <p>No order has been made yet.</p>
+                                        <a href="{{ route('category') }}" class="btn btn-outline-primary-2"><span>GO
+                                                SHOP</span><i class="icon-long-arrow-right"></i></a>
+                                    @else
+                                        <div class="accordion accordion-plus" id="accordion-2">
+                                            <div class="card">
+                                                <div class="card-header" id="heading2-1">
+                                                    <h2 class="card-title">
+                                                        <a role="button" data-toggle="collapse" href="#collapse2-1"
+                                                            aria-expanded="true" aria-controls="collapse2-1">
+                                                            #Order 001 <span class="status float-right">#Delivery status: Pending</span>
+                                                        </a>
+                                                    </h2>
+                                                </div><!-- End .card-header -->
 
-                                    <div class="accordion accordion-plus" id="accordion-2">
+                                                <div id="collapse2-1" class="collapse show" aria-labelledby="heading2-1"
+                                                    data-parent="#accordion-2">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-2">Image</div>
+                                                            <div class="col-6">Item name</div>
+                                                            <div class="col-2">Qty</div>
+                                                            <div class="col-2">Price</div>
+                                                        </div>
+                                                    </div><!-- End .card-body -->         
+                                                </div><!-- End .collapse -->
+                                                <div class="card-footer">
+                                                    <div class="py-3 float-right h6">Total: 60.000.000 VND</div>
+                                                </div>
+                                            </div><!-- End .card -->
+                                        </div><!-- End .accordion -->
+                                    @endif
 
-                                        <div class="card">
-                                            <div class="card-header" id="heading2-1">
-                                                <h2 class="card-title">
-                                                    <a role="button" data-toggle="collapse" href="#collapse2-1"
-                                                        aria-expanded="true" aria-controls="collapse2-1">
-                                                        Cras ornare tristique elit.
-                                                    </a>
-                                                </h2>
-                                            </div><!-- End .card-header -->
-                                            <div id="collapse2-1" class="collapse show" aria-labelledby="heading2-1"
-                                                data-parent="#accordion-2">
-                                                <div class="card-body">
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-                                                    Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                                    Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
-                                                    Donec nec justo eget felis facilisis fermentum.
-                                                </div><!-- End .card-body -->
-                                            </div><!-- End .collapse -->
-                                        </div><!-- End .card -->
 
-                                        <div class="card">
-                                            <div class="card-header" id="heading2-2">
-                                                <h2 class="card-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse"
-                                                        href="#collapse2-2" aria-expanded="false"
-                                                        aria-controls="collapse2-2">
-                                                        Vivamus vestibulum ntulla
-                                                    </a>
-                                                </h2>
-                                            </div><!-- End .card-header -->
-                                            <div id="collapse2-2" class="collapse" aria-labelledby="heading2-2"
-                                                data-parent="#accordion-2">
-                                                <div class="card-body">
-                                                    Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque
-                                                    volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna
-                                                    nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo
-                                                    eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer
-                                                    adipiscing elit. Donec odio. Quisque volutpat mattis eros.
-                                                </div><!-- End .card-body -->
-                                            </div><!-- End .collapse -->
-                                        </div><!-- End .card -->
-
-                                        <div class="card">
-                                            <div class="card-header" id="heading2-3">
-                                                <h2 class="card-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse"
-                                                        href="#collapse2-3" aria-expanded="false"
-                                                        aria-controls="collapse2-3">
-                                                        Praesent placerat risus
-                                                    </a>
-                                                </h2>
-                                            </div><!-- End .card-header -->
-                                            <div id="collapse2-3" class="collapse" aria-labelledby="heading2-3"
-                                                data-parent="#accordion-2">
-                                                <div class="card-body">
-                                                    Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non,
-                                                    semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis
-                                                    fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                                    Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit amet,
-                                                    consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
-                                                </div><!-- End .card-body -->
-                                            </div><!-- End .collapse -->
-                                        </div><!-- End .card -->
-
-                                    </div><!-- End .accordion -->
                                 </div><!-- .End .tab-pane -->
 
 
@@ -148,37 +112,32 @@
                                         <div class="col-lg-6">
                                             <div class="card card-dashboard">
                                                 <div class="card-body">
-                                                    <h3 class="card-title">Billing Address</h3><!-- End .card-title -->
-                                                    <p>{{ $user->full_name }}<br>
-                                                        {{ $user->email }}<br>
-                                                        <a href="#">Edit <i class="icon-edit"></i></a>
-                                                    </p>
-                                                </div><!-- End .card-body -->
-                                            </div><!-- End .card-dashboard -->
-                                        </div><!-- End .col-lg-6 -->
-
-                                        <div class="col-lg-6">
-                                            <div class="card card-dashboard">
-                                                <div class="card-body">
                                                     <h3 class="card-title">Shipping Address</h3><!-- End .card-title -->
-
-                                                    <p>You have not set up this type of address yet.<br>
-                                                        <a href="#">Edit <i class="icon-edit"></i></a>
+                                                    <p>
+                                                        Name: {{ $user->fullname }}<br>
+                                                        Birthday: {{ $user->birthday }}<br>
+                                                        Email: {{ $user->email }}<br>
+                                                        Phone: {{ $user->phone }}<br>
+                                                        Address: {{ $user->address }}<br>
+                                                        <a href="javascript:void(0)" onclick="openEditUser()">Edit <i
+                                                                class="icon-edit"></i></a>
                                                     </p>
                                                 </div><!-- End .card-body -->
                                             </div><!-- End .card-dashboard -->
                                         </div><!-- End .col-lg-6 -->
+
                                     </div><!-- End .row -->
                                 </div><!-- .End .tab-pane -->
 
                                 <div class="tab-pane fade" id="tab-account" role="tabpanel"
                                     aria-labelledby="tab-account-link">
-                                    <form action="#">
-
-
+                                    <form id="set-profile">
+                                        @method('post')
+                                        @csrf
                                         <label>Full Name *</label>
                                         <input type="text" class="form-control" name="fullname" required
-                                            value="{{ $user->full_name }}">
+                                            value="{{ $user->fullname }}">
+
                                         <small class="form-text">This will be how your name will be displayed in the
                                             account section and in reviews</small>
 
@@ -187,8 +146,27 @@
                                             value="{{ $user->birthday }}">
 
                                         <label>Email address *</label>
-                                        <input type="email" class="form-control" name="email" value="{{ $user->email }}"
+                                        <input type="email" class="form-control" name="email"
+                                            value="{{ $user->email }}" required>
+
+                                        <label>Phone *</label>
+                                        <input type="text" class="form-control" name="phone" value="{{ $user->phone }}"
                                             required>
+
+                                        <label>Address *</label>
+                                        <input type="text" class="form-control" name="address"
+                                            value="{{ $user->address }}" required>
+
+                                        <label>Gender *</label>
+                                        <select type="text" class="form-control" name="gender"
+                                            value="{{ $user->address }}" required>
+                                            <option value="Nam" {{ $user->gender == 'Nam' ? 'selected' : '' }}>Nam
+                                            </option>
+                                            <option value="Nữ" {{ $user->gender == 'Nữ' ? 'selected' : '' }}>Nữ</option>
+                                            <option value="Nam" {{ $user->gender == 'Khác' ? 'selected' : '' }}>Khác
+                                            </option>
+                                        </select>
+
                                         @if ($user->provider == 'normal')
                                             <label>Current password (leave blank to leave unchanged)</label>
                                             <input type="password" class="form-control" name="password">
@@ -199,6 +177,7 @@
                                             <label>Confirm new password</label>
                                             <input type="password" class="form-control mb-2" name="confirm-password">
                                         @endif
+
                                         <button type="submit" class="btn btn-outline-primary-2">
                                             <span>SAVE CHANGES</span>
                                             <i class="icon-long-arrow-right"></i>
@@ -212,7 +191,13 @@
                 </div><!-- End .container -->
             </div><!-- End .dashboard -->
         </div><!-- End .page-content -->
-      
+        <div class="alert alert-success alert-dismissible fade " data-dismiss="alert" id="edit-profile-alert"
+            style="position: fixed; right: 10px; bottom: 10px; padding-right: 50px; z-index: 999" role="alert">
+            Edit profile success
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     </main><!-- End .main -->
- 
+    <script src="{{ asset('js/ajax/dashboard.js') }}"></script>
 @endsection

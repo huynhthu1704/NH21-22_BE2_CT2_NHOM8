@@ -66,6 +66,7 @@ class UserController extends Controller
 
     public function process_signup(Request $request)
     {
+      
         $validator = Validator::make($request->all(), [
             'register-username' => 'required|string|regex:/\w*$/|max:255|unique:users,username',
             'register-password' => ['required',  Password::min(8)->letters()->numbers()],

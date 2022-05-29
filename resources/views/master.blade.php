@@ -81,7 +81,8 @@
                                                                 Dashboard</a>
                                                         </li>
                                                         <li class="d-block w-100 ml-0 mt-2">
-                                                            <a href="{{ route('viewcart') }}" class=""><i
+                                                            <a href="{{ route('viewcart') }}"
+                                                                class=""><i
                                                                     class="icon-shopping-cart"></i> Cart</a>
                                                         </li>
                                                         <li class="d-block w-100 ml-0 mt-2">
@@ -610,7 +611,8 @@
                                     </div><!-- .End .tab-pane -->
                                     <div class="tab-pane fade" id="register" role="tabpanel"
                                         aria-labelledby="register-tab">
-                                        <form action="{{ Route('auth.register.action') }}" method="POST">
+                                        <form action="{{ Route('auth.register.action') }}" id="register-master"
+                                            method="POST">
 
                                             @csrf
 
@@ -660,27 +662,22 @@
                                                 </select>
                                             </div><!-- End .form-group -->
 
-                                            {{-- <div class="form-group">
-                                                <label for="register-address">Address *</label>
-                                                <input type="text" class="form-control" id="register-address"
-                                                    name="register-address" value="1 khavancan" required>
-                                            </div><!-- End .form-group --> --}}
-                                            <div class="row">
+                                            <div class="row" class="address-container">
                                                 <div class="col-sm-4">
                                                     <label>Province / City *</label>
-                                                    <select name="register-city" class="form-control"
+                                                    <select name="register-city" class="form-control register-city"
                                                         required></select>
 
                                                 </div><!-- End .col-sm-6 -->
                                                 <div class="col-sm-4">
                                                     <label>Distric / County *</label>
-                                                    <select name="register-district" class="form-control"
-                                                        required></select>
+                                                    <select name="register-district"
+                                                        class="form-control register-district" required></select>
                                                 </div><!-- End .col-sm-6 -->
                                                 <div class="col-sm-4">
 
                                                     <label>Ward / County *</label>
-                                                    <select name="register-ward" class="form-control"
+                                                    <select name="register-ward" class="form-control register-ward"
                                                         required></select>
                                                 </div><!-- End .col-sm-6 -->
                                             </div><!-- End .row -->
@@ -736,6 +733,8 @@
         </button>
     </div>
 
+
+
     <!-- Plugins JS File -->
     <script src="{{ asset('/js/jquery.min.js') }}"></script>
     <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
@@ -772,7 +771,45 @@
             district: "register-district",
             ward: "register-ward"
         });
+        
+        const formLogin = document.querySelector('#register-master');
+   
+        formLogin.addEventListener('submit', (e) => {
+
+            e.preventDefault();
+            const province = document.querySelector('.register-city')
+            const district = document.querySelector('.register-district')
+            const ward = document.querySelector('.register-ward')
+            const formData = new FormData(e.target)
+
+            formData.set('register-city', `${province.options[province.selectedIndex].text}-${province.value}`);
+            formData.set('register-district', `${district.options[district.selectedIndex].text}-${district.value}`);
+            formData.set('register-ward', `${ward.options[ward.selectedIndex].text}-${ward.value}`);
+
+
+            const formProps = Object.fromEntries(formData);
+
+            const fakeForm = document.createElement('form');
+
+            fakeForm.method = formLogin.method
+            fakeForm.action = formLogin.action
+       
+            for (const key in formProps) {
+                if (formProps.hasOwnProperty(key)) {
+                    const hiddenField = document.createElement('input');
+                    hiddenField.type = 'hidden';
+                    hiddenField.name = key;
+                    hiddenField.value = formProps[key];
+                    fakeForm.appendChild(hiddenField);
+                }
+            }
+
+            document.body.appendChild(fakeForm);
+
+            fakeForm.submit();
+        });
     </script>
+
 </body>
 
 

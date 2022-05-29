@@ -147,5 +147,7 @@
             district: "ls_district",
             ward: "ls_ward"
         });
+
+        
     </script>
 @endsection('content')

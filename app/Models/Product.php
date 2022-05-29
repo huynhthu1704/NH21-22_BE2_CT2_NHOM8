@@ -7,7 +7,7 @@ use App\Models\Discount;
 
 class Product extends Model
 {
-    
+
     public $table = 'products';
 
     public function images()

@@ -202,3 +202,4 @@ const addCartDetail = async (cart) => {
         $(".alert").slideUp(500);
     });
 }
+

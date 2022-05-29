@@ -27,7 +27,7 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
@@ -217,4 +217,5 @@ Route::prefix('/cart')->group(function () {
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/profile/edit', [DashboardController::class, 'setProfile'])->name('dashboard.edit');
 });

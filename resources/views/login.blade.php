@@ -101,7 +101,7 @@
                             <div class="tab-pane fade {{ Session::has('keepRegisterForm') ? 'show active' : '' }}"
                                 id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
 
-                                <form action="{{ Route('auth.register.action') }}" method="POST">
+                                <form action="{{ Route('auth.register.action') }}" method="POST" id="register-login">
                                     <div class="form-group">
                                         <label for="register-username">Username *</label>
                                         <input type="text" class="form-control" id="register-username"
@@ -155,6 +155,26 @@
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div><!-- End .form-group -->
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>Province / City *</label>
+                                            <select name="register-city" class="form-control register-city"
+                                                required></select>
+
+                                        </div><!-- End .col-sm-6 -->
+                                        <div class="col-sm-4">
+                                            <label>Distric / County *</label>
+                                            <select name="register-district" class="form-control register-district"
+                                                required></select>
+                                        </div><!-- End .col-sm-6 -->
+                                        <div class="col-sm-4">
+
+                                            <label>Ward / County *</label>
+                                            <select name="register-ward" class="form-control register-ward"
+                                                required></select>
+                                        </div><!-- End .col-sm-6 -->
+                                    </div><!-- End .row -->
+
                                     <div class="form-group">
                                         <label for="register-gender">Gender *</label>
                                         <select type="text" class="form-control" id="register-gender"
@@ -185,9 +205,9 @@
                                         </button>
 
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="register-policy"
+                                            <input type="checkbox" class="custom-control-input" id="register-policy1"
                                                 required>
-                                            <label class="custom-control-label" for="register-policy">I agree to the <a
+                                            <label class="custom-control-label" for="register-policy1">I agree to the <a
                                                     href="#">privacy policy</a> *</label>
                                         </div><!-- End .custom-checkbox -->
                                     </div><!-- End .form-footer -->

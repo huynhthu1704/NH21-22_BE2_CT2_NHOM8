@@ -58,9 +58,11 @@ async function loadMore(category_id, container, btnLoad) {
 
         const product_key = `product-${product.product_id}-${product.category_name}` ;
         html += `<div class="col-6 col-md-4 col-lg-3">
-                        <div class="product product-11 mt-v3 text-center" id="${product_key}-new">
-                            <figure class="product-media">`;
 
+                        <div class="product product-11 mt-v3 text-center" id="${product_key}-new">
+                            <figure class="product-media">
+                            ${product.discount != 0 ? `<span class="product-label label-sale">${product.discount}% OFF</span>` : ''}`;
+        
         product.colors.forEach((color, i) => {
             const images = color.src.split("#");
             html +=
@@ -81,7 +83,14 @@ async function loadMore(category_id, container, btnLoad) {
                                 <div class="product-body">
                                     <h3 class="product-title"><a href="#">${product.product_name}</a></h3>
                                     <div class="product-price">
-                                        ${formatter.format(product.price)}
+                                    <div class="product-price">
+                						
+                						${product.discount != 0 ?
+                                            `<span class="new-price">${formatter.format(product.sales_price)}</span>
+                                            <span class="old-price"><del>${formatter.format(product.price)}</del></span>`
+                                            : `<span class="new-price">${formatter.format(product.price)}</span>`}
+                					</div>
+                                        
                                     </div>
 
                                     <div class="product-nav product-nav-dots">`;
