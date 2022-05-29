@@ -29,7 +29,7 @@
                                         $address = $customer->address." - ".$customer->address." - ".$customer->address;
                                     @endphp
                                     <h5>Name: {{ $fullName }}</h5>
-                                    <h5>Address: {{ $address }}</h5>
+                                    <h5>Address: {{ $customer->address }}</h5>
                                     <h5>Phone: {{ $customer->phone_number }}</h5>
                                     <h5>Email: {{ $customer->email }}</h5>
                                 </div>

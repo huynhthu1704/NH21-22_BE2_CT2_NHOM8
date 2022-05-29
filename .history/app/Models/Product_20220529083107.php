@@ -30,7 +30,7 @@ class Product extends Model
         return $this->belongsTo(Dimension::class);
     }
 
-    public function discount() {
+    public function discounts() {
         return $this->belongsTo(Discount::class);
     }
 

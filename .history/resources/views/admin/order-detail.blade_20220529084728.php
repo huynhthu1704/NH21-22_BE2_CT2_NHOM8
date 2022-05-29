@@ -26,10 +26,10 @@
                                         $orderController = new App\Http\Controllers\Admin\AdminOrderController();
                                         $customer = $orderController->getCustomer($order->customer_id);
                                         $fullName = $customer->first_name . ' ' . $customer->last_name;
-                                        $address = $customer->address." - ".$customer->address." - ".$customer->address;
+                                        $address = $customer->address." - ".
                                     @endphp
                                     <h5>Name: {{ $fullName }}</h5>
-                                    <h5>Address: {{ $address }}</h5>
+                                    <h5>Address: {{ $customer->address }}</h5>
                                     <h5>Phone: {{ $customer->phone_number }}</h5>
                                     <h5>Email: {{ $customer->email }}</h5>
                                 </div>
