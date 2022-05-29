@@ -71,9 +71,9 @@ class UserController extends Controller
             'register-password' => ['required',  Password::min(8)->letters()->numbers()],
             'register-email' => 'required|email',
             'register-birthday' => 'required|before:-10 year',
-            'register-fullname' => 'required|min:10',
-            'register-city' => 'required',
-            'register-district' => 'required',
+            'register-fullname' => 'required|regex:/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/',
+            'register-city' => 'required|regex:/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/',
+            'register-district' => 'required|regex:/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/',
             'register-ward' => 'required',
             'register-phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'register-gender' => 'required', 'max:5'
@@ -82,7 +82,6 @@ class UserController extends Controller
         $request->flash();
 
         if ($validator->fails()) {
-            dd($validator->errors());
             return redirect()->route('auth.register')->withErrors($validator)->withInput();
         }
 

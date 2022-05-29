@@ -9,7 +9,7 @@
             provinceText = 'Select province',
             districtText = 'Select district',
             wardText = 'Select ward',
-            wardNoText = 'This region does not have ward',
+            wardNoText = 'Địa phương này không có phường / xã',
             emptyValue = " ",
             hideEmptyValueOption = true,
             hidePlaceHolderOption = true,

@@ -16,7 +16,7 @@ class User extends Authenticatable
         'phone',
         'city',
         'district',
-        'ward',
+        'city',
         'gender',
         'join_day',
         'role_id'

@@ -2,6 +2,7 @@
 // Session::forget('user');
 // Session::forget('user');
 // dd(openssl_get_cert_locations());
+
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -76,12 +77,11 @@
                                                 <div class="dropdown-menu dropdown-menu-right" style="width: 150px">
                                                     <ul class="compare-products flex-column align-items-start">
                                                         <li class="d-block w-100 ml-0 mt-2">
-                                                            <a href="{{ route('dashboard') }}"
-                                                                class=""><i class="icon-user"></i>
-                                                                Dashboard</a>
+                                                            <a href="{{ route('dashboard') }}" class=""><i
+                                                                    class="icon-user"></i> Dashboard</a>
                                                         </li>
                                                         <li class="d-block w-100 ml-0 mt-2">
-                                                            <a href="{{ route('viewcart') }}" class=""><i
+                                                            <a href="{{route('viewcart')}}" class=""><i
                                                                     class="icon-shopping-cart"></i> Cart</a>
                                                         </li>
                                                         <li class="d-block w-100 ml-0 mt-2">
@@ -142,8 +142,7 @@
                                                                     {{ $item->category_name }}
                                                                 </div><!-- End .menu-title -->
                                                                 <ul>
-                                                                    <li><a
-                                                                            href="{{ route('category', ['categoryId' => $item->id]) }}">Shop
+                                                                    <li><a href="{{ route('category', ['categoryId' => $item->id]) }}">Shop
                                                                             List</a></li>
                                                                 </ul>
                                                             @endforeach
@@ -261,7 +260,7 @@
 
                                         <div class="dropdown-cart-action">
                                             <a href="{{ route('viewcart') }}" class="btn btn-primary">View Cart</a>
-                                            <a href="{{ route('checkout') }}"
+                                            <a href="{{route('checkout')}}"
                                                 class="btn btn-outline-primary-2"><span>Checkout</span><i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .dropdown-cart-total -->
@@ -277,7 +276,7 @@
                                         <div class="dropdown-cart-action">
                                             <a href="{{ route('viewcart') }}" disabled class="btn btn-primary">View
                                                 Cart</a>
-                                            <a href="{{ route('checkout') }}" disabled
+                                            <a href="{{route('checkout')}}" disabled
                                                 class="btn btn-outline-primary-2"><span>Checkout</span><i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .dropdown-cart-total -->
@@ -654,9 +653,9 @@
                                                 <label for="register-gender">Gender *</label>
                                                 <select type="text" class="form-control" id="register-gender"
                                                     name="register-gender" required>
-                                                    <option value="Male" selected>Male</option>
-                                                    <option value="Female">Female</option>
-                                                    <option value="Others">Others</option>
+                                                    <option value="Nam" selected>Nam</option>
+                                                    <option value="Nam">Nữ</option>
+                                                    <option value="Nam">Khác</option>
                                                 </select>
                                             </div><!-- End .form-group -->
 
@@ -668,23 +667,20 @@
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <label>Province / City *</label>
-                                                    <select name="register-city" class="form-control"
-                                                        required></select>
-
+                                                    <select name="register_province" class="form-control"  required ></select>
+            
                                                 </div><!-- End .col-sm-6 -->
                                                 <div class="col-sm-4">
                                                     <label>Distric / County *</label>
-                                                    <select name="register-district" class="form-control"
-                                                        required></select>
+                                                    <select  name="ls_district" class="form-control" required ></select>
                                                 </div><!-- End .col-sm-6 -->
                                                 <div class="col-sm-4">
-
+            
                                                     <label>Ward / County *</label>
-                                                    <select name="register-ward" class="form-control"
-                                                        required></select>
+                                                    <select name="ls_ward" class="form-control"  required ></select>
                                                 </div><!-- End .col-sm-6 -->
                                             </div><!-- End .row -->
-
+            
                                             <div class="form-footer">
                                                 <button type="submit" class="btn btn-outline-primary-2">
                                                     <span>SIGN UP</span>
@@ -727,7 +723,7 @@
             </div><!-- End .modal-dialog -->
         </div><!-- End .modal -->
     @endif
-
+    
     <div class="alert alert-success alert-dismissible fade " data-dismiss="alert"
         style="position: fixed; right: 10px; bottom: 10px; padding-right: 50px;" role="alert">
         <strong>Add cart success</strong> Do you want to <a href="#" class="font-weight-bold">view cart</a>
@@ -768,9 +764,9 @@
     <script src="{{ asset('/js/ajax/vietnam.js') }}"></script>
     <script>
         var localpicker = new LocalPicker({
-            province: "register-city",
-            district: "register-district",
-            ward: "register-ward"
+            province: "ls_province",
+            district: "ls_district",
+            ward: "ls_ward"
         });
     </script>
 </body>

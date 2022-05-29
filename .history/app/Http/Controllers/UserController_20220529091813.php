@@ -71,18 +71,15 @@ class UserController extends Controller
             'register-password' => ['required',  Password::min(8)->letters()->numbers()],
             'register-email' => 'required|email',
             'register-birthday' => 'required|before:-10 year',
-            'register-fullname' => 'required|min:10',
-            'register-city' => 'required',
-            'register-district' => 'required',
-            'register-ward' => 'required',
+            'register-fullname' => 'required|regex:/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/',
             'register-phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
+            // 'register-address' => 'required|max:2000',
             'register-gender' => 'required', 'max:5'
         ]);
         
         $request->flash();
 
         if ($validator->fails()) {
-            dd($validator->errors());
             return redirect()->route('auth.register')->withErrors($validator)->withInput();
         }
 
@@ -93,9 +90,7 @@ class UserController extends Controller
             'birthday' => $request->input('register-birthday'),
             'fullname' => $request->input('register-fullname'),
             'phone' => $request->input('register-phone'),
-            'city' => $request->input('register-city'),
-            'district' => $request->input('register-district'),
-            'ward' => $request->input('register-ward'),
+            'address' => $request->input('register-address'),
             'gender' => $request->input('register-gender'),
             'join_day' => now(),
             'role_id' => 2

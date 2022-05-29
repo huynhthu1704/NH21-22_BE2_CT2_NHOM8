@@ -24,9 +24,9 @@ class UserSeeder extends Seeder
                 'birthday'             => '2002-05-27',
                 'fullname'             => 'Huynh Thi Ngoc Thu',
                 'phone'             => '0368854166',
-                'city' => "HCMC",
-                'district' => "Thu Duc",
-                'ward' => "Linh Chieu",
+                 'city'
+          'district'
+            'ward'
                 'gender'             => '1',
                 'join_day'             => '2022-05-27',
                 'provider'             => 'normal',
@@ -40,9 +40,9 @@ class UserSeeder extends Seeder
                 'birthday'             => '2002-05-29',
                 'fullname'             => 'Bui Hong Ngoc',
                 'phone'             => '0368854167',
-                'city' => "HCMC",
-                'district' => "Thu Duc",
-                'ward' => "Linh Chieu",
+                  $table->string('city', 200);
+            $table->string('district', 200);
+            $table->string('ward', 200);
                 'gender'             => '1',
                 'join_day'             => '2022-05-29',
                 'provider'             => 'normal',

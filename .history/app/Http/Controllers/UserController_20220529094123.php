@@ -71,7 +71,7 @@ class UserController extends Controller
             'register-password' => ['required',  Password::min(8)->letters()->numbers()],
             'register-email' => 'required|email',
             'register-birthday' => 'required|before:-10 year',
-            'register-fullname' => 'required|min:10',
+            'register-fullname' => 'required|',
             'register-city' => 'required',
             'register-district' => 'required',
             'register-ward' => 'required',
