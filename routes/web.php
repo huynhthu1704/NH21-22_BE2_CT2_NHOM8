@@ -128,6 +128,7 @@ Route::get('detail/product-{id}', [DetailController::class, 'getProductById'])->
 
 Route::get('cart', [CartController::class, 'index'])->name('viewcart');
 Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
+Route::post('placeOrder',[CheckoutController::class,'placeOrder'])->name('placeOrder');
 
 // User authentication
 Route::prefix('auth')->group(function () {
