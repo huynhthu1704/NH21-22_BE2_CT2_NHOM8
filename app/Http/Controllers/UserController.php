@@ -76,6 +76,7 @@ class UserController extends Controller
             'register-city' => 'required',
             'register-district' => 'required',
             'register-ward' => 'required',
+            'register-address' => 'required',
             'register-phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'register-gender' => 'required', 'max:5'
         ]);
@@ -97,6 +98,7 @@ class UserController extends Controller
             'city' => $request->input('register-city'),
             'district' => $request->input('register-district'),
             'ward' => $request->input('register-ward'),
+            'address' => $request->input('register-address'),
             'gender' => $request->input('register-gender'),
             'join_day' => now(),
             'role_id' => 2

@@ -33,6 +33,7 @@ class CheckoutController extends Controller
         $customer = new Customer;
         $customer->first_name = $request->input('fname');
         $customer->last_name = $request->input('fname');
+        $customer->address = $request->input('address');
         $customer->city = $request->ls_province;
         $customer->district = $request->input('ls_district');
         $customer->ward = $request->input('ls_ward');
@@ -62,6 +63,7 @@ class CheckoutController extends Controller
             $orderItem->discount_price = $item['sales_price'];
             $orderItem->save();
         }
-     
+        Session::forget('cart');
+        return redirect()->route('dashboard');
     }
 }

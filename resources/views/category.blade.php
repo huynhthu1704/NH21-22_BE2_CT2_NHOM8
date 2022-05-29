@@ -104,7 +104,7 @@
                                                 <div class="filter-item">
                                                     <div class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input" name="category"
-                                                            {{$categoryId == $category->id ? 'checked' : '' }}
+                                                        @isset($categoryId){{$categoryId == $category->id ? 'checked' : '' }}@endisset
                                                             value="{{ $category->id }}" id="cat-{{ $category->id }}">
                                                         <label class="custom-control-label"
                                                             for="cat-{{ $category->id }}">{{ $category->category_name }}</label>

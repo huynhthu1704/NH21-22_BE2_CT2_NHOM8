@@ -125,7 +125,7 @@
                                     <div class="form-group">
                                         <label for="register-birthday">Birthday *</label>
                                         <input type="date" class="form-control" id="register-birthday"
-                                            name="register-birthday" value="{{ old('birthday', date('Y-m-d')) }}"
+                                            name="register-birthday" value="{{ old('register-birthday', date('Y-m-d')) }}"
                                             required>
                                         @error('register-birthday')
                                             <span class="text-danger">{{ $message }}</span>
@@ -134,7 +134,7 @@
                                     <div class="form-group">
                                         <label for="register-email">Email *</label>
                                         <input type="email" class="form-control" id="register-email" name="register-email"
-                                            value="{{ old('email') }}" required>
+                                            value="{{ old('register-email') }}" required>
                                         @error('register-email')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -142,7 +142,7 @@
                                     <div class="form-group">
                                         <label for="register-fullname">Full name *</label>
                                         <input type="text" class="form-control" id="register-fullname"
-                                            name="register-fullname" value="{{ old('fullname') }}" required>
+                                            name="register-fullname" value="{{ old('register-fullname') }}" required>
                                         @error('fullname')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -150,7 +150,7 @@
                                     <div class="form-group">
                                         <label for="register-phone">Phone *</label>
                                         <input type="text" class="form-control" id="register-phone" name="register-phone"
-                                            value="{{ old('phone') }}" required>
+                                            value="{{ old('register-phone') }}" required>
                                         @error('register-phone')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -174,26 +174,25 @@
                                                 required></select>
                                         </div><!-- End .col-sm-6 -->
                                     </div><!-- End .row -->
-
                                     <div class="form-group">
-                                        <label for="register-gender">Gender *</label>
-                                        <select type="text" class="form-control" id="register-gender"
-                                            name="register-gender" required>
-                                            <option value="Nam" {{ old('gender') == 'Nam' ? 'selected' : '' }}>Nam
-                                            </option>
-                                            <option value="Nu" {{ old('gender') == 'Nu' ? 'selected' : '' }}>Nữ</option>
-                                            <option value="Khac" {{ old('gender') == 'Khac' ? 'selected' : '' }}>Khác
-                                            </option>
-                                        </select>
-                                        @error('register-gender')
+                                        <label for="register-address">Address *</label>
+                                        <input type="text" class="form-control" id="register-address"
+                                            name="register-address" value="{{ old('register-address') }}" required>
+                                        @error('address')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div><!-- End .form-group -->
                                     <div class="form-group">
-                                        <label for="register-address">Address *</label>
-                                        <input type="text" class="form-control" id="register-address"
-                                            name="register-address" value="{{ old('address') }}" required>
-                                        @error('register-address')
+                                        <label for="register-gender">Gender *</label>
+                                        <select type="text" class="form-control" id="register-gender"
+                                            name="register-gender" required>
+                                            <option value="Nam" {{ old('register-gender') == 'Nam' ? 'selected' : '' }}>Nam
+                                            </option>
+                                            <option value="Nu" {{ old('register-gender') == 'Nu' ? 'selected' : '' }}>Nữ</option>
+                                            <option value="Khac" {{ old('register-gender') == 'Khac' ? 'selected' : '' }}>Khác
+                                            </option>
+                                        </select>
+                                        @error('register-gender')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div><!-- End .form-group -->

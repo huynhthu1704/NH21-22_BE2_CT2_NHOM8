@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('city', 200)->default('');
             $table->string('district', 200)->default('');
             $table->string('ward', 200)->default('');
+            $table->string('address', 200)->default('');
             $table->string('gender', 15)->default('');
             $table->date('join_day')->default(now());
             $table->enum('provider', ['normal', 'google', 'facebook']);

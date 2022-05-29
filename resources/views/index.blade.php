@@ -35,7 +35,7 @@
                                             <h1 class="intro-title">{{ $banner['content'] }}</h1>
                                             <!-- End .intro-title -->
 
-                                            <a href="{{ asset('category') }}" class="btn btn-outline-white">
+                                            <a href="{{ route('category', ['categoryId' => 1]) }}" class="btn btn-outline-white">
                                                 <span>SHOP NOW</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </a>
@@ -68,7 +68,7 @@
                                                     href="{{ route('category') }}">{{ $banners->getBannerByCate(2)->content }}</a>
                                             </h3>
                                             <!-- End .banner-title -->
-                                            <a href="{{ route('category') }}"
+                                            <a href="{{ route('category', ['categoryId' => 2]) }}"
                                                 class="btn btn-outline-white banner-link">Shop Now<i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .banner-content -->
@@ -84,14 +84,14 @@
 
                                         <div class="banner-content">
                                             <h4 class="banner-subtitle text-darkwhite"><a
-                                                    href="{{ route('category') }}">{{ $banners->getBannerByCate(3)->title }}</a>
+                                                    href="{{ route('category', ['categoryId' => 3]) }}">{{ $banners->getBannerByCate(3)->title }}</a>
                                             </h4>
                                             <!-- End .banner-subtitle -->
                                             <h3 class="banner-title text-white"><a
-                                                    href="{{ route('category') }}">{{ $banners->getBannerByCate(3)->content }}</a>
+                                                    href="{{ route('category', ['categoryId' => 3]) }}">{{ $banners->getBannerByCate(3)->content }}</a>
                                             </h3>
                                             <!-- End .banner-title -->
-                                            <a href="{{ route('category') }}"
+                                            <a href="{{ route('category', ['categoryId' => 3]) }}"
                                                 class="btn btn-outline-white banner-link">Shop Now<i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .banner-content -->
@@ -723,16 +723,16 @@
 
                 <div class="col-6 col-lg-4">
                     <div class="banner banner-display banner-link-anim">
-                        <a href="#">
+                        <a href="{{ route('category', ['categoryId' => 4]) }}">
                             <img src="{{ asset('/images/banners/' . $banners->getBannerByCate(4)->imgSrc) }}"
                                 alt="Banner">
                         </a>
 
                         <div class="banner-content banner-content-center">
                             <h3 class="banner-title text-white"><a
-                                    href="#">{{ $banners->getBannerByCate(4)->title }}</a>
+                                    href="{{ route('category', ['categoryId' => 4]) }}">{{ $banners->getBannerByCate(4)->title }}</a>
                             </h3><!-- End .banner-title -->
-                            <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
+                            <a href="{{ route('category', ['categoryId' => 4]) }}" class="btn btn-outline-white banner-link">Shop Now<i
                                     class="icon-long-arrow-right"></i></a>
                         </div><!-- End .banner-content -->
                     </div><!-- End .banner -->
@@ -740,16 +740,16 @@
 
                 <div class="col-6 col-lg-4 order-lg-last">
                     <div class="banner banner-display banner-link-anim">
-                        <a href="#">
+                        <a href="{{ route('category', ['categoryId' => 5]) }}">
                             <img src="{{ asset('/images/banners/' . $banners->getBannerByCate(5)->imgSrc) }}"
                                 alt="Banner">
                         </a>
 
                         <div class="banner-content banner-content-center">
                             <h3 class="banner-title text-white"><a
-                                    href="#">{{ $banners->getBannerByCate(5)->title }}</a>
+                                    href="{{ route('category', ['categoryId' => 5]) }}">{{ $banners->getBannerByCate(5)->title }}</a>
                             </h3><!-- End .banner-title -->
-                            <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
+                            <a href="{{ route('category', ['categoryId' => 5]) }}" class="btn btn-outline-white banner-link">Shop Now<i
                                     class="icon-long-arrow-right"></i></a>
                         </div><!-- End .banner-content -->
                     </div><!-- End .banner -->
@@ -760,31 +760,31 @@
                     <div class="row">
 
                         <div class="banner banner-display banner-link-anim col-lg-12 col-6">
-                            <a href="#">
+                            <a href="{{ route('category', ['categoryId' => 6]) }}">
                                 <img src="{{ asset('/images/banners/' . $banners->getBannerByCate(6)->imgSrc) }}"
                                     alt="Banner">
                             </a>
 
                             <div class="banner-content banner-content-center">
                                 <h3 class="banner-title text-white"><a
-                                        href="#">{{ $banners->getBannerByCate(6)->title }}</a></h3>
+                                        href="{{ route('category', ['categoryId' => 6]) }}">{{ $banners->getBannerByCate(6)->title }}</a></h3>
                                 <!-- End .banner-title -->
-                                <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
+                                <a href="{{ route('category', ['categoryId' => 6]) }}" class="btn btn-outline-white banner-link">Shop Now<i
                                         class="icon-long-arrow-right"></i></a>
                             </div><!-- End .banner-content -->
                         </div><!-- End .banner -->
 
                         <div class="banner banner-display banner-link-anim col-lg-12 col-6">
-                            <a href="#">
+                            <a href="{{ route('category', ['categoryId' => 7]) }}">
                                 <img src="{{ asset('/images/banners/' . $banners->getBannerByCate(7)->imgSrc) }}"
                                     alt="Banner">
                             </a>
 
                             <div class="banner-content banner-content-center">
                                 <h3 class="banner-title text-white"><a
-                                        href="#">{{ $banners->getBannerByCate(7)->title }}</a></h3>
+                                        href="{{ route('category', ['categoryId' => 7]) }}">{{ $banners->getBannerByCate(7)->title }}</a></h3>
                                 <!-- End .banner-title -->
-                                <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
+                                <a href="{{ route('category', ['categoryId' => 7]) }}" class="btn btn-outline-white banner-link">Shop Now<i
                                         class="icon-long-arrow-right"></i></a>
                             </div><!-- End .banner-content -->
                         </div><!-- End .banner -->

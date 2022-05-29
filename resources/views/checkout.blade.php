@@ -54,7 +54,12 @@
                                         <input type="text" class="form-control" required name="lname">
                                     </div><!-- End .col-sm-6 -->
                                 </div>
-
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label>Address *</label>
+                                        <input type="text" class="form-control" required name="address">
+                                    </div><!-- End .col-sm-6 -->
+                                </div>
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <label>Province / City *</label>

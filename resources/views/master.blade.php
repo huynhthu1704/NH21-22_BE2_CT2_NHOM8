@@ -661,7 +661,7 @@
                                                     <option value="Others">Others</option>
                                                 </select>
                                             </div><!-- End .form-group -->
-
+                                            
                                             <div class="row" class="address-container">
                                                 <div class="col-sm-4">
                                                     <label>Province / City *</label>
@@ -681,6 +681,11 @@
                                                         required></select>
                                                 </div><!-- End .col-sm-6 -->
                                             </div><!-- End .row -->
+                                            <div class="form-group">
+                                                <label for="register-phone">Address *</label>
+                                                <input type="text" class="form-control" id="register-address"
+                                                    name="register-address" value="{{ old('address') }}" required>
+                                            </div><!-- End .form-group -->
 
                                             <div class="form-footer">
                                                 <button type="submit" class="btn btn-outline-primary-2">
