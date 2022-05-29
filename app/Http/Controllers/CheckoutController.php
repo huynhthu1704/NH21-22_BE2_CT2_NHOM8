@@ -52,17 +52,16 @@ class CheckoutController extends Controller
         $order->save();
 
         $carts = Session::get('cart');
-        dd($carts);
-        // $orderItem = new OrderItem;
-        // $orderItem->order_id = $order->id;
-        // foreach ($carts as  $item) {
-        //     $orderItem->product_id = $item['product_id'];
-        //     $orderItem->color_id = $item['color_id'];
-        //     $orderItem->quantity = $item['quantity'];
-        //     $orderItem->price = $item['price'];
-
-
-        // }
+        $orderItem = new OrderItem;
+        $orderItem->order_id = $order->id;
+        foreach ($carts as  $item) {
+            $orderItem->product_id = $item['product_id'];
+            $orderItem->color_id = $item['color_id'];
+            $orderItem->quantity = $item['quantity'];
+            $orderItem->price = $item['price'];
+            $orderItem->discount_price = $item['sales_price'];
+        }
+        $orderItem->save();
 
     }
 }

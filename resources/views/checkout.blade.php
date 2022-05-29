@@ -34,9 +34,9 @@
                         
                         {{ csrf_field() }}
                         <input hidden type="text"  name="quantity" value="{{ App\Http\Controllers\CartController::totalQuantity($cart) }}">
-                        <input hidden type="text"  name="subtotal" value="{{ App\Http\Controllers\CartController::totalPrice($cart) }}">
+                        <input hidden type="text"  name="subtotal" value="{{ App\Http\Controllers\CartController::totalSalesPrice($cart) }}">
                         <input hidden type="text"  name="shipping_fee" value="0">
-                        <input hidden type="text"  name="total" value="{{ App\Http\Controllers\CartController::totalPrice($cart) }}">
+                        <input hidden type="text"  name="total" value="{{ App\Http\Controllers\CartController::totalSalesPrice($cart) }}">
                         <div class="row">
                             <div class="col-lg-9">
                                 <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
@@ -121,8 +121,8 @@
                                                 
                                                 <tr class="summary-subtotal">
                                                     <td>Subtotal:</td>
-                                                    <td name="subtotal" data-subtotal="{{App\Http\Controllers\CartController::totalPrice($cart)}}">
-                                                        {{ number_format(App\Http\Controllers\CartController::totalPrice($cart), 0, '', '.') . ' VNĐ' }}
+                                                    <td name="subtotal" data-subtotal="{{App\Http\Controllers\CartController::totalSalesPrice($cart)}}">
+                                                        {{ number_format(App\Http\Controllers\CartController::totalSalesPrice($cart), 0, '', '.') . ' VNĐ' }}
                                                     </td>
                                                 </tr><!-- End .summary-subtotal -->
                                                 <tr>
