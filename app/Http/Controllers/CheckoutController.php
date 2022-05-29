@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\ShippingFee as ModelsShippingFee;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -50,7 +51,18 @@ class CheckoutController extends Controller
        $order->order_date = now();
         $order->save();
 
-        
+        $carts = Session::get('cart');
+        dd($carts);
+        // $orderItem = new OrderItem;
+        // $orderItem->order_id = $order->id;
+        // foreach ($carts as  $item) {
+        //     $orderItem->product_id = $item['product_id'];
+        //     $orderItem->color_id = $item['color_id'];
+        //     $orderItem->quantity = $item['quantity'];
+        //     $orderItem->price = $item['price'];
+
+
+        // }
 
     }
 }
