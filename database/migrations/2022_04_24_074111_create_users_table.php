@@ -25,9 +25,9 @@ class CreateUsersTable extends Migration
             $table->date('birthday')->default(now());
             $table->string('fullname', 200);
             $table->string('phone', 32)->default('');
-            $table->string('city', 200);
-            $table->string('district', 200);
-            $table->string('ward', 200);
+            $table->string('city', 200)->default('');
+            $table->string('district', 200)->default('');
+            $table->string('ward', 200)->default('');
             $table->string('gender', 15)->default('');
             $table->date('join_day')->default(now());
             $table->enum('provider', ['normal', 'google', 'facebook']);
