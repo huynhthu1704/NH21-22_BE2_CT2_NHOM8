@@ -3,194 +3,100 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
+
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Color Form</h1>
-                    </div>
-                    
-                    <div class="col-sm-6 ">
-                        <button onclick="addColor()" class="float-sm-right btn btn-warning">Add Color</button>
+                        <h1>Order List</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
-        </section>
 
-        {{-- add color --}}
-        <div class="container-fluid px-5 d-none" id="add-form">
-            <!-- /.content -->
-            <div class="row ">
-                <div class="col-md-12">
-                    <form class="card card-danger" method="POST" action="{{route('admin.color.add')}}">
-                        {{ csrf_field() }}
-                        <div class="card-header">
-                            <h3 class="card-title">Add Color</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="add-product-name">Color name</label>
-                                        <input type="text" class="form-control" id="add-product-name" name="color_name"
-                                            placeholder="Enter color name" required value="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="add-product-name">Color code</label>
-                                        <input type="color" class="form-control" id="add-product-name" name="color_code"
-                                            required value="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-footer">
-                            <div id="actions" class="row">
-                                <div class="col-lg-6">
-                                    <div class="btn-group w-100">
-                                        <button type="submit" class="btn btn-success col">
-                                            <span>Add color</span>
-                                        </button>
-                                        <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
-                                            <span>Cancel</span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </form>
-                    <!-- /.card -->
-
-                </div>
-                <!-- /.col (right) -->
-            </div>
-        </div>
-        {{-- edit color --}}
-        <div class="container-fluid px-5 d-none" id="edit-form" >
-            
-            <!-- /.content -->
-            <div class="row">
-                <div class="col-md-12">
-                    <form id="form-edit" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
-                        {{ csrf_field() }}
-                        @method('put')
-
-                        <div class="card-header">
-                            <h3 class="card-title">Edit Color</h3>
-                        </div>
-                        <div class="card-body">
-                            <input hidden type="text" class="form-control" id="edit-id" name="color_id"
-                                placeholder="Enter title" required value="">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-
-                                        <label for="add-title">Color Name</label>
-                                        <input type="text" class="form-control" id="edit-title" name="name"
-                                            placeholder="Enter color name" required value="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="add-content">Color code</label>
-                                        <input type="color" class="form-control" id="edit-content" name="code"
-                                        required value="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div id="actions" class="row">
-                                <div class="col-lg-6">
-                                    <div class="btn-group w-100">
-                                        <button id="btn-edit" class="btn btn-success col" onclick="editColor()">
-                                            <span>Edit Color</span>
-                                        </button>
-                                        <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
-                                            <span>Cancel Edit</span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </form>
-                    <!-- /.card -->
-
-                </div>
-                <!-- /.col (right) -->
-            </div>
-        </div>
-        <div class="container-fluid px-5" id="remove-form">
-            <!-- /.content -->
-            <div class="row">
-                <div class="col-md-12">
-                    <form id="form-remove" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
-                        {{ csrf_field() }}
-                        @method('delete')
-                        
-                    </form>
-                    <!-- /.card -->
-                </div>
-                <!-- /.col (right) -->
-            </div>
-        </div>
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid px-5">
+            <!-- Confirm form -->
+            <div class="container-fluid px-5" id="confirm-form">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-
-                            <div class="card-header">
-                                <h3 class="card-title">Color Table</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body -responsive ">
-
-                                <table id="example1" class="table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Color name</th>
-                                            <th>Color code</th>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($colors as $key => $value)
-                                           
-                                            <tr>
-                                                <td>{{ $value['id'] }}</td>
-                                                <td>{{ $value['color_name'] }}</td>
-                                                <td>{{ $value['color_code'] }}</td>
-                                                <td><button class="btn btn-success"
-                                                    data-name="{{ $value['color_name']}}"
-                                                    data-color="{{ $value['color_code']}}"
-                                                    onclick="edit(this,{{$value['id']}})"><a
-                                                        style="text-decoration: none">Edit</a></button>
-                                                </td>
-                                                <td><button class="btn btn-warning" onclick="remove({{$value['id']}})">Remove</button></td>
-                                                
-                                            </tr>
-                                        @endforeach
-                                    <tbody>
-                                </table>
-
-                        
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
+                    <div class="col-md-12">
+                        <form id="form-confirm" class="card card-danger" method="POST" action=""
+                            enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            @method('put')
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- /.container-fluid -->
-        </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid px-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body -responsive ">
+                                    <table id="example1" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Quantity</th>
+                                                <th>Shipping fee</th>
+                                                <th>Total</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($orders as $key => $value)
+                                                <tr>
+                                                    <td>
+                                                        <a
+                                                            href="{{ url('admin/order/' . $value['id']) }}">{{ $value['id'] }}</a>
+                                                    </td>
+                                                    @php
+                                                        $customerName = $value->customer->first_name . ' ' . $value->customer->last_name;
+                                                    @endphp
+                                                    <td>{{ $customerName }} </td>
+                                                    <td>{{ $value['quantity'] }}</td>
+                                                    <td>{{ $value['shipping_fee'] }}</td>
+                                                    <td>{{ $value['total'] }}</td>
+                                                    @php
+                                                        $status = $value['status'];
+                                                    @endphp
+<<<<<<< HEAD
+                                                    <td><span>{{ $status }}</span>
+                                                    </td>
+                                                    <td>
+                                                        @if ($status == 'Waiting for confirm')
+                                                            <button style="color: white" class="btn btn-warning"
+                                                                onclick="confirm({{ $value['id'] }})">Confirm</button>
+                                                        @endif
+                                                    </td>
+=======
+                                                    @if (status == 'Waiting for confirm')
+                                                        $color = "red"
+                                                    @else
+                                                        $color = "green"
+                                                        <td><span style="color : grey">{{ $status }}</span></td>
+                                                    @endif
+                                                    <td><button class="btn btn-warning">View detail</button></td>
+                                                </tr> --}}
+                                                <tr>
+                                                    <td>{{ $value['id'] }}</td>
+                                                    <td>{{ $value['product_name'] }}</td>
+>>>>>>> 49c529abc4ecb39c4603ac89b0ce71ae38cb3d86
+                                                </tr>
+                                            @endforeach
+                                        <tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </section>
 
     </div>
     <!-- jQuery -->
@@ -209,7 +115,8 @@
     <!-- bootstrap color picker -->
     <script src="{{ asset('css/admin/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
+    </script>
     <!-- Bootstrap Switch -->
     <script src="{{ asset('css/admin/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
     <!-- BS-Stepper -->
@@ -228,6 +135,7 @@
     <script src="{{ asset('css/admin/plugins/codemirror/mode/css/css.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/codemirror/mode/xml/xml.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
+
     <!-- DataTables  & Plugins -->
     <script src="{{ asset('css/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
@@ -243,46 +151,13 @@
     <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
     <!-- Page specific script -->
-    <script>
-        const addColor = () => {
-            document.querySelector('#add-form').classList.remove('d-none');
-            document.querySelector('#edit-form').classList.add('d-none');
-        }
-        const cancel = () => {
-            document.querySelector('#add-form').classList.add('d-none');
-            document.querySelector('#edit-form').classList.add('d-none');;
-        }
-        
-        function edit (sender ,id){
-            const add = document.querySelector('#add-form');
-            const edit = document.querySelector('#edit-form');
-            const name = sender.dataset.name;
-            const code = sender.dataset.color;
-            add.classList.add('d-none');
-            edit.classList.remove('d-none');
-            edit.querySelector('input[name="color_id"]').value = id;
-            edit.querySelector('input[name="name"]').value = name;
-            edit.querySelector('input[name="code"]').value = code;
-            console.log(edit.querySelector('input[name="color_id"]'));
-        }
-        
-        function editColor() {
-            const edit = document.getElementById('form-edit');
-            const id = edit.querySelector('input[name="color_id"]').value;
-            const action = "{{ url('admin/color') }}/" + id;
-            
-            edit.action = action;
-            edit.submit();
-        }
-        const remove = (id) => {
-            const result = confirm("Do you want to delete this color");
-            if (result) {
-                const removeForm = document.getElementById('form-remove');
-                const action = "{{ url('admin/color') }}/" + id;
-                removeForm.action = action;
-                removeForm.submit();
-            }
-
+    <script type="text/javascript">
+        const confirm = (id) => {
+            const form = document.getElementById('form-confirm');
+            const action = "{{ url('admin/order') }}/" + id;
+            console.log(action);
+            form.action = action;
+            form.submit();
         }
         $(function() {
             $("#example1").DataTable({
@@ -292,6 +167,8 @@
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
+
+
         $(function() {
             // Summernote
             $('#summernote').summernote()

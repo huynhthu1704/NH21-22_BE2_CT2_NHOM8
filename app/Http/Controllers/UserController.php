@@ -88,7 +88,7 @@ class UserController extends Controller
             'password' => md5($request->input('register-password')),
             'email' => $request->input('register-email'),
             'birthday' => $request->input('register-birthday'),
-            'full_name' => $request->input('register-fullname'),
+            'fullname' => $request->input('register-fullname'),
             'phone' => $request->input('register-phone'),
             'address' => $request->input('register-address'),
             'gender' => $request->input('register-gender'),

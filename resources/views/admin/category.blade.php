@@ -9,94 +9,47 @@
                     <div class="col-sm-6">
                         <h1>Category Form</h1>
                     </div>
+                    <div class="col-sm-6 ">
+                        <button onclick="addCategory()" class="float-sm-right btn btn-warning">Add category</button>
+                    </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid px-5">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Category Table</h3>
-
-                                <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control float-right"
-                                            placeholder="Search">
-
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>183</td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                            <td><button class="btn btn-success" onclick="switchToEdit(1)">Edit</button></td>
-                                            <td><button class="btn btn-warning">Remove</button></td>
-                                        </tr>
-                                    <tbody>
-                                </table>
-                                <div class="card-footer clearfix">
-                                    <ul class="pagination pagination-sm m-0 float-right">
-                                        <li class="page-item"><a class="page-link" href="#">«</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">»</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                    </div>
-                </div>
-            </div>
-            <!-- /.container-fluid -->
-        </section>
-
-        <div class="container-fluid px-5 " id="add-form">
+        <div class="container-fluid px-5 d-none" id="add-form">
             <!-- /.content -->
             <div class="row ">
                 <div class="col-md-12">
-                    <form class="card card-danger">
+                    <form class="card card-danger" method="POST" action="{{ route('admin.category.add') }}">
+                        {{ csrf_field() }}
                         <div class="card-header">
-                            <h3 class="card-title">Add category</h3>
+                            <h3 class="card-title">Add Categoey</h3>
                         </div>
                         <div class="card-body">
-                            <div class="form-group">
-                                <label for="add-category-name">Category name</label>
-                                <input type="text" class="form-control" id="add-category-name" name="category-name"
-                                    placeholder="Enter category name">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="add-product-name">Category name</label>
+                                        <input type="text" class="form-control" id="add-cate-name" name="category_name"
+                                            placeholder="Enter category name" required value="">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="ard-footer">
+
+                        <div class="card-footer">
                             <div id="actions" class="row">
-                                <div class="ms-auto col-lg-12">
-                                    <button type="submit" class="btn btn-primary mr-4 mb-4"
-                                        style="margin-left: auto; display: block;">
-                                        <i class="fas fa-upload"></i>
-                                        <span>Add product</span>
-                                    </button>
+                                <div class="col-lg-6">
+                                    <div class="btn-group w-100">
+                                        <button type="submit" class="btn btn-success col">
+                                            <span>Add category</span>
+                                        </button>
+                                        <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
+                                            <span>Cancel</span>
+                                        </button>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </form>
@@ -111,46 +64,37 @@
             <!-- /.content -->
             <div class="row">
                 <div class="col-md-12">
-                    <form class="card card-danger">
-                        <input type="text" name="product-id" hidden value="">
+                    
+                    <form id="form-edit" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        @method('put')
+
                         <div class="card-header">
-                            <h3 class="card-title">Edit category</h3>
+                            <h3 class="card-title">Edit Category</h3>
                         </div>
                         <div class="card-body">
+                            <input hidden type="text" class="form-control" id="edit-id" name="category_id"
+                                placeholder="Enter title" required value="">
                             <div class="form-group">
-                                <label for="add-category-name">Category name</label>
-                                <input type="text" class="form-control" id="add-category-name" name="category-name"
-                                    placeholder="Enter category name">
+
+                                <label for="add-name">Brand Name</label>
+                                <input type="text" class="form-control" id="edit-name" name="category_name"
+                                    placeholder="Enter brand name" required value="">
                             </div>
                         </div>
-                        <input type="file" hidden multiple name="product-image" accept="image/*" id="input-file">
                         <div class="card-footer">
                             <div id="actions" class="row">
                                 <div class="col-lg-6">
                                     <div class="btn-group w-100">
-                                        <label for="input-file" class="btn mb-0 btn-success col fileinput-button dz-clickable">
-                                            
-                                            <span>Add files</span>
-                                        </label>
-                                        <button type="submit" class="btn btn-primary col start">
-                                          
-                                            <span>Start Edit</span>
+                                        <button id="btn-edit" class="btn btn-success col" onclick="editCategory()">
+                                            <span>Edit brand</span>
                                         </button>
-                                        <button type="reset" class="btn btn-warning col cancel" onclick="backToAdd()">
+                                        <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
                                             <span>Cancel Edit</span>
                                         </button>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 d-flex align-items-center">
-                                    <div class="fileupload-process w-100">
-                                        <div id="total-progress" class="progress progress-striped active"
-                                            role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                            <div class="progress-bar progress-bar-success" style="width:0%;"
-                                                data-dz-uploadprogress=""></div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </form>
@@ -160,6 +104,71 @@
                 <!-- /.col (right) -->
             </div>
         </div>
+        <div class="container-fluid px-5" id="remove-form">
+            <!-- /.content -->
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="form-remove" class="card card-danger" method="POST" action="" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        @method('delete')
+                    </form>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col (right) -->
+            </div>
+        </div>
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid px-5">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+
+                            <div class="card-header">
+                                <h3 class="card-title">Category Table</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body -responsive ">
+
+                                <table id="example1" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Category name</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($categories as $key => $value)
+                                            <tr>
+                                                <td>{{ $value['id'] }}</td>
+                                                <td>{{ $value['category_name'] }}</td>
+                                                <td><button class="btn btn-success"
+                                                        data-name="{{ $value['category_name'] }}"
+                                                        onclick="edit(this,{{ $value['id'] }})"><a
+                                                            style="text-decoration: none">Edit</a></button>
+                                                </td>
+                                                <td><button class="btn btn-warning"
+                                                        onclick="remove({{ $value['id'] }})">Remove</button></td>
+
+                                            </tr>
+                                        @endforeach
+                                    <tbody>
+                                </table>
+
+
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+
+
     </div>
     <!-- jQuery -->
     <script src="{{ asset('css/admin/plugins/jquery/jquery.min.js') }}"></script>
@@ -177,7 +186,8 @@
     <!-- bootstrap color picker -->
     <script src="{{ asset('css/admin/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
+    </script>
     <!-- Bootstrap Switch -->
     <script src="{{ asset('css/admin/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
     <!-- BS-Stepper -->
@@ -196,29 +206,68 @@
     <script src="{{ asset('css/admin/plugins/codemirror/mode/css/css.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/codemirror/mode/xml/xml.js') }}"></script>
     <script src="{{ asset('css/admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
-
+    <script src="{{ asset('css/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('css/admin/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <!-- Page specific script -->
     <script>
-        const switchToEdit = (id) => {
-            const add = document.querySelector('#add-form');
-            const edit = document.querySelector('#edit-form');
-            add.classList.add('d-none')
-            edit.classList.remove('d-none')
-
-            const inputId = edit.querySelector('input[name="product-id"]');
-            inputId.value = id
+        const addCategory = () => {
+            document.querySelector('#add-form').classList.remove('d-none');
+            document.querySelector('#edit-form').classList.add('d-none');;
         }
 
-        const backToAdd = () => {
+        function edit(sender, id) {
             const add = document.querySelector('#add-form');
             const edit = document.querySelector('#edit-form');
-
-            add.classList.remove('d-none')
-            edit.classList.add('d-none')
-
-            const inputId = edit.querySelector('input[name="product-id"]');
-            inputId.value = null
+            const name = sender.dataset.name;
+            add.classList.add('d-none');
+            edit.classList.remove('d-none');
+            edit.querySelector('input[name="category_id"]').value = id;
+            edit.querySelector('input[name="category_name"]').value = name;
         }
+
+        function editCategory() {
+            const edit = document.getElementById('form-edit');
+            const id = edit.querySelector('input[name="category_id"]').value;
+            const action = "{{ url('admin/category') }}/" + id;
+            edit.action = action;
+            edit.submit();
+        }
+
+        const cancel = () => {
+            document.querySelector('#add-form').classList.add('d-none');
+            document.querySelector('#edit-form').classList.add('d-none');;
+        }
+        const remove = (id) => {
+            const result = confirm("Do you want to delete this category");
+            if (result) {
+                const removeForm = document.getElementById('form-remove');
+                const action = "{{ url('admin/category') }}/" + id;
+                removeForm.action = action;
+                removeForm.submit();
+            }
+
+        }
+
+
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+
 
         $(function() {
             // Summernote

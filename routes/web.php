@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminReviewController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailController;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
@@ -22,6 +24,7 @@ use App\Models\Color;
 use App\Models\Product;
 use App\Models\User;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -124,6 +127,7 @@ Route::prefix('admin')->group(
 Route::get('detail/product-{id}', [DetailController::class, 'getProductById'])->name('detail');
 
 Route::get('cart', [CartController::class, 'index'])->name('viewcart');
+Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
 
 // User authentication
 Route::prefix('auth')->group(function () {
@@ -144,19 +148,22 @@ Route::prefix('auth')->group(function () {
 
         $googleUser = Socialite::driver('google')->user();
 
-        $user = User::where('username', '=', $googleUser->id)->first();
+        $user = User::select('*')->where('username', '=', md5($googleUser->id))
+            ->where('password', '=', md5($googleUser->id . 'facebook'))
+            ->first();
 
         if (empty($user)) {
-            $user = User::updateOrCreate(
-                [
-                    'full_name' => $googleUser->name,
-                    'email' => $googleUser->email,
-                    'username' => $googleUser->id,
-                    'password' => $googleUser->id . 'google',
-                    'provider' => 'google',
-                    'role_id' => 2
-                ]
-            );
+            DB::table('users')->insert([
+                'fullname' => $googleUser->name,
+                'email' => $googleUser->email,
+                'username' => $googleUser->id,
+                'password' => $googleUser->id . 'google',
+                'provider' => 'google',
+                'role_id' => 2
+            ]);
+            $user = User::select('*')->where('username', '=', md5($googleUser->id))
+                ->where('password', '=', md5($googleUser->id . 'facebook'))
+                ->first();
         }
 
         session()->put('user', $user);
@@ -170,23 +177,23 @@ Route::prefix('auth')->group(function () {
     Route::get('/facebook/callback', function () {
 
         $facebookUser = Socialite::driver('facebook')->user();
-        dd($facebookUser);
-        $user = User::where('username', '=', md5($facebookUser->id))
-        ->where('password', '=', md5($facebookUser->id . 'facebook'))
-        ->user
-        ->first();
+
+        $user = User::select('*')->where('username', '=', md5($facebookUser->id))
+            ->where('password', '=', md5($facebookUser->id . 'facebook'))
+            ->first();
 
         if (empty($user)) {
-            $user = User::updateOrCreate(
-                [
-                    'full_name' => $facebookUser->name,
-                    'email' => $facebookUser->email,
-                    'username' => md5($facebookUser->id),
-                    'password' => md5($facebookUser->id . 'facebook'),
-                    'provider' => 'facebook',
-                    'role_id' => 2
-                ]
-            );
+            $user = DB::table('users')->insert([
+                'fullname' => $facebookUser->name,
+                'email' => $facebookUser->email,
+                'username' => md5($facebookUser->id),
+                'password' => md5($facebookUser->id . 'facebook'),
+                'provider' => 'facebook',
+                'role_id' => 2
+            ]);
+            $user = User::select('*')->where('username', '=', md5($facebookUser->id))
+                ->where('password', '=', md5($facebookUser->id . 'facebook'))
+                ->first();
         }
 
         session()->put('user', $user);
@@ -207,15 +214,6 @@ Route::prefix('/cart')->group(function () {
     Route::post('call', [CartController::class, 'callCart']);
 });
 
-
-Route::get('/asd', function ()
-{
-    $product = Product::paginate(10);
-   
-   echo json_encode($product->items());
-});
-
-Route::get('dashboard', function ()
-{
-    return view('dashboard');
+Route::prefix('dashboard')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 });

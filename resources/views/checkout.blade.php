@@ -129,7 +129,7 @@
 									</tbody>
 								</table><!-- End .table table-summary -->
 
-								<div class="accordion-summary" id="accordion-payment">
+								{{-- <div class="accordion-summary" id="accordion-payment">
 									<div class="card">
 										<div class="card-header" id="heading-1">
 											<h2 class="card-title">
@@ -203,7 +203,7 @@
 											</div><!-- End .card-body -->
 										</div><!-- End .collapse -->
 									</div><!-- End .card -->
-								</div><!-- End .accordion -->
+								</div><!-- End .accordion --> --}}
 
 								<button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
 									<span class="btn-text">Place Order</span>

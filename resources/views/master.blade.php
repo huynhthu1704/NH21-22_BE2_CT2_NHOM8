@@ -1,7 +1,8 @@
 @php
-// dd(Session::forget('user'));
+// Session::forget('user');
 // Session::forget('user');
 // dd(openssl_get_cert_locations());
+
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -69,14 +70,14 @@
                                                     aria-haspopup="true" aria-expanded="false" data-display="static"
                                                     title="Compare Products" aria-label="Compare Products"
                                                     style="font-size: 13px">
-                                                    {{ $user->full_name }}
+                                                    {{ $user->fullname }}
                                                 </a>
 
 
                                                 <div class="dropdown-menu dropdown-menu-right" style="width: 150px">
                                                     <ul class="compare-products flex-column align-items-start">
                                                         <li class="d-block w-100 ml-0 mt-2">
-                                                            <a href="#" class=""><i
+                                                            <a href="{{ route('dashboard') }}" class=""><i
                                                                     class="icon-user"></i> Dashboard</a>
                                                         </li>
                                                         <li class="d-block w-100 ml-0 mt-2">
@@ -259,7 +260,7 @@
 
                                         <div class="dropdown-cart-action">
                                             <a href="{{ route('viewcart') }}" class="btn btn-primary">View Cart</a>
-                                            <a href="checkout.html"
+                                            <a href="{{route('checkout')}}"
                                                 class="btn btn-outline-primary-2"><span>Checkout</span><i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .dropdown-cart-total -->
@@ -275,7 +276,7 @@
                                         <div class="dropdown-cart-action">
                                             <a href="{{ route('viewcart') }}" disabled class="btn btn-primary">View
                                                 Cart</a>
-                                            <a href="checkout.html" disabled
+                                            <a href="{{route('checkout')}}" disabled
                                                 class="btn btn-outline-primary-2"><span>Checkout</span><i
                                                     class="icon-long-arrow-right"></i></a>
                                         </div><!-- End .dropdown-cart-total -->
