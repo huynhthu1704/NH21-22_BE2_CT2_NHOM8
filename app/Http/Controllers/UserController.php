@@ -54,11 +54,10 @@ class UserController extends Controller
         if ($user) {
             session()->put('user', $user);
             return redirect(route('index'));
-        } 
-        else {
+        } else {
             return Redirect::back()->withErrors(
                 [
-                    'loginfail' => 'Email or password is wrong'
+                    'loginfail' => 'Username or password is wrong'
                 ]
             );;
         }
@@ -66,7 +65,7 @@ class UserController extends Controller
 
     public function process_signup(Request $request)
     {
-      
+
         $validator = Validator::make($request->all(), [
             'register-username' => 'required|string|regex:/\w*$/|max:255|unique:users,username',
             'register-password' => ['required',  Password::min(8)->letters()->numbers()],
@@ -80,11 +79,11 @@ class UserController extends Controller
             'register-phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'register-gender' => 'required', 'max:5'
         ]);
-        
+
         $request->flash();
 
         if ($validator->fails()) {
-         
+
             return redirect()->route('auth.register')->withErrors($validator)->withInput();
         }
 
@@ -103,7 +102,7 @@ class UserController extends Controller
             'join_day' => now(),
             'role_id' => 2
         ]);
-        
+
         Mail::to($request->input('register-email'))->send(new WelcomeMail());
         session()->flash('message', 'Your account is created');
         return redirect()->route('auth.login');

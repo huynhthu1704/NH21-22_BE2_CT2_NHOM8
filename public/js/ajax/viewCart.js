@@ -1,5 +1,5 @@
 const updateCart = async (product_id, color_id, quantity) => {
-    
+
     const data =
     {
         product_id: product_id,
@@ -20,7 +20,7 @@ const updateCart = async (product_id, color_id, quantity) => {
         })
 
     const result = await response.json();
-    renderCartHeader(result);
+    await renderCartHeader(result);
     await reRenderCart(product_id, color_id);
 }
 
@@ -30,29 +30,32 @@ const reRenderCart = async (product_id, color_id) => {
     const totalPriceItem = tr.querySelector('.total-col');
     const subtotal = document.querySelector('.sub-total');
     const token = document.querySelector('meta[name=csrf-token]').content
-
     const data = {
         product_id: product_id,
         color_id: color_id
     }
 
     const response = await fetch('/cart/call',
-    {
-        method: 'POST',
-        headers: {
-            "Content-type": "application/json;charset=UTF-8",
-            'X-CSRF-TOKEN': token,
-        },
-        body: JSON.stringify(data)
-    })
+        {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/json;charset=UTF-8",
+                'X-CSRF-TOKEN': token,
+            },
+            body: JSON.stringify(data)
+        });
+
     const result = await response.json();
 
-    totalPriceItem.innerHTML = formatter.format(result.totalItemPrice);
-    subtotal.innerHTML = formatter.format(result.totalPrice);
+    if (result.totalItemPrice) {
+        totalPriceItem.innerHTML = formatter.format(result.totalItemPrice);
+    }
+
+    subtotal.innerHTML = formatter.format(result.totalSalesPrice);
 }
 
-const renderCartHeader = (result) =>{
-   
+const renderCartHeader = async (result) => {
+
     const product_container = document.querySelector('#product_container');
     const cartCount = document.querySelector('.cart-count');
     const total = document.querySelector('.cart-total-price');
@@ -88,8 +91,29 @@ const renderCartHeader = (result) =>{
     cartCount.innerHTML = count(result.cart);
 }
 
-const removeViewCartItem = (product_id, color_id) => {
+const removeViewCartItem = async (product_id, color_id) => {
     removeItem(`${product_id}-${color_id}`);
     const tr = document.querySelector(`#cart-item-${product_id}-${color_id}`);
     tr.remove();
+    const token = document.querySelector('meta[name=csrf-token]').content
+
+    const data = {
+        product_id: product_id,
+        color_id: color_id
+    }
+
+    const response = await fetch('/cart/call',
+        {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/json;charset=UTF-8",
+                'X-CSRF-TOKEN': token,
+            },
+            body: JSON.stringify(data)
+        });
+        
+    const result = await response.json();
+
+    reRenderCart(product_id, color_id);
+    renderCartHeader(result)
 }
