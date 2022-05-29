@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderItem;
-use App\Models\ShippingFee as ModelsShippingFee;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\ShippingFee;
 
@@ -56,13 +53,19 @@ class CheckoutController extends Controller
         foreach ($carts as  $item) {
             $orderItem = new OrderItem;
             $orderItem->order_id = $order->id;
+            $orderItem->user_id = $user->id;
             $orderItem->product_id = $item['product_id'];
             $orderItem->color_id = $item['color_id'];
+            $orderItem->color_name = $item['color_name'];
+            $orderItem->product_name = $item['product_name'];
+            $orderItem->category_name = $item['category_name'];
+            $orderItem->image_src = $item['src'];
             $orderItem->quantity = $item['quantity'];
             $orderItem->price = $item['price'];
             $orderItem->discount_price = $item['sales_price'];
             $orderItem->save();
         }
+        
         Session::forget('cart');
         return redirect()->route('dashboard');
     }
