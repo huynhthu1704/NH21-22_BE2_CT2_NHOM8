@@ -22,6 +22,7 @@ use App\Http\Controllers\UserController;
 use App\Mail\WelcomeMail;
 use App\Models\Color;
 use App\Models\Product;
+use App\Models\ResetPass;
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
@@ -222,3 +223,11 @@ Route::prefix('dashboard')->group(function () {
     Route::post('/profile/edit', [DashboardController::class, 'setProfile'])->name('dashboard.edit');
     Route::post('/profile/review', [DashboardController::class, 'review'])->name('dashboard.review');
 });
+
+Route::prefix('reset')->group(function ()
+{
+    Route::get('/', [UserController::class,'forget'])->name('verify.form');
+    Route::post('/set', [UserController::class,'setResetSession'])->name('set.reset-session');
+    Route::get('/resetPass', [UserController::class,'resetPasswordForm'])->name('reset.form');
+    Route::post('/update', [UserController::class,'updatePass'])->name('reset.update');
+}); 

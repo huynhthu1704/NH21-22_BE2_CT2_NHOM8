@@ -1,7 +1,5 @@
 @php
-// Session::forget('user');
-// Session::forget('user');
-// dd(openssl_get_cert_locations());
+
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -586,7 +584,7 @@
                                                         Me</label>
                                                 </div><!-- End .custom-checkbox -->
 
-                                                <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                                <a href="{{ route('verify.form') }}" class="forgot-link">Forgot Your Password?</a>
                                             </div><!-- End .form-footer -->
                                         </form>
                                         <div class="form-choice">
