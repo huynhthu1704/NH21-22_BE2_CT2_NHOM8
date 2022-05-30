@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Discount;
+use Egulias\EmailValidator\Warning\Comment;
 
 class Product extends Model
 {
@@ -17,7 +18,7 @@ class Product extends Model
 
     public function category()
     {
-        return $this->belongsTo('App\Models\Category', 'category_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function brand()
@@ -36,5 +37,9 @@ class Product extends Model
 
     public function orderItem() {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function review() {
+        return $this->belongsTo(Review::class);
     }
 }

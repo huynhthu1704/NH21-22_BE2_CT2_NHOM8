@@ -33,7 +33,7 @@ class CartController extends Controller
                 'color_name' => $item->color->color_name,
                 'quantity' => isset($input['qty']) ? $input['qty'] : 1,
                 'price' => $item->product->price,
-                'sales_price' => (100 - $category->discount->discount_value) * ( $item->product->price / 100),
+                'sales_price' => (100 - $category->discount->discount_value) * ($item->product->price / 100),
                 'src' => $item->src,
                 'category_name' => $category->category->category_name
             ];
@@ -75,19 +75,18 @@ class CartController extends Controller
                 'color_name' => $item->color->color_name,
                 'quantity' => isset($input['qty']) ? $input['qty'] : 1,
                 'price' => $item->product->price,
-                'sales_price' => (100 - $category->discount->discount_value) * ( $item->product->price / 100),
+                'sales_price' => (100 - $category->discount->discount_value) * ($item->product->price / 100),
                 'src' => $item->src,
                 'category_name' => $category->category->category_name
             ];
-        }
-        else{
+        } else {
             if ($input['qty'] == 0) {
                 unset($cart[$item->product_id . '-' . $item->color_id]);
-            }else{
+            } else {
                 $cart[$item->product_id . '-' . $item->color_id]['quantity'] = $input['qty'];
             }
         }
-        
+
         session()->put('cart', $cart);
 
         return response()->json(['total' => self::totalPrice($cart), 'cart' => Session::get('cart')]);
@@ -110,13 +109,26 @@ class CartController extends Controller
         }
         return $total;
     }
-    
-    public function callCart(Request $request){
+
+    public function callCart(Request $request)
+    {
         $input = $request->all();
         $cart = Session::get('cart');
-        $item = $cart[$input['product_id']. '-' . $input['color_id']]; 
-        return response()->json(['totalPrice' => self::totalPrice(Session::get('cart')), 'totalItemPrice' => ($item['price'] * $item['quantity'])]);
+
+        if (isset($cart[$input['product_id'] . '-' . $input['color_id']])) {
+            $item = $cart[$input['product_id'] . '-' . $input['color_id']];
+            return response()->json([
+                'totalItemPrice' => ($item['price'] * $item['quantity']),
+                'totalSalesPrice' => self::totalSalesPrice($cart)
+            ]);
+        } else {
+            return response()->json([
+                'totalSalesPrice' => self::totalSalesPrice($cart),
+                'cart' => $cart
+            ]);
+        }
     }
+
 
     public static function totalQuantity($cart)
     {
@@ -126,6 +138,4 @@ class CartController extends Controller
         }
         return $total;
     }
-
-
 }

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Review;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Password;
@@ -103,6 +105,31 @@ class DashboardController extends Controller
             );
             Session::put('user', User::find($user->id));
             return json_encode(true);
+        }
+    }
+
+    public function review(Request $request)
+    {
+        $input = $request->all();
+        $user = Session::get('user');
+        $review = new Review;
+
+
+        try {
+            $review->user_id = $user->id;
+            $review->product_id = $input['product_id'];
+            $review->rating_value = $input['rating_value'];
+            $review->content = $input['content'];
+            $review->title = $input['title'];
+            $review->save();
+
+            $order = OrderItem::find($input['order_item_id']);
+            $order->isReviewed = true;
+            $order->save();
+
+            return response()->json(true);
+        } catch (Exception $e) {
+            return response()->json($e);
         }
     }
 }

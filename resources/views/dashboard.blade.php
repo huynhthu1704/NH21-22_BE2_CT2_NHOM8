@@ -65,56 +65,116 @@
 
                                 <div class="tab-pane fade" id="tab-orders" role="tabpanel"
                                     aria-labelledby="tab-orders-link">
-                                    @php
-                                        // dd($orders);
-                                    @endphp
-                                    @if (empty($orders))
+
+                                    @if (count($orders) == 0)
                                         <p>No order has been made yet.</p>
                                         <a href="{{ route('category') }}" class="btn btn-outline-primary-2"><span>GO
                                                 SHOP</span><i class="icon-long-arrow-right"></i></a>
                                     @else
                                         <div class="accordion accordion-plus" id="accordion-2">
-                                            @foreach ($orders as $order)
+                                            @foreach ($orders as $key => $order)
                                                 <div class="card">
-                                                    <div class="card-header" id="heading2-1">
+                                                    <div class="card-header" id="heading2-{{ $key }}">
                                                         <h2 class="card-title">
-                                                            <a role="button" data-toggle="collapse" href="#collapse2-1"
-                                                                aria-expanded="true" aria-controls="collapse2-1">
+                                                            <a role="button" data-toggle="collapse" class="collapsed"
+                                                                href="#collapse2-{{ $key }}" aria-expanded="true"
+                                                                aria-controls="collapse2-{{ $key }}">
                                                                 #Order {{ $order->id }} <span
                                                                     class="status float-right">#Delivery status:
                                                                     {{ $order->status }}</span>
                                                             </a>
                                                         </h2>
                                                     </div><!-- End .card-header -->
-                                                    <div id="collapse2-1" class="collapse show"
-                                                        aria-labelledby="heading2-1" data-parent="#accordion-2">
+                                                    <div id="collapse2-{{ $key }}" class="collapse"
+                                                        aria-labelledby="heading2-{{$key}}" data-parent="#accordion-2">
                                                         <div class="card-body">
                                                             <div class="row">
-                                                                <div class="col-2">Image</div>
-                                                                <div class="col-6">Item name</div>
-                                                                <div class="col-2">Qty</div>
-                                                                <div class="col-2">Price</div>
+                                                                <div class="col-2" style="  height: 100px;
+                                                                                line-height: 100px;
+                                                                                text-align: center;
+                                                                                border: 2px dashed #f69c55;"><b>Image</b>
+                                                                </div>
+                                                                <div class="col-4" style="  height: 100px;
+                                                                                line-height: 100px;
+                                                                                text-align: center;
+                                                                                border: 2px dashed #f69c55;"><b>Item
+                                                                        name</b>
+                                                                </div>
+                                                                <div class="col-1 text-end" style="  height: 100px;
+                                                                                line-height: 100px;
+                                                                                text-align: center;
+                                                                                border: 2px dashed #f69c55;"><b>Qty</b>
+                                                                </div>
+                                                                <div class="col-3 text-end" style="  height: 100px;
+                                                                                line-height: 100px;
+                                                                                text-align: center;
+                                                                                border: 2px dashed #f69c55;"><b>Price</b>
+                                                                </div>
+                                                                <div class="col-2 text-end" style="  height: 100px;
+                                                                                line-height: 100px;
+                                                                                text-align: center;
+                                                                                border: 2px dashed #f69c55;"><b><i
+                                                                            class="icon-star-o"></i></b></div>
                                                             </div>
                                                             @foreach ($order->orderItem as $item)
                                                                 <div class="row">
-                                                                    <div class="col-2"><img src="{{$item->src}}" class="product-image" alt=""></div>
-                                                                    <div class="col-6">Item name</div>
-                                                                    <div class="col-2">Qty</div>
-                                                                    <div class="col-2">Price</div>
+                                                                    <div class="col-2" style="  height: 100px;
+                                                                                    line-height: 100px;
+                                                                                    text-align: center;
+                                                                                    border: 2px dashed #f69c55;"><a href="{{route('detail', ['id'=>$item->product_id])}}">
+                                                                                        <img
+                                                                                        src="{{ asset('images/molla/' . $item->category_name . '/' . $item->image_src) }}"
+                                                                                        class="product-image" alt=""></a></div>
+                                                                    <div class="col-4" style="  height: 100px;
+                      line-height: 100px;
+                      text-align: center;
+                      border: 2px dashed #f69c55; width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;">{{ $item->product_name }}
+                                                                    </div>
+                                                                    <div class="col-1" style="  height: 100px;
+                      line-height: 100px;
+                      text-align: center;
+                      border: 2px dashed #f69c55;">{{ $item->quantity }}
+                                                                    </div>
+                                                                    <div class="col-3" style="  height: 100px;
+                      line-height: 100px;
+                      text-align: center;
+                      border: 2px dashed #f69c55;">
+                                                                        {{ number_format($item->discount_price, 0, '', ',') }}&nbsp;VNĐ
+                                                                    </div>
+                                                                    <div class="col-2" style="  height: 100px;
+                                                                                    line-height: 100px;
+                                                                                    text-align: center;
+                                                                                    border: 2px dashed #f69c55;">
+                                                                        @if (!$item->isReviewed)
+                                                                            <a href="#signin-modal" data-toggle="modal"
+                                                                                class="btn btn-link btn-link-dark  border-0"
+                                                                                onclick="setReview({{ $item->product_id }}, {{ $item->id }}, '{{ $item->product_name }}', this)">
+                                                                                <span>Review</span>
+                                                                                <i class="icon-long-arrow-right"></i></a>
+                                                                        @else
+                                                                            <a href="javascript:void(0)"
+                                                                                class="btn btn-link btn-link-dark border-0">
+                                                                                <span>Reviewed</span></a>
+                                                                        @endif
+                                                                    </div>
                                                                 </div>
                                                             @endforeach
 
                                                         </div><!-- End .card-body -->
+
+                                                        <div class="py-3 h6 float-right px-5">Total:
+                                                            {{ number_format($order->total, 0, '', ',') }}&nbsp;VNĐ
+                                                        </div>
+
                                                     </div><!-- End .collapse -->
-                                                    <div class="card-footer">
-                                                        <div class="py-3 float-right h6">Total: 60.000.000 VND</div>
-                                                    </div>
+
                                                 </div><!-- End .card -->
                                             @endforeach
                                         </div><!-- End .accordion -->
                                     @endif
-
-
                                 </div><!-- .End .tab-pane -->
 
 
@@ -235,5 +295,100 @@
             </button>
         </div>
     </main><!-- End .main -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .rate {
+
+            height: 46px;
+            padding: 0 10px;
+        }
+
+        .rate:not(:checked)>input {
+            position: absolute;
+            top: -9999px;
+        }
+
+        .rate:not(:checked)>label {
+            float: right;
+            width: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 30px;
+            color: #ccc;
+        }
+
+        .rate:not(:checked)>label:before {
+            content: '★ ';
+        }
+
+        .rate>input:checked~label {
+            color: #ffc700;
+        }
+
+        .rate:not(:checked)>label:hover,
+        .rate:not(:checked)>label:hover~label {
+            color: #deb217;
+        }
+
+        .rate>input:checked+label:hover,
+        .rate>input:checked+label:hover~label,
+        .rate>input:checked~label:hover,
+        .rate>input:checked~label:hover~label,
+        .rate>label:hover~input:checked~label {
+            color: #c59b08;
+        }
+
+        /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+    </style>
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+
+                    <form class="form-box rating">
+                        <h3 class="title"></h3>
+                        <input type="text" name="product_id" hidden>
+                        <input type="text" name="order_item_id" hidden>
+                        <div class="d-flex">
+
+                            <div class="rate float-left mb-3">
+                                <input type="radio" id="star5" name="rating_value" value="5">
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rating_value" value="4">
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rating_value" value="3">
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rating_value" value="2">
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rating_value" value="1">
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                        </div>
+
+                        <input type="text" name="title" class="form-control" placeholder="Title">
+
+                        <textarea class="form-control" cols="30" rows="4" placeholder="Comments ..." name="content"></textarea>
+                        <button type="submit" class="btn btn-outline-primary-2 float-right">
+                            <span>Submit</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </button>
+                    </form><!-- End .form-box -->
+
+
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+    </div><!-- End .modal -->
     <script src="{{ asset('js/ajax/dashboard.js') }}"></script>
+
 @endsection

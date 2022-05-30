@@ -17,12 +17,12 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
+            $table->string('title', 255);
             $table->text('content');
             $table->tinyInteger('rating_value');
             $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('user_id')->references('id')->on('users');
-
         });
     }
 

@@ -19,11 +19,12 @@ class CreateOrderItemsTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('color_id');
             $table->unsignedBigInteger('user_id');
-            
+
             $table->string('image_src', 300);
             $table->string('product_name', 300);
             $table->string('color_name', 300);
-
+            $table->string('category_name', 300);
+            
             $table->integer('quantity');
             $table->boolean('isReviewed')->default(false);
             $table->integer('price');

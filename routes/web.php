@@ -220,4 +220,5 @@ Route::prefix('/cart')->group(function () {
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/profile/edit', [DashboardController::class, 'setProfile'])->name('dashboard.edit');
+    Route::post('/profile/review', [DashboardController::class, 'review'])->name('dashboard.review');
 });

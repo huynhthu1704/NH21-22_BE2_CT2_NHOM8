@@ -118,7 +118,7 @@
                                         <input type="password" class="form-control" id="register-password"
                                             value="{{ old('register-password') }}" name="register-password" required>
                                         @error('register-password')
-                                            <span class="invalid-feedback">{{ $message }}</span>
+                                            <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div><!-- End .form-group -->
 
@@ -143,7 +143,7 @@
                                         <label for="register-fullname">Full name *</label>
                                         <input type="text" class="form-control" id="register-fullname"
                                             name="register-fullname" value="{{ old('register-fullname') }}" required>
-                                        @error('fullname')
+                                        @error('register-fullname')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div><!-- End .form-group -->
