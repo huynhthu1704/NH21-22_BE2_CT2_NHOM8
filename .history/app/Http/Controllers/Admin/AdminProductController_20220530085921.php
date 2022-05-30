@@ -33,11 +33,13 @@ class AdminProductController extends Controller
 
     public function getImage($id, $colorId)
     {
+        // /dd(Image::where(['product_id' => $id],['color_id' => $colorId])->first());
         return Image::where(['product_id' => $id], ['color_id' => $colorId])->first();
     }
 
     public function getCategory($id)
     {
+        // /dd(Image::where(['product_id' => $id],['color_id' => $colorId])->first());
         return Category::where('id', $id)->first();
     }
     /**
@@ -82,6 +84,9 @@ class AdminProductController extends Controller
         // Get all color for checking image
         $colors = Color::all();
 
+        // Insert into image table
+        
+       
         // Loop the colors collection for checking
         foreach ($colors as $key => $value) {
             $name = "product_image_" . $value->color_name;
@@ -157,7 +162,7 @@ class AdminProductController extends Controller
         $product = Product::find($id);
         $dimension = Dimension::find($product->dimension_id);
         $product->delete();
-        $dimension->delete();
+        $di
         return redirect()->route('admin.product');
     }
 }

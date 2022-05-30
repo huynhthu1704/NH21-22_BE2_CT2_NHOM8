@@ -154,7 +154,17 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-                       
+                        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('admin.home') }}" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Widgets
+                                </p>
+                            </a>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="{{ route('admin.product') }}" class="nav-link">
                                 <i class="fas fa-solid fa-couch"></i>
@@ -237,6 +247,14 @@
 
         @yield('main')
 
+        <!-- /.content-wrapper -->
+        {{-- <footer class="main-footer">
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.1.0
+            </div>
+        </footer> --}}
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -245,6 +263,7 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+
 
 </body>
 

@@ -19,194 +19,191 @@
         </section>
 
         {{-- add Product --}}
-
-        <div class="container-fluid px-5 d-none" id="add-form">
-            <!-- /.content -->
-            <div class="row ">
-                <div class="col-md-12">
-                    <form class="card card-danger" method="POST" action="{{ route('admin.product.add') }}"
-                        enctype="multipart/form-data">
-                        {{ csrf_field() }}
-                        <div class="card-header">
-                            <h3 class="card-title">Add products</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="add-product-name">Product name</label>
-                                <input type="text" class="form-control" id="add-product-name" name="product_name"
-                                    placeholder="Enter product name" required>
+      
+            <div class="container-fluid px-5 d-none" id="add-form">
+                <!-- /.content -->
+                <div class="row ">
+                    <div class="col-md-12">
+                        <form class="card card-danger" method="POST" action="{{ route('admin.product.add') }}"
+                            enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <div class="card-header">
+                                <h3 class="card-title">Add products</h3>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Category</label>
-                                        <select class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true"
-                                            name="product_category" required>
-                                            @foreach ($categories as $key => $value)
-                                                @if ($key === 0)
-                                                    <option value="{{ $value['id'] }}" selected="selected">
-                                                        {{ $value['category_name'] }}</option>
-                                                @else
-                                                    <option value="{{ $value['id'] }}">{{ $value['category_name'] }}
-                                                    </option>
-                                                @endif
-                                            @endforeach
-                                        </select>
-                                    </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="add-product-name">Product name</label>
+                                    <input type="text" class="form-control" id="add-product-name" name="product_name"
+                                        placeholder="Enter product name" required>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Brand</label>
-                                        <select class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true"
-                                            name="product_brand" required>
-                                            @foreach ($brands as $key => $value)
-                                                @if ($loop->first)
-                                                    <option value="{{ $value['id'] }}" selected="selected">
-                                                        {{ $value['brand_name'] }}</option>
-                                                @else
-                                                    <option value="{{ $value['id'] }}">{{ $value['brand_name'] }}
-                                                    </option>
-                                                @endif
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Price (VNĐ)</label>
-                                        <input type="number" min="1000" name="product_price" class="form-control" step="1"
-                                            value="100000" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Quantity</label>
-                                        <input type="number" min="0" name="product_quantity" class="form-control" step="1"
-                                            value="1" min="1" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Colors -->
-                            <div class="row">
-                                <label class="form-label col-12">Colors</label>
-                                @foreach ($colors as $key => $value)
-                                    <div class="form-group col-12 clearfix" name="add_product_color">
-                                        <div class="col-4">
-                                            <div>
-                                                @if ($loop->first)
-                                                    <input type="checkbox" id="chkbox{{ $value->id }}"
-                                                        name="product_color[]" value="{{ $value->id }}"
-                                                        onclick="check(this)" checked required>
-                                                @else
-                                                    <input type="checkbox" id="chkbox{{ $value->id }}"
-                                                        name="product_color[]" value="{{ $value->id }}"
-                                                        onclick="check(this)">
-                                                @endif
-                                                <label for="product-color">
-                                                    {{ $value->color_name }}
-                                                </label>
-                                            </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Category</label>
+                                            <select class="form-control" style="width: 100%;" tabindex="-1"
+                                                aria-hidden="true" name="product_category" required>
+                                                @foreach ($categories as $key => $value)
+                                                    @if ($key === 0)
+                                                        <option value="{{ $value['id'] }}" selected="selected">
+                                                            {{ $value['category_name'] }}</option>
+                                                    @else
+                                                        <option value="{{ $value['id'] }}">{{ $value['category_name'] }}
+                                                        </option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="form-group col-12 clearfix" name="add_product_image">
-                                        @if ($loop->first)
-                                            <div class="col-8"> <input type="file"
-                                                    name="product_image_{{ $value->color_name }}[]"
-                                                    id="{{ $value->id }}" accept="image/*" multiple required>
-                                            </div>
-                                        @else
-                                            <div class="col-8"> <input type="file"
-                                                    name="product_image_{{ $value->color_name }}[]"
-                                                    id="{{ $value->id }}" accept="image/*" multiple hidden>
-                                            </div>
-                                        @endif
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Brand</label>
+                                            <select class="form-control" style="width: 100%;" tabindex="-1"
+                                                aria-hidden="true" name="product_brand" required>
+                                                @foreach ($brands as $key => $value)
+                                                    @if ($loop->first)
+                                                        <option value="{{ $value['id'] }}" selected="selected">
+                                                            {{ $value['brand_name'] }}</option>
+                                                    @else
+                                                        <option value="{{ $value['id'] }}">{{ $value['brand_name'] }}
+                                                        </option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                @endforeach
-                                {{-- <div class="col-8"> <input type="file" name="product_image"
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Price (VNĐ)</label>
+                                            <input type="number" min="1000" name="product_price" class="form-control"
+                                                step="1" value="100000" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Quantity</label>
+                                            <input type="number" min="0" name="product_quantity" class="form-control"
+                                                step="1" value="1" min="1" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Colors -->
+                                <div class="row">
+                                    <label class="form-label col-12">Colors</label>
+                                    @foreach ($colors as $key => $value)
+                                        <div class="form-group col-12 clearfix" name="add_product_color">
+                                            <div class="col-4">
+                                                <div>
+                                                    @if ($loop->first)
+                                                        <input type="checkbox" id="chkbox{{ $value->id }}"
+                                                            name="product_color[]" value="{{ $value->id }}"
+                                                            onclick="check(this)" checked required>
+                                                    @else
+                                                        <input type="checkbox" id="chkbox{{ $value->id }}"
+                                                            name="product_color[]" value="{{ $value->id }}"
+                                                            onclick="check(this)">
+                                                    @endif
+                                                    <label for="product-color">
+                                                        {{ $value->color_name }}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-12 clearfix" name="add_product_image">
+                                            @if ($loop->first)
+                                                <div class="col-8"> <input type="file" name="product_image_{{ $value->color_name}}[]"
+                                                        id="{{ $value->id }}" accept="image/*" multiple required>
+                                                </div>
+                                            @else
+                                                <div class="col-8"> <input type="file" name="product_image_{{ $value->color_name}}[]"
+                                                        id="{{ $value->id }}" accept="image/*" multiple hidden>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                    {{-- <div class="col-8"> <input type="file" name="product_image"
                                         id="product_image" accept="image/*" required> --}}
-                            </div>
+                                </div>
 
-                            <!-- Colors -->
+                                <!-- Colors -->
 
-                            <!-- Dimensions-->
-                            <div class="row">
-                                <label class="form-label col-12">Dimension</label>
-                                <div class="form-group col-12">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Width</label>
-                                                <input type="number" min="10" name="product_width" class="form-control"
-                                                    step="5" value="1" min="1">
+                                <!-- Dimensions-->
+                                <div class="row">
+                                    <label class="form-label col-12">Dimension</label>
+                                    <div class="form-group col-12">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Width</label>
+                                                    <input type="number" min="10" name="product_width"
+                                                        class="form-control" step="5" value="1" min="1">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Height</label>
-                                                <input type="number" min="10" name="product_height" class="form-control"
-                                                    step="5" value="1" min="1">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Height</label>
+                                                    <input type="number" min="10" name="product_height"
+                                                        class="form-control" step="5" value="1" min="1">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Weight</label>
-                                                <input type="number" min="10" name="product_weight" class="form-control"
-                                                    step="10" value="1" min="1">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Weight</label>
+                                                    <input type="number" min="10" name="product_weight"
+                                                        class="form-control" step="10" value="1" min="1">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Length</label>
-                                                <input type="number" min="10" name="product_length" class="form-control"
-                                                    step="10" value="1" min="1">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Length</label>
+                                                    <input type="number" min="10" name="product_length"
+                                                        class="form-control" step="10" value="1" min="1">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
+                                <!-- Dimensions-->
 
-                            </div>
-                            <!-- Dimensions-->
-
-                            <!--Descriptions-->
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Description</label>
-                                        <textarea id="summernote" name="product_description" required>
+                                <!--Descriptions-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea id="summernote" name="product_description" required>
 
                                             </textarea>
+                                        </div>
                                     </div>
                                 </div>
+                                <!--Descriptions-->
                             </div>
-                            <!--Descriptions-->
-                        </div>
 
-                        <div class="card-footer">
-                            <div id="actions" class="row">
-                                <div class="col-lg-6">
-                                    <div class="btn-group w-100">
-                                        <button type="submit" class="btn btn-success col">
-                                            <span>Add Product</span>
-                                        </button>
-                                        <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
-                                            <span>Cancel</span>
-                                        </button>
+                            <div class="card-footer">
+                                <div id="actions" class="row">
+                                    <div class="col-lg-6">
+                                        <div class="btn-group w-100">
+                                            <button type="submit" class="btn btn-success col">
+                                                <span>Add Product</span>
+                                            </button>
+                                            <button type="reset" class="btn btn-warning col cancel" onclick="cancel()">
+                                                <span>Cancel</span>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    <!-- /.card -->
+                        </form>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col (right) -->
                 </div>
-                <!-- /.col (right) -->
-            </div>
-        </div>
 
-
+        
 
         {{-- edit product --}}
 
@@ -342,7 +339,7 @@
             </div>
         </div>
 
-        {{-- remove product --}}
+         {{-- remove product --}}
         <div class="container-fluid px-5" id="remove-form">
             <!-- /.content -->
             <div class="row">
@@ -392,7 +389,7 @@
                                                 </td>
                                                 <td><button class="btn btn-success" onclick="switchToEdit(1)">Edit</button>
                                                 </td>
-                                                <td><button class="btn btn-warning" onclick="remove({{ $product->id}})">Remove</button></td>
+                                                <td><button class="btn btn-warning">Remove</button></td>
                                             </tr>
                                         @endforeach
                                     <tbody>
@@ -485,6 +482,7 @@
             document.querySelector('#edit-form').classList.add('d-none');;
         }
 
+       
 
         const cancel = () => {
             document.querySelector('#add-form').classList.add('d-none');
@@ -492,10 +490,10 @@
         }
 
         const remove = (id) => {
-            const result = confirm("Do you want to delete this product");
+            const result = confirm("Do you want to delete this discount");
             if (result) {
                 const removeForm = document.getElementById('form-remove');
-                const action = "{{ url('admin/product') }}/" + id;
+                const action = "{{ url('admin/discount') }}/" + id;
                 removeForm.action = action;
                 removeForm.submit();
             }

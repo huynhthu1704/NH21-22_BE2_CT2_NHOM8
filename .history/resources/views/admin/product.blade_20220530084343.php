@@ -392,7 +392,7 @@
                                                 </td>
                                                 <td><button class="btn btn-success" onclick="switchToEdit(1)">Edit</button>
                                                 </td>
-                                                <td><button class="btn btn-warning" onclick="remove({{ $product->id}})">Remove</button></td>
+                                                <td><button class="btn btn-warning" onclick="remove()">Remove</button></td>
                                             </tr>
                                         @endforeach
                                     <tbody>
