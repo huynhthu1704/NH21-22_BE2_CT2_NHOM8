@@ -86,78 +86,90 @@
                                                         </h2>
                                                     </div><!-- End .card-header -->
                                                     <div id="collapse2-{{ $key }}" class="collapse"
-                                                        aria-labelledby="heading2-{{$key}}" data-parent="#accordion-2">
+                                                        aria-labelledby="heading2-{{ $key }}"
+                                                        data-parent="#accordion-2">
                                                         <div class="card-body">
                                                             <div class="row">
                                                                 <div class="col-2" style="  height: 100px;
-                                                                                line-height: 100px;
-                                                                                text-align: center;
-                                                                                border: 2px dashed #f69c55;"><b>Image</b>
+                                                                                        line-height: 100px;
+                                                                                        text-align: center;
+                                                                                        border: 2px dashed #f69c55;">
+                                                                    <b>Image</b>
                                                                 </div>
                                                                 <div class="col-4" style="  height: 100px;
-                                                                                line-height: 100px;
-                                                                                text-align: center;
-                                                                                border: 2px dashed #f69c55;"><b>Item
+                                                                                        line-height: 100px;
+                                                                                        text-align: center;
+                                                                                        border: 2px dashed #f69c55;">
+                                                                    <b>Item
                                                                         name</b>
                                                                 </div>
                                                                 <div class="col-1 text-end" style="  height: 100px;
-                                                                                line-height: 100px;
-                                                                                text-align: center;
-                                                                                border: 2px dashed #f69c55;"><b>Qty</b>
+                                                                                        line-height: 100px;
+                                                                                        text-align: center;
+                                                                                        border: 2px dashed #f69c55;">
+                                                                    <b>Qty</b>
                                                                 </div>
                                                                 <div class="col-3 text-end" style="  height: 100px;
-                                                                                line-height: 100px;
-                                                                                text-align: center;
-                                                                                border: 2px dashed #f69c55;"><b>Price</b>
+                                                                                        line-height: 100px;
+                                                                                        text-align: center;
+                                                                                        border: 2px dashed #f69c55;">
+                                                                    <b>Price</b>
                                                                 </div>
                                                                 <div class="col-2 text-end" style="  height: 100px;
-                                                                                line-height: 100px;
-                                                                                text-align: center;
-                                                                                border: 2px dashed #f69c55;"><b><i
+                                                                                        line-height: 100px;
+                                                                                        text-align: center;
+                                                                                        border: 2px dashed #f69c55;"><b><i
                                                                             class="icon-star-o"></i></b></div>
                                                             </div>
                                                             @foreach ($order->orderItem as $item)
                                                                 <div class="row">
                                                                     <div class="col-2" style="  height: 100px;
-                                                                                    line-height: 100px;
-                                                                                    text-align: center;
-                                                                                    border: 2px dashed #f69c55;"><a href="{{route('detail', ['id'=>$item->product_id])}}">
-                                                                                        <img
-                                                                                        src="{{ asset('images/molla/' . $item->category_name . '/' . $item->image_src) }}"
-                                                                                        class="product-image" alt=""></a></div>
+                                                                                            line-height: 100px;
+                                                                                            text-align: center;
+                                                                                            border: 2px dashed #f69c55;"><a
+                                                                            href="{{ route('detail', ['id' => $item->product_id]) }}">
+                                                                            <img src="{{ asset('images/molla/' . $item->category_name . '/' . $item->image_src) }}"
+                                                                                class="product-image" alt=""></a></div>
                                                                     <div class="col-4" style="  height: 100px;
-                      line-height: 100px;
-                      text-align: center;
-                      border: 2px dashed #f69c55; width: 250px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;">{{ $item->product_name }}
+                              line-height: 100px;
+                              text-align: center;
+                              border: 2px dashed #f69c55; width: 250px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;">{{ $item->product_name }}
                                                                     </div>
                                                                     <div class="col-1" style="  height: 100px;
-                      line-height: 100px;
-                      text-align: center;
-                      border: 2px dashed #f69c55;">{{ $item->quantity }}
+                              line-height: 100px;
+                              text-align: center;
+                              border: 2px dashed #f69c55;">{{ $item->quantity }}
                                                                     </div>
                                                                     <div class="col-3" style="  height: 100px;
-                      line-height: 100px;
-                      text-align: center;
-                      border: 2px dashed #f69c55;">
-                                                                        {{ number_format($item->discount_price, 0, '', ',') }}&nbsp;VNĐ
+                              line-height: 100px;
+                              text-align: center;
+                              border: 2px dashed #f69c55;">
+                                                                        {{ number_format($item->discount_price, 0, '', '.') }}&nbsp;VNĐ
                                                                     </div>
                                                                     <div class="col-2" style="  height: 100px;
-                                                                                    line-height: 100px;
-                                                                                    text-align: center;
-                                                                                    border: 2px dashed #f69c55;">
-                                                                        @if (!$item->isReviewed)
-                                                                            <a href="#signin-modal" data-toggle="modal"
-                                                                                class="btn btn-link btn-link-dark  border-0"
-                                                                                onclick="setReview({{ $item->product_id }}, {{ $item->id }}, '{{ $item->product_name }}', this)">
-                                                                                <span>Review</span>
-                                                                                <i class="icon-long-arrow-right"></i></a>
+                                                                                            line-height: 100px;
+                                                                                            text-align: center;
+                                                                                            border: 2px dashed #f69c55;">
+                                                                        @if ($order->status == 'Confirmed')
+                                                                            @if (!$item->isReviewed)
+                                                                                <a href="#signin-modal" data-toggle="modal"
+                                                                                    class="btn btn-link btn-link-dark  border-0"
+                                                                                    onclick="setReview({{ $item->product_id }}, {{ $item->id }}, '{{ $item->product_name }}', this)">
+                                                                                    <span>Review</span>
+                                                                                    <i
+                                                                                        class="icon-long-arrow-right"></i></a>
+                                                                            @else
+                                                                                <a href="javascript:void(0)"
+                                                                                    class="btn btn-link btn-link-dark border-0">
+                                                                                    <span>Reviewed</span></a>
+                                                                            @endif
                                                                         @else
-                                                                            <a href="javascript:void(0)"
-                                                                                class="btn btn-link btn-link-dark border-0">
-                                                                                <span>Reviewed</span></a>
+                                                                        <a href="javascript:void(0)"
+                                                                        class="btn btn-link btn-link-dark border-0">
+                                                                        <span></span></a>
                                                                         @endif
                                                                     </div>
                                                                 </div>
