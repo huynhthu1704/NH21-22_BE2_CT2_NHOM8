@@ -127,7 +127,7 @@ class UserController extends Controller
             'password' => ['required',  Password::min(8)->letters()->numbers()],
             'confirmPassword' => ['required',  Password::min(8)->letters()->numbers()],
         ]);
-        
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors(['password' => 'Password doesn\'t matching']);
         }
@@ -202,7 +202,7 @@ class UserController extends Controller
             return redirect()->back();
         }
         else{
-            return redirect()->back()->withErrors(['email' => 'Email isn\'t exist']);
+            return redirect()->back()->withErrors(['email' => 'Email doesn\'t exist']);
         }
 
     }

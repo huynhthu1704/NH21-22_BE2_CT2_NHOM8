@@ -11,6 +11,8 @@ class Product extends Model
 
     public $table = 'products';
 
+    public $timestamp = true;
+
     public function images()
     {
         return $this->hasMany('App\Models\Image');

@@ -19,41 +19,45 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\UserController;
-use App\Mail\WelcomeMail;
-use App\Models\Color;
-use App\Models\Product;
-use App\Models\ResetPass;
+use App\Http\Middleware\AuthAdmin;
 use App\Models\User;
-use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
-Route::prefix('admin')->group(
-    function () {
+Route::get('admin/login', [AdminHomeController::class, 'login'])->name('admin.login');
+Route::post('/actionlogin', [AdminHomeController::class, 'actionlogin'])->name('admin.actionlogin');
+Route::get('admin/logout', [AdminHomeController::class, 'actionLogout'])->name('admin.logout');
+
+Route::group(['prefix' => 'admin', 'middleware' => [AuthAdmin::class]], function () {
+
         Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home');
 
+     
+        
         Route::resource('product', AdminProductController::class)->names([
             'index' => 'admin.product',
             'store' => 'admin.product.add',
             'update' => 'admin.product.update',
             'destroy' => 'admin.product.delete'
         ]);
+
         Route::resource('color', AdminColorController::class)->names([
             'index' => 'admin.color',
             'store' => 'admin.color.add',
             'update' => 'admin.color.update',
             'destroy' => 'admin.color.delete'
         ]);
+
         Route::resource('brand', AdminBrandController::class)->names([
             'index' => 'admin.brand',
             'store' => 'admin.brand.add',
             'update' => 'admin.brand.update',
             'destroy' => 'admin.brand.delete'
         ]);
+
         Route::resource('category', AdminCategoryController::class)->names([
             'index' => 'admin.category',
             'store' => 'admin.category.add',
