@@ -544,7 +544,7 @@
             document.querySelector('#add-form').classList.add('d-none');
             document.querySelector('#edit-form').classList.remove('d-none');;
             const edit = document.querySelector('#edit-form');
-            // var xhr = new XMLHttpRequest();
+            var xhr = new XMLHttpRequest();
             console.log("id" + id);
             var url = '{{ url('admin/detail') }}/' + id;
             // xhr.open("GET", url, true);

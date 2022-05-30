@@ -544,45 +544,72 @@
             document.querySelector('#add-form').classList.add('d-none');
             document.querySelector('#edit-form').classList.remove('d-none');;
             const edit = document.querySelector('#edit-form');
-            // var xhr = new XMLHttpRequest();
+            var xhr = new XMLHttpRequest();
+
             console.log("id" + id);
+            // Making our connection  
             var url = '{{ url('admin/detail') }}/' + id;
-            // xhr.open("GET", url, true);
+            xhr.open("GET", url, true);
 
-            // // function execute after request is successful 
-            // xhr.onreadystatechange = function() {
-            //     if (this.readyState == 4 && this.status == 200) {
+            // function execute after request is successful 
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
 
-            //     }
-            // }
+                }
+            }
             const response = await fetch(url);
             const result = await response.json()
+
             console.log(this.responseText);
             const obj = this.json();
             edit.querySelector('input[name="id"]').value = id;
             edit.querySelector('input[name="product_name"]').value = result.product_name;
             edit.querySelector('input[name="product_quantity"]').value = result.quantity;
-            edit.querySelector('input[name="product_price"]').value = result.price;
-            edit.querySelector('input[name="product_width"]').value = result.width;
-            edit.querySelector('input[name="product_height"]').value = result.height;
-            edit.querySelector('input[name="product_weight"]').value = result.weight;
-            edit.querySelector('input[name="product_length"]').value = result.length;
+            edit.querySelector('input[name="product_price"]').value = result.product_name;
+
+            edit.querySelector('input[name="product_width"]').value = result.product_name;
+            edit.querySelector('input[name="product_height"]').value = result.product_name;
+            edit.querySelector('input[name="product_weight"]').value = result.product_name;
+            edit.querySelector('input[name="product_length"]').value = result.product_name;
             const selectCategory = edit.querySelector('select[name="product_category"]')
             const selectBrand = edit.querySelector('select[name="product_category"]')
-            edit.querySelector('textarea[name="product_description"]').value = result.description;
+            edit.querySelector('textarea[name="product_description"]').value = result.product_name;
             for (var i = 0; i < selectCategory.options.length; i++) {
                 console.log(obj['category_id']);
-                if (selectCategory.options[i].value === result.category_id) {
+                if (selectCategory.options[i].value === obj['category_id']) {
                     selectCategory.selectedIndex = i;
                     break;
                 }
             }
             for (var i = 0; i < selectBrand.options.length; i++) {
-                if (selectBrand.options[i].value === result.brand_id) {
+                if (selectBrand.options[i].value === obj['brand_id']) {
                     selectBrand.selectedIndex = i;
                     break;
                 }
             }
+            // Sending our request 
+            // xhr.send();
+            // const quantity = sender.dataset.quantity;
+            // const price = sender.dataset.price;
+            // const category = sender.dataset.category;
+            // const brand = sender.dataset.brand;
+            // const width = sender.dataset.width;
+            // const height = sender.dataset.height;
+            // const weight = sender.dataset.weight;
+            // const length = sender.dataset.length;
+            // const description = sender.dataset.description;
+            // // add.classList.add('d-none');
+            // edit.classList.remove('d-none');
+            // edit.querySelector('input[name="id"]').value = id;
+            // edit.querySelector('input[name="product_name"]').value = name;
+            // edit.querySelector('input[name="product_quantity"]').value = quantity;
+            // edit.querySelector('input[name="product_price"]').value = price;
+
+            // edit.querySelector('input[name="product_width"]').value = width;
+            // edit.querySelector('input[name="product_height"]').value = height;
+            // edit.querySelector('input[name="product_weight"]').value = weight;
+            // edit.querySelector('input[name="product_length"]').value = length;
+            // edit.querySelector('textarea[name="product_description"]').value = description;
         }
 
         const cancel = () => {

@@ -68,8 +68,8 @@ class AdminProductController extends Controller
             }
         }
         $product['color'] = $colorObj;
-        // dd($product);
-        return response()->json($product);
+        dd($product);
+        // return response()->json($product);
     }
 
     public function getImage($id, $colorId)

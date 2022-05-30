@@ -68,7 +68,7 @@ class AdminProductController extends Controller
             }
         }
         $product['color'] = $colorObj;
-        // dd($product);
+        dd($product);
         return response()->json($product);
     }
 
