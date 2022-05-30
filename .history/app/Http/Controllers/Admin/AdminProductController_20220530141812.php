@@ -57,7 +57,7 @@ class AdminProductController extends Controller
         $images = Image::where('id', $product->id)->get();
         $colorObj = [];
         if (!empty($images)) {
-            // dd($images);
+            dd($images);
             foreach ($images as $key =>$value) {
                 $color = Color::where('id', $value->color_id)->first();
                 $colorObj[$color->id] =

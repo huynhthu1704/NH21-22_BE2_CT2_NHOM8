@@ -91,15 +91,14 @@ class AdminColorController extends Controller
      */
     public function destroy($id)
     {
-        $images = Image::where('color_id', $id)->get();
-        // dd($images);
-        if (count($images) == 0) {
+        $images = Image::where('color_id', $id);
+        dd($images);
+        if (empty($images)) {
             $color = Color::find($id)->delete();
-            $msg = "Delete successfully";
         } else {
             $msg = "Can not delete this color";
         }
       
-        return redirect()->back()->with('msg', $msg);
+        return redirect()->back('admin.color');
     }
 }

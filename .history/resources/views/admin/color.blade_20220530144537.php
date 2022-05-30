@@ -11,7 +11,6 @@
                     </div>
                     
                     <div class="col-sm-8 ">
-                        <span style="color: red">{{ Session::has('msg') ? Session::get('msg') : '' }}</span>
                         <button onclick="addColor()" class="float-sm-right btn btn-warning">Add Color</button>
                     </div>
                 </div>

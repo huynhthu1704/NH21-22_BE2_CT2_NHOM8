@@ -10,8 +10,7 @@
                         <h1>Color Form</h1>
                     </div>
                     
-                    <div class="col-sm-8 ">
-                        <span style="color: red">{{ Session::has('msg') ? Session::get('msg') : '' }}</span>
+                    <div class="col-sm-6 ">
                         <button onclick="addColor()" class="float-sm-right btn btn-warning">Add Color</button>
                     </div>
                 </div>

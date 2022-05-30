@@ -544,19 +544,22 @@
             document.querySelector('#add-form').classList.add('d-none');
             document.querySelector('#edit-form').classList.remove('d-none');;
             const edit = document.querySelector('#edit-form');
-            // var xhr = new XMLHttpRequest();
+            var xhr = new XMLHttpRequest();
+
             console.log("id" + id);
+            // Making our connection  
             var url = '{{ url('admin/detail') }}/' + id;
-            // xhr.open("GET", url, true);
+            xhr.open("GET", url, true);
 
-            // // function execute after request is successful 
-            // xhr.onreadystatechange = function() {
-            //     if (this.readyState == 4 && this.status == 200) {
+            // function execute after request is successful 
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
 
-            //     }
-            // }
+                }
+            }
             const response = await fetch(url);
             const result = await response.json()
+
             console.log(this.responseText);
             const obj = this.json();
             edit.querySelector('input[name="id"]').value = id;

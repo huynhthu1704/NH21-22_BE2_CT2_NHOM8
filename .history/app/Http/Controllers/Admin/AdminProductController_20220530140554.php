@@ -46,21 +46,18 @@ class AdminProductController extends Controller
 
     public function getDetail($id)
     {
-        echo $id;
-        $product = Product::where('id', $id)->first();
-        // dd($product);
+        $product = Product::find($id)->first();
         $dimension = Dimension::find($product->dimension_id);
         $product['weight'] = $dimension->weight;
         $product['height'] = $dimension->height;
         $product['width'] = $dimension->width;
         $product['length'] = $dimension->length;
-        $images = Image::where('id', $product->id)->get();
+        $images = Image::find($product->id);
         $colorObj = [];
         if (!empty($images)) {
-            // dd($images);
-            foreach ($images as $key =>$value) {
-                $color = Color::where('id', $value->color_id)->first();
-                $colorObj[$color->id] =
+            foreach ($images as $image) {
+                $color = Color::find($image->color_id);
+                $colorObj[$image->color_id] =
                     [
                         'id' => $color->id,
                         'name' => $color->color_name
@@ -68,8 +65,8 @@ class AdminProductController extends Controller
             }
         }
         $product['color'] = $colorObj;
-        // dd($product);
-        return response()->json($product);
+        dd($product);
+        // return response()->json($product);
     }
 
     public function getImage($id, $colorId)

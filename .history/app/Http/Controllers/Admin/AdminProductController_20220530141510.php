@@ -54,12 +54,12 @@ class AdminProductController extends Controller
         $product['height'] = $dimension->height;
         $product['width'] = $dimension->width;
         $product['length'] = $dimension->length;
-        $images = Image::where('id', $product->id)->get();
+        $images = Image::where($product->id);
         $colorObj = [];
         if (!empty($images)) {
-            // dd($images);
-            foreach ($images as $key =>$value) {
-                $color = Color::where('id', $value->color_id)->first();
+            dd($images);
+            foreach ($images as $image) {
+                $color = Color::find($image->color_id);
                 $colorObj[$color->id] =
                     [
                         'id' => $color->id,
@@ -68,8 +68,8 @@ class AdminProductController extends Controller
             }
         }
         $product['color'] = $colorObj;
-        // dd($product);
-        return response()->json($product);
+        dd($product);
+        // return response()->json($product);
     }
 
     public function getImage($id, $colorId)

@@ -95,7 +95,6 @@ class AdminColorController extends Controller
         // dd($images);
         if (count($images) == 0) {
             $color = Color::find($id)->delete();
-            $msg = "Delete successfully";
         } else {
             $msg = "Can not delete this color";
         }
