@@ -77,7 +77,7 @@
                                             <label class="custom-control-label" for="signin-remember-2">Remember Me</label>
                                         </div><!-- End .custom-checkbox -->
 
-                                        <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                        <a href="{{route('verify.form')}}" class="forgot-link">Forgot Your Password?</a>
                                     </div><!-- End .form-footer -->
                                 </form>
                                 <div class="form-choice">

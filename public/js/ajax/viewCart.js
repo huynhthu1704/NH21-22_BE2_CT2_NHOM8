@@ -87,7 +87,9 @@ const renderCartHeader = async (result) => {
             </div><!-- End .product -->`;
         }
     }
-    total.innerHTML = formatter.format(result.total);
+    console.log(result);
+    total.innerHTML = formatter.format(result.totalSalesPrice);
+
     cartCount.innerHTML = count(result.cart);
 }
 
@@ -95,6 +97,7 @@ const removeViewCartItem = async (product_id, color_id) => {
     removeItem(`${product_id}-${color_id}`);
     const tr = document.querySelector(`#cart-item-${product_id}-${color_id}`);
     tr.remove();
+    const subtotal = document.querySelector('.sub-total');
     const token = document.querySelector('meta[name=csrf-token]').content
 
     const data = {
@@ -111,9 +114,9 @@ const removeViewCartItem = async (product_id, color_id) => {
             },
             body: JSON.stringify(data)
         });
-        
-    const result = await response.json();
 
+    const result = await response.json();
+    subtotal.innerHTML = formatter.format(result.totalSalesPrice);
     reRenderCart(product_id, color_id);
     renderCartHeader(result)
 }

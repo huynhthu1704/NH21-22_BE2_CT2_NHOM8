@@ -22,7 +22,7 @@ class CreateOrdersTable extends Migration
             $table->integer('shipping_fee');
             $table->integer('total');
             $table->dateTime('order_date')->default(now());
-            $table->text('note');
+            $table->text('note')->default('');
             $table->enum('status', ['Waiting for confirm', 'Confirmed', 'Canceled'])->default('Waiting for confirm');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('customer_id')->references('id')->on('customers');

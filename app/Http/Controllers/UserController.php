@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RePasswordMail;
 use App\Mail\WelcomeMail;
 use App\Models\Category;
+use App\Models\ResetPass;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Password as FacadesPassword;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
 
@@ -49,7 +53,15 @@ class UserController extends Controller
         }
 
         $user = DB::table('users')->where('username', $request->input('username'))
-            ->where('password', md5($request->input('password')))->first();
+            ->where('password', md5($request->input('password')))->where('role_id', '=', 2)->first();
+
+        if ($user->status == 'Blocked') {
+            return Redirect::route('auth.login')->withErrors(
+                [
+                    'loginfail' => 'Account has been locked'
+                ]
+            );;
+        }
 
         if ($user) {
             session()->put('user', $user);
@@ -108,12 +120,101 @@ class UserController extends Controller
         return redirect()->route('auth.login');
     }
 
-
     public function logout()
     {
-        Auth::logout();
-        session()->flush();
-
+        Session::forget('user');
         return redirect()->route('index');
+    }
+
+    public function updatePass(Request $request)
+    {
+        $input = $request->all();
+        $validator = Validator::make($request->all(), [
+            'password' => ['required',  Password::min(8)->letters()->numbers()],
+            'confirmPassword' => ['required',  Password::min(8)->letters()->numbers()],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors(['password' => 'Password doesn\'t matching']);
+        }
+
+        $user = User::where('email', '=', $input['email'])->where('role_id', '=', 2)->first();
+        $session = ResetPass::where('reset_token', '=', $input['token'])->where('email', '=', $input['email'])->first();
+        
+        if ($session) {
+            
+            if ($user && $input['password'] == $input['confirmPassword']) {
+                $user->password = md5($input['password']);
+                $user->save();
+            
+                session()->flash('message', 'Reset password successfully');
+                $session->delete();
+                return redirect()->route('auth.login');
+            }
+            else{
+                return redirect()->back()->withErrors(['password' => 'Password is invalid']);
+            }
+        }
+        else{
+            return redirect()->route('verify.form')->withErrors(['email' => 'Request Invalid']);
+        }
+        
+    }
+
+    public function resetPasswordForm(Request $request)
+    {
+        $input = $request->all();
+
+        $request->validate([
+            'email' => 'required',
+            'token' => 'required',
+        ]);
+
+        $session = ResetPass::where('reset_token', '=', $input['token'])->where('email', '=', $input['email'])->first();
+     
+        if ($session) {
+            if(time() - $session->reset_at > 360){
+                return redirect()->route('verify.form')->withErrors(['email' => 'Session is over']);
+            }
+            return view('ResetPass', ['email'=>  $input['email'], 'token' =>  $input['token']]);
+        }
+        else{
+            return redirect()->route('verify.form')->withErrors(['email' => 'Request Invalid']);
+        }
+    }
+
+    public function forget()
+    {
+        return view('forget');
+    }
+
+    public function setResetSession(Request $request)
+    {
+        $email = $request->input('email');
+        $token = self::generateRandomString(30);
+        $time = time();
+
+        $check = User::where('email', '=', $email)->where('provider', '=', 'normal')->where('role_id', '=', 2)->get();
+
+        if ((count($check) > 0)) {
+            $reset = new ResetPass;
+            $reset->email = $email;
+            $reset->reset_token = $token;
+            $reset->reset_at = $time;
+            $reset->save();
+            Session::flash('message', "Email verification sent");
+
+            Mail::to($email)->send(new RePasswordMail($email, $token));
+            return redirect()->back();
+        }
+        else{
+            return redirect()->back()->withErrors(['email' => 'Email doesn\'t exist']);
+        }
+
+    }
+
+    function generateRandomString($length = 10)
+    {
+        return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
     }
 }

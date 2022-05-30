@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
-use App\Models\Product;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class AdminHomeController extends Controller
 {
@@ -54,7 +54,33 @@ class AdminHomeController extends Controller
         return $total;
     }
 
-   
+    public function login()
+    {
+        if (Session::has('admin') && !empty(Session::get('admin'))) {
+            return redirect()->route('admin.home');
+        } else {
+            return view('admin.login');
+        }
+    }
+
+    public function actionLogin(Request $request)
+    {
+        $input = $request->all();
+        $admin = User::where('username', '=', $input['username'])->where('password', '=', md5($input['password']))
+            ->where('role_id', '=', 1)->first();
+        if ($admin) {
+            session()->put('admin', $admin);
+            return redirect()->route('admin.home');
+        } else {
+            return redirect()->back()->withErrors(['loginfails' => 'Username or password is wrong']);
+        }
+    }
+    public function actionLogout(Request $request)
+    {
+       Session::forget('admin');
+       return redirect()->route('admin.login');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

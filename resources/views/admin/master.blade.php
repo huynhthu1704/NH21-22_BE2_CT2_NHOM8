@@ -228,6 +228,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.logout') }}" class="nav-link">
+                                <i class="fas fa-thin fa-star"></i>
+                                <p>
+                                    log out
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

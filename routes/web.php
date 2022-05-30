@@ -19,41 +19,46 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\UserController;
-use App\Mail\WelcomeMail;
-use App\Models\Color;
-use App\Models\Product;
+use App\Http\Middleware\AuthAdmin;
 use App\Models\User;
-use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
-Route::prefix('admin')->group(
-    function () {
+Route::get('admin/login', [AdminHomeController::class, 'login'])->name('admin.login');
+Route::post('/actionlogin', [AdminHomeController::class, 'actionlogin'])->name('admin.actionlogin');
+Route::get('admin/logout', [AdminHomeController::class, 'actionLogout'])->name('admin.logout');
+
+Route::group(['prefix' => 'admin', 'middleware' => [AuthAdmin::class]], function () {
+
         Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home');
         Route::get('/detail/{id}', [AdminProductController::class, 'getDetail'])->name('admin.product.detail');
 
+     
+        
         Route::resource('product', AdminProductController::class)->names([
             'index' => 'admin.product',
             'store' => 'admin.product.add',
             'update' => 'admin.product.update',
             'destroy' => 'admin.product.delete'
         ]);
+
         Route::resource('color', AdminColorController::class)->names([
             'index' => 'admin.color',
             'store' => 'admin.color.add',
             'update' => 'admin.color.update',
             'destroy' => 'admin.color.delete'
         ]);
+
         Route::resource('brand', AdminBrandController::class)->names([
             'index' => 'admin.brand',
             'store' => 'admin.brand.add',
             'update' => 'admin.brand.update',
             'destroy' => 'admin.brand.delete'
         ]);
+
         Route::resource('category', AdminCategoryController::class)->names([
             'index' => 'admin.category',
             'store' => 'admin.category.add',
@@ -152,7 +157,7 @@ Route::prefix('auth')->group(function () {
         $googleUser = Socialite::driver('google')->user();
         
         $user = User::select('*')->where('username', '=', md5($googleUser->id))
-            ->where('password', '=', md5($googleUser->id . 'google'))
+            ->where('password', '=', md5($googleUser->id . 'google'))->where('role_id', '=', 2)
             ->first();
 
         if (empty($user)) {
@@ -165,10 +170,16 @@ Route::prefix('auth')->group(function () {
                 'role_id' => 2
             ]);
             $user = User::select('*')->where('username', '=', md5($googleUser->id))
-                ->where('password', '=', md5($googleUser->id . 'google'))
+                ->where('password', '=', md5($googleUser->id . 'google'))->where('role_id', '=', 2)
                 ->first();
         }
-       
+        if ($user->status == 'Blocked') {
+            return redirect()->route('auth.login')->withErrors(
+                [
+                    'loginfail' => 'Account has been locked'
+                ]
+            );
+        }
         session()->put('user', $user);
 
         return redirect()->route('index');
@@ -183,7 +194,7 @@ Route::prefix('auth')->group(function () {
         $facebookUser = Socialite::driver('facebook')->user();
 
         $user = User::select('*')->where('username', '=', md5($facebookUser->id))
-            ->where('password', '=', md5($facebookUser->id . 'facebook'))
+            ->where('password', '=', md5($facebookUser->id . 'facebook'))->where('role_id', '=', 2)
             ->first();
 
         if (empty($user)) {
@@ -196,10 +207,16 @@ Route::prefix('auth')->group(function () {
                 'role_id' => 2
             ]);
             $user = User::select('*')->where('username', '=', md5($facebookUser->id))
-                ->where('password', '=', md5($facebookUser->id . 'facebook'))
+                ->where('password', '=', md5($facebookUser->id . 'facebook'))->where('role_id', '=', 2)
                 ->first();
         }
-
+        if ($user->status == 'Blocked') {
+            return redirect()->route('auth.login')->withErrors(
+                [
+                    'loginfail' => 'Account has been locked'
+                ]
+            );
+        }
         session()->put('user', $user);
         return redirect()->route('index');
     });
@@ -223,3 +240,11 @@ Route::prefix('dashboard')->group(function () {
     Route::post('/profile/edit', [DashboardController::class, 'setProfile'])->name('dashboard.edit');
     Route::post('/profile/review', [DashboardController::class, 'review'])->name('dashboard.review');
 });
+
+Route::prefix('reset')->group(function ()
+{
+    Route::get('/', [UserController::class,'forget'])->name('verify.form');
+    Route::post('/set', [UserController::class,'setResetSession'])->name('set.reset-session');
+    Route::get('/resetPass', [UserController::class,'resetPasswordForm'])->name('reset.form');
+    Route::post('/update', [UserController::class,'updatePass'])->name('reset.update');
+}); 

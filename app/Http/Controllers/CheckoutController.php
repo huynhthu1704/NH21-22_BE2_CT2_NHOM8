@@ -12,10 +12,17 @@ use App\Models\ShippingFee;
 class CheckoutController extends Controller
 {
     public function index()
-    {
+    {   
+        if (empty(Session::get('cart'))) {
+            Session::forget('cart');
+            return redirect()->route('viewcart');
+        }
+
         if (Session::has('user')) {
+            
             return view('checkout');
         } else {
+           
             return redirect()->route('auth.login');
         }
     }
