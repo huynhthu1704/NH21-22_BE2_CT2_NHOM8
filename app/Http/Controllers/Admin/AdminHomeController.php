@@ -44,7 +44,7 @@ class AdminHomeController extends Controller
     public function login()
     {
         if (Session::has('admin') && !empty(Session::get('admin'))) {
-            return view('admin.home');
+            return redirect()->route('admin.home');
         } else {
             return view('admin.login');
         }
@@ -67,7 +67,7 @@ class AdminHomeController extends Controller
        Session::forget('admin');
        return redirect()->route('admin.login');
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *

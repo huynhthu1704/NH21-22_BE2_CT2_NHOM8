@@ -53,7 +53,15 @@ class UserController extends Controller
         }
 
         $user = DB::table('users')->where('username', $request->input('username'))
-            ->where('password', md5($request->input('password')))->first();
+            ->where('password', md5($request->input('password')))->where('role_id', '=', 2)->first();
+
+        if ($user->status == 'Blocked') {
+            return Redirect::route('auth.login')->withErrors(
+                [
+                    'loginfail' => 'Account has been locked'
+                ]
+            );;
+        }
 
         if ($user) {
             session()->put('user', $user);
@@ -114,9 +122,7 @@ class UserController extends Controller
 
     public function logout()
     {
-        Auth::logout();
-        session()->flush();
-
+        Session::forget('user');
         return redirect()->route('index');
     }
 
@@ -132,7 +138,7 @@ class UserController extends Controller
             return redirect()->back()->withErrors(['password' => 'Password doesn\'t matching']);
         }
 
-        $user = User::where('email', '=', $input['email'])->first();
+        $user = User::where('email', '=', $input['email'])->where('role_id', '=', 2)->first();
         $session = ResetPass::where('reset_token', '=', $input['token'])->where('email', '=', $input['email'])->first();
         
         if ($session) {
@@ -188,7 +194,7 @@ class UserController extends Controller
         $token = self::generateRandomString(30);
         $time = time();
 
-        $check = User::where('email', '=', $email)->where('provider', '=', 'normal')->get();
+        $check = User::where('email', '=', $email)->where('provider', '=', 'normal')->where('role_id', '=', 2)->get();
 
         if ((count($check) > 0)) {
             $reset = new ResetPass;

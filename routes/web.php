@@ -156,7 +156,7 @@ Route::prefix('auth')->group(function () {
         $googleUser = Socialite::driver('google')->user();
         
         $user = User::select('*')->where('username', '=', md5($googleUser->id))
-            ->where('password', '=', md5($googleUser->id . 'google'))
+            ->where('password', '=', md5($googleUser->id . 'google'))->where('role_id', '=', 2)
             ->first();
 
         if (empty($user)) {
@@ -169,10 +169,16 @@ Route::prefix('auth')->group(function () {
                 'role_id' => 2
             ]);
             $user = User::select('*')->where('username', '=', md5($googleUser->id))
-                ->where('password', '=', md5($googleUser->id . 'google'))
+                ->where('password', '=', md5($googleUser->id . 'google'))->where('role_id', '=', 2)
                 ->first();
         }
-       
+        if ($user->status == 'Blocked') {
+            return redirect()->route('auth.login')->withErrors(
+                [
+                    'loginfail' => 'Account has been locked'
+                ]
+            );
+        }
         session()->put('user', $user);
 
         return redirect()->route('index');
@@ -187,7 +193,7 @@ Route::prefix('auth')->group(function () {
         $facebookUser = Socialite::driver('facebook')->user();
 
         $user = User::select('*')->where('username', '=', md5($facebookUser->id))
-            ->where('password', '=', md5($facebookUser->id . 'facebook'))
+            ->where('password', '=', md5($facebookUser->id . 'facebook'))->where('role_id', '=', 2)
             ->first();
 
         if (empty($user)) {
@@ -200,10 +206,16 @@ Route::prefix('auth')->group(function () {
                 'role_id' => 2
             ]);
             $user = User::select('*')->where('username', '=', md5($facebookUser->id))
-                ->where('password', '=', md5($facebookUser->id . 'facebook'))
+                ->where('password', '=', md5($facebookUser->id . 'facebook'))->where('role_id', '=', 2)
                 ->first();
         }
-
+        if ($user->status == 'Blocked') {
+            return redirect()->route('auth.login')->withErrors(
+                [
+                    'loginfail' => 'Account has been locked'
+                ]
+            );
+        }
         session()->put('user', $user);
         return redirect()->route('index');
     });

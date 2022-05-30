@@ -141,8 +141,8 @@
                
 
                 <div class="inputDiv">
-                    <label class="inputLabel" for="password">Username</label>
-                    <input type="password" id="password" name="username" required>
+                    <label class="inputLabel" for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
 
                 <div class="inputDiv">
